@@ -1,6 +1,10 @@
-title: 【NOIP】剑与魔法(dragons)
-tags: [题解,原创]
 ---
+title: 【NOIP】剑与魔法(dragons)
+tags: [题解]
+categories: [信息学,原创]
+date: 2015-08-16 19:56
+---
+
 Description
 --
 万老师听说某大国很流行穿越，于是他就想写一个关于穿越的剧本。
@@ -55,7 +59,7 @@ Analysis
 Code
 --
 
-```
+```pascal
 const	maxn=200000;oo=100000000;
 var	i,j,n,size,last,t:longint;
 	h:array[1..maxn] of longint;
