@@ -175,7 +175,7 @@ duoshuo_shortname: lyz
 #jiathis:
 
 # Share
-duoshuo_share: true
+duoshuo_share: false
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -183,7 +183,7 @@ duoshuo_share: true
 
 
 # Google Analytics
-#google_analytics:
+google_analytics: 71705060-1
 
 
 # Make duoshuo show UA
