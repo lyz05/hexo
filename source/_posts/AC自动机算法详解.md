@@ -6,6 +6,7 @@ categories:
   - 信息学
   - 转载
 comments: false
+date: 2015-12-22 20:18:00
 ---
 <a href="http://www.cppblog.com/mythit/archive/2009/04/21/80633.html">转载文章</a>
 ****
