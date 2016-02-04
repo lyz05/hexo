@@ -183,7 +183,7 @@ duoshuo_share: false
 
 
 # Google Analytics
-google_analytics: 71705060-1
+#google_analytics: 71705060-1
 
 
 # Make duoshuo show UA
