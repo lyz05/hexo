@@ -78,7 +78,8 @@ deploy:
 # Social links
 social:
   github: https://github.com/lyz05
-  zhihu: http://www.zhihu.com/people/liu-yuan-zhe-16
+  知乎: http://www.zhihu.com/people/liu-yuan-zhe-16
+  豆瓣: http://www.douban.com/people/140286755/
 
   
 # title, chinese available
@@ -87,7 +88,7 @@ links_title: Links
 links:
   byvoid: https://www.byvoid.com/
   hzwer: http://hzwer.com/
-  
+  vczh: https://www.zhihu.com/people/excited-vczh
 
   # 页面显示章数设置
 index_generator:
