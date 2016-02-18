@@ -37,35 +37,39 @@ Analysis
 这道题有两种解题方法
 ***
 第一种方法(扩展GCD)
-$x^2\equiv1(mod N)\longleftrightarrow x^2-1=N*T\longleftrightarrow (x+1)(x-1) = a*b*x0*(-y0)$
+$x^2\equiv1 (mod N)\longleftrightarrow x^2-1=N\*T\longleftrightarrow (x+1)(x-1) = a\*b\*x0\*(-y0)$
 将N分解为a*b，$T\in N$ 将T分解为x0*(-y0),这样可以得到两个等式。
-$$ \left\{
+$$ \left\\{
 \begin{aligned}
-x+1 = a*x0 \quad①\\
-x-1 = b*(-y0) \quad②\\
+x+1 = a\*x0 \quad①\\\
+x-1 = b\*(-y0) \quad②\\\
 \end{aligned}
 \right.
 $$
-$a*x0+b*y0=2 \qquad ③=①-②$
+$a\*x0+b\*y0=2 \qquad ③=①-②$
 ***
 下面是扩展GCD的一些知识
 ③可以用扩展GCD解得一组特解x0,y0，然后能通过特解的出一般解。
 一般解为
-$$ \left\{
+$$ \left\\{
 \begin{aligned}
-x0 + \frac {b}{p}*k \quad①\\
-y0 - \frac {a}{p}*k \quad②\\
+x0 + \frac {b}{p}\*k \quad①\\\
+y0 - \frac {a}{p}\*k \quad②\\\
 \end{aligned}
 \right.
 $$
 ***
-扩展GCD$a*x+b*y=d$解得一组整数解x,y的充分必要条件是gcd（a,b）| d。
+扩展GCD$a\*x+b\*y=d$解得一组整数解x,y的充分必要条件是gcd（a,b）| d。
 所以我们可以通过解出x，y，从而计算x的值
-$2*x = a*x0-b*y0\qquad ④=①+②$
-$x = \frac {a*x0-b*y0}{2}$
+$2\*x = a\*x0-b\*y0\qquad ④=①+②$
+$x = \frac {a\*x0-b\*y0}{2}$
+将$x$化为一般解，即：
+$x = \frac {a\*(x0 + \frac {b}{p}\*k)-b\*(y0- \frac {a}{p}\*k)}{2}$
 因为 $1\leq x\leq N$
 所以可以得到k的取值范围
 ![取值范围](http://img.blog.csdn.net/20160217224540556)
+最后所求的x可化为：
+$x = \frac {a\*x0-b\*y0}{2}+\frac {a\*b\*k}{p}$
 详情代码1
 ***
 第二种方法(中国剩余定理)
@@ -253,3 +257,5 @@ References
 --
 代码2来源lzy
 [算法导论-----数论-----计算x^2=1(mod n) 在区间[1,n-1]的解](http://www.cnblogs.com/inpeace7/archive/2012/03/17/2403283.html)
+[中国剩余定理](http://baike.baidu.com/link?url=kS4zX4FdjG9v8oFdMowWSI24Dfck0mlqT_s7VmFZpXJGGuRAJnKq4i1VleGHHNiRFxeIVtGMgN_3AfBrVINAsUnxs4wAEJTRjWq9yEldfYFQjqUSsBd78Z23BAW5tfbB7qF48FPxQuezJkjl1cn3LTnvZoeR-hC58J6nIFL01jTxxWKPte8Pg_h4d_uVwa5y8T8eTTmk7T0YW-GyBHAcz_)
+[扩展GCD](http://baike.baidu.com/link?url=wNmpz64aCdtSnjQ8D2oD-kXpCmR8ijMOz7lgdNzOflp6PQ-0wPChMUa2TKsruvqo-U0T0xu75nHaClZfHUZ2OK)
