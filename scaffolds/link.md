@@ -1,5 +1,6 @@
 ---
 title: {{ title }}
+date: {{ date }}
 tags: [工具]
 categories: [互联网,转载]
 comments: false
