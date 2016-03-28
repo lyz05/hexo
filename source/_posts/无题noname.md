@@ -136,7 +136,7 @@ int main()
 	sort(ans+1,ans+1+ans[0]);
 
 	printf("%d\n",ans[1]);
-	for (int i=2;i<=ans[0];i ++) 
+	for (int i=2;i<=ans[0];i ++)
 		if (ans[i]!=ans[i-1]) printf("%d\n",ans[i]);
 	return 0;
 }
