@@ -57,9 +57,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
+#scheme: Muse
 scheme: Mist
-
-
+#scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -92,7 +92,7 @@ social_icons:
 
 
 # Sidebar Avatar
-avatar: https://avatars1.githubusercontent.com/u/32269?v=3&s=460
+#avatar: https://avatars1.githubusercontent.com/u/32269?v=3&s=460
 
 
 # Social links
@@ -144,7 +144,7 @@ scroll_to_more: true
 # Automatically Excerpt
 auto_excerpt:
   enable: true
-  length: 150
+  length: 500
 
 # Use Lato font
 use_font_lato: true
@@ -231,7 +231,7 @@ js: js
 images: images
 
 # Theme version
-version: 0.4.5.2
+version: 0.5.0
 
 # title, chinese available
 links_title: Links
