@@ -89,7 +89,8 @@ links:
   byvoid: https://www.byvoid.com/
   hzwer: http://hzwer.com/
   vczh: https://www.zhihu.com/people/excited-vczh
-
+  GHIBLI: http://www.ghibli.jp/
+  
   # 页面显示章数设置
 index_generator:
   per_page: 10
