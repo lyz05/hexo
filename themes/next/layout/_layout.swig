@@ -36,7 +36,7 @@
           {% include '_partials/duoshuo-hot-articles.swig' %}
           {% include '_partials/comments.swig' %}
         </div>
-        {% if theme.sidebar !== 'remove' %}
+        {% if theme.sidebar.display !== 'remove' %}
           {% block sidebar %}{% endblock %}
         {% endif %}
       </div>
@@ -45,6 +45,8 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         {% include '_partials/footer.swig' %}
+        {% include '_scripts/third-party/analytics/busuanzi-counter.swig' %}
+        {% block footer %}{% endblock %}
       </div>
     </footer>
 
@@ -68,6 +70,7 @@
   {% include '_scripts/third-party/localsearch.swig' %}
   {% include '_scripts/third-party/mathjax.swig' %}
   {% include '_scripts/third-party/lean-analytics.swig' %}
+  {% include '_scripts/baidu-push.swig' %}
 
 </body>
 </html>

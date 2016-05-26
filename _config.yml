@@ -69,8 +69,10 @@ theme: next
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:lyz05/lyz05.github.io.git
   branch: master
+  repository: 
+    github: git@github.com:lyz05/lyz05.github.io.git
+    coding: git@git.coding.net:lyz05/lyz05.git 
   
 #Avatar 头像设置
 avatar: https://avatars1.githubusercontent.com/u/11796777?v=3&u=50a5c9e9df83a5be6d556b91ced95195d029f88e&s=140
