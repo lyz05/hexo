@@ -1,0 +1,20 @@
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Hexo version: 3.1.1","time":"2018-09-20T04:49:09.099Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Working directory: D:\\hexo\\","time":"2018-09-20T04:49:09.114Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Config loaded: D:\\hexo\\_config.yml","time":"2018-09-20T04:49:09.255Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-deployer-git","time":"2018-09-20T04:49:09.333Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-fs","time":"2018-09-20T04:49:09.380Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-generator-archive","time":"2018-09-20T04:49:09.380Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-generator-category","time":"2018-09-20T04:49:09.395Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-generator-tag","time":"2018-09-20T04:49:09.395Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-generator-index","time":"2018-09-20T04:49:09.395Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-renderer-ejs","time":"2018-09-20T04:49:09.411Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-renderer-stylus","time":"2018-09-20T04:49:09.552Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-renderer-marked","time":"2018-09-20T04:49:09.630Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Plugin loaded: hexo-server","time":"2018-09-20T04:49:09.708Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge-configs.js","time":"2018-09-20T04:49:09.708Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\center-quote.js","time":"2018-09-20T04:49:09.708Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\full-image.js","time":"2018-09-20T04:49:09.708Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\group-pictures.js","time":"2018-09-20T04:49:09.708Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":30,"msg":"Deleted database.","time":"2018-09-20T04:49:09.708Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":30,"msg":"Deleted public folder.","time":"2018-09-20T04:49:09.786Z","v":0}
+{"name":"hexo","hostname":"DESKTOP-N1PAF3A","pid":3960,"level":20,"msg":"Database saved","time":"2018-09-20T04:49:09.786Z","v":0}
