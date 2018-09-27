@@ -14,7 +14,7 @@ date: 2018-09-20 21:36:20
 ## Words
 | word|translate|word|translate
 | - | - | - | - |
-|face-recognition	|人脸识别	|assuring	|	保证
+|face-recognition	|人脸识别	|assuring	|保证
 |swiping			|刷(磁卡)	|freshman	|（大学）一年级新生
 |director			|主任		|mugshot	|（俚）脸面照片
 |checkup			|检验		|compile	|编译，编写
