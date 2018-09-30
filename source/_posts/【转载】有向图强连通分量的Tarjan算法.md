@@ -10,7 +10,7 @@ date: 2015-10-29 17:15
 
 下图中，子图{1,2,3,4}为一个强连通分量，因为顶点1,2,3,4两两可达。{5},{6}也分别是两个强连通分量。
 
-![这里写图片描述](https://www.byvoid.com/upload/wp/2009/04/image1.png)
+![image](https://www.byvoid.com/upload/wp/2009/04/image1.png)
 
 直接根据定义，用双向遍历取交集的方法求强连通分量，时间复杂度为O(N^2+M)。更好的方法是Kosaraju算法或Tarjan算法，两者的时间复杂度都是O(N+M)。本文介绍的是Tarjan算法。
 

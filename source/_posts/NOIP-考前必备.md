@@ -1,5 +1,5 @@
 ---
-title: '[NOIP]考前必备'
+title: '【NOIP】考前必备'
 date: 2015-11-03 17:26:00
 tags:
 categories:
@@ -111,5 +111,5 @@ end.
 
 <strong>NOIP知识点
 ==
-http://blog.sina.com.cn/s/blog_6b249a4f0100uvu1.html
-http://www.zybang.com/question/924e718b7ff691252820f49ddec9e792.html
+[NOIP提高组复赛考察点详细分析(新浪)](http://blog.sina.com.cn/s/blog_6b249a4f0100uvu1.html)
+[noip需要准备哪些方面的基础知识.复赛需要做哪些类型的题目（提高组）(作业帮)](http://www.zybang.com/question/924e718b7ff691252820f49ddec9e792.html)

@@ -12,8 +12,7 @@ categories:
 Description
 ==
 题目来源
-bzoj[3732]
-http://www.lydsy.com/JudgeOnline/problem.php?id=3732
+[bzoj3732](http://www.lydsy.com/JudgeOnline/problem.php?id=3732)
 
 
 Analysis
@@ -133,7 +132,7 @@ int main()
 		int u,v;
 		scanf("%d%d",&u,&v);
 		printf("%d\n",lca(u,v));
-	}
+	}	
 
 	return 0;
 }
@@ -141,7 +140,7 @@ int main()
 
 Tips
 ==
-Kruskal算法：http://baike.baidu.com/link?url=0x-xezmCp5Fud_PyEPvp6gBHGzdU2tnG-6zEg42g5f6jL7QCCOygSbY8CwqnDalzqb9Ol-36JJJVrw2UBaN5x_#4_1
-LCA 倍增算法：http://www.tuicool.com/articles/N7jQV32
-RMQ st算法http://www.cnblogs.com/Missa/archive/2012/10/01/2709686.html
+[Kruskal算法](http://baike.baidu.com/link?url=0x-xezmCp5Fud_PyEPvp6gBHGzdU2tnG-6zEg42g5f6jL7QCCOygSbY8CwqnDalzqb9Ol-36JJJVrw2UBaN5x_#4_1)
+[LCA 倍增算法](http://www.tuicool.com/articles/N7jQV32)
+[RMQ st算法](http://www.cnblogs.com/Missa/archive/2012/10/01/2709686.html)
 
