@@ -4,8 +4,9 @@ date: 2015-12-12 13:13:00
 tags: [教程,版本控制]
 categories: [互联网,转载]
 ---
+<!-- 文章中视频全失效 -->
 # 关于本教程
-![Git-Logo](http://img.blog.csdn.net/20151212130120447)
+![Git-Logo](\images\Git教程\0.jpg)
 
 ## 史上最浅显易懂的Git教程！
 
@@ -44,7 +45,7 @@ Git有什么特点？简单来说就是：高端大气上档次！
 
 想删除一个段落，又怕将来想恢复找不回来怎么办？有办法，先把当前文件“另存为……”一个新的Word文件，再接着改，改到一定程度，再“另存为……”一个新文件，这样一直改下去，最后你的Word文档变成了这样：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130221073)
+![这里写图片描述](\images\Git教程\1.jpg)
 
 过了一周，你想找回被删除的文字，但是已经记不清删除前保存在哪个文件里了，只好一个一个文件去找，真麻烦。
 
@@ -94,7 +95,7 @@ Linus一直痛恨的CVS及SVN都是集中式的版本控制系统，而Git是分
 
 先说集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130245660)
+![这里写图片描述](\images\Git教程\2.jpg)
 
 集中式版本控制系统最大的毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网速慢的话，可能提交一个10M的文件就需要5分钟，这还不得把人给憋死啊。
 
@@ -104,7 +105,7 @@ Linus一直痛恨的CVS及SVN都是集中式的版本控制系统，而Git是分
 
 在实际使用分布式版本控制系统的时候，其实很少在两人之间的电脑上推送版本库的修改，因为可能你们俩不在一个局域网内，两台电脑互相访问不了，也可能今天你的同事病了，他的电脑压根没有开机。因此，分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130259965)
+![这里写图片描述](\images\Git教程\3.jpg)
 
 当然，Git的优势不单是不必联网这么简单，后面我们还会看到Git极其强大的分支管理，把SVN等远远抛在了后面。
 
@@ -134,7 +135,7 @@ CVS作为最早的开源而且免费的集中式版本控制系统，直到现�
 
 如果你碰巧用Debian或Ubuntu Linux，通过一条“sudo apt-get install git”就可以直接完成Git的安装，非常简单。
 
-<video width="638" height="478" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-apt-install.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-apt-install.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-apt-install.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-apt-install.webm" /></video>
 
 老一点的Debian或Ubuntu Linux，要把命令改为“sudo apt-get install git-core”，因为以前有个软件也叫GIT（GNU Interactive Tools），结果Git就只能叫git-core了。由于Git名气实在太大，后来就把GNU Interactive Tools改成gnuit，git-core正式改为git。
 
@@ -148,7 +149,7 @@ CVS作为最早的开源而且免费的集中式版本控制系统，直到现�
 
 第二种方法更简单，也是推荐的方法，就是直接从AppStore安装Xcode，Xcode集成了Git，不过默认没有安装，你需要运行Xcode，选择菜单“Xcode”->“Preferences”，在弹出窗口中找到“Downloads”，选择“Command Line Tools”，点“Install”就可以完成安装了。
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130320870)
+![这里写图片描述](\images\Git教程\4.jpg)
 
 Xcode是Apple官方IDE，功能非常强大，是开发Mac和iOS App的必选装备，而且是免费的！
 
@@ -162,7 +163,7 @@ msysgit是Windows版的Git，从[http://msysgit.github.io/](http://msysgit.githu
 
 安装完成后，在开始菜单里找到“Git”->“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130331785)
+![这里写图片描述](\images\Git教程\5.jpg)
 
 安装完成后，还需要最后一步设置，在命令行输入：
 
@@ -196,7 +197,7 @@ pwd命令用于显示当前目录。在我的Mac上，这个仓库位于/Users/m
 
 瞬间Git就把仓库建好了，而且告诉你是一个空的仓库（empty Git repository），细心的读者可以发现当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-init.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-init.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-init.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-init.webm" /></video>
 
 也不一定必须在空目录下创建Git仓库，选择一个已经有东西的目录也是可以的。不过，不建议你使用自己正在开发的公司项目来学习Git，否则造成的一切后果概不负责。
 
@@ -210,7 +211,7 @@ pwd命令用于显示当前目录。在我的Mac上，这个仓库位于/Users/m
 
 <i class="icon-warning-sign"></i> 使用Windows的童鞋要特别注意，千万不要使用Windows自带的**记事本**编辑任何文本文件。原因是Microsoft开发记事本的团队使用了一个非常弱智的行为来保存UTF-8编码的文件，他们自作聪明地在每个文件开头添加了0xefbbbf（十六进制）的字符，你会遇到很多不可思议的问题，比如，网页第一行可能会显示一个“?”，明明正确的程序一编译就报语法错误，等等，都是由记事本的弱智行为带来的。建议你下载[Notepad++](http://notepad-plus-plus.org/)代替记事本，不但功能强大，而且免费！记得把Notepad++的默认编码设置为UTF-8 without BOM即可：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130355971)
+![这里写图片描述](\images\Git教程\6.jpg)
 
 言归正传，现在我们编写一个readme.txt文件，内容如下：
 
@@ -234,7 +235,7 @@ pwd命令用于显示当前目录。在我的Mac上，这个仓库位于/Users/m
      1 file changed, 2 insertions(+)
      create mode 100644 readme.txt
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/add-and-commit.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/add-and-commit.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/add-and-commit.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/add-and-commit.webm" /></video>
 
 简单解释一下git commit命令，-m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。
 
@@ -325,7 +326,7 @@ git commit命令执行成功后会告诉你，1个文件被改动（我们新添
 
 Git告诉我们当前没有需要提交的修改，而且，工作目录是干净（working directory clean）的。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-diff-status.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-diff-status.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-diff-status.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-diff-status.webm" /></video>
 
 **小结**
 
@@ -395,7 +396,7 @@ Git告诉我们当前没有需要提交的修改，而且，工作目录是干�
 
 每提交一个新版本，实际上Git就会把它们自动串成一条时间线。如果使用可视化工具查看Git历史，就可以更清楚地看到提交历史的时间线：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130518407)
+![这里写图片描述](\images\Git教程\7.jpg)
 
 好了，现在我们启动时光穿梭机，准备把readme.txt回退到上一个版本，也就是“add distributed”的那个版本，怎么做呢？
 
@@ -450,15 +451,15 @@ Git告诉我们当前没有需要提交的修改，而且，工作目录是干�
 
 Git的版本回退速度非常快，因为Git在内部有个指向当前版本的HEAD指针，当你回退版本的时候，Git仅仅是把HEAD从指向“append GPL”：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130538635)
+![这里写图片描述](\images\Git教程\8.jpg)
 
 改为指向“add distributed”：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130611271)
+![这里写图片描述](\images\Git教程\9.jpg)
 
 然后顺便把工作区的文件更新了。所以你让HEAD指向哪个版本号，你就把当前版本定位在哪。
 
-<video width="400" height="300" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-reset.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-reset.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-reset.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-reset.webm" /></video>
 
 现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的commit id怎么办？
 
@@ -472,7 +473,7 @@ Git的版本回退速度非常快，因为Git在内部有个指向当前版本�
 
 终于舒了口气，第二行显示“append GPL”的commit id是3628164，现在，你又可以乘坐时光机回到未来了。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-reflog-reset.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-reflog-reset.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-reflog-reset.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-reflog-reset.webm" /></video>
 
 **小结**
 
@@ -492,13 +493,13 @@ Git和其他版本控制系统如SVN的一个不同之处就是有暂存区的�
 
 **工作区**（Working Directory）：就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130631844)
+![这里写图片描述](\images\Git教程\10.png)
 
 **版本库**（Repository）：工作区有一个隐藏目录“.git”，这个不算工作区，而是Git的版本库。
 
 Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130639967)
+![这里写图片描述](\images\Git教程\11.jpg)
 
 分支和HEAD的概念我们以后再讲。
 
@@ -551,7 +552,7 @@ Git非常清楚地告诉我们，*readme.txt*被修改了，而*LICENSE*还从�
 
 现在，暂存区的状态就变成这样了：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130652035)
+![这里写图片描述](\images\Git教程\12.jpg)
 
 所以，git add命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行git commit就可以一次性把暂存区的所有修改提交到分支。
 
@@ -568,7 +569,7 @@ Git非常清楚地告诉我们，*readme.txt*被修改了，而*LICENSE*还从�
 
 现在版本库变成了这样，暂存区就没有任何内容了：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130702566)
+![这里写图片描述](\images\Git教程\13.jpg)
 
 **小结**
 
@@ -651,7 +652,7 @@ Git非常清楚地告诉我们，*readme.txt*被修改了，而*LICENSE*还从�
 
 可见，第二次修改确实没有被提交。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-add-changes.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-add-changes.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-add-changes.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-add-changes.webm" /></video>
 
 那怎么提交第二次修改呢？你可以继续add再commit，也可以别着急提交第一次修改，先add第二次修改，再commit，就相当于把两次修改合并后一块提交了：
 
@@ -712,7 +713,7 @@ Git非常清楚地告诉我们，*readme.txt*被修改了，而*LICENSE*还从�
 
 *git checkout -- file*命令中的“--”很重要，没有“--”，就变成了“创建一个新分支”的命令，我们在后面的分支管理中会再次遇到*git checkout*命令。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/discard-changes-of-working-dir.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/discard-changes-of-working-dir.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/discard-changes-of-working-dir.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/discard-changes-of-working-dir.webm" /></video>
 
 现在假定是凌晨3点，你不但写了一些胡话，还*git add*到暂存区了：
 
@@ -765,7 +766,7 @@ Git同样告诉我们，用命令*git reset HEAD file*可以把暂存区的修�
 
 整个世界终于清静了！
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/discard-changes-of-staged.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/discard-changes-of-staged.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/discard-changes-of-staged.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/discard-changes-of-staged.webm" /></video>
 
 现在，假设你不但改错了东西，还从暂存区提交到了版本库，怎么办呢？还记得[版本回退](file/时光机穿梭.md#anchor_1)一节吗？可以回退到上一个版本。不过，这是有条件的，就是你还没有把自己的本地版本库推送到远程。还记得Git是分布式版本控制系统吗？我们后面会讲到远程版本库，一旦你把“stupid boss”提交推送到远程版本库，你就真的惨了……
 
@@ -815,7 +816,7 @@ Git同样告诉我们，用命令*git reset HEAD file*可以把暂存区的修�
 
 现在，文件就从版本库中被删除了。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-rm.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-rm.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-rm.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-rm.webm" /></video>
 
 另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：
 
@@ -852,7 +853,7 @@ Git是分布式版本控制系统，同一个Git仓库，可以分布到不同�
 
     $ ssh-keygen -t rsa -C "your\_email@example.com"
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/ssh-keygen.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/ssh-keygen.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/ssh-keygen.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/ssh-keygen.webm" /></video>
 
 你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。
 
@@ -862,11 +863,11 @@ Git是分布式版本控制系统，同一个Git仓库，可以分布到不同�
 
 然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id\_rsa.pub文件的内容：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130738501)
+![这里写图片描述](\images\Git教程\14.png)
 
 点“Add Key”，你就应该看到已经添加的Key：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130748040)
+![这里写图片描述](\images\Git教程\15.png)
 
 为什么GitHub需要SSH Key呢？因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。
 
@@ -887,11 +888,11 @@ Git是分布式版本控制系统，同一个Git仓库，可以分布到不同�
 
 首先，登陆GitHub，然后，在右上角找到“Create a new repo”按钮，创建一个新的仓库：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130803583)
+![这里写图片描述](\images\Git教程\16.png)
 
 在Repository name填入*learngit*，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130812619)
+![这里写图片描述](\images\Git教程\17.png)
 
 目前，在GitHub上的这个learngit仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。
 
@@ -919,11 +920,11 @@ Git是分布式版本控制系统，同一个Git仓库，可以分布到不同�
 
 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-remote-add.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-remote-add.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-remote-add.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-remote-add.webm" /></video>
 
 推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130830387)
+![这里写图片描述](\images\Git教程\18.png)
 
 从现在起，只要本地作了提交，就可以通过命令：
 
@@ -949,11 +950,11 @@ Git是分布式版本控制系统，同一个Git仓库，可以分布到不同�
 
 首先，登陆GitHub，创建一个新的仓库，名字叫gitskills：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130842191)
+![这里写图片描述](\images\Git教程\19.png)
 
 我们勾选*Initialize this repository with a README*，这样GitHub会自动为我们创建一个README.md文件。创建完毕后，可以看到README.md文件：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130850414)
+![这里写图片描述](\images\Git教程\20.png)
 
 现在，远程库已经准备好了，下一步是用命令*git clone*克隆一个本地库：
 
@@ -969,7 +970,7 @@ Git是分布式版本控制系统，同一个Git仓库，可以分布到不同�
 
 注意把Git库的地址换成你自己的，然后进入gitskills目录看看，已经有README.md文件了。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-clone.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-clone.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-clone.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-clone.webm" /></video>
 
 如果有多个人协作开发，那么每个人各自从远程克隆一份就可以了。
 
@@ -990,7 +991,7 @@ Git支持多种协议，包括https，但通过ssh支持的原生git协议速度
 
 如果两个平行宇宙互不干扰，那对现在的你也没啥影响。问题是，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130904432)
+![这里写图片描述](\images\Git教程\21.png)
 
 分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
 
@@ -1006,35 +1007,35 @@ Git支持多种协议，包括https，但通过ssh支持的原生git协议速度
 
 一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130949931)
+![这里写图片描述](\images\Git教程\22.png)
 
 每次提交，master分支都会向前移动一步，这样，随着你不断提交，master分支的线也越来越长：
 
-<video width="400" height="300" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/master-branch-forward.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/master-branch-forward.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/master-branch-forward.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/master-branch-forward.webm" /></video>
 
 当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212130958401)
+![这里写图片描述](\images\Git教程\23.png)
 
 你看，Git创建一个分支很快，因为除了增加一个dev指针，改改HEAD的指向，工作区的文件都没有任何变化！
 
 不过，从现在开始，对工作区的修改和提交就是针对dev分支了，比如新提交一次后，dev指针往前移动一步，而master指针不变：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131005897)
+![这里写图片描述](\images\Git教程\24.png)
 
 假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131013034)
+![这里写图片描述](\images\Git教程\25.png)
 
 所以Git合并分支也很快！就改改指针，工作区内容也不变！
 
 合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131034735)
+![这里写图片描述](\images\Git教程\26.png)
 
 真是太神奇了，你看得出来有些提交是通过分支完成的吗？
 
-<video width="400" height="300" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/master-and-dev-ff.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/master-and-dev-ff.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/master-and-dev-ff.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/master-and-dev-ff.webm" /></video>
 
 下面开始实战。
 
@@ -1075,7 +1076,7 @@ Git支持多种协议，包括https，但通过ssh支持的原生git协议速度
 
 切换回master分支后，再查看一个readme.txt文件，刚才添加的内容不见了！因为那个提交是在dev分支上，而master分支此刻的提交点并没有变：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131104567)
+![这里写图片描述](\images\Git教程\27.png)
 
 现在，我们把dev分支的工作成果合并到master分支上：
 
@@ -1103,7 +1104,7 @@ Git支持多种协议，包括https，但通过ssh支持的原生git协议速度
 
 因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/create-dev-merge-delete.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/create-dev-merge-delete.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/create-dev-merge-delete.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/create-dev-merge-delete.webm" /></video>
 
 **小结**
 
@@ -1162,7 +1163,7 @@ Git还会自动提示我们当前master分支比远程的master分支要超前1�
 
 现在，master分支和feature1分支各自都分别有新的提交，变成了这样：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131125396)
+![这里写图片描述](\images\Git教程\28.png)
 
 这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，我们试试看：
 
@@ -1208,7 +1209,7 @@ Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改�
 
 现在，master分支和feature1分支变成了下图所示：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131136505)
+![这里写图片描述](\images\Git教程\29.png)
 
 用带参数的*git log*也可以看到分支的合并情况：
 
@@ -1228,7 +1229,7 @@ Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改�
 
 工作完成。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/resolv-conflix-on-merge.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/resolv-conflix-on-merge.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/resolv-conflix-on-merge.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/resolv-conflix-on-merge.webm" /></video>
 
 **小结**
 
@@ -1282,9 +1283,9 @@ Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改�
 
 可以看到，不使用“Fast forward”模式，merge后就像这样：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131151608)
+![这里写图片描述](\images\Git教程\30.png)
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/merge-with-no-ff.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/merge-with-no-ff.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/merge-with-no-ff.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/merge-with-no-ff.webm" /></video>
 
 ### 分支策略
 
@@ -1298,7 +1299,7 @@ Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改�
 
 所以，团队合作的分支看起来就像这样：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131159864)
+![这里写图片描述](\images\Git教程\31.png)
 
 **小结**
 
@@ -1405,7 +1406,7 @@ Git分支十分强大，在团队开发中应该充分应用。
 
     $ git stash apply stash@{0}
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/stash-fix-bug.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/stash-fix-bug.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/stash-fix-bug.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/stash-fix-bug.webm" /></video>
 
 **小结**
 
@@ -1465,7 +1466,7 @@ Git分支十分强大，在团队开发中应该充分应用。
 
 终于删除成功！
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/force-delete-br.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/force-delete-br.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/force-delete-br.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/force-delete-br.webm" /></video>
 
 **小结**
 
@@ -1512,7 +1513,7 @@ Git分支十分强大，在团队开发中应该充分应用。
 
 总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-push-origin.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-push-origin.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-push-origin.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-push-origin.webm" /></video>
 
 ### 抓取分支
 
@@ -1551,7 +1552,7 @@ Git分支十分强大，在团队开发中应该充分应用。
     To git@github.com:michaelliao/learngit.git
        fc38031..291bea8  dev -> dev
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-push-by-xiaohuoban.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-push-by-xiaohuoban.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-push-by-xiaohuoban.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-push-by-xiaohuoban.webm" /></video>
 
 你的小伙伴已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：
 
@@ -1612,7 +1613,7 @@ Git分支十分强大，在团队开发中应该充分应用。
     To git@github.com:michaelliao/learngit.git
        291bea8..adca45d  dev -> dev
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-pull-push-fix.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-pull-push-fix.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-pull-push-fix.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-pull-push-fix.webm" /></video>
 
 因此，多人协作的工作模式通常是这样：
 
@@ -1761,7 +1762,7 @@ Git的标签虽然是版本库的快照，但其实它就是指向某个commit�
 
 用PGP签名的标签是不可伪造的，因为可以验证PGP签名。验证签名的方法比较复杂，这里就不介绍了。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-tags.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-tags.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-tags.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-tags.webm" /></video>
 
 **小结**
 
@@ -1812,7 +1813,7 @@ Git的标签虽然是版本库的快照，但其实它就是指向某个commit�
 
 要看看是否真的从远程库删除了标签，可以登陆GitHub查看。
 
-<video width="648" height="434" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-tag-d.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-tag-d.webm" /></video>
+<video width="100%" height="65%" controls="controls" preload="none" style="border:solid 1px #ccc"><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-tag-d.mp4" /><source src="http://liaoxuefeng-liaoxuefeng.stor.sinaapp.com/learngit/video/git-tag-d.webm" /></video>
 
 **小结**
 
@@ -1835,7 +1836,7 @@ Git的标签虽然是版本库的快照，但其实它就是指向某个commit�
 
 这样，Git会适当地显示不同的颜色，比如*git status*命令：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131228046)
+![这里写图片描述](\images\Git教程\32.png)
 
 文件名就会标上颜色。
 
@@ -1956,7 +1957,7 @@ Git的标签虽然是版本库的快照，但其实它就是指向某个commit�
 
 来看看*git lg*的效果：
 
-![这里写图片描述](http://img.blog.csdn.net/20151212131238572)
+![这里写图片描述](\images\Git教程\33.png)
 
 为什么不早点告诉我？别激动，咱不是为了多记几个英文单词嘛！
 
@@ -2058,3 +2059,6 @@ Git虽然极其强大，命令繁多，但常用的就那么十来个，掌握�
 <a href="https://me.alipay.com/askxuefeng" target="_blank" class="btn btn-success btn-large" style="padding-left:60px;background-repeat:no-repeat;background-position:15px center;background-image:url(http://static.itranswarp.com/0013738742366844b31d0ceab84491682c4556f8daa5101000/attachment/2013/8/12/9d9043ba785d43ab8f4cffb04a4b1300.png)">请我喝咖啡</a>
 
 谢谢观看！
+
+# 转载声明
+[转载链接](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)

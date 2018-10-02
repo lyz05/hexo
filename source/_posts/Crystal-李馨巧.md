@@ -247,53 +247,19 @@ updated: 2016-07-11 21:40:00
 # 照片
 
 前方高能!!!一大波美图即将来袭!!(流量党请注意)
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F001.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F002.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F003.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F004.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F005.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F006.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F007.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F008.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F009.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F010.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F011.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F012.jpg?imageMogr2/thumbnail/401x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F013.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F014.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F015.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F016.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F017.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F018.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F019.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F020.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F021.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F022.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F023.jpg?imageMogr2/thumbnail/400x400)
-
-![](http://7xqkjl.com1.z0.glb.clouddn.com/img%2FCrystal%2F024.jpg?imageMogr2/thumbnail/400x400)
+![](/images/Crystal/001.jpg)
+![](/images/Crystal/002.jpg)
+![](/images/Crystal/003.jpg)
+![](/images/Crystal/004.jpg)
+![](/images/Crystal/005.jpg)
+![](/images/Crystal/006.jpg)
+![](/images/Crystal/007.jpg)
+![](/images/Crystal/008.jpg)
+![](/images/Crystal/009.jpg)
+![](/images/Crystal/010.jpg)
+![](/images/Crystal/011.jpg)
+![](/images/Crystal/012.jpg)
+![](/images/Crystal/013.jpg)
 # 视频
 
 <span id="jumpvideo"></span>

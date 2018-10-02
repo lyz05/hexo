@@ -68,7 +68,7 @@ $x = \frac {a\*x0-b\*y0}{2}$
 $x = \frac {a\*(x0 + \frac {b}{p}\*k)-b\*(y0- \frac {a}{p}\*k)}{2}$
 因为 $1\leq x\leq N$
 所以可以得到k的取值范围
-![取值范围](http://img.blog.csdn.net/20160217224540556)
+![取值范围](\images\noname\0.png)
 最后所求的x可化为：
 $x = \frac {a\*x0-b\*y0}{2}+\frac {a\*b\*k}{p}$
 详情代码1
