@@ -6,6 +6,7 @@
 title: Lyz's Blog
 subtitle:
 description: 怯,你就会输一辈子
+keywords:
 author: lyz05
 language: zh-Hans
 timezone:
@@ -43,6 +44,15 @@ highlight:
   auto_detect: true
   tab_replace:
 
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+  
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -74,16 +84,10 @@ deploy:
     github: git@github.com:lyz05/lyz05.github.io.git
     coding: git@git.coding.net:lyz05/lyz05.git 
   
+#以下是新添加的配置
 #Avatar 头像设置
 avatar: https://avatars1.githubusercontent.com/u/11796777?v=3&u=50a5c9e9df83a5be6d556b91ced95195d029f88e&s=140
 
-# Social links
-social:
-  github: https://github.com/lyz05
-  知乎: http://www.zhihu.com/people/liu-yuan-zhe-16
-  豆瓣: http://www.douban.com/people/140286755/
-
-  
 # title, chinese available
 links_title: Links
 # links
@@ -93,10 +97,6 @@ links:
   vczh: https://www.zhihu.com/people/excited-vczh
   GHIBLI: http://www.ghibli.jp/
   
-  # 页面显示章数设置
-index_generator:
-  per_page: 10
-  
 archive_generator:
   per_page: 20
   yearly: true
@@ -104,3 +104,13 @@ archive_generator:
 
 tag_generator:
   per_page: 10
+  
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+  
+# sitemap
+sitemap:
+  path: sitemap.xml
