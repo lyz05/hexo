@@ -89,6 +89,10 @@ hexo
 shadowsocksR
 lantern
 
+#其他工具
+[thefuck](https://blog.csdn.net/weixin_38233274/article/details/80321332)
+[indicator-sysmonitor](https://blog.csdn.net/tecn14/article/details/24489031/) 状态栏网速监控工具
+
 # 相关软件的配置
 gedit 首选项，插件看需求
 notepadqq 配色 [编译命令](https://blog.csdn.net/dongzhiyu/article/details/61207022?utm_source=blogxgwz3)
