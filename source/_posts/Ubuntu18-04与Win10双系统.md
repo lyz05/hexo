@@ -53,6 +53,7 @@ SMplayer
 
 # 浏览器
 [Google-chrome-stable](https://jingyan.baidu.com/article/335530da98061b19cb41c31d.html)
+[flash](https://jingyan.baidu.com/article/6b182309813095ba58e15915.html)
 
 # 办公软件
 [wps office](http://www.wps.cn/product/wpslinux/)
