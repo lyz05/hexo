@@ -90,7 +90,7 @@ shadowsocksR
 lantern
 
 #其他工具
-[thefuck](https://blog.csdn.net/weixin_38233274/article/details/80321332)
+[thefuck](https://www.jianshu.com/p/0d37b22aabba)
 [indicator-sysmonitor](https://blog.csdn.net/tecn14/article/details/24489031/) 状态栏网速监控工具
 
 # 相关软件的配置
