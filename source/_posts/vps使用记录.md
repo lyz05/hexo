@@ -1,5 +1,5 @@
 ---
-title: 使用阿里云ECS记录
+title: VPS使用记录
 tags:
   - 教程
 categories:
@@ -8,11 +8,18 @@ categories:
 date: 2019-04-15 20:04:31
 ---
 # 前言
-一直以来都是用各种桌面客户端，没有体验过服务端是怎样的，想体验一波，发现国外便宜的VPS都挺贵的，主要是我没什么使用VPS的需求。但国内的学生机还是很便宜的10元/月，就是宽带只有1M，事实证明还是很吃紧的，本来是没有这篇文章的，但是我发现我的技术水平不够，经常要推倒系统重来，所以就有了这篇文章。方便我快速恢复
+一直以来都是用各种桌面客户端，没有体验过服务端是怎样的，想体验一波，发现国外便宜的VPS都挺贵的，主要是我没什么使用VPS的需求。但国内的学生机还是很便宜的10元/月，就是宽带只有1M，事实证明还是很吃紧的，本来是没有这篇文章的，但是我发现我的技术水平不够，经常要推倒系统重来，所以就有了这篇文章。方便我快速恢复服务。
+体验了2-3周左右的阿里云之后，发现宽带实在是硬伤。再加上服务器处于国内，下载各种国外服务器上的资源都很慢。以及国内发布网站要备案等诸多因素。决定不再使用国内VPS服务器，除非他送我。
+总的来说国内的VPS，除了延时，稳定性占优，以及1M10元/月价格相对较香以外，没有其余优点。
 
 ---
+# Windows远程连接准备
+因为VPS都远在天涯海角，你不可能直接接触到，所以我们需要各种各样的远程工具。对于目标linux操作系统，最重要的就是使用终端，而想安全使用终端`ssh`必不可少。我个人是使用`git`自带的`Mingw`类linux系统中的ssh连接。然后还需要一个远程文件管理器，这里我推荐winSCP，支持协议多，速度快，兼容Windows各种操作。对于编辑器，推荐notepad++。
+
 # Ubuntu 18.04
+
 ## 配置系统
+因为一直以来我只用过Debian系的Linux操作系统，在体验桌面版Linux中又属Ubuntu软件多，所以直接上手Ubuntu，但网上挺多人使用CentOS作为服务器系统，可能CentOS作为服务器优势更大吧！
 首先选择一台阿里云ECS实例安装好基本的操作系统Ubuntu 18.04，然后就是开机。
 因为不知道阿里云的密钥是怎么用的，所以我是选择密码安装。后面可以使用密钥登陆，并关闭密码登陆，保证服务器安全。
 为了方便，去安全组将所有的端口都开放。
@@ -40,14 +47,16 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiuxUzIy3m67awi6DG5WGRABWaCGTUoME9nQB9Lh72
 ```
 这是我3个设备的公钥，分别是笔记本Win/ubuntu,手机Termux的公钥。
 把这些公钥一个一行放置在`~/.ssh/authorized_keys`，我没有使用`ssh-copy-id`的命令
-进行添加。
+进行添加。这样可以快速添加设备。
+
 ## 使用xfce4(Xubuntu)桌面并用rdp远控
 [教程](https://blog.csdn.net/qq_25556149/article/details/82216190)
 然后就可以直接rdp远控了，ubuntu可以使用Remmina进行远控。
 远控后我发现Terminal有一点小问题，以下是解决方案。
 [Ubuntu打开终端出错：failed to execute default terminal emulator（如图示） ](https://zhidao.baidu.com/question/1770374646687303580.html)
 因为我嫌Xubuntu自带的进程管理器太丑了，安装了gnome默认的`gnome-system-monitor`。
-# 宝塔面板
+
+# 宝塔面板(弃用)
 [安装教程](https://doubibackup.com/hxvodqzg.html)
 这个玩意太强大了，所以我单独的将他拿了出来，对于那些不想接触linux命令行的人简直太方便了。
 完全的网页可视化管理，比起我先前提到的安装桌面环境来说要更省空间，并且也容易操作的多。
@@ -56,6 +65,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiuxUzIy3m67awi6DG5WGRABWaCGTUoME9nQB9Lh72
 最后面我弃用了他，瞎改我的配置，瞎增加网页，吃相难看，再见！
 
 # 服务器搭建
+
 ## 搭建frp内网穿透
 [项目地址](https://github.com/fatedier/frp/releases)
 在这里下载当前平台所需要的二进制运行文件。
@@ -94,7 +104,7 @@ ShadowsocksR 版：
 关于`linux ftp`的使用
 [linux ftp教程](https://www.cnblogs.com/mingforyou/p/4103022.html)
 
-## 搭建nginxWeb服务器
+## 手动搭建nginxWeb服务器
 直接安装，安装后使用`systemctl`来管理
 初次安装时发现`systemctl status nginx`中有
 `nginx.service: Failed to parse PID from file /run/nginx.pid: Invalid argument`
@@ -182,21 +192,25 @@ server {
     }
 }
 ```
+
 ### 搭建Hexo静态网站博客
 [nginx代理hexo博客](https://www.jianshu.com/p/682e62c2a3dc)
-在我搭建的时候似乎遇到了权限问题，我把我的博客放在`/root/`目录下，结果nginx返回`403 Forbidden`。
+在我搭建的时候似乎遇到了权限问题，我把我的博客放在`/root`目录下，结果nginx返回`403 Forbidden`。
+事实上很多web程序都不具备访问`/root`目录的能力，最好将网站统一放在推荐的位置。
 
-### 端口转发(与frp共用端口)
+### nginx端口转发(与frp共用端口)
 目前我有一个二级域名，所以有三级域名可以由我自由分配，frp,nginx本身都要监听一个端口，当我访问不同的网站时需要指定不同的端口。这样做很麻烦，所以问题来了：能不能合并成一个端口提供服务。
 这时候就要用到nginx的反向代理（端口转发）功能。
 在目录`/etc/nginx/conf.d/`中添加配置文件。配置文件名自取，以`.conf`为文件后缀
 下面是一段监听8082端口，并将所有的`*.home999.cc`请求转到端口8080来进行处理的配置文件。
 
 在配置域名的时候，感觉nginx的理解与我的理解有一些偏差。所以只好按照nginx的理解去配域名了。
+
 ## 搭建git服务器
 [廖雪峰版教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000)
 先完成基本的创建用户，公钥添加，禁止bsah登陆，再按照下面修复`git shell修复教程`，修复`ssh`登陆报错。
 [git shell修复教程](https://www.liaoxuefeng.com/discuss/001409195939432748a2c9fae3846bc98b3c2a547fa321b000/001439558216371603727f334d9451b9075c15996b2ae90000)
+
 ### hexo通过git部署博客到服务器
 [通过 Git Hooks 自动部署 Hexo 到 VPS](https://blog.yizhilee.com/post/deploy-hexo-to-vps/)
 
@@ -204,17 +218,44 @@ server {
 [教程](https://www.cnblogs.com/cgzl/p/9648813.html)
 [Install .NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current)
 
+## 搭建Nextcloud网盘
+首先要做的是一键安装`LNMP`,我是不太喜欢这种一键安装包的，会把我原有的配置搞乱。
+而且对服务器环境要求比较高，出问题了比较难查。
+[LNMP环境一键安装包](https://www.flyzy2005.com/tech/install-lnmp-in-one-command/)
+[教程](https://segmentfault.com/a/1190000015654232)
+搭建完之后真的舒服，界面舒服又好用，自带WebDav。
+如果想直接从服务器中导入其他文件，可以参考下面这个教程，要注意所有者是www，
+同时最好修改导入文件的所有者为www。
+[OCC命令给ownCloud/Nextcloud手动添加文件](https://www.orgleaf.com/2400.html)
+然后可以以管理员的身份进入设置中的概览，进行完整性和安全性的扫描。
+给PHP开大内存储存空间，修改`/usr/local/php/etc/php.ini`文件中`memory_limit`配置信息。
+[PHP Imagick 扩展安装](https://www.jianshu.com/p/137ae1400337)
+目前`Imagick`装失败了，回滚到之前的版本了
+最后因为通过`LNMP`搭建的`NextCloud`问题太多，而选择了使用`snap`一键安装，从下载到安装不到1min。
+`snap`会直接打包好一个虚拟的使用环境，与外界环境互不影响。
+但是`NextCloud`默认使用的服务器`Apache2`会占用80端口，所以我们要修改这个端口，并用`nginx`做反向代理。
+`snap set nextcloud ports.http=81 ports.https=443`
+在`nginx.conf`的`http`中添加`client_max_body_size 10g;`防止文件过大禁止写入。
+`NextCloud`上面还有很多小插件可以使用，可以仔细研究一下。
+
+## 搭建Aria2+AriaNG离线下载服务
+[Nextcloud离线下载搭建方法-整合Aria2和AriaNg、Aria2 WebUI实现离线下载](https://wzfou.com/nextcloud-aria2/)
+搭建完之后，使用`lnmp vhost add`可以添加AriaNG的前端于服务器上。
+关于与`Nextcloud`的链接管理
+[Nextcloud外部存储（本地）整合Aria2 AriaNG离线下载](https://blog.augustdoit.bid/nextcloud2/)
+强烈建议给`AriaNg`添加登陆密码，因为先前了解到frp有这种功能，所以我猜测nginx也提供了这种功能。
+后面发现不用密码也行，因为要使用离线下载功能的人必须先知道RPC密钥，才能与aria2联通。
+[Nginx配置basic_auth密码验证](https://www.centos.bz/2017/07/nginx-basic_auth-password/)
+
+
 ## 搭建kodexplorer网盘网站(弃用)
 [教程](https://www.jianshu.com/p/406a4c593d04)
 上面这篇教程在安装`kodexplorer`之前，先使用了一键安装脚本`oneinstack`解决大部分服务器所需要的服务，虽然也是国人制作的一键安装脚本，但是相比宝塔面板，要干净很多。
 在此之前推荐使用全新干净的系统安装。
 不需要桌面此类的东西，而且不够简约，没打开一个东西都开新窗口，不大喜欢这种WEB OS的风格。
 
-## 搭建Nextcloud网盘
-首先要做的是一键安装`LNMP`,我是不太喜欢这种一键安装包的，会把我原有的配置搞乱。
-而且对服务器环境要求比较高，出问题了比较难查。
-[LNMP环境一键安装包](https://www.flyzy2005.com/tech/install-lnmp-in-one-command/)
-[教程](https://segmentfault.com/a/1190000015654232)
+
+# 客户端搭建
 
 ## WebDAV客户端
 [cadaver配置教程](https://blog.51cto.com/3331062/2306523)
@@ -252,4 +293,5 @@ ssr config
 [`iftop`](https://www.cnblogs.com/fklin/p/4986645.html)
 `ifstat`
 `df`	查看磁盘空间
+`du -sh  ./*`查看当前目录文件(夹)大小
 [`screen`](https://www.cnblogs.com/cute/p/5015852.html) 管理多终端
