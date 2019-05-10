@@ -82,7 +82,8 @@ deploy:
   branch: master
   repository: 
     github: https://github.com/lyz05/lyz05.github.io.git
-    coding: git@git.coding.net:lyz05/lyz05.git
+    gitee: git@gitee.com:lyz05/lyz05.git
+    #coding: git@git.coding.net:lyz05/lyz05.git
     aliyun: git@home999.cc:hexo.git
   
 #以下是新添加的配置
@@ -93,10 +94,16 @@ avatar: https://avatars1.githubusercontent.com/u/11796777?v=3&u=50a5c9e9df83a5be
 links_title: Links
 # links
 links:
-  byvoid: https://www.byvoid.com/
+  Byvoid: https://www.byvoid.com/
   hzwer: http://hzwer.com/
   vczh: https://www.zhihu.com/people/excited-vczh
   GHIBLI: http://www.ghibli.jp/
+  Aria2: http://aria2.sp.home999.cc/
+  NextCloud: http://sz.home999.cc:8080/
+  PandoraBox: http://k2p.home999.cc:8080/
+  eTest: https://home999.cc:8086/
+  Fortuna OJ: http://jp.home999.cc/foj/#main/home
+  镜像站: https://home999.cc:8081/
   
 archive_generator:
   per_page: 20

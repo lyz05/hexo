@@ -11,6 +11,7 @@ date: 2019-04-15 20:04:31
 一直以来都是用各种桌面客户端，没有体验过服务端是怎样的，想体验一波，发现国外便宜的VPS都挺贵的，主要是我没什么使用VPS的需求。但国内的学生机还是很便宜的10元/月，就是宽带只有1M，事实证明还是很吃紧的，本来是没有这篇文章的，但是我发现我的技术水平不够，经常要推倒系统重来，所以就有了这篇文章。方便我快速恢复服务。
 体验了2-3周左右的阿里云之后，发现宽带实在是硬伤。再加上服务器处于国内，下载各种国外服务器上的资源都很慢。以及国内发布网站要备案等诸多因素。决定不再使用国内VPS服务器，除非他送我。
 总的来说国内的VPS，除了延时，稳定性占优，以及1M10元/月价格相对较香以外，没有其余优点。
+然而过了一段时间后，我又来打脸我自己，我一咬牙又买了一台阿里云的轻量应用服务器。最后综合觉得还是用阿里云比较划算。一方面5M带宽也够我用，不够可以再加OSS，而且阿里云学生机配置给的比较够，再加上BGP网络。在中国，访问还是很稳定的。
 
 ---
 # Windows远程连接准备
@@ -23,6 +24,7 @@ date: 2019-04-15 20:04:31
 首先选择一台阿里云ECS实例安装好基本的操作系统Ubuntu 18.04，然后就是开机。
 因为不知道阿里云的密钥是怎么用的，所以我是选择密码安装。后面可以使用密钥登陆，并关闭密码登陆，保证服务器安全。
 为了方便，去安全组将所有的端口都开放。
+
 ## 关闭阿里云安骑士
 安骑士确实烦，整天提示我有异常登陆，然而这异常登陆全是我自己，这还叫什么异常！！
 还总是发短信，是真的良心，实则推销自己的企业版，自动打补丁。
@@ -48,6 +50,18 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiuxUzIy3m67awi6DG5WGRABWaCGTUoME9nQB9Lh72
 这是我3个设备的公钥，分别是笔记本Win/ubuntu,手机Termux的公钥。
 把这些公钥一个一行放置在`~/.ssh/authorized_keys`，我没有使用`ssh-copy-id`的命令
 进行添加。这样可以快速添加设备。
+关于`ssh-copy-id`的用法`ssh-copy-id root@home999.cc`
+
+## 修改终端命令行颜色
+默认的命令行的白字黑底，实在是太难分辨，所以修改配色，提升可读性是很有必要的。
+在`~/.bashrc`中添加如下内容
+```
+PS1="${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
+export PS1
+```
+
+## 修改系统语言
+[Ubuntu 14.04 英文SSH终端更改为中文显示](https://blog.csdn.net/cnylsy/article/details/52474433)
 
 ## 使用xfce4(Xubuntu)桌面并用rdp远控
 [教程](https://blog.csdn.net/qq_25556149/article/details/82216190)
@@ -111,6 +125,7 @@ ShadowsocksR 版：
 这样的错误
 [解决方法](http://www.linuxdiyf.com/linux/31107.html)
 [nginx详细配置](http://seanlook.com/2015/05/17/nginx-install-and-config)
+
 ### nginx相关配置
 下面给出服务的配置信息，将配置信息保存在`/etc/nginx/conf.d/`目录下
 frps_http.conf
@@ -231,12 +246,24 @@ server {
 给PHP开大内存储存空间，修改`/usr/local/php/etc/php.ini`文件中`memory_limit`配置信息。
 [PHP Imagick 扩展安装](https://www.jianshu.com/p/137ae1400337)
 目前`Imagick`装失败了，回滚到之前的版本了
+
 最后因为通过`LNMP`搭建的`NextCloud`问题太多，而选择了使用`snap`一键安装，从下载到安装不到1min。
 `snap`会直接打包好一个虚拟的使用环境，与外界环境互不影响。
 但是`NextCloud`默认使用的服务器`Apache2`会占用80端口，所以我们要修改这个端口，并用`nginx`做反向代理。
-`snap set nextcloud ports.http=81 ports.https=443`
+更改端口号，如果你没有备案：
+`snap set nextcloud ports.http=8080 ports.https=8081`
+手动扫描文件
+`nextcloud.occ files:scan --all`
+`nextcloud.occ files:scan root`
+配置https
+To install a Let's Encrypt SSL certificate, type:
+`$ sudo nextcloud.enable-https lets-encrypt`
+If you'd rather use a self-signed certificate, you can type:
+`$ sudo nextcloud.enable-https self-signed`
 在`nginx.conf`的`http`中添加`client_max_body_size 10g;`防止文件过大禁止写入。
 `NextCloud`上面还有很多小插件可以使用，可以仔细研究一下。
+[Nextcloud应用推荐](https://blog.wyc1236.com/2018/12/02/306/)
+[使用Docker部署ONLYOFFICE Document Server](https://www.orgleaf.com/2588.html)
 
 ## 搭建Aria2+AriaNG离线下载服务
 [Nextcloud离线下载搭建方法-整合Aria2和AriaNg、Aria2 WebUI实现离线下载](https://wzfou.com/nextcloud-aria2/)
@@ -246,6 +273,8 @@ server {
 强烈建议给`AriaNg`添加登陆密码，因为先前了解到frp有这种功能，所以我猜测nginx也提供了这种功能。
 后面发现不用密码也行，因为要使用离线下载功能的人必须先知道RPC密钥，才能与aria2联通。
 [Nginx配置basic_auth密码验证](https://www.centos.bz/2017/07/nginx-basic_auth-password/)
+添加一条文件拥有者修改代码，解决权限问题。
+`chown www-data:www-data passwd.db`
 
 
 ## 搭建kodexplorer网盘网站(弃用)
@@ -254,11 +283,69 @@ server {
 在此之前推荐使用全新干净的系统安装。
 不需要桌面此类的东西，而且不够简约，没打开一个东西都开新窗口，不大喜欢这种WEB OS的风格。
 
+## 搭建Fortuna OJ
+Fortuna OJ作为用了3年的学校oj，当然要试着搭建一波了。
+[Fortuna OJ 部署指南](https://github.com/mchobbylong/fortuna-oj-doc/blob/master/setup_on_ubuntu18_cn.md)
+操作数据库
+[MariaDB数据库简单入门（含备份、恢复）](https://blog.csdn.net/zhaoxixc/article/details/82079783)
+搭建之中遇到了一些问题，我用的是Ubuntu 16.04，但是推荐的是Ubuntu 18.04。
+并且不是纯净的。所以，我选择了手动安装，就遇到了`redis`找不到，数据库找不到等奇奇怪怪的问题。
+所以最后，找了台纯净的Ubuntu18.04使用脚本直接搭建就OK了。
+由于没有文档，很多东西只能自己去猜测，试验。
+目前已知添加数据时，需要单个测试点一个个添加。
+
+## 阿里云OSS
+首先声明这个阿里云的OSS性能十分堪忧，主要是ossfs这个挂载工具堪忧，全球上传速度也很慢，内网传输也才20-30M/s左右。
+某404小站外网传输都比他快。
+尽管如此，我还是要用，为了省钱...搭配阿里云ECS不用付流量费，想要高速下载时再付流量费。
+可以挂载内网OSS，所以有个优点能跟我搭建的nextcloud同步。
+[ossfs快速安装](https://help.aliyun.com/document_detail/32196.html?spm=5176.8150156.427429.5.70396fabGjfZ98)
+[ossutil64快速安装](https://help.aliyun.com/document_detail/50452.html?spm=a2c4g.11186623.6.670.61323090dzqURc)
+
+## 搭建简单的http文件服务器
+使用nginx或apache都可。
+个人喜欢nginx，所以就以nginx为例。
+安装好nginx，在配置目录中增加如下配置
+`/etc/nginx/conf.d/file.conf`
+```
+server {
+	listen 8081;
+	server_name sz.home999.cc;
+	charset utf-8;
+	
+	location /files {
+		alias /media;
+		allow all;
+		autoindex on;				#开启目录索引
+		autoindex_exact_size off;	#关闭精准文件大小显示
+		autoindex_localtime on;		#使用浏览器时区显示时间
+	}
+}
+```
+
+## BTsync同步工具&Syncthing(弃)
+因为一不小心就买了4台VPS服务器，他们之间需要共享一些文件。然而，阿里云太贵，坚果云只能用webdav，而且限制比较多。所以需求就产生了，还可以充分利用带宽。
+当我使用官网文档进行安装的时候，发现国内阿里云连不上服务器，最后一查发现被墙了。那就只好找替代方案了，发现了一个类似的并且也足够轻量，使用网页进行管理的同步工具`syncthing`。
+[「玩物志」Syncthing的安装与使用](https://www.jianshu.com/p/4235cc85c32d)
+搭建和使用还算时挺简单的，可以根据需要设置同步目录和启动。
+
+## BaiduPCS-Web高速下载百度网盘
+[项目地址](https://github.com/liuzhuoling2011/baidupcs-web)
+搭建非常简单...
 
 # 客户端搭建
 
 ## WebDAV客户端
 [cadaver配置教程](https://blog.51cto.com/3331062/2306523)
+webdav客户端挂载工具`davfs`
+```
+apt install davfs
+vi /etc/davfs2/davfs2.conf
+ignore_dav_header 1
+mount -t davfs https://dav.jianguoyun.com/dav /media/nutstore
+mount -t davfs http://sz.home999.cc:8080/remote.php/webdav/ /media/nextcloud
+umount /media/nextcloud
+```
 
 ## Mplayer命令行视频播放
 命令行播放视频
@@ -284,6 +371,20 @@ ssr install
 ssr config
 ```
 
+## speedtest测速软件
+安装
+```
+wget https://raw.github.com/sivel/speedtest-cli/master/speedtest.py
+chmod a+rx speedtest.py
+mv speedtest.py /usr/local/bin/speedtest
+chown root:root /usr/local/bin/speedtest
+```
+使用命令`speedtest`
+
+## docker容器
+[Docker 教程](https://www.runoob.com/docker/docker-hello-world.html)
+[Docker对象清理](https://blog.csdn.net/weixin_32820767/article/details/81196250)
+
 # 维护服务器命令
 查看当前开放listen的所有Tcp端口信息
 `netstat -nltp`
@@ -293,5 +394,9 @@ ssr config
 [`iftop`](https://www.cnblogs.com/fklin/p/4986645.html)
 `ifstat`
 `df`	查看磁盘空间
-`du -sh  ./*`查看当前目录文件(夹)大小
+`du -sh ./* --exclude="media"`查看当前目录文件(夹)大小并排除media文件夹
 [`screen`](https://www.cnblogs.com/cute/p/5015852.html) 管理多终端
+`screen -S new`
+`screen -R reload`
+`cat /var/log/dist-upgrade/main.log | grep ERR` 查看系统升级出错日志
+[`crontab`计划任务](https://www.runoob.com/w3cnote/linux-crontab-tasks.html)
