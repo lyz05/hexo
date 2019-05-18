@@ -78,6 +78,24 @@ export PS1
 缺点就是安装东西真的很慢，国内开发的软件，增值服务太多，花里胡哨的！！！
 最后面我弃用了他，瞎改我的配置，瞎增加网页，吃相难看，再见！
 
+# 阿里云OSS
+首先声明这个阿里云的OSS性能十分堪忧，主要是ossfs这个挂载工具堪忧。
+全球上传速度也很慢，内网传输也才20-30M/s左右。外网传输也不过10M左右。
+某404小站的Drive那是真的快！外网上传33M/s，外网下载有83M/s左右。测速工具Gdrive，测速服务器新加坡Vultr VPS。
+尽管如此，我还是要用，为了省钱...搭配阿里云ECS不用付流量费，想要高速下载时再付流量费。
+可以挂载内网OSS，所以有个优点能跟我搭建的nextcloud同步。
+后面发现这唯一的优点也算不上优点，一方面IO很差，造成Nextcloud显示大批量图片缓慢。而且直接挂载会产生大量的请求，产生额外请求费用。
+[ossfs快速安装](https://help.aliyun.com/document_detail/32196.html?spm=5176.8150156.427429.5.70396fabGjfZ98)
+[ossutil64快速安装](https://help.aliyun.com/document_detail/50452.html?spm=a2c4g.11186623.6.670.61323090dzqURc)
+
+# http网站升级https
+首先我们需要一个私钥和证书，用于SSL加密使用。
+有两种途径获得，一种途径是像CA申请获得，这就要钱了，不过阿里云有免费的SSL证书申请可以试一下。
+另一种是自签名证书，不过浏览器会不信任，可以讲证书加到受信任证书解决。
+剩下的事情就好办了，在网页服务器中启用https，填写私钥与证书路径。
+[SSL--Windows下生成OpenSSL自签证书](https://www.cnblogs.com/anlia/p/5920820.html)
+[如何让chrome信任自签名证书？](https://www.jianshu.com/p/35c31b865bb9)
+
 # 服务器搭建
 
 ## 搭建frp内网穿透
@@ -102,6 +120,10 @@ systemctl start frps //启动
 systemctl status frps //状态查询
 systemctl enable frps //开机启动
 ```
+frp十分强大，而且也足够简介，跟nginx一样通过修改配置文件能够实现很多功能。
+具体使用看项目地址中的Readme即可。
+目前在本地我已实验成功TCP，http,https的转发。
+
 ## 搭建shadowsocksR
 网上有很多一键安装脚本
 [安装教程](https://teddysun.com/486.html)
@@ -110,6 +132,7 @@ systemctl enable frps //开机启动
 ShadowsocksR 版：
 /etc/init.d/shadowsocks-r start | stop | restart | status
 ```
+可以加入`http_simple`混淆，来搞定运营商的QOS。
 ## 搭建ftp服务器
 我们使用`vsftpd`作为服务器软件
 [安装教程](https://www.linuxidc.com/Linux/2017-06/144807.htm)
@@ -125,7 +148,7 @@ ShadowsocksR 版：
 这样的错误
 [解决方法](http://www.linuxdiyf.com/linux/31107.html)
 [nginx详细配置](http://seanlook.com/2015/05/17/nginx-install-and-config)
-
+[windows下nginx的安装及使用](https://www.cnblogs.com/jiangwangxiang/p/8481661.html)
 ### nginx相关配置
 下面给出服务的配置信息，将配置信息保存在`/etc/nginx/conf.d/`目录下
 frps_http.conf
@@ -294,14 +317,6 @@ Fortuna OJ作为用了3年的学校oj，当然要试着搭建一波了。
 由于没有文档，很多东西只能自己去猜测，试验。
 目前已知添加数据时，需要单个测试点一个个添加。
 
-## 阿里云OSS
-首先声明这个阿里云的OSS性能十分堪忧，主要是ossfs这个挂载工具堪忧，全球上传速度也很慢，内网传输也才20-30M/s左右。
-某404小站外网传输都比他快。
-尽管如此，我还是要用，为了省钱...搭配阿里云ECS不用付流量费，想要高速下载时再付流量费。
-可以挂载内网OSS，所以有个优点能跟我搭建的nextcloud同步。
-[ossfs快速安装](https://help.aliyun.com/document_detail/32196.html?spm=5176.8150156.427429.5.70396fabGjfZ98)
-[ossutil64快速安装](https://help.aliyun.com/document_detail/50452.html?spm=a2c4g.11186623.6.670.61323090dzqURc)
-
 ## 搭建简单的http文件服务器
 使用nginx或apache都可。
 个人喜欢nginx，所以就以nginx为例。
@@ -322,6 +337,7 @@ server {
 	}
 }
 ```
+[nginx目录列表开启和美化](https://my.oschina.net/u/2306127/blog/2007238)
 
 ## BTsync同步工具&Syncthing(弃)
 因为一不小心就买了4台VPS服务器，他们之间需要共享一些文件。然而，阿里云太贵，坚果云只能用webdav，而且限制比较多。所以需求就产生了，还可以充分利用带宽。
@@ -332,6 +348,13 @@ server {
 ## BaiduPCS-Web高速下载百度网盘
 [项目地址](https://github.com/liuzhuoling2011/baidupcs-web)
 搭建非常简单...
+
+## Windows下ssh服务器FreeSSHd
+[官网](http://www.freesshd.com/?ctt=download)
+[在windows 下创建SFTP服务器](https://blog.csdn.net/zeswhd/article/details/80812496)
+下载安装过程中，会询问是否要写入服务，如果选择写入，很可能后面因为软件自身占用22端口，而无法启动服务，需要手动关闭再开启。
+主要是为了使用他的SFTP功能，并用frp做内网穿透，实现文件读写访问。
+当然也可以使用frp自带的简易http文件下载服务器。
 
 # 客户端搭建
 

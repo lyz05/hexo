@@ -82,8 +82,8 @@ deploy:
   branch: master
   repository: 
     github: https://github.com/lyz05/lyz05.github.io.git
-    gitee: git@gitee.com:lyz05/lyz05.git
-    #coding: git@git.coding.net:lyz05/lyz05.git
+    #gitee: git@gitee.com:lyz05/lyz05.git
+    coding: git@git.coding.net:lyz05/lyz05.git
     aliyun: git@home999.cc:hexo.git
   
 #以下是新添加的配置
@@ -98,6 +98,7 @@ links:
   hzwer: http://hzwer.com/
   vczh: https://www.zhihu.com/people/excited-vczh
   GHIBLI: http://www.ghibli.jp/
+  IceCream: https://blog.xuegaogg.com
   Aria2: http://aria2.sp.home999.cc/
   NextCloud: http://sz.home999.cc:8080/
   PandoraBox: http://k2p.home999.cc:8080/
