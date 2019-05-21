@@ -26,7 +26,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: aria2/**
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -99,12 +99,6 @@ links:
   vczh: https://www.zhihu.com/people/excited-vczh
   GHIBLI: http://www.ghibli.jp/
   IceCream: https://blog.xuegaogg.com
-  Aria2: http://aria2.sp.home999.cc/
-  NextCloud: http://sz.home999.cc:8080/
-  PandoraBox: http://k2p.home999.cc:8080/
-  eTest: https://home999.cc:8086/
-  Fortuna OJ: http://jp.home999.cc/foj/#main/home
-  镜像站: https://home999.cc:8081/
   
 archive_generator:
   per_page: 20

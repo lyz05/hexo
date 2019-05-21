@@ -414,11 +414,11 @@ chown root:root /usr/local/bin/speedtest
 系统资源管理器
 `top`
 网络资源管理器
-[`iftop`](https://www.cnblogs.com/fklin/p/4986645.html)
+[`iftop`查看实时带宽流量情况](https://www.cnblogs.com/fklin/p/4986645.html)
 `ifstat`
 `df`	查看磁盘空间
 `du -sh ./* --exclude="media"`查看当前目录文件(夹)大小并排除media文件夹
-[`screen`](https://www.cnblogs.com/cute/p/5015852.html) 管理多终端
+[`screen`管理多终端](https://www.cnblogs.com/cute/p/5015852.html)
 `screen -S new`
 `screen -R reload`
 `cat /var/log/dist-upgrade/main.log | grep ERR` 查看系统升级出错日志
