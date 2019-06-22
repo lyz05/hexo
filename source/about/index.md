@@ -31,9 +31,14 @@ Email:liuyuanzhe0515@gmail.com
 QQ:294068487
 
 # 相关链接
+[公开文件](https://sz.home999.cc:8081/)
+[frp dashboard](https://frp.home999.cc:8081/)
 [Aria2](/aria2)
 [NextCloud](http://sz.home999.cc:8080/)
-[PandoraBox](http://k2p.home999.cc:8080/)
+[PandoraBox](https://k2p.home999.cc:8081/)
 [eTest](https://home999.cc:8086/)
+[Syncthing SZ](https://sz.home999.cc:8384/)
+[Syncthing SH](https://home999.cc:8384/)
+[BaiduPCS](http://sz.home999.cc:5299/#/login)
 [镜像站](https://home999.cc:8081/)
 <!-- Fortuna OJ: http://jp.home999.cc/foj/#main/home -->
