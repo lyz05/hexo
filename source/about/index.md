@@ -38,7 +38,7 @@ QQ:294068487
 [PandoraBox](https://k2p.home999.cc:8081/)
 [eTest](https://home999.cc:8086/)
 [Syncthing SZ](https://sz.home999.cc:8384/)
-[Syncthing SH](https://home999.cc:8384/)
 [BaiduPCS](http://sz.home999.cc:5299/#/login)
+[The Wandering Earth](http://sz.home999.cc:8084/)
 [镜像站](https://home999.cc:8081/)
 <!-- Fortuna OJ: http://jp.home999.cc/foj/#main/home -->

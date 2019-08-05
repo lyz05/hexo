@@ -84,7 +84,7 @@ deploy:
     github: https://github.com/lyz05/lyz05.github.io.git
     #gitee: git@gitee.com:lyz05/lyz05.git
     coding: git@git.coding.net:lyz05/lyz05.git
-    aliyun: git@home999.cc:hexo.git
+    #aliyun: git@home999.cc:hexo.git
   
 #以下是新添加的配置
 #Avatar 头像设置
@@ -99,6 +99,7 @@ links:
   vczh: https://www.zhihu.com/people/excited-vczh
   GHIBLI: http://www.ghibli.jp/
   IceCream: https://blog.xuegaogg.com
+  levan: http://levan.home999.cc/
   
 archive_generator:
   per_page: 20

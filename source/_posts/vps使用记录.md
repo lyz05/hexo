@@ -6,12 +6,15 @@ categories:
   - 互联网
   - 原创
 date: 2019-04-15 20:04:31
+updated: 2019-08-05 12:00:00
+
 ---
 # 前言
 一直以来都是用各种桌面客户端，没有体验过服务端是怎样的，想体验一波，发现国外便宜的VPS都挺贵的，主要是我没什么使用VPS的需求。但国内的学生机还是很便宜的10元/月，就是宽带只有1M，事实证明还是很吃紧的，本来是没有这篇文章的，但是我发现我的技术水平不够，经常要推倒系统重来，所以就有了这篇文章。方便我快速恢复服务。
 体验了2-3周左右的阿里云之后，发现宽带实在是硬伤。再加上服务器处于国内，下载各种国外服务器上的资源都很慢。以及国内发布网站要备案等诸多因素。决定不再使用国内VPS服务器，除非他送我。
 总的来说国内的VPS，除了延时，稳定性占优，以及1M10元/月价格相对较香以外，没有其余优点。
 然而过了一段时间后，我又来打脸我自己，我一咬牙又买了一台阿里云的轻量应用服务器。最后综合觉得还是用阿里云比较划算。一方面5M带宽也够我用，不够可以再加OSS，而且阿里云学生机配置给的比较够，再加上BGP网络。在中国，访问还是很稳定的。
+经过去马来西亚国能大学测试发现，国外连接慢的我想打人。
 
 ---
 # Windows远程连接准备
@@ -87,11 +90,12 @@ export PS1
 后面发现这唯一的优点也算不上优点，一方面IO很差，造成Nextcloud显示大批量图片缓慢。而且直接挂载会产生大量的请求，产生额外请求费用。
 [ossfs快速安装](https://help.aliyun.com/document_detail/32196.html?spm=5176.8150156.427429.5.70396fabGjfZ98)
 [ossutil64快速安装](https://help.aliyun.com/document_detail/50452.html?spm=a2c4g.11186623.6.670.61323090dzqURc)
-
+自动挂载oss参考下面教程，修改fstab文件
+[将阿里云OSS的Bucket挂载到Linux本地](https://www.jianshu.com/p/67c0816a968d)
 # http网站升级https
 首先我们需要一个私钥和证书，用于SSL加密使用。
 有两种途径获得，一种途径是像CA申请获得，这就要钱了，不过阿里云有免费的SSL证书申请可以试一下。
-另一种是自签名证书，不过浏览器会不信任，可以讲证书加到受信任证书解决。
+另一种是自签名证书，不过浏览器会不信任，可以将证书加到受信任证书解决。
 剩下的事情就好办了，在网页服务器中启用https，填写私钥与证书路径。
 [SSL--Windows下生成OpenSSL自签证书](https://www.cnblogs.com/anlia/p/5920820.html)
 [如何让chrome信任自签名证书？](https://www.jianshu.com/p/35c31b865bb9)
@@ -304,7 +308,7 @@ If you'd rather use a self-signed certificate, you can type:
 [教程](https://www.jianshu.com/p/406a4c593d04)
 上面这篇教程在安装`kodexplorer`之前，先使用了一键安装脚本`oneinstack`解决大部分服务器所需要的服务，虽然也是国人制作的一键安装脚本，但是相比宝塔面板，要干净很多。
 在此之前推荐使用全新干净的系统安装。
-不需要桌面此类的东西，而且不够简约，没打开一个东西都开新窗口，不大喜欢这种WEB OS的风格。
+不需要桌面此类的东西，而且不够简约，每打开一个东西都开新窗口，不大喜欢这种WEB OS的风格。
 
 ## 搭建Fortuna OJ
 Fortuna OJ作为用了3年的学校oj，当然要试着搭建一波了。
@@ -339,7 +343,7 @@ server {
 ```
 [nginx目录列表开启和美化](https://my.oschina.net/u/2306127/blog/2007238)
 
-## BTsync同步工具&Syncthing(弃)
+## BTsync同步工具(弃)&Syncthing
 因为一不小心就买了4台VPS服务器，他们之间需要共享一些文件。然而，阿里云太贵，坚果云只能用webdav，而且限制比较多。所以需求就产生了，还可以充分利用带宽。
 当我使用官网文档进行安装的时候，发现国内阿里云连不上服务器，最后一查发现被墙了。那就只好找替代方案了，发现了一个类似的并且也足够轻量，使用网页进行管理的同步工具`syncthing`。
 [「玩物志」Syncthing的安装与使用](https://www.jianshu.com/p/4235cc85c32d)
@@ -348,7 +352,27 @@ server {
 ## BaiduPCS-Web高速下载百度网盘
 [项目地址](https://github.com/liuzhuoling2011/baidupcs-web)
 搭建非常简单...
-
+## Tomcat服务器搭建
+[Vultr+CentOS7+阿里云+Tomcat部署Web应用](https://www.jianshu.com/p/cd3d20b8c26b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
+上面是较为全面的搭建教程。
+省略复杂的过程及解释，直接来代码
+```
+sudo apt-get install default-jre
+sudo apt-get install default-jdk
+```
+据说能够自动解决环境变量的问题
+[Apache Tomcat® - Apache Tomcat 7 Software Downloads](https://tomcat.apache.org/download-70.cgi)
+从上述链接中获取linux版Tomcat，选择core即可。
+解压到`/usr/local`,并改名为`tomcat7`。
+默认开放端口为8080，可以修改`/usr/local/tomcat7/conf/server.xml`文件。
+[tomcat更改默认端口号](https://blog.csdn.net/m0_37836194/article/details/79151296)
+在`Eclipse`中右键项目`Export -> WAR file`,并上传到`tomcat7/webapps`中。
+还要在`server.xml`中`</Host>`前添加项目部署位置
+```
+<Context docBase="phase-04-implementation-003-javaWeb" path="/" reloadable="true" source="org.eclipse.jst.jee.server:phase-04-implementation-003-javaWeb"/>
+```
+管理`Tomcat`服务相关脚本均在`tomcat7/bin`下。
+[Ubuntu 16.04自定义服务实现Tomcat开机自启动](https://blog.csdn.net/bbaaEE/article/details/82015155)
 ## Windows下ssh服务器FreeSSHd
 [官网](http://www.freesshd.com/?ctt=download)
 [在windows 下创建SFTP服务器](https://blog.csdn.net/zeswhd/article/details/80812496)
@@ -393,6 +417,9 @@ sudo chmod 766 /usr/local/bin/ssr
 ssr install
 ssr config
 ```
+启动成功后，软件会自动监听1080端口。使用socks5协议进行代理。
+所以还需要一个额外的代理软件，来辅助命令行工具翻墙。
+[shadowsocks + proxychains4 （解决git clone慢的问题 ）](https://my.oschina.net/uniquejava/blog/846349)
 
 ## speedtest测速软件
 安装
@@ -407,6 +434,18 @@ chown root:root /usr/local/bin/speedtest
 ## docker容器
 [Docker 教程](https://www.runoob.com/docker/docker-hello-world.html)
 [Docker对象清理](https://blog.csdn.net/weixin_32820767/article/details/81196250)
+
+## Google drive客户端
+因为Google drive没有第三方客户端，所以万能的国外大佬们，绝对不允许自己的Google drive空间被白白浪费，整出了一大堆第三方Google drive工具，再加上Google良心，没有对这些第三方工具加以限制，因此可以实现各种骚操作。
+我上网找到了两个适用于命令行的第三方工具，分别是Gdrive和Grive。
+[Google Drive网盘文件直链获取一键脚本](https://www.cnblogs.com/weifeng1463/p/10967644.html)
+
+### Gdrive
+像普通网盘一样去使用Google drive，具备列目录，上传下载等基础功能。
+不可以搭配proxychains4使用。
+### Grive
+像Dropbox一样同步Google drive目录，可以指定目录，甚至某一个文件，同步并非实时。
+可以搭配proxychains4使用。
 
 # 维护服务器命令
 查看当前开放listen的所有Tcp端口信息
@@ -423,3 +462,4 @@ chown root:root /usr/local/bin/speedtest
 `screen -R reload`
 `cat /var/log/dist-upgrade/main.log | grep ERR` 查看系统升级出错日志
 [`crontab`计划任务](https://www.runoob.com/w3cnote/linux-crontab-tasks.html)
+[linux命令行打包、压缩及解压缩](https://www.cnblogs.com/hanguozhi/p/10385470.html)
