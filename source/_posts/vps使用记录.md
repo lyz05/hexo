@@ -92,6 +92,7 @@ export PS1
 [ossutil64快速安装](https://help.aliyun.com/document_detail/50452.html?spm=a2c4g.11186623.6.670.61323090dzqURc)
 自动挂载oss参考下面教程，修改fstab文件
 [将阿里云OSS的Bucket挂载到Linux本地](https://www.jianshu.com/p/67c0816a968d)
+
 # http网站升级https
 首先我们需要一个私钥和证书，用于SSL加密使用。
 有两种途径获得，一种途径是像CA申请获得，这就要钱了，不过阿里云有免费的SSL证书申请可以试一下。
@@ -99,6 +100,13 @@ export PS1
 剩下的事情就好办了，在网页服务器中启用https，填写私钥与证书路径。
 [SSL--Windows下生成OpenSSL自签证书](https://www.cnblogs.com/anlia/p/5920820.html)
 [如何让chrome信任自签名证书？](https://www.jianshu.com/p/35c31b865bb9)
+
+# 域名配置&CDN加速
+## cloudflare
+听说cloudflare的口碑很好。所以，我也就选择它了。主要还是因为穷，cloudflare有free plan可以选，尽管境内加速不咋地，甚至减速。但是有免费的SSL证书，还有解析功能，还是挺期待的。
+使用了一下，发现不行。主要是阿里云服务器在国内已经优化的很好了，套了个CF真的慢，之前想用它来给我的视频缓存，但好像不行。最主要的是CF的解析真的很迷，我这总是解析不到地址。
+还有一个很重要的一点加了CDN之后，由于CF只代理部分端口的http和https协议，这使得我的其他TCP的服务通通不能直接连上了。
+[CloudFlare免费CDN加速使用方法](https://zhuanlan.zhihu.com/p/29891330)
 
 # 服务器搭建
 
@@ -379,6 +387,9 @@ sudo apt-get install default-jdk
 下载安装过程中，会询问是否要写入服务，如果选择写入，很可能后面因为软件自身占用22端口，而无法启动服务，需要手动关闭再开启。
 主要是为了使用他的SFTP功能，并用frp做内网穿透，实现文件读写访问。
 当然也可以使用frp自带的简易http文件下载服务器。
+
+## Brook端口转发
+[『原创』Shadowsocks Brook 中继(中转/端口转发) 便捷管理脚本](https://doubibackup.com/yv4cp61c.html)
 
 # 客户端搭建
 
