@@ -6,6 +6,7 @@ categories:
   - 互联网
   - 原创
 date: 2018-11-25 22:30:35
+mathjax: true
 ---
 # 搭建Ubuntu 18.04与Win10双系统运行环境
 目标主机：XPS 13 9360

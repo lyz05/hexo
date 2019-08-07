@@ -7,6 +7,7 @@ tags:
 categories:
   - 信息学
   - 原创
+mathjax: true
 ---
 Tips
 --

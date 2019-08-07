@@ -7,6 +7,7 @@ categories:
   - 个人
   - 原创
 date: 2018-09-20 21:36:20
+mathjax: true
 ---
 # FIRST
 ## Titles：Dorms' face recognition gets thumbs-up for convenience 

@@ -6,6 +6,7 @@ categories:
   - 信息学
   - 原创
 date: 2016-02-23 15:38:38
+mathjax: true
 ---
 # 概述
 第二年亦是最后一年GDKOI，然而还是一样的弱。

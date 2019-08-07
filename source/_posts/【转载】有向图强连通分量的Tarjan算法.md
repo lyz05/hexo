@@ -2,6 +2,7 @@ title: 【转载】有向图强连通分量的Tarjan算法
 tags: 
 categories: [信息学,转载]
 date: 2015-10-29 17:15
+mathjax: true
 ---
 <strong> [有向图强连通分量]
 --

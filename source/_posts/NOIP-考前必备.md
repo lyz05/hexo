@@ -5,6 +5,7 @@ tags:
 categories:
   - 信息学
   - 原创
+mathjax: true
 ---
 考试前首先要调整好自己的心态，忘却之前发生的任何事情。
 

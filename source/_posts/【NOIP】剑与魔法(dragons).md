@@ -3,6 +3,7 @@ title: 【NOIP】剑与魔法(dragons)
 tags: [题解]
 categories: [信息学,原创]
 date: 2015-08-16 19:56
+mathjax: true
 ---
 
 Description

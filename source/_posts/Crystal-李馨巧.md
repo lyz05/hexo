@@ -7,6 +7,7 @@ categories:
  - 人物
  - 原创
 date: 2016-01-26 22:38:00
+mathjax: true
 ---
 
 # 序言

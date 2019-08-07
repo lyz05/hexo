@@ -6,6 +6,7 @@ tags:
 categories:
   - 互联网
   - 原创
+mathjax: true
 ---
 First you should download the file of Debian 7 64 bit
 

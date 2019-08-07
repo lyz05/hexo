@@ -6,6 +6,7 @@ categories:
   - 信息学
   - 原创
 date: 2015-10-29 17:05:00
+mathjax: true
 ---
 <strong>概述
 --

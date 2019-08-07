@@ -8,7 +8,7 @@ subtitle: Never Give Up
 description: 怯,你就会输一辈子
 keywords:
 author: lyz05
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
@@ -87,20 +87,8 @@ deploy:
     #aliyun: git@home999.cc:hexo.git
   
 #以下是新添加的配置
-#Avatar 头像设置
-avatar: https://avatars1.githubusercontent.com/u/11796777?v=3&u=50a5c9e9df83a5be6d556b91ced95195d029f88e&s=140
 
-# title, chinese available
-links_title: Links
-# links
-links:
-  Byvoid: https://www.byvoid.com/
-  hzwer: http://hzwer.com/
-  vczh: https://www.zhihu.com/people/excited-vczh
-  GHIBLI: http://www.ghibli.jp/
-  IceCream: https://blog.xuegaogg.com
-  levan: http://levan.home999.cc/
-  
+ 
 archive_generator:
   per_page: 20
   yearly: true
@@ -118,3 +106,10 @@ search:
 # sitemap
 sitemap:
   path: sitemap.xml
+  
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: false
+  total_time: false
+  exclude_codeblock: false
