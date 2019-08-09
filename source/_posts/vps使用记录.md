@@ -63,6 +63,9 @@ PS1="${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h\[\033[00m\]:\[\033[01;3
 export PS1
 ```
 
+## 修改系统主机名
+修改`/etc/hostname`即可
+
 ## 修改系统语言
 [Ubuntu 14.04 英文SSH终端更改为中文显示](https://blog.csdn.net/cnylsy/article/details/52474433)
 
@@ -72,6 +75,10 @@ export PS1
 远控后我发现Terminal有一点小问题，以下是解决方案。
 [Ubuntu打开终端出错：failed to execute default terminal emulator（如图示） ](https://zhidao.baidu.com/question/1770374646687303580.html)
 因为我嫌Xubuntu自带的进程管理器太丑了，安装了gnome默认的`gnome-system-monitor`。
+
+# 相关有用的小工具安装
+ - [Thefuck](https://www.jianshu.com/p/0d37b22aabba)
+ - [Besttrace](https://www.xiaoz.me/archives/11769)
 
 # 宝塔面板(弃用)
 [安装教程](https://doubibackup.com/hxvodqzg.html)
@@ -108,6 +115,16 @@ export PS1
 还有一个很重要的一点加了CDN之后，由于CF只代理部分端口的http和https协议，这使得我的其他TCP的服务通通不能直接连上了。
 [CloudFlare免费CDN加速使用方法](https://zhuanlan.zhihu.com/p/29891330)
 
+# KCPTUN加速工具
+这是一个TCP与UDP互转的加速工具，使用UDP协议进行加速，加速双方都需要部署软件。
+[超级加速工具KCPTUN一键安装脚本 附100倍加速效果图-SSR中文网](https://ssr.tools/588)
+windows客户端要去github上找Release，体验了一下发现没有宣传的效果那样好，给我感觉一般般，但是非常消耗带宽，不适合我这种阿里云小水管，适合那些大水管，并且TCP线路尤为糟糕的。
+
+# Mosh
+一种可以替代ssh基于UDP的远程shell工具，主要解决糟糕的境外VPS的ssh连接问题
+[使用 Mosh 来优化 SSH 连接](https://www.hi-linux.com/posts/23118.html)
+暂时找不到好用的windows客户端，用Cygwin的比较麻烦
+
 # 服务器搭建
 
 ## 搭建frp内网穿透
@@ -138,7 +155,7 @@ frp十分强大，而且也足够简介，跟nginx一样通过修改配置文件
 
 ## 搭建shadowsocksR
 网上有很多一键安装脚本
-[安装教程](https://teddysun.com/486.html)
+[安装教程](https://ssr.tools/31)
 管理脚本
 ```
 ShadowsocksR 版：
@@ -146,7 +163,7 @@ ShadowsocksR 版：
 ```
 可以加入`http_simple`混淆，来搞定运营商的QOS。
 ## 搭建ftp服务器
-我们使用`vsftpd`作为服务器软件
+我们使用`vsftpd`作为服务器软件 
 [安装教程](https://www.linuxidc.com/Linux/2017-06/144807.htm)
 下面这个只是参考，主要看上面那个教程
 [root用户亦可登录教程](https://blog.csdn.net/qq_20545159/article/details/47701183)
@@ -161,6 +178,9 @@ ShadowsocksR 版：
 [解决方法](http://www.linuxdiyf.com/linux/31107.html)
 [nginx详细配置](http://seanlook.com/2015/05/17/nginx-install-and-config)
 [windows下nginx的安装及使用](https://www.cnblogs.com/jiangwangxiang/p/8481661.html)
+nginx本身只是一个很小的组件，但是拥有扩展的他具有无限可能，所以下面是部分扩展，重新编译后能获得新功能。
+[Nginx 索引目录美化](https://www.jianshu.com/p/ae73ee2bbe6e)
+[利用Nginx反向代理谷歌](https://zhgcao.github.io/2016/06/09/nginx-reverse-proxy-google/)
 ### nginx相关配置
 下面给出服务的配置信息，将配置信息保存在`/etc/nginx/conf.d/`目录下
 frps_http.conf
@@ -283,6 +303,7 @@ server {
 目前`Imagick`装失败了，回滚到之前的版本了
 
 最后因为通过`LNMP`搭建的`NextCloud`问题太多，而选择了使用`snap`一键安装，从下载到安装不到1min。
+[Ubuntu使用Snap快速安装NextCloud网盘，并配置域名及SSL证书](https://www.moerats.com/archives/429/)
 `snap`会直接打包好一个虚拟的使用环境，与外界环境互不影响。
 但是`NextCloud`默认使用的服务器`Apache2`会占用80端口，所以我们要修改这个端口，并用`nginx`做反向代理。
 更改端口号，如果你没有备案：
@@ -359,6 +380,7 @@ server {
 
 ## BaiduPCS-Web高速下载百度网盘
 [项目地址](https://github.com/liuzhuoling2011/baidupcs-web)
+
 搭建非常简单...
 ## Tomcat服务器搭建
 [Vultr+CentOS7+阿里云+Tomcat部署Web应用](https://www.jianshu.com/p/cd3d20b8c26b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
@@ -381,6 +403,12 @@ sudo apt-get install default-jdk
 ```
 管理`Tomcat`服务相关脚本均在`tomcat7/bin`下。
 [Ubuntu 16.04自定义服务实现Tomcat开机自启动](https://blog.csdn.net/bbaaEE/article/details/82015155)
+
+## PHP环境
+最早体验php是用的LNMP或LAMP一键包，但这是在你没有其他服务的情况下，像我现在各种各样的服务都在一个服务器上跑。用一键包，安装路径奇奇怪怪，所以只好自己手动来安装
+[Ubuntu 手动安装LNMP/LAMP,配置Nginx/Apache与PHP关联](https://feihu.blog/archives/773.html)
+在之前体验的过程中，遇到两个挺有用的PHP文件，分别是`phpinfo`和`PHP探针`。
+
 ## Windows下ssh服务器FreeSSHd
 [官网](http://www.freesshd.com/?ctt=download)
 [在windows 下创建SFTP服务器](https://blog.csdn.net/zeswhd/article/details/80812496)
@@ -474,3 +502,5 @@ chown root:root /usr/local/bin/speedtest
 `cat /var/log/dist-upgrade/main.log | grep ERR` 查看系统升级出错日志
 [`crontab`计划任务](https://www.runoob.com/w3cnote/linux-crontab-tasks.html)
 [linux命令行打包、压缩及解压缩](https://www.cnblogs.com/hanguozhi/p/10385470.html)
+`ps aux `查看进程信息
+`kill 9 PID` 杀制定PID的进程

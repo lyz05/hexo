@@ -40,5 +40,5 @@ QQ:294068487
 [Syncthing SZ](https://sz.home999.cc:8384/)
 [BaiduPCS](http://sz.home999.cc:5299/#/login)
 [The Wandering Earth](http://sz.home999.cc:8084/)
-[镜像站](https://home999.cc:8081/)
+[镜像站](https://home999.cc/)
 <!-- Fortuna OJ: http://jp.home999.cc/foj/#main/home -->
