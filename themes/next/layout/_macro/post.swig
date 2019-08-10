@@ -120,7 +120,7 @@
               {% endif %}
               {% for cat in post.categories %}
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">{#
-                #}<a href="{{ url_for(cat.path) }}" itemprop="url" rel="index">{#
+                #}<a href="{{ url_for(cat.path) }}index.html" itemprop="url" rel="index">{#
                   #}<span itemprop="name">{{ cat.name }}</span>{#
                 #}</a>{#
               #}</span>

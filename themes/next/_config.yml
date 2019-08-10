@@ -158,10 +158,10 @@ baidu_push: false
 # External url should start with http:// or https://
 menu:
   home: / || home
-  categories: /categories/ || th
-  tags: /tags/ || tags
-  archives: /archives/ || archive
-  about: /about/ || user
+  categories: /categories/index.html || th
+  tags: /tags/index.html || tags
+  archives: /archives/index.html || archive
+  about: /about/index.html || user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
