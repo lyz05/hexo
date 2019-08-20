@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+
 {# NexT version #}
 {% set version = next_env('version') %}
 
@@ -24,6 +25,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
+
 
   {% set container_class = 'container' %}
   {% if theme.sidebar.position %}

@@ -15,7 +15,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://lyz05.github.io
 root: /
-permalink: :year/:month/:day/:title/index.html
+permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
@@ -27,8 +27,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render: 
- - aria2/**
- - static/**
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -79,14 +78,13 @@ theme: next
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   branch: master
   repository: 
     github: https://github.com/lyz05/lyz05.github.io.git
-    gitee: git@gitee.com:lyz05/lyz05.git
-    #coding: git@git.coding.net:lyz05/lyz05.git
-    aliyun: git@home999.cc:hexo.git
-  
+    coding: git@git.coding.net:lyz05/lyz05.git
+    aliyun: git@home999.cc:hexo.git   
+
 #以下是新添加的配置
 
  

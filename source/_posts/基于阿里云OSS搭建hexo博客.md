@@ -17,4 +17,4 @@ date: 2019-08-10 23:54:33
 <html><head><meta 
 http-equiv="Content-Language" content="zh-CN"><meta HTTP-EQUIV="Content-Type" CONTENT="text/html; 
 charset=gb2312"><meta http-equiv="refresh" 
-content="0.05;url=http://example.html"><title></title></head><body></body></html>
+content="0.05;url=https://www.0daybug.com/2019/0326/hexo-on-oss/index.html"><title></title></head><body></body></html>

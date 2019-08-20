@@ -6,19 +6,19 @@ categories:
   - 互联网
   - 原创
 date: 2019-04-15 20:04:31
-updated: 2019-08-05 12:00:00
+updated: 2019-08-19 12:00:00
 mathjax: true
 ---
 # 前言
-一直以来都是用各种桌面客户端，没有体验过服务端是怎样的，想体验一波，发现国外便宜的VPS都挺贵的，主要是我没什么使用VPS的需求。但国内的学生机还是很便宜的10元/月，就是宽带只有1M，事实证明还是很吃紧的，本来是没有这篇文章的，但是我发现我的技术水平不够，经常要推倒系统重来，所以就有了这篇文章。方便我快速恢复服务。
-体验了2-3周左右的阿里云之后，发现宽带实在是硬伤。再加上服务器处于国内，下载各种国外服务器上的资源都很慢。以及国内发布网站要备案等诸多因素。决定不再使用国内VPS服务器，除非他送我。
+一直以来都是用各种桌面客户端，没有体验过服务器是怎样的，想体验一波，发现国外便宜的VPS都挺贵的，主要是我没什么使用VPS的需求。但国内的学生机还是很便宜的10元/月，就是宽带只有1M，买后证明带宽还是很吃紧的。本来是不会写这篇文章的，因为写文章太累。但是我发现我的技术水平不够，经常要推倒系统重来，所以就有了这篇文章。方便我快速查阅恢复服务。
+体验了2-3周左右的阿里云之后，发现宽带实在是硬伤。再加上服务器处于国内，下载各种国外服务器上的资源都很慢。以及国内发布网站要备案等诸多因素。决定不再使用国内VPS服务器。
 总的来说国内的VPS，除了延时，稳定性占优，以及1M10元/月价格相对较香以外，没有其余优点。
 然而过了一段时间后，我又来打脸我自己，我一咬牙又买了一台阿里云的轻量应用服务器。最后综合觉得还是用阿里云比较划算。一方面5M带宽也够我用，不够可以再加OSS，而且阿里云学生机配置给的比较够，再加上BGP网络。在中国，访问还是很稳定的。
-经过去马来西亚国能大学测试发现，国外连接慢的我想打人。
+经过去马来西亚国能大学测试发现，深圳阿里云在国外连接慢的想打人。
 
 ---
-# Windows远程连接准备
-因为VPS都远在天涯海角，你不可能直接接触到，所以我们需要各种各样的远程工具。对于目标linux操作系统，最重要的就是使用终端，而想安全使用终端`ssh`必不可少。我个人是使用`git`自带的`Mingw`类linux系统中的ssh连接。然后还需要一个远程文件管理器，这里我推荐winSCP，支持协议多，速度快，兼容Windows各种操作。对于编辑器，推荐notepad++。
+# 远程连接准备
+因为VPS都远在天涯海角，你不可能直接接触到，所以我们需要各种各样的远程工具。对于目标linux操作系统，最重要的就是使用终端，而想安全使用终端`ssh`必不可少。我个人是使用`git`自带的`Mingw`类linux系统中的ssh连接。现在改为`putty`，方便挂代理。然后还需要一个远程文件管理器，这里我推荐winSCP，支持协议多，速度快，兼容Windows各种操作。对于编辑器，推荐notepad++。
 
 # Ubuntu 18.04
 
@@ -99,6 +99,7 @@ export PS1
 [ossutil64快速安装](https://help.aliyun.com/document_detail/50452.html?spm=a2c4g.11186623.6.670.61323090dzqURc)
 自动挂载oss参考下面教程，修改fstab文件
 [将阿里云OSS的Bucket挂载到Linux本地](https://www.jianshu.com/p/67c0816a968d)
+阿里云OSS可以制定挂载用户
 
 # http网站升级https
 首先我们需要一个私钥和证书，用于SSL加密使用。
@@ -107,7 +108,8 @@ export PS1
 剩下的事情就好办了，在网页服务器中启用https，填写私钥与证书路径。
 [SSL--Windows下生成OpenSSL自签证书](https://www.cnblogs.com/anlia/p/5920820.html)
 [如何让chrome信任自签名证书？](https://www.jianshu.com/p/35c31b865bb9)
-
+[Let’s Encrypt](https://letsencrypt.org/)
+一个能申请免费域名的机构，甚至可以申请通配符域名，强力推荐。
 # 域名配置&CDN加速
 ## cloudflare
 听说cloudflare的口碑很好。所以，我也就选择它了。主要还是因为穷，cloudflare有free plan可以选，尽管境内加速不咋地，甚至减速。但是有免费的SSL证书，还有解析功能，还是挺期待的。
@@ -115,7 +117,12 @@ export PS1
 还有一个很重要的一点加了CDN之后，由于CF只代理部分端口的http和https协议，这使得我的其他TCP的服务通通不能直接连上了。
 [CloudFlare免费CDN加速使用方法](https://zhuanlan.zhihu.com/p/29891330)
 
-# KCPTUN加速工具
+## 阿里云
+毕竟入坑了阿里云的服务器，所以就把阿里云的服务连在一起用咯。阿里云控制台改版后的页面比以前清爽多了，但还是功能按钮太多。
+一开始，我以为用阿里云的国内CDN需要备案，但好像他只验证了我的域名有没实名就可以用国内CDN加速了，用上CDN，国内小城镇的ping值就降了下来。尽管某些地区用的人少回源时间比较长，比直连慢，但总体上还是很不错的。域名解析，支持设置不同线路的DNS解析，目前我的Blog托管在香港阿里云加阿里云国内CDN，国外解析到Github Pages,这样全球都有CDN加速了。
+CDN加速可以使用同一域名，只是在填回源地址时，要填ip地址。在回源HOST中填上相应的域名就好了。
+
+# KCPTUN加速工具(弃)
 这是一个TCP与UDP互转的加速工具，使用UDP协议进行加速，加速双方都需要部署软件。
 [超级加速工具KCPTUN一键安装脚本 附100倍加速效果图-SSR中文网](https://ssr.tools/588)
 windows客户端要去github上找Release，体验了一下发现没有宣传的效果那样好，给我感觉一般般，但是非常消耗带宽，不适合我这种阿里云小水管，适合那些大水管，并且TCP线路尤为糟糕的。
@@ -123,7 +130,7 @@ windows客户端要去github上找Release，体验了一下发现没有宣传的
 # Mosh
 一种可以替代ssh基于UDP的远程shell工具，主要解决糟糕的境外VPS的ssh连接问题
 [使用 Mosh 来优化 SSH 连接](https://www.hi-linux.com/posts/23118.html)
-暂时找不到好用的windows客户端，用Cygwin的比较麻烦
+暂时找不到好用的windows客户端，用Cygwin的比较麻烦。而且表现并不比挂代理好，所以最后还是代理+ssh。
 
 # 服务器搭建
 
@@ -162,6 +169,9 @@ ShadowsocksR 版：
 /etc/init.d/shadowsocks-r start | stop | restart | status
 ```
 可以加入`http_simple`混淆，来搞定运营商的QOS。
+ssr`http_simple`配合nginx在80端口建真的网站效果更佳。
+[利用网站配置端口隐蔽SSR的欺骗流量方案](https://www.vjsun.com/93.html)
+
 ## 搭建ftp服务器
 我们使用`vsftpd`作为服务器软件 
 [安装教程](https://www.linuxidc.com/Linux/2017-06/144807.htm)
@@ -178,9 +188,11 @@ ShadowsocksR 版：
 [解决方法](http://www.linuxdiyf.com/linux/31107.html)
 [nginx详细配置](http://seanlook.com/2015/05/17/nginx-install-and-config)
 [windows下nginx的安装及使用](https://www.cnblogs.com/jiangwangxiang/p/8481661.html)
-nginx本身只是一个很小的组件，但是拥有扩展的他具有无限可能，所以下面是部分扩展，重新编译后能获得新功能。
-[Nginx 索引目录美化](https://www.jianshu.com/p/ae73ee2bbe6e)
 [利用Nginx反向代理谷歌](https://zhgcao.github.io/2016/06/09/nginx-reverse-proxy-google/)
+同理，可以反向代理其他网站。
+为了避免被GFW扫描到，可以设置ip白名单，或者UA白名单。有钱甚至可以使用国内服务器中转，只不过速度较慢。
+[NGINX Allow/Deny based on IP & User Agent combination](https://serverfault.com/questions/760359/nginx-allow-deny-based-on-ip-user-agent-combination)
+
 ### nginx相关配置
 下面给出服务的配置信息，将配置信息保存在`/etc/nginx/conf.d/`目录下
 frps_http.conf
@@ -267,6 +279,7 @@ server {
 [nginx代理hexo博客](https://www.jianshu.com/p/682e62c2a3dc)
 在我搭建的时候似乎遇到了权限问题，我把我的博客放在`/root`目录下，结果nginx返回`403 Forbidden`。
 事实上很多web程序都不具备访问`/root`目录的能力，最好将网站统一放在推荐的位置。
+或者用笨方法，直接root运行nginx。
 
 ### nginx端口转发(与frp共用端口)
 目前我有一个二级域名，所以有三级域名可以由我自由分配，frp,nginx本身都要监听一个端口，当我访问不同的网站时需要指定不同的端口。这样做很麻烦，所以问题来了：能不能合并成一个端口提供服务。
@@ -294,14 +307,12 @@ server {
 [LNMP环境一键安装包](https://www.flyzy2005.com/tech/install-lnmp-in-one-command/)
 [教程](https://segmentfault.com/a/1190000015654232)
 搭建完之后真的舒服，界面舒服又好用，自带WebDav。
+
 如果想直接从服务器中导入其他文件，可以参考下面这个教程，要注意所有者是www，
 同时最好修改导入文件的所有者为www。
 [OCC命令给ownCloud/Nextcloud手动添加文件](https://www.orgleaf.com/2400.html)
 然后可以以管理员的身份进入设置中的概览，进行完整性和安全性的扫描。
 给PHP开大内存储存空间，修改`/usr/local/php/etc/php.ini`文件中`memory_limit`配置信息。
-[PHP Imagick 扩展安装](https://www.jianshu.com/p/137ae1400337)
-目前`Imagick`装失败了，回滚到之前的版本了
-
 最后因为通过`LNMP`搭建的`NextCloud`问题太多，而选择了使用`snap`一键安装，从下载到安装不到1min。
 [Ubuntu使用Snap快速安装NextCloud网盘，并配置域名及SSL证书](https://www.moerats.com/archives/429/)
 `snap`会直接打包好一个虚拟的使用环境，与外界环境互不影响。
@@ -320,6 +331,11 @@ If you'd rather use a self-signed certificate, you can type:
 `NextCloud`上面还有很多小插件可以使用，可以仔细研究一下。
 [Nextcloud应用推荐](https://blog.wyc1236.com/2018/12/02/306/)
 [使用Docker部署ONLYOFFICE Document Server](https://www.orgleaf.com/2588.html)
+到最后发觉snap版本的nextcloud对本地文件和https反向代理支持不友好。而目前我也有能力全部手动装NextCloud，所以从官网下载NextCloud的PHP压缩包。
+先到官网下载，PHP压缩包，然后解压，移动到`/var/www`目录下，设置好整个目录的所有者和组为`www-data`，配置nginx下NextCloud的conf，上官网查样例，粘贴即可。
+访问网站，填写配置信息，如果有资料需要转移的，现在就可以转移了，然后再扫描文件。
+最后进入设置概览，一次解决nginx与PHP的配置和扩展未装的问题，有能力的还可以上radis。
+[解决Nextcloud提示“内存缓存未配置，为了提升使用体验，请尽量配置内存缓存。”的问题](https://www.himstudy.net/%E8%A7%A3%E5%86%B3nextcloud%E6%8F%90%E7%A4%BA%E5%86%85%E5%AD%98%E7%BC%93%E5%AD%98%E6%9C%AA%E9%85%8D%E7%BD%AE%EF%BC%8C%E4%B8%BA%E4%BA%86%E6%8F%90%E5%8D%87%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/)
 
 ## 搭建Aria2+AriaNG离线下载服务
 [Nextcloud离线下载搭建方法-整合Aria2和AriaNg、Aria2 WebUI实现离线下载](https://wzfou.com/nextcloud-aria2/)
@@ -370,7 +386,8 @@ server {
 	}
 }
 ```
-[nginx目录列表开启和美化](https://my.oschina.net/u/2306127/blog/2007238)
+nginx本身只是一个很小的组件，但是拥有扩展的他具有无限可能。如果你觉得默认的文件列表功能太简陋，可以重新编译nginx并加上扩展。
+[Nginx 索引目录美化](https://www.jianshu.com/p/ae73ee2bbe6e)
 
 ## BTsync同步工具(弃)&Syncthing
 因为一不小心就买了4台VPS服务器，他们之间需要共享一些文件。然而，阿里云太贵，坚果云只能用webdav，而且限制比较多。所以需求就产生了，还可以充分利用带宽。
@@ -380,8 +397,8 @@ server {
 
 ## BaiduPCS-Web高速下载百度网盘
 [项目地址](https://github.com/liuzhuoling2011/baidupcs-web)
-
 搭建非常简单...
+
 ## Tomcat服务器搭建
 [Vultr+CentOS7+阿里云+Tomcat部署Web应用](https://www.jianshu.com/p/cd3d20b8c26b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
 上面是较为全面的搭建教程。
@@ -408,6 +425,9 @@ sudo apt-get install default-jdk
 最早体验php是用的LNMP或LAMP一键包，但这是在你没有其他服务的情况下，像我现在各种各样的服务都在一个服务器上跑。用一键包，安装路径奇奇怪怪，所以只好自己手动来安装
 [Ubuntu 手动安装LNMP/LAMP,配置Nginx/Apache与PHP关联](https://feihu.blog/archives/773.html)
 在之前体验的过程中，遇到两个挺有用的PHP文件，分别是`phpinfo`和`PHP探针`。
+
+## mysql数据库
+[ubuntu18.04 首次登录mysql未设置密码或忘记密码解决方法](https://blog.csdn.net/qq_38737992/article/details/81090373)
 
 ## Windows下ssh服务器FreeSSHd
 [官网](http://www.freesshd.com/?ctt=download)
@@ -482,9 +502,19 @@ chown root:root /usr/local/bin/speedtest
 ### Gdrive
 像普通网盘一样去使用Google drive，具备列目录，上传下载等基础功能。
 不可以搭配proxychains4使用。
+
 ### Grive
 像Dropbox一样同步Google drive目录，可以指定目录，甚至某一个文件，同步并非实时。
 可以搭配proxychains4使用。
+
+### rclone
+这个工具比我之前想的还要强大,至少与Google Drive配合，效果特别棒！可以彻底跟垃圾阿里云OSS say GoodBye。
+有关这个工具的安装和使用。注意，如果使用没有浏览器的设备，需要特别注意选项。
+[Linux下rclone简单教程(支持VPS数据同步,多种网盘,支持挂载)](https://ymgblog.com/2018/03/09/296/)
+
+## Telegram BOT
+Telegram有一个很强大的机器人，通过机器人API可以完成各种自动化操作。
+[用Telegram管理VPS：我的5个Telegram机器人脚本](https://www.shuyz.com/posts/5-telegram-bot-script-for-vps-management/)
 
 # 维护服务器命令
 查看当前开放listen的所有Tcp端口信息
