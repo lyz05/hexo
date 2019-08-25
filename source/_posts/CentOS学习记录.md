@@ -16,3 +16,11 @@ date: 2019-08-19 21:36:51
 
 # yum包管理器
 [CentOS yum的详细使用教程](https://blog.csdn.net/huangniu306/article/details/8824571)
+这个包管理器除了能直接从源下载包，自动安装，解决依赖以外，还能安装rpm的包。
+部分软件包命名与Ubuntu不同
+
+# 自动补全
+[centos 7 systemctl自动补全命令插件](https://blog.51cto.com/damaicha/1864428
+)
+太原生态了，什么玩意都要自己装。
+默认的rm不带-f命令

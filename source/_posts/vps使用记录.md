@@ -172,6 +172,9 @@ ShadowsocksR 版：
 ssr`http_simple`配合nginx在80端口建真的网站效果更佳。
 [利用网站配置端口隐蔽SSR的欺骗流量方案](https://www.vjsun.com/93.html)
 
+## BBR加速
+[阿里云轻应用服务器香港30M轻应用玩法,净化系统，装bbr脚本等(轻量)](https://www.cheshirex.com/1549.html)
+
 ## 搭建ftp服务器
 我们使用`vsftpd`作为服务器软件 
 [安装教程](https://www.linuxidc.com/Linux/2017-06/144807.htm)
