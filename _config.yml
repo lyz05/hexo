@@ -83,7 +83,7 @@ deploy:
   repository: 
     github: https://github.com/lyz05/lyz05.github.io.git
     coding: git@git.coding.net:lyz05/lyz05.git
-    aliyun: git@home999.cc:hexo.git   
+    aliyun: git@home999.cc:hexo.git
 
 #以下是新添加的配置
 

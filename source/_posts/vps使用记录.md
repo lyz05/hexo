@@ -171,9 +171,12 @@ ShadowsocksR 版：
 可以加入`http_simple`混淆，来搞定运营商的QOS。
 ssr`http_simple`配合nginx在80端口建真的网站效果更佳。
 [利用网站配置端口隐蔽SSR的欺骗流量方案](https://www.vjsun.com/93.html)
-
+[SSR 添加多用户多端口教程（ShadowsocksR多用户）-SSR中文网](https://ssr.tools/194)
 ## BBR加速
 [阿里云轻应用服务器香港30M轻应用玩法,净化系统，装bbr脚本等(轻量)](https://www.cheshirex.com/1549.html)
+## V2ray
+[V2Ray 配置指南](https://toutyrater.github.io/)
+[V2Ray官网](https://www.v2ray.com/)
 
 ## 搭建ftp服务器
 我们使用`vsftpd`作为服务器软件 
@@ -537,3 +540,14 @@ Telegram有一个很强大的机器人，通过机器人API可以完成各种自
 [linux命令行打包、压缩及解压缩](https://www.cnblogs.com/hanguozhi/p/10385470.html)
 `ps aux `查看进程信息
 `kill 9 PID` 杀制定PID的进程
+
+## systemctl
+```
+systemctl start nfs-server.service
+systemctl enable nfs-server.service
+systemctl disable nfs-server.service
+systemctl status nfs-server.service
+systemctl restart nfs-server.service
+systemctl
+```
+[服务管理--systemctl命令](https://my.oschina.net/5lei/blog/191370)
