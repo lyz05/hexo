@@ -67,6 +67,93 @@ frp的路由器版本，也可以直接用作者github上编译的路由器版�
 ### 负载均衡
 解决多WAN上网的问题。
 除了可以单个设备认证wifi热点上网，还可以实现多个设备认证WiFi上网。通过k2p的两个无线网卡，可以分别接入学校的wifi，然后做MAC地址伪装，在从不同的网络接口发出认证包，结合负载均衡(mwan3)就可以实现多WAN上网。目前我在用的就是这种形式(10M+5M)
+mwan3配置文件
+```
+config rule 'login1'
+	option dest_ip '10.0.0.0/16'
+	option sticky '0'
+	option proto 'all'
+	option use_policy 'wwan1_only'
+	option src_ip '192.168.1.100'
+
+config rule 'login'
+	option dest_ip '10.0.0.0/16'
+	option sticky '0'
+	option proto 'all'
+	option use_policy 'wwan_only'
+	option src_ip '192.168.1.1'
+
+config rule 'vpn'
+	option dest_ip '10.1.0.0/16'
+	option proto 'all'
+	option sticky '0'
+	option use_policy 'wwan1_only'
+
+config rule 'https'
+	option sticky '1'
+	option dest_port '443'
+	option proto 'tcp'
+	option use_policy 'wwan1_only'
+
+config rule 'default_rule'
+	option dest_ip '0.0.0.0/0'
+	option proto 'all'
+	option sticky '0'
+	option use_policy 'wwan1_only'
+
+config policy 'balanced'
+	option last_resort 'default'
+	list use_member 'wwan1_m1_w1'
+	list use_member 'wwan_m1_w1'
+
+config interface 'wwan1'
+	option enabled '1'
+	option family 'ipv4'
+	option count '1'
+	option size '56'
+	option timeout '2'
+	option interval '5'
+	option failure_interval '5'
+	option recovery_interval '5'
+	option flush_conntrack 'never'
+	option reliability '1'
+	list track_ip '10.0.10.11'
+	option down '5'
+	option up '1'
+
+config interface 'wwan'
+	option enabled '1'
+	option family 'ipv4'
+	option count '1'
+	option size '56'
+	option timeout '2'
+	option interval '5'
+	option failure_interval '5'
+	option recovery_interval '5'
+	option flush_conntrack 'never'
+	option reliability '1'
+	list track_ip '10.0.10.11'
+	option down '5'
+	option up '1'
+
+config member 'wwan1_m1_w1'
+	option interface 'wwan1'
+	option metric '1'
+	option weight '1'
+
+config member 'wwan_m1_w1'
+	option interface 'wwan'
+	option metric '1'
+	option weight '1'
+
+config policy 'wwan_only'
+	list use_member 'wwan_m1_w1'
+	option last_resort 'default'
+
+config policy 'wwan1_only'
+	list use_member 'wwan1_m1_w1'
+	option last_resort 'default'
+```
 
 # 校园网认证
 这是我写的校园网认证用的shell脚本。
