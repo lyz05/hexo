@@ -1,7 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags: [题解]
-categories: [信息学,原创]
+tags: [教程]
+categories: [互联网,原创]
 mathjax: true
 ---
