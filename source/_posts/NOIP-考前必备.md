@@ -90,6 +90,30 @@ end.
 ```
 
 ****
+对拍数据生成例程
+```
+#include <ctime>
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+int random(int x,int y)			//在int范围下生成区间为[x,y]的随机整数
+{
+	int ret = rand()*rand();
+	return ret%(y-x+1)+x;
+}
+
+int main()
+{
+	srand(time(NULL));
+	while(1)
+	{
+		cout << random(1,100) << endl;
+		Sleep(100);
+	}
+	return 0;
+} 
+```
 测试一下g++,fpc,gdb是否可用，若不可用，将环境变量设置一下。
 
 <strong>考试中
