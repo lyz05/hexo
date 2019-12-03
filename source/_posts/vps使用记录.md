@@ -20,8 +20,7 @@ mathjax: true
 # 远程连接准备
 因为VPS都远在天涯海角，你不可能直接接触到，所以我们需要各种各样的远程工具。对于目标linux操作系统，最重要的就是使用终端，而想安全使用终端`ssh`必不可少。我个人是使用`git`自带的`Mingw`类linux系统中的ssh连接。现在改为`putty`，方便挂代理。然后还需要一个远程文件管理器，这里我推荐winSCP，支持协议多，速度快，兼容Windows各种操作。对于编辑器，推荐notepad++。
 
-# Ubuntu 18.04
-
+# Ubuntu 18.04——阿里云
 ## 配置系统
 因为一直以来我只用过Debian系的Linux操作系统，在体验桌面版Linux中又属Ubuntu软件多，所以直接上手Ubuntu，但网上挺多人使用CentOS作为服务器系统，可能CentOS作为服务器优势更大吧！
 首先选择一台阿里云ECS实例安装好基本的操作系统Ubuntu 18.04，然后就是开机。
@@ -45,12 +44,7 @@ rm -rf /usr/local/aegis*
 ```
 ## ssh公钥设置
 现在已经可以ssh远程系统了。因为我们直接用密码登录比较麻烦，再加之会有被暴力破解密码的风险，建议使用密钥认证登录，要使用密钥登录，首先需要在服务器上放置你ssh远程所有设备的公钥。
-```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDE5GtFXjaL4ogbJbYqWY3Z+DwwggQHdoEt3cVTXKM151ZO0ahGMrbXbWZhNerCUNbTb5hqC5P/RCYiTtsd3GocLcd+3WcvAgtwmoUTKLh22ePDyd+wVJkoz6/QprUe9VyVndkLt/LEp0k129p5BjzEoAxOss6RhH/BfDylRg1xIUDYK4slU53Bg5dESBGuTSv8oznO8m42W+dYfPauQdw0cmggngX97trLznwTLMAMbF7pjpzeHkZnbEM3xh9C5YOsJ8ECRvSN+5Jd9Tt7FjW47FGr58I4RKID2SKmNjdZQzS/KZDPBd7ZuRvfB9xrA1Ths+0ru4iMpf6AE4qbH/kH congcong@DESKTOP-N1PAF3A
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCp8iUceheqeU2f72DzuF9qwR0wzaHyVAiZIsw6oR+a5342Kr+vA5468aGlDW7d4W1bhVg9nfjuTKfngnpr9Mesl3V36LlMRZkfseRUWJEQfOITKcswEac9pORbSR+ay7kZz3iJvGeAgyquOmiFgcNaooxNnmP1iIsiMmTWRQv6ytKHTUBgEUfwBhyyyDSd5MuDUpBpM+M5jDwTy6ByeDn2r/ejddNvh4KGEIHI76klc8Fvbg1bt2GLTGUn0WUAPwIzJKa73BqhdlSdeb5M6vMVCbJDz9CnitqlaS0nGh+2+m0KBGM/yBousZWfnRVBYOzcxjJtsnacpqJ3SBHalKJ7 u0_a179@localhost
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiuxUzIy3m67awi6DG5WGRABWaCGTUoME9nQB9Lh72Tihf6xth9I5GtZ+AWIp+bP6V//33phWIGHNaIZWTNcGqFHdLb7NFfSHKwRuxCSI7PMoFpWIigC/wAB6jsTAcjT8uAdjtq4Z+GMmOZzR6Vw51WBN6+ZN54UuJTxXN8AbP5KpFuRNsqlm8IQeNGtWW0PFsaGZKqttM+1oILa5VNyY44HS6jlkejEEy4hSxO6O1p5A1QXIlDBQcPoVHGg2zeNw8yqJa6G+XR3jTigXosvNIPMgAfW7aN/v8Ue3Q+wlChugI0+6esH4pNvK87msmUXysqFSyWURb1EfRlZwETAWl 294068487@qq.com
-```
-这是我3个设备的公钥，分别是笔记本Win/ubuntu,手机Termux的公钥。
+[跳转至关于界面查看公钥](/about/index.html)
 把这些公钥一个一行放置在`~/.ssh/authorized_keys`，我没有使用`ssh-copy-id`的命令
 进行添加。这样可以快速添加设备。
 关于`ssh-copy-id`的用法`ssh-copy-id root@home999.cc`
@@ -75,6 +69,16 @@ export PS1
 远控后我发现Terminal有一点小问题，以下是解决方案。
 [Ubuntu打开终端出错：failed to execute default terminal emulator（如图示） ](https://zhidao.baidu.com/question/1770374646687303580.html)
 因为我嫌Xubuntu自带的进程管理器太丑了，安装了gnome默认的`gnome-system-monitor`。
+
+# Ubuntu 18.04——Vmware
+因为穷，买不起云服务器，遂在本地跑起了虚拟机。
+而且用不起快照，在本地用就一个字爽。
+## 安装Vmware
+网上有破解版安装包，安装好之后需要进BIOS启用CPU虚拟化。
+## Ubuntu镜像
+不同于云服务厂商，镜像需要自己下载
+[Ubuntu Server官网镜像下载页面](https://ubuntu.com/download/server)
+下载之后安装就是无图形界面的最小化Ubuntu安装，可以很人性化的导入Github上的公钥。
 
 # 相关有用的小工具安装
  - [Thefuck](https://www.jianshu.com/p/0d37b22aabba)
