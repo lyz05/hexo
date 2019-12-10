@@ -44,7 +44,11 @@ rm -rf /usr/local/aegis*
 ```
 ## ssh公钥设置
 现在已经可以ssh远程系统了。因为我们直接用密码登录比较麻烦，再加之会有被暴力破解密码的风险，建议使用密钥认证登录，要使用密钥登录，首先需要在服务器上放置你ssh远程所有设备的公钥。
-[跳转至关于界面查看公钥](/about/index.html)
+某天，我装了Ubuntu18.04 server版，发现Ubuntu支持直接从Github上获取Github上保存的公钥。这操作非常的赞，这样就可以让我的所有远程设备都能轻轻松松的获取公钥。而且不需要我主动去维护公钥的一致性。
+从以下地址获取公钥并保存
+```
+wget -O - https://github.com/lyz05.keys >> /root/.ssh/authorized_keys
+```
 把这些公钥一个一行放置在`~/.ssh/authorized_keys`，我没有使用`ssh-copy-id`的命令
 进行添加。这样可以快速添加设备。
 关于`ssh-copy-id`的用法`ssh-copy-id root@home999.cc`
