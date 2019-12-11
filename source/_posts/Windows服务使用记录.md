@@ -32,7 +32,7 @@ RDP默认端口3389
 命令|解释
 -|-
 `netstat -ano`|查看所有的端口监听情况
-`netstat -aon|findstr "9050"`|查看指定端口的监听情况
+`netstat -aon \| findstr "9050"`|查看指定端口的监听情况
 `netsh interface portproxy show all`|查看所有的端口转发
 `netsh interface portproxy delete v4tov4 listenport=3340 listenaddress=10.1.1.110`|删除指定的端口转发规则
 `netsh interface portproxy add v4tov4 listenaddress=192.168.222.145 listenport=15001 connectaddress=192.168.222.63 connectport=81`|添加指定的端口转发规则
