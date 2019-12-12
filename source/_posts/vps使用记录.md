@@ -19,6 +19,12 @@ mathjax: true
 ---
 # 远程连接准备
 因为VPS都远在天涯海角，你不可能直接接触到，所以我们需要各种各样的远程工具。对于目标linux操作系统，最重要的就是使用终端，而想安全使用终端`ssh`必不可少。我个人是使用`git`自带的`Mingw`类linux系统中的ssh连接。现在改为`putty`，方便挂代理。然后还需要一个远程文件管理器，这里我推荐winSCP，支持协议多，速度快，兼容Windows各种操作。对于编辑器，推荐notepad++。
+过了一段时间后，觉得putty太丑，winscp配合putty打开太麻烦，在[Kaiak](https://github.com/kaiakz)的大力推荐下，尝试使用`MobaXterm`,发现是真香。
+
+## Mosh
+一种可以替代ssh基于UDP的远程shell工具，主要解决糟糕的境外VPS的ssh连接问题
+[使用 Mosh 来优化 SSH 连接](https://www.hi-linux.com/posts/23118.html)
+暂时找不到好用的windows客户端，用Cygwin的比较麻烦。而且表现并不比挂代理好，所以最后还是代理+ssh。
 
 # Ubuntu 18.04——阿里云
 ## 配置系统
@@ -109,7 +115,7 @@ export PS1
 [将阿里云OSS的Bucket挂载到Linux本地](https://www.jianshu.com/p/67c0816a968d)
 阿里云OSS可以制定挂载用户
 
-# http网站升级https
+# SSL证书申请
 首先我们需要一个私钥和证书，用于SSL加密使用。
 有两种途径获得，一种途径是像CA申请获得，这就要钱了，不过阿里云有免费的SSL证书申请可以试一下。
 另一种是自签名证书，不过浏览器会不信任，可以将证书加到受信任证书解决。
@@ -118,6 +124,7 @@ export PS1
 [如何让chrome信任自签名证书？](https://www.jianshu.com/p/35c31b865bb9)
 [Let’s Encrypt](https://letsencrypt.org/)
 一个能申请免费域名的机构，甚至可以申请通配符域名，强力推荐。
+
 # 域名配置&CDN加速
 ## cloudflare
 听说cloudflare的口碑很好。所以，我也就选择它了。主要还是因为穷，cloudflare有free plan可以选，尽管境内加速不咋地，甚至减速。但是有免费的SSL证书，还有解析功能，还是挺期待的。
@@ -130,15 +137,13 @@ export PS1
 一开始，我以为用阿里云的国内CDN需要备案，但好像他只验证了我的域名有没实名就可以用国内CDN加速了，用上CDN，国内小城镇的ping值就降了下来。尽管某些地区用的人少回源时间比较长，比直连慢，但总体上还是很不错的。域名解析，支持设置不同线路的DNS解析，目前我的Blog托管在香港阿里云加阿里云国内CDN，国外解析到Github Pages,这样全球都有CDN加速了。
 CDN加速可以使用同一域名，只是在填回源地址时，要填ip地址。在回源HOST中填上相应的域名就好了。
 
+## 腾讯云
+跟阿里云大同小异，腾讯云的CDN有每月10GB的免费流量可用。
+
 # KCPTUN加速工具(弃)
 这是一个TCP与UDP互转的加速工具，使用UDP协议进行加速，加速双方都需要部署软件。
 [超级加速工具KCPTUN一键安装脚本 附100倍加速效果图-SSR中文网](https://ssr.tools/588)
 windows客户端要去github上找Release，体验了一下发现没有宣传的效果那样好，给我感觉一般般，但是非常消耗带宽，不适合我这种阿里云小水管，适合那些大水管，并且TCP线路尤为糟糕的。
-
-# Mosh
-一种可以替代ssh基于UDP的远程shell工具，主要解决糟糕的境外VPS的ssh连接问题
-[使用 Mosh 来优化 SSH 连接](https://www.hi-linux.com/posts/23118.html)
-暂时找不到好用的windows客户端，用Cygwin的比较麻烦。而且表现并不比挂代理好，所以最后还是代理+ssh。
 
 # 服务器搭建
 
@@ -206,6 +211,7 @@ ssr`http_simple`配合nginx在80端口建真的网站效果更佳。
 同理，可以反向代理其他网站。
 为了避免被GFW扫描到，可以设置ip白名单，或者UA白名单。有钱甚至可以使用国内服务器中转，只不过速度较慢。
 [NGINX Allow/Deny based on IP & User Agent combination](https://serverfault.com/questions/760359/nginx-allow-deny-based-on-ip-user-agent-combination)
+服务器端反代有诸多限制，不够先进，可以参考`jsproxy`实现更高效的反代。
 
 ### nginx相关配置
 下面给出服务的配置信息，将配置信息保存在`/etc/nginx/conf.d/`目录下
@@ -380,6 +386,12 @@ Fortuna OJ作为用了3年的学校oj，当然要试着搭建一波了。
 由于没有文档，很多东西只能自己去猜测，试验。
 目前已知添加数据时，需要单个测试点一个个添加。
 
+## 搭建青岛Online Judge
+[后端代码](https://github.com/QingdaoU/OnlineJudge)
+[前端代码](https://github.com/QingdaoU/OnlineJudgeFE)
+[Docker部署代码](https://github.com/QingdaoU/OnlineJudgeDeploy)
+[文档](https://docs.onlinejudge.me)
+
 ## 搭建简单的http文件服务器
 使用nginx或apache都可。
 个人喜欢nginx，所以就以nginx为例。
@@ -453,6 +465,10 @@ sudo apt-get install default-jdk
 ## Brook端口转发
 [『原创』Shadowsocks Brook 中继(中转/端口转发) 便捷管理脚本](https://doubibackup.com/yv4cp61c.html)
 
+## docker容器
+[Docker 教程](https://www.runoob.com/docker/docker-hello-world.html)
+[Docker对象清理](https://blog.csdn.net/weixin_32820767/article/details/81196250)
+
 # 客户端搭建
 
 ## WebDAV客户端
@@ -504,9 +520,6 @@ chown root:root /usr/local/bin/speedtest
 ```
 使用命令`speedtest`
 
-## docker容器
-[Docker 教程](https://www.runoob.com/docker/docker-hello-world.html)
-[Docker对象清理](https://blog.csdn.net/weixin_32820767/article/details/81196250)
 
 ## Google drive客户端
 因为Google drive没有第三方客户端，所以万能的国外大佬们，绝对不允许自己的Google drive空间被白白浪费，整出了一大堆第三方Google drive工具，再加上Google良心，没有对这些第三方工具加以限制，因此可以实现各种骚操作。
@@ -525,7 +538,8 @@ chown root:root /usr/local/bin/speedtest
 这个工具比我之前想的还要强大,至少与Google Drive配合，效果特别棒！可以彻底跟垃圾阿里云OSS say GoodBye。
 有关这个工具的安装和使用。注意，如果使用没有浏览器的设备，需要特别注意选项。
 [Linux下rclone简单教程(支持VPS数据同步,多种网盘,支持挂载)](https://ymgblog.com/2018/03/09/296/)
-
+有关开机自动挂载
+[CENTOS服务器使用rclone开机自动挂载谷歌云盘Google drive rclone自动挂载Gdrive磁盘的](https://lab.bnxb.com/zhishi/27538.html)
 ## Telegram BOT
 Telegram有一个很强大的机器人，通过机器人API可以完成各种自动化操作。
 [用Telegram管理VPS：我的5个Telegram机器人脚本](https://www.shuyz.com/posts/5-telegram-bot-script-for-vps-management/)

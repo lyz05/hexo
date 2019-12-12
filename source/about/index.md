@@ -31,7 +31,7 @@ Email:liuyuanzhe0515@gmail.com
 QQ:294068487
 
 # 博文链接
-[VPS使用记录](/2019/04/15/VPS%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/)
+[VPS使用记录](/2019/04/15/vps使用记录/)
 [PandoraBox使用记录](/2019/11/17/PandoraBox使用记录/)
 
 # 相关链接
@@ -46,7 +46,8 @@ QQ:294068487
 [PandoraBox](http://newk2p.home999.cc:8080/)
 [Google](https://g.home999.cc/)
 [Wikipedia](https://w.home999.cc/)
-[The Wandering Earth](http://home999.cc:8084/)
+[The Wandering Earth](http://earth.home999.cc/)
+[GoIndex](https://gd.lyz05.workers.dev/)
 
 
 <!-- [PandoraBox](https://k2p.home999.cc:8081/) -->
