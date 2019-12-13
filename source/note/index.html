@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+		<title>剪切板</title>
+		<!-- LeanCloud -->
+		<script src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous">
+		</script>
+		<!-- Todolist -->
+		<script type="text/javascript" src="initLeanCloud.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+	</head>
+	<body>
+	<center>
+		<h1>剪切板</h1>
+		<textarea rows="10" cols="100" name="content" id="content"></textarea>
+		<br>
+		<div id="contentwordage"></div>
+		<button type="button" onclick="get()" hidden="true">获取</button>
+		<button type="button" onclick="update()" hidden="true">发布</button>
+	</center>
+	</body>
+</html>

@@ -48,6 +48,8 @@ QQ:294068487
 [Wikipedia](https://w.home999.cc/)
 [The Wandering Earth](http://earth.home999.cc/)
 [GoIndex](https://gd.lyz05.workers.dev/)
+[ZHBIT OJ](http://oj.home999.cc:8080/)
+[剪切板](/note/)
 
 
 <!-- [PandoraBox](https://k2p.home999.cc:8081/) -->
