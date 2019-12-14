@@ -452,10 +452,10 @@ tagcloud:
 # ---------------------------------------------------------------
 
 font:
-  enable: true
+  enable: false
 
   # Uri of fonts host, e.g. //fonts.googleapis.com (Default).
-  host: //fonts.lug.ustc.edu.cn
+  host: 
 
   # Font options:
   # `external: true` will load this font family from `host` above.
