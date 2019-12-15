@@ -24,16 +24,16 @@ after_script:
     - cd ../
     - mv .deploy_git/.git/ ./public/
     - cd ./public
-    - git config user.name "yourname"
-    - git config user.email "your email"
+    - git config user.name "lyz05"
+    - git config user.email "294068487@qq.com"
     - git add .
     - git commit -m "Travis CI Auto Builder"
     - git push --force --quiet "https://${travis}@${GH_REF}" master:master
 
 branches:
     only:
-        - hexo # 只监测hexo分支
+        - blog # 只监测hexo分支
 
 env:
     global:
-        - GH_REF: github.com/yourname/yourname.github.io.git #设置GH_REF，注意更改成自己的仓库地址 
+        - GH_REF: github.com/lyz05/lyz05.github.io.git #设置GH_REF，注意更改成自己的仓库地址 
