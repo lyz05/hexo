@@ -26,7 +26,7 @@ after_script:
     - git config user.email "your email"
     - git add .
     - git commit -m "Travis CI Auto Builder"
-    - git push --force --quiet "https://travis-ci@${GH_REF}" master:master
+    - git push --force "https://travis-ci@${GH_REF}" master:master
   
 
 # 只有指定的分支提交时才会运行脚本
