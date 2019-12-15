@@ -14,10 +14,22 @@ install:
 script:
   - hexo clean
   - hexo g
-  - hexo deploy
+
+after_script:
+    - cd ./public
+    - git init
+    - git config user.name "lyz05" # 修改name
+    - git config user.email "294068487@qq.com" # 修改email
+    - git add .
+    - git commit -m "Travis CI Auto Builder"
+    - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称
   
 
 # 只有指定的分支提交时才会运行脚本
 branches:
   only:
     - blog
+
+env:
+    global:
+        - GH_REF: github.com/lyz05/lyz05.github.io.git #设置GH_REF，注意更改yourname
