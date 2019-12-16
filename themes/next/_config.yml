@@ -638,7 +638,7 @@ changyan:
 # You can get your appid and appkey from https://leancloud.cn
 # More info available at https://valine.js.org
 valine:
-  enable: false # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.
+  enable: true # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.
   appid: XIvfHitkQpcIdYONge8baBBR-gzGzoHsz # your leancloud application appid
   appkey: nV8vEtsT9WYR9pGPCxEXyqWl # your leancloud application appkey
   notify: false # mail notifier, See: https://github.com/xCss/Valine/wiki
@@ -736,7 +736,7 @@ needmoreshare2:
 # ---------------------------------------------------------------
 
 # Baidu Analytics ID
-baidu_analytics: 9f650b07fb0f9e14020b6f41ec612bc6
+#baidu_analytics: 9f650b07fb0f9e14020b6f41ec612bc6
 
 # Growingio Analytics ID
 # Copyright 2015-2018 GrowingIO, Inc. More info available at https://www.growingio.com
