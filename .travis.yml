@@ -8,6 +8,7 @@ cache:
         - node_modules # 缓存不经常更改的内容
 
 before_install:
+    - export TZ='Asia/Shanghai' # 更改时区
     - npm install hexo-cli -g
 
 install:
@@ -27,12 +28,12 @@ after_script:
     - git config user.name "lyz05"
     - git config user.email "294068487@qq.com"
     - git add .
-    - git commit -m "Travis CI Auto Builder"
+    - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`" # 提交记录包含时间 跟上面更改时区配合
     - git push --force --quiet "https://${travis}@${GH_REF}" master:master
 
 branches:
     only:
-        - blog # 只监测hexo分支
+        - blog # 只监测blog分支
 
 env:
     global:
