@@ -51,7 +51,10 @@ QQ:294068487
 [ZHBIT OJ](http://oj.home999.cc:8080/)
 [剪切板](/note/)
 
-
+# 邀请码
+## SSRcloud
+[邀请链接1](https://stephanie6251dsaszd.xyz/auth/register?code=57MC)
+[邀请链接2](https://stephanie6251dsaszd.xyz/#/auth/register?code=57MC)
 <!-- [PandoraBox](https://k2p.home999.cc:8081/) -->
 <!-- [eTest](https://home999.cc:8086/) -->
 <!-- Fortuna OJ: http://jp.home999.cc/foj/#main/home -->
