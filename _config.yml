@@ -81,8 +81,13 @@ deploy:
   branch: master
   repository: 
     github: https://github.com/lyz05/lyz05.github.io.git
+<<<<<<< HEAD
     coding: git@git.coding.net:lyz05/lyz05.git
     aliyun: git@home999.cc:hexo.git
+=======
+    #coding: git@git.coding.net:lyz05/lyz05.git
+    #aliyun: git@home999.cc:hexo.git
+>>>>>>> 42b559f3dba693db400786f232f6072b14f3d24c
 
 #以下是新添加的配置
 

@@ -1,0 +1,39 @@
+language: node_js # 设置语言
+
+node_js: stable # 设置相应版本
+
+cache:
+    apt: true
+    directories:
+        - node_modules # 缓存不经常更改的内容
+
+before_install:
+    - npm install hexo-cli -g
+
+install:
+    - npm install # 安装hexo及插件
+
+script:
+    - hexo clean # 清除
+    - hexo g # 生成
+
+after_script:
+    - git clone https://${GH_REF} .deploy_git
+    - cd .deploy_git
+    - git checkout master
+    - cd ../
+    - mv .deploy_git/.git/ ./public/
+    - cd ./public
+    - git config user.name "lyz05"
+    - git config user.email "294068487@qq.com"
+    - git add .
+    - git commit -m "Travis CI Auto Builder"
+    - git push --force --quiet "https://${travis}@${GH_REF}" master:master
+
+branches:
+    only:
+        - blog # 只监测hexo分支
+
+env:
+    global:
+        - GH_REF: github.com/lyz05/lyz05.github.io.git #设置GH_REF，注意更改成自己的仓库地址 
