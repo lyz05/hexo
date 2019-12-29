@@ -48,9 +48,9 @@ QQ:294068487
 [Wikipedia](https://w.home999.cc/)
 [The Wandering Earth](http://earth.home999.cc/)
 [GoIndex](https://gd.lyz05.workers.dev/)
-[ZHBIT OJ](http://oj.home999.cc:8080/)
 [剪切板](/note/)
 <!-- [eTest](https://home999.cc:8086/) -->
+<!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 
 # 邀请码
 ## SSRcloud
