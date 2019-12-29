@@ -49,6 +49,7 @@ QQ:294068487
 [The Wandering Earth](http://earth.home999.cc/)
 [GoIndex](https://gd.lyz05.workers.dev/)
 [剪切板](/note/)
+<!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 <!-- [eTest](https://home999.cc:8086/) -->
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 
