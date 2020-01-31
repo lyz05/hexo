@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>登录 - 图书借阅管理系统</title>
+		<!-- bootstrap样式 -->
+		<link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">	
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="static/js/jquery.min.js"></script>
+		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+		<script src="static/bootstrap/js/bootstrap.min.js"></script>
+		<!-- 自定义js -->
+		<script src="static/js/ajaxrequest.js"></script>
+		<script src="static/js/jquery-form.js"></script>
+		<!-- jQuery i18n -->
+		<script src="static/js/jquery.json.min.js"></script>
+		<script src="static/js/jquery.i18n.properties.js"></script>
+		<script src="static/js/i18n.js"></script>
+		<!-- Bootstrap日期插件 -->
+		<link href="static/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+		<script src="static/js/moment-with-locales.js"></script>
+		<script src="static/js/bootstrap-datetimepicker.min.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+		<div class="row text-center" >
+			<div class="col-sm-4 col-sm-offset-4">
+				<h1 data-locale="login">登录</h1>
+				<div class="alert alert-info fade in" style="display: none;" role="alert" id="alert">
+		        	alert message
+				</div>
+				<form id="form1" class="form-horizontal" onkeydown="if(event.keyCode==13)login();">
+					<div class="form-group input-group">					
+						<span class="input-group-addon">
+			            	<span class="glyphicon glyphicon-user"></span>
+			            </span>
+						<input data-locale-placeholder="account" id="username" name="username" type="text" placeholder="账号" class="form-control">
+					</div>
+					<div class="form-group input-group">
+						<span class="input-group-addon">
+			            	<span class="glyphicon glyphicon-lock"></span>
+			            </span>
+						<input data-locale-placeholder="password" id="password" name="password" type="password" class="form-control" placeholder="密码">
+					</div>
+					<div class="form-group input-group">
+						<span class="input-group-addon">
+			            	<span class="glyphicon glyphicon-globe"></span>
+			            </span>
+						<select id="lang" name="language" class="form-control">
+							<option value="zh_CN">简体中文</option>
+							<option value="en_US">English</option>
+							<option value="zh_TW">正體中文</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input data-locale-btn="login" id="loginbtn" type="button" value="登录" class="btn btn-primary btn-block" onclick="login()"/>
+						<input data-locale-btn="reset" id="resetbtn" type="reset" value="重置" class="btn btn-default btn-block"/>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+		</div>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 data-locale="sysinfo" class="modal-title" id="myModalLabel">系统提示</h4>
+		            </div>
+		            <div data-locale="adminwelcom" class="modal-body">您好，管理员<br>请选择将要进入的管理界面</div>
+		            <div class="modal-footer">
+		                <button data-locale="bookmanagesys" type="button" class="btn btn-success" onclick="window.location.href = 'bookmanager.html';">图书管理界面</button>
+		                <button data-locale="readermanagesys" type="button" class="btn btn-info" onclick="window.location.href = 'readerinformation.html';">读者管理界面</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>
+	</body>
+	<script>
+		function documentready(){
+			$("#lang option[value='"+localStorage.getItem('LANGUAGE_CODE')+"']").attr("selected","selected")
+			$('title').html($.i18n.prop('login')+" - "+$.i18n.prop('systemname'));
+		}
+		function tableautoresize() {}
+		function login()
+		{
+			ajaxRequest("post","http://earth.home999.cc/book/api/login",$('#form1').serialize(),null,loginCallBack);
+		}
+		function loginCallBack(result)
+		{
+			if (result.code == "603") {
+				window.location.href = "borrowinformation.html";
+			} else if (result.code == "604") {
+				$('#myModal').modal('show');
+			}
+		}
+		 //切换语言
+		$("#lang").on('change',function(){
+			localStorage.setItem("LANGUAGE_CODE",$(this).val());
+			loadProperties($(this).val());
+		});
+	</script>
+
+</html>
