@@ -35,23 +35,20 @@ QQ:294068487
 [PandoraBox使用记录](/2019/11/17/PandoraBox使用记录/)
 
 # 相关链接
-[Aria2](https://static.home999.cc/aria2/)
-[phpMyAdmin](https://static.home999.cc/phpMyAdmin/)
-[香港阿里云公开文件](https://static.home999.cc)
-[NextCloud](http://cloud.home999.cc/)
-[图库](https://image.home999.cc)
-[Filestash](https://file.home999.cc/login)
-[frp dashboard](http://home999.cc:7500/)
-[myy k2p](http://k2p.home999.cc:8080/)
-[PandoraBox](http://newk2p.home999.cc:8080/)
-[Google](https://g.home999.cc/)
-[Wikipedia](https://w.home999.cc/)
-[The Wandering Earth](http://earth.home999.cc/)
-[GoIndex](https://gd.lyz05.workers.dev/)
+[Aria2](/aria2/)
 [剪切板](/note/)
+[广州腾讯云公开文件](https://static.home999.cc)
+[phpMyAdmin](https://static.home999.cc/phpMyAdmin/)
+[frp dashboard](http://home999.cc:7500/)
+[PandoraBox](http://newk2p.home999.cc:8080/)
+[Google](https://jp.lyz05.workers.dev/-----https://www.google.com/)
+[Wikipedia](https://jp.lyz05.workers.dev/-----https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5)
+[The Wandering Earth](http://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
+[图书借阅管理系统](http://tomcat.home999.cc/book/)
+[ssm-crud](http://tomcat.home999.cc/ssm-crud/)
+[GoIndex](https://gd.lyz05.workers.dev/)
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 <!-- [eTest](https://home999.cc:8086/) -->
-<!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 
 # 邀请码
 ## SSRcloud

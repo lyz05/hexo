@@ -455,6 +455,8 @@ sudo apt-get install default-jdk
 ## mysql数据库
 [ubuntu18.04 首次登录mysql未设置密码或忘记密码解决方法](https://blog.csdn.net/qq_38737992/article/details/81090373)
 
+[mysql允许root远程登录](https://www.cnblogs.com/hehecat/p/9262106.html)
+
 ## Windows下ssh服务器FreeSSHd
 [官网](http://www.freesshd.com/?ctt=download)
 [在windows 下创建SFTP服务器](https://blog.csdn.net/zeswhd/article/details/80812496)
