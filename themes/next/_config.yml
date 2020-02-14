@@ -158,9 +158,10 @@ baidu_push: false
 # External url should start with http:// or https://
 menu:
   home: / || home
-  categories: /categories/ || th
   tags: /tags/ || tags
+  categories: /categories/ || th
   archives: /archives/ || archive
+  file: https://static.home999.cc/ || folder
   about: /about/ || user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
