@@ -35,22 +35,29 @@ QQ:294068487
 [PandoraBox使用记录](/2019/11/17/PandoraBox使用记录/)
 
 # 相关链接
+## Github Pages(CDN)
 [Aria2](/aria2/)
 [剪切板](/note/)
-[广州腾讯云公开文件](https://static.home999.cc)
-[phpMyAdmin](https://static.home999.cc/phpMyAdmin/)
+## OSS
+[香港阿里云OSS](https://static.home999.cc)
+## Server(CDN)
 [frp dashboard](http://home999.cc:7500/)
 [PandoraBox](http://newk2p.home999.cc:8080/)
-[Google](https://jp.lyz05.workers.dev/-----https://www.google.com/)
-[Wikipedia](https://jp.lyz05.workers.dev/-----https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5)
+### Tomcat
 [The Wandering Earth](http://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](http://tomcat.home999.cc/book/)
 [ssm-crud](http://tomcat.home999.cc/ssm-crud/)
+## Cloudflare Workers
+[jsproxy](https://jp.lyz05.workers.dev/)
 [GoIndex](https://gd.lyz05.workers.dev/)
+[Google](https://jp.lyz05.workers.dev/-----https://www.google.com/)
+[Wikipedia](https://jp.lyz05.workers.dev/-----https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5)
+
+<!-- [phpMyAdmin](https://static.home999.cc/phpMyAdmin/) -->
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 <!-- [eTest](https://home999.cc:8086/) -->
 
 # 邀请码
 ## SSRcloud
-[邀请链接1](https://stephanie6251dsaszd.xyz/auth/register?code=57MC)
-[邀请链接2](https://stephanie6251dsaszd.xyz/#/auth/register?code=57MC)
+[邀请链接1](https://www.clashcloud.net/auth/register?code=57MC)
+[邀请链接2](https://www.clashcloud.net/#/auth/register?code=57MC)
