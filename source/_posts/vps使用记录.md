@@ -17,6 +17,7 @@ mathjax: true
 经过去马来西亚国能大学测试发现，深圳阿里云在国外连接慢的想打人。
 
 ---
+
 # 远程连接准备
 因为VPS都远在天涯海角，你不可能直接接触到，所以我们需要各种各样的远程工具。对于目标linux操作系统，最重要的就是使用终端，而想安全使用终端`ssh`必不可少。我个人是使用`git`自带的`Mingw`类linux系统中的ssh连接。现在改为`putty`，方便挂代理。然后还需要一个远程文件管理器，这里我推荐winSCP，支持协议多，速度快，兼容Windows各种操作。对于编辑器，推荐notepad++。
 过了一段时间后，觉得putty太丑，winscp配合putty打开太麻烦，在[Kaiak](https://github.com/kaiakz)的大力推荐下，尝试使用`MobaXterm`,发现是真香。
@@ -94,14 +95,6 @@ export PS1
  - [Thefuck](https://www.jianshu.com/p/0d37b22aabba)
  - [Besttrace](https://www.xiaoz.me/archives/11769)
 
-# 宝塔面板(弃用)
-[安装教程](https://doubibackup.com/hxvodqzg.html)
-这个玩意太强大了，所以我单独的将他拿了出来，对于那些不想接触linux命令行的人简直太方便了。
-完全的网页可视化管理，比起我先前提到的安装桌面环境来说要更省空间，并且也容易操作的多。
-我觉得这玩意就像路由器中的后台管理luci，可以满足你大部分搭建服务器软件的需求。
-缺点就是安装东西真的很慢，国内开发的软件，增值服务太多，花里胡哨的！！！
-最后面我弃用了他，瞎改我的配置，瞎增加网页，吃相难看，再见！
-
 # 阿里云OSS
 首先声明这个阿里云的OSS性能十分堪忧，主要是ossfs这个挂载工具堪忧。
 全球上传速度也很慢，内网传输也才20-30M/s左右。外网传输也不过10M左右。
@@ -140,17 +133,11 @@ CDN加速可以使用同一域名，只是在填回源地址时，要填ip地址
 ## 腾讯云
 跟阿里云大同小异，腾讯云的CDN有每月10GB的免费流量可用。
 
-# KCPTUN加速工具(弃)
-这是一个TCP与UDP互转的加速工具，使用UDP协议进行加速，加速双方都需要部署软件。
-[超级加速工具KCPTUN一键安装脚本 附100倍加速效果图-SSR中文网](https://ssr.tools/588)
-windows客户端要去github上找Release，体验了一下发现没有宣传的效果那样好，给我感觉一般般，但是非常消耗带宽，不适合我这种阿里云小水管，适合那些大水管，并且TCP线路尤为糟糕的。
-
 # 服务器搭建
 
 ## 搭建frp内网穿透
 [项目地址](https://github.com/fatedier/frp/releases)
 在这里下载当前平台所需要的二进制运行文件。
-tar.gz压缩包解压命令`tar -xzvf file.tar.gz`
 frps.ini配置文件如下：
 ```
 [common]
@@ -185,8 +172,10 @@ ShadowsocksR 版：
 ssr`http_simple`配合nginx在80端口建真的网站效果更佳。
 [利用网站配置端口隐蔽SSR的欺骗流量方案](https://www.vjsun.com/93.html)
 [SSR 添加多用户多端口教程（ShadowsocksR多用户）-SSR中文网](https://ssr.tools/194)
+
 ## BBR加速
 [阿里云轻应用服务器香港30M轻应用玩法,净化系统，装bbr脚本等(轻量)](https://www.cheshirex.com/1549.html)
+
 ## V2ray
 [V2Ray 配置指南](https://toutyrater.github.io/)
 [V2Ray官网](https://www.v2ray.com/)
@@ -213,87 +202,6 @@ ssr`http_simple`配合nginx在80端口建真的网站效果更佳。
 [NGINX Allow/Deny based on IP & User Agent combination](https://serverfault.com/questions/760359/nginx-allow-deny-based-on-ip-user-agent-combination)
 服务器端反代有诸多限制，不够先进，可以参考`jsproxy`实现更高效的反代。
 
-### nginx相关配置
-下面给出服务的配置信息，将配置信息保存在`/etc/nginx/conf.d/`目录下
-frps_http.conf
-```
-server {
-    listen 8080;
-	server_name .home999.cc;
-    
-    location / {
-        proxy_pass  http://127.0.0.1:8082;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-NginX-Proxy true;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_max_temp_file_size 0;
-        proxy_redirect off;
-        proxy_read_timeout 240s;
-    }
-
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-}
-```
-frps_dashboard.conf
-```
-server {
-    listen 8080;
-    server_name .frp.home999.cc;
-
-    location / {
-        proxy_pass  http://127.0.0.1:7500;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-NginX-Proxy true;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_max_temp_file_size 0;
-        proxy_redirect off;
-        proxy_read_timeout 240s;
-    }
-
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-}
-```
-eTest.conf
-```
-server {
-    listen       8086 ssl;
-    server_name  home999.cc;
-
-    ssl_certificate      /cert/2101316_home999.cc.pem;
-    ssl_certificate_key  /cert/2101316_home999.cc.key;
-
-    ssl_session_timeout  5m;
-
-    location / {
-        proxy_pass https://localhost:5001;
-    }
-}
-```
-hexo.conf
-```
-server {
-        listen       8082;
-        server_name  127.0.0.1;
-        #charset koi8-r;
-        #access_log  logs/host.access.log  main;
-        location / {
-            root   /home/public;
-            index  index.html;
-    }
-}
-```
 
 ### 搭建Hexo静态网站博客
 [nginx代理hexo博客](https://www.jianshu.com/p/682e62c2a3dc)
@@ -531,6 +439,7 @@ chown root:root /usr/local/bin/speedtest
 ### Gdrive
 像普通网盘一样去使用Google drive，具备列目录，上传下载等基础功能。
 不可以搭配proxychains4使用。
+2020年2月21日测试使用，被Google报应用不安全，以致无法正常使用
 
 ### Grive
 像Dropbox一样同步Google drive目录，可以指定目录，甚至某一个文件，同步并非实时。
@@ -547,23 +456,24 @@ Telegram有一个很强大的机器人，通过机器人API可以完成各种自
 [用Telegram管理VPS：我的5个Telegram机器人脚本](https://www.shuyz.com/posts/5-telegram-bot-script-for-vps-management/)
 
 # 维护服务器命令
-查看当前开放listen的所有Tcp端口信息
-`netstat -nltp`
-系统资源管理器
-`top`
-网络资源管理器
-[`iftop`查看实时带宽流量情况](https://www.cnblogs.com/fklin/p/4986645.html)
-`ifstat`
-`df`	查看磁盘空间
-`du -sh ./* --exclude="media"`查看当前目录文件(夹)大小并排除media文件夹
-[`screen`管理多终端](https://www.cnblogs.com/cute/p/5015852.html)
-`screen -S new`
-`screen -R reload`
-`cat /var/log/dist-upgrade/main.log | grep ERR` 查看系统升级出错日志
-[`crontab`计划任务](https://www.runoob.com/w3cnote/linux-crontab-tasks.html)
-[linux命令行打包、压缩及解压缩](https://www.cnblogs.com/hanguozhi/p/10385470.html)
-`ps aux `查看进程信息
-`kill 9 PID` 杀制定PID的进程
+命令 | 备注
+-|-
+`netstat -nltp`     |   查看当前开放listen的所有Tcp端口信息
+`htop`              |   系统资源管理器
+`iftop`             |   [查看实时带宽流量情况](https://www.cnblogs.com/fklin/p/4986645.html)
+`ifstat`            |   网络资源管理器
+`df`                |   查看磁盘空间
+`du -sh ./* --exclude="media"` | 查看当前目录文件(夹)大小并排除media文件夹
+`screen`            |   [管理多终端](https://www.cnblogs.com/cute/p/5015852.html)
+`screen -S new`     |
+`screen -R reload`  |
+`cat /var/log/dist-upgrade/main.log \| grep ERR` | 查看系统升级出错日志
+`crontab`           |   [计划任务](https://www.runoob.com/w3cnote/linux-crontab-tasks.html)
+`ps aux `           |   查看进程信息
+`kill 9 PID`        |   杀制定PID的进程
+`tar -xzvf file.tar.gz` | tar.gz解压命令
+`tar -czvf ***.tar.gz ./file` | tar.gz压缩命令
+`tar -cvf ***.tar ./file` | tar打包命令
 
 ## systemctl
 ```
@@ -575,3 +485,101 @@ systemctl restart nfs-server.service
 systemctl
 ```
 [服务管理--systemctl命令](https://my.oschina.net/5lei/blog/191370)
+
+# 弃用
+## 宝塔面板
+[安装教程](https://doubibackup.com/hxvodqzg.html)
+这个玩意太强大了，所以我单独的将他拿了出来，对于那些不想接触linux命令行的人简直太方便了。
+完全的网页可视化管理，比起我先前提到的安装桌面环境来说要更省空间，并且也容易操作的多。
+我觉得这玩意就像路由器中的后台管理luci，可以满足你大部分搭建服务器软件的需求。
+缺点就是安装东西真的很慢，国内开发的软件，增值服务太多，花里胡哨的！！！
+最后面我弃用了他，瞎改我的配置，瞎增加网页，吃相难看，再见！
+
+## KCPTUN加速工具
+这是一个TCP与UDP互转的加速工具，使用UDP协议进行加速，加速双方都需要部署软件。
+[超级加速工具KCPTUN一键安装脚本 附100倍加速效果图-SSR中文网](https://ssr.tools/588)
+windows客户端要去github上找Release，体验了一下发现没有宣传的效果那样好，给我感觉一般般，但是非常消耗带宽，不适合我这种阿里云小水管，适合那些大水管，并且TCP线路尤为糟糕的。
+
+
+# VPS性能测试
+## Zbench
+```
+#中文版
+wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/ZBench/master/ZBench-CN.sh && bash ZBench-CN.sh
+#英文版
+wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/ZBench/master/ZBench.sh && bash ZBench.sh
+```
+Vultr Tokyo,Japan (5$/月)
+```cpp
+--------------------------------------------------------------------------
+CPU 型号             : Intel Core Processor (Haswell, no TSX, IBRS)
+CPU 核心数           : 1
+CPU 频率             : 2399.996 MHz
+总硬盘大小           : 25.5 GB (20.0 GB Used)
+总内存大小           : 985 MB (147 MB Used)
+SWAP大小             : 0 MB (0 MB Used)
+开机时长             : 0 days, 5 hour 39 min
+系统负载             : 0.27, 0.08, 0.02
+系统                 : Ubuntu 18.04.3 LTS
+架构                 : x86_64 (64 Bit)
+内核                 : 4.15.0-74-generic
+虚拟化平台           : kvm
+--------------------------------------------------------------------------
+硬盘I/O (第一次测试) : 392 MB/s
+硬盘I/O (第二次测试) : 449 MB/s
+硬盘I/O (第三次测试) : 466 MB/s
+--------------------------------------------------------------------------
+节点名称                  IP地址            下载速度            延迟
+CacheFly                  204.93.150.152    70.7MB/s            0.931 ms
+Linode, Singapore, SG     139.162.23.4      5.77MB/s            70.685 ms
+Linode, London, UK        176.58.107.39     8.38MB/s            219.419 ms
+Linode, Frankfurt, DE     139.162.130.8     7.20MB/s            248.157 ms
+Linode, Fremont, CA       50.116.14.9       15.9MB/s            109.553 ms
+Softlayer, Dallas, TX     173.192.68.18     11.4MB/s            142.574 ms
+Softlayer, Seattle, WA    67.228.112.250    18.5MB/s            88.417 ms
+Softlayer, Frankfurt, DE  159.122.69.4      3.19MB/s            244.037 ms
+Softlayer, Singapore, SG  119.81.28.170     20.3MB/s            80.402 ms
+Softlayer, HongKong, CN   119.81.130.170    34.0MB/s            49.481 ms
+--------------------------------------------------------------------------
+节点名称                  上传速度          下载速度            延迟
+上海电信                  5.43 Mbit/s       10.84 Mbit/s        245.576 ms
+西安电信                  61.67 Mbit/s      148.02 Mbit/s       111.181 ms
+北京联通                  119.83 Mbit/s     74.82 Mbit/s        124.233 ms
+--------------------------------------------------------------------------
+合肥        : 65.69 ms   北京        : 51.29 ms   武汉        : 115.65 ms
+昌吉        : Fail       成都        : Fail       上海        : Fail
+太原        : 161.32 ms  杭州        : 168.98 ms  宁夏        : 144.09 ms
+呼和浩特    : 126.03 ms  南昌        : Fail       拉萨        : Fail
+乌鲁木齐    : 161.22 ms  天津        : 121.48 ms  襄阳        : Fail
+郑州        : 162.86 ms  沈阳        : Fail       兰州        : 131.9 ms
+哈尔滨      : Fail       宁波        : Fail       苏州        : Fail
+济南        : 142.11 ms  西安        : 107.06 ms  西宁        : 111.34 ms
+重庆        : 139.7 ms   深圳        : Fail       南京        : Fail
+长沙        : Fail       长春        : 107.09 ms  福州        : 113.61 ms
+--------------------------------------------------------------------------
+
+```
+腾讯云学生机（10元/月）
+```cpp
+--------------------------------------------------------------------------
+CPU 型号             : Intel(R) Xeon(R) CPU E5-26xx v4
+CPU 核心数           : 1
+CPU 频率             : 2394.446 MHz
+总硬盘大小           : 101.0 GB (13.0 GB Used)
+总内存大小           : 1833 MB (445 MB Used)
+SWAP大小             : 0 MB (0 MB Used)
+开机时长             : 1 days, 22 hour 37 min
+系统负载             : 1.34, 0.97, 0.77
+系统                 : Ubuntu 18.04.4 LTS
+架构                 : x86_64 (64 Bit)
+内核                 : 4.15.0-76-generic
+虚拟化平台           : kvm
+--------------------------------------------------------------------------
+硬盘I/O (第一次测试) : 108 MB/s
+硬盘I/O (第二次测试) : 110 MB/s
+硬盘I/O (第三次测试) : 109 MB/s
+--------------------------------------------------------------------------
+节点名称                  IP地址            下载速度            延迟
+CacheFly                  204.93.150.152    315KB/s             162.957 ms
+
+```
