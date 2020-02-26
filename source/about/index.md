@@ -43,6 +43,9 @@ QQ:294068487
 **Server**
 [frp dashboard](http://home999.cc:7500/)
 [PandoraBox](http://newk2p.home999.cc:8080/)
+[myy Pandorabox](http://k2p.home999.cc:8080/)
+[mysql](https://mysql.home999.cc/)
+[Syncthing](https://sync.home999.cc/)
 **Tomcat(CDN)**
 [The Wandering Earth](https://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](https://tomcat.home999.cc/book/)
