@@ -406,16 +406,7 @@ umount /media/nextcloud
 -ac 声道数
 
 ## shadowsocksR客户端
-[教程](https://www.djangoz.com/2017/08/16/linux_setup_ssr/)
-目前发现此种方法的SSR客户端会与SSR的服务端冲突
-```
-# wget --no-check-certificate https://www.djangoz.com/ssr 
-wget https://onlyless.github.io/ssr
-sudo mv ssr /usr/local/bin
-sudo chmod 766 /usr/local/bin/ssr
-ssr install
-ssr config
-```
+[Linux安装并使用ssr](https://blog.mrwang.pw/2018/12/13/Linux%E5%AE%89%E8%A3%85%E5%B9%B6%E4%BD%BF%E7%94%A8ssr/)
 启动成功后，软件会自动监听1080端口。使用socks5协议进行代理。
 所以还需要一个额外的代理软件，来辅助命令行工具翻墙。
 [shadowsocks + proxychains4 （解决git clone慢的问题 ）](https://my.oschina.net/uniquejava/blog/846349)
