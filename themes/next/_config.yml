@@ -162,6 +162,7 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   file: https://static.home999.cc/ || folder
+  note: /note/ || clipboard
   about: /about/ || user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
@@ -237,7 +238,7 @@ avatar:
   # You can also use other linking images.
   url: /images/avatar.jpg
   # If true, the avatar would be dispalyed in circle.
-  rounded: false
+  rounded: true
   # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
   opacity: 1
   # If true, the avatar would be rotated with the cursor.

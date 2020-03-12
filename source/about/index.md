@@ -35,18 +35,13 @@ QQ:294068487
 [PandoraBox使用记录](/2019/11/17/PandoraBox使用记录/)
 
 # 相关链接
-**Github Pages**
-[Aria2](/aria2/)
-[剪切板](/note/)
-**OSS**
-[香港阿里云OSS](https://static.home999.cc)
 **Server**
 [frp dashboard](http://home999.cc:7500/)
 [PandoraBox](http://newk2p.home999.cc:8080/)
 [myy Pandorabox](http://k2p.home999.cc:8080/)
 [mysql](https://mysql.home999.cc/)
 [Syncthing](https://sync.home999.cc/)
-**Tomcat(CDN)**
+**[Tomcat(CDN)](https://tomcat.home999.cc/)**
 [The Wandering Earth](https://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](https://tomcat.home999.cc/book/)
 [ssm-crud](https://tomcat.home999.cc/ssm-crud/)
