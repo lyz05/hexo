@@ -36,7 +36,7 @@ QQ:294068487
 
 # 相关链接
 **Server**
-[frp dashboard](http://home999.cc:7500/)
+[frp dashboard](https://frp.home999.cc/)
 [PandoraBox](http://newk2p.home999.cc:8080/)
 [myy Pandorabox](http://k2p.home999.cc:8080/)
 [mysql](https://mysql.home999.cc/)
