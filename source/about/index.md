@@ -39,7 +39,8 @@ QQ:294068487
 [frp dashboard](https://frp.home999.cc/)
 [PandoraBox](http://newk2p.home999.cc:8080/)
 [myy Pandorabox](http://k2p.home999.cc:8080/)
-[mysql](https://mysql.home999.cc/)
+[myy Tenda](http://myy.home999.cc:8080/login.html)
+[phpMyAdmin](https://mysql.home999.cc/)
 [Syncthing](https://sync.home999.cc/)
 **[Tomcat(CDN)](https://tomcat.home999.cc/)**
 [The Wandering Earth](https://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
@@ -51,9 +52,7 @@ QQ:294068487
 [Google](https://jp.lyz05.workers.dev/-----https://www.google.com/)
 [Wikipedia](https://jp.lyz05.workers.dev/-----https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5)
 
-<!-- [phpMyAdmin](https://static.home999.cc/phpMyAdmin/) -->
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
-<!-- [eTest](https://home999.cc:8086/) -->
 
 # 邀请码
 ## SSRcloud
