@@ -36,19 +36,21 @@ QQ:294068487
 
 # 相关链接
 **Server**
-[frp dashboard](https://frp.home999.cc/)
-[PandoraBox](http://newk2p.home999.cc:8080/)
-[myy Pandorabox](http://k2p.home999.cc:8080/)
-[myy Tenda](http://myy.home999.cc:8080/login.html)
+[Portainer(Docker管理)](https://portainer.home999.cc/)
 [phpMyAdmin](https://mysql.home999.cc/)
 [Syncthing](https://sync.home999.cc/)
+[aria2](https://aria.home999.cc/)
+**[FRP(内网穿透)](https://frp.home999.cc/)**
+[PandoraBox](http://newk2p.home999.cc:8080/)
+[myy Pandorabox](http://k2p.home999.cc:8080/)
+[myy Tenda](http://myy.home999.cc:8080/)
 **[Tomcat(CDN)](https://tomcat.home999.cc/)**
 [The Wandering Earth](https://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](https://tomcat.home999.cc/book/)
 [ssm-crud](https://tomcat.home999.cc/ssm-crud/)
 **Cloudflare Workers**
-[jsproxy](https://jp.lyz05.workers.dev/)
 [GoIndex](https://gd.lyz05.workers.dev/)
+[jsproxy](https://jp.lyz05.workers.dev/)
 [Google](https://jp.lyz05.workers.dev/-----https://www.google.com/)
 [Wikipedia](https://jp.lyz05.workers.dev/-----https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5)
 
@@ -56,5 +58,5 @@ QQ:294068487
 
 # 邀请码
 ## SSRcloud
-[邀请链接1](https://www.clashcloud.net/auth/register?code=57MC)
-[邀请链接2](https://www.clashcloud.net/#/auth/register?code=57MC)
+[邀请链接1](https://www.clashcloud.net/auth/register?code=SAYv)
+[邀请链接2](https://ntt-co-jp.club/#/auth/register?code=SAYv)
