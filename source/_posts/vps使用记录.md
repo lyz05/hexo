@@ -6,7 +6,7 @@ categories:
   - 互联网
   - 原创
 date: 2019-04-15 20:04:31
-updated: 2019-08-19 12:00:00
+updated: 2020-04-12 12:00:00
 mathjax: true
 ---
 # 前言
@@ -17,19 +17,16 @@ mathjax: true
 经过去马来西亚国能大学测试发现，深圳阿里云在国外连接慢的想打人。
 
 ---
-
-# 远程连接准备
+# 远程连接工具准备
 因为VPS都远在天涯海角，你不可能直接接触到，所以我们需要各种各样的远程工具。对于目标linux操作系统，最重要的就是使用终端，而想安全使用终端`ssh`必不可少。我个人是使用`git`自带的`Mingw`类linux系统中的ssh连接。现在改为`putty`，方便挂代理。然后还需要一个远程文件管理器，这里我推荐winSCP，支持协议多，速度快，兼容Windows各种操作。对于编辑器，推荐notepad++。
-过了一段时间后，觉得putty太丑，winscp配合putty打开太麻烦，在[Kaiak](https://github.com/kaiakz)的大力推荐下，尝试使用`MobaXterm`,发现是真香。
 
-## Mosh
-一种可以替代ssh基于UDP的远程shell工具，主要解决糟糕的境外VPS的ssh连接问题
-[使用 Mosh 来优化 SSH 连接](https://www.hi-linux.com/posts/23118.html)
-暂时找不到好用的windows客户端，用Cygwin的比较麻烦。而且表现并不比挂代理好，所以最后还是代理+ssh。
+过了一段时间后，觉得putty太丑，winscp配合putty打开太麻烦，在[Kaiak](https://github.com/kaiakz)的大力推荐下，尝试使用`MobaXterm`,发现是真香。
+`MobaXterm`支持格式各样的远程连接工具，本身的命令行界面就有一定的语法高亮，多标签页，用起来舒服。如果需要频繁操作终端的推荐使用。
+后面尝试了下`VSC`的远程连接功能，它能够像在本地使用`VSC`一样完成各种操作。比较适合需要频繁修改服务器上文本文件的人使用。
 
 # Ubuntu 18.04——阿里云
 ## 配置系统
-因为一直以来我只用过Debian系的Linux操作系统，在体验桌面版Linux中又属Ubuntu软件多，所以直接上手Ubuntu，但网上挺多人使用CentOS作为服务器系统，可能CentOS作为服务器优势更大吧！
+因为一直以来我只用过Debian系的Linux操作系统，在体验桌面版Linux中又属Ubuntu软件多，所以直接上手Ubuntu，但网上挺多人使用CentOS作为服务器系统，CentOS毕竟是RedHat系的，稳定性方面应该要比Ubuntu好。如果只是想稳定跑服务，用CentOS没问题，新手还是推荐Ubuntu。
 首先选择一台阿里云ECS实例安装好基本的操作系统Ubuntu 18.04，然后就是开机。
 因为不知道阿里云的密钥是怎么用的，所以我是选择密码安装。后面可以使用密钥登陆，并关闭密码登陆，保证服务器安全。
 为了方便，去安全组将所有的端口都开放。
@@ -49,6 +46,7 @@ pkill aliyun-service
 rm -rf /etc/init.d/agentwatch /usr/sbin/aliyun-service
 rm -rf /usr/local/aegis*
 ```
+
 ## ssh公钥设置
 现在已经可以ssh远程系统了。因为我们直接用密码登录比较麻烦，再加之会有被暴力破解密码的风险，建议使用密钥认证登录，要使用密钥登录，首先需要在服务器上放置你ssh远程所有设备的公钥。
 某天，我装了Ubuntu18.04 server版，发现Ubuntu支持直接从Github上获取Github上保存的公钥。这操作非常的赞，这样就可以让我的所有远程设备都能轻轻松松的获取公钥。而且不需要我主动去维护公钥的一致性。
@@ -83,7 +81,7 @@ export PS1
 
 # Ubuntu 18.04——Vmware
 因为穷，买不起云服务器，遂在本地跑起了虚拟机。
-而且用不起快照，在本地用就一个字爽。
+在本地用就一个字爽，缺点就是没公网ip，只能对内网设备提供服务。
 ## 安装Vmware
 网上有破解版安装包，安装好之后需要进BIOS启用CPU虚拟化。
 ## Ubuntu镜像
@@ -92,6 +90,8 @@ export PS1
 下载之后安装就是无图形界面的最小化Ubuntu安装，可以很人性化的导入Github上的公钥。
 
 # 相关有用的小工具安装
+ - [zsh](https://www.cnblogs.com/dhcn/p/11666845.html)
+ - [tldr](https://github.com/tldr-pages/tldr)
  - [Thefuck](https://www.jianshu.com/p/0d37b22aabba)
  - [Besttrace](https://www.xiaoz.me/archives/11769)
 
@@ -275,13 +275,6 @@ If you'd rather use a self-signed certificate, you can type:
 [Nginx配置basic_auth密码验证](https://www.centos.bz/2017/07/nginx-basic_auth-password/)
 添加一条文件拥有者修改代码，解决权限问题。
 `chown www-data:www-data passwd.db`
-
-
-## 搭建kodexplorer网盘网站(弃用)
-[教程](https://www.jianshu.com/p/406a4c593d04)
-上面这篇教程在安装`kodexplorer`之前，先使用了一键安装脚本`oneinstack`解决大部分服务器所需要的服务，虽然也是国人制作的一键安装脚本，但是相比宝塔面板，要干净很多。
-在此之前推荐使用全新干净的系统安装。
-不需要桌面此类的东西，而且不够简约，每打开一个东西都开新窗口，不大喜欢这种WEB OS的风格。
 
 ## 搭建Fortuna OJ
 Fortuna OJ作为用了3年的学校oj，当然要试着搭建一波了。
@@ -477,21 +470,6 @@ systemctl
 ```
 [服务管理--systemctl命令](https://my.oschina.net/5lei/blog/191370)
 
-# 弃用
-## 宝塔面板
-[安装教程](https://doubibackup.com/hxvodqzg.html)
-这个玩意太强大了，所以我单独的将他拿了出来，对于那些不想接触linux命令行的人简直太方便了。
-完全的网页可视化管理，比起我先前提到的安装桌面环境来说要更省空间，并且也容易操作的多。
-我觉得这玩意就像路由器中的后台管理luci，可以满足你大部分搭建服务器软件的需求。
-缺点就是安装东西真的很慢，国内开发的软件，增值服务太多，花里胡哨的！！！
-最后面我弃用了他，瞎改我的配置，瞎增加网页，吃相难看，再见！
-
-## KCPTUN加速工具
-这是一个TCP与UDP互转的加速工具，使用UDP协议进行加速，加速双方都需要部署软件。
-[超级加速工具KCPTUN一键安装脚本 附100倍加速效果图-SSR中文网](https://ssr.tools/588)
-windows客户端要去github上找Release，体验了一下发现没有宣传的效果那样好，给我感觉一般般，但是非常消耗带宽，不适合我这种阿里云小水管，适合那些大水管，并且TCP线路尤为糟糕的。
-
-
 # VPS性能测试
 ## Zbench
 ```
@@ -574,3 +552,30 @@ SWAP大小             : 0 MB (0 MB Used)
 CacheFly                  204.93.150.152    315KB/s             162.957 ms
 
 ```
+
+# 弃用
+## 宝塔面板
+[安装教程](https://doubibackup.com/hxvodqzg.html)
+这个玩意太强大了，所以我单独的将他拿了出来，对于那些不想接触linux命令行的人简直太方便了。
+完全的网页可视化管理，比起我先前提到的安装桌面环境来说要更省空间，并且也容易操作的多。
+我觉得这玩意就像路由器中的后台管理luci，可以满足你大部分搭建服务器软件的需求。
+缺点就是安装东西真的很慢，国内开发的软件，增值服务太多，花里胡哨的！！！
+最后面我弃用了他，瞎改我的配置，瞎增加网页，吃相难看，再见！
+
+## KCPTUN加速工具
+这是一个TCP与UDP互转的加速工具，使用UDP协议进行加速，加速双方都需要部署软件。
+[超级加速工具KCPTUN一键安装脚本 附100倍加速效果图-SSR中文网](https://ssr.tools/588)
+windows客户端要去github上找Release，体验了一下发现没有宣传的效果那样好，给我感觉一般般，但是非常消耗带宽，不适合我这种阿里云小水管，适合那些大水管，并且TCP线路尤为糟糕的。
+
+## Mosh
+一种可以替代ssh基于UDP的远程shell工具，主要解决糟糕的境外VPS的ssh连接问题
+[使用 Mosh 来优化 SSH 连接](https://www.hi-linux.com/posts/23118.html)
+暂时找不到好用的windows客户端，用Cygwin的比较麻烦。而且表现并不比挂代理好，所以最后还是代理+ssh。
+
+## 搭建kodexplorer网盘网站
+[教程](https://www.jianshu.com/p/406a4c593d04)
+上面这篇教程在安装`kodexplorer`之前，先使用了一键安装脚本`oneinstack`解决大部分服务器所需要的服务，虽然也是国人制作的一键安装脚本，但是相比宝塔面板，要干净很多。
+在此之前推荐使用全新干净的系统安装。
+不需要桌面此类的东西，而且不够简约，每打开一个东西都开新窗口，不大喜欢这种WEB OS的风格。
+
+
