@@ -94,7 +94,8 @@ export PS1
  - [tldr](https://github.com/tldr-pages/tldr)
  - [Thefuck](https://www.jianshu.com/p/0d37b22aabba)
  - [Besttrace](https://www.xiaoz.me/archives/11769)
-
+ - [youtube-dl]()
+ 
 # 阿里云OSS
 首先声明这个阿里云的OSS性能十分堪忧，主要是ossfs这个挂载工具堪忧。
 全球上传速度也很慢，内网传输也才20-30M/s左右。外网传输也不过10M左右。
