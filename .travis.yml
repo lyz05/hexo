@@ -1,32 +1,32 @@
-language: node_js # ÉèÖÃÓïÑÔ
+language: node_js # è®¾ç½®è¯­è¨€
 
-node_js: stable # ÉèÖÃÏàÓ¦°æ±¾
+node_js: stable # è®¾ç½®ç›¸åº”ç‰ˆæœ¬
 
 cache:
     apt: true
-    directories:
-        - node_modules # »º´æ²»¾­³£¸ü¸ÄµÄÄÚÈİ
+#    directories:
+#        - node_modules # ç¼“å­˜ä¸ç»å¸¸æ›´æ”¹çš„å†…å®¹
 
 before_install:
-    - export TZ='Asia/Shanghai' # ¸ü¸ÄÊ±Çø
+    - export TZ='Asia/Shanghai' # æ›´æ”¹æ—¶åŒº
     - npm install hexo-cli -g
     - git config user.name "lyz05"
     - git config user.email "294068487@qq.com"
     - mkdir tools
     - cd ./tools
-    ## ÏÂÔØ°¢ÀïÔÆ OSS Linux ¿Í»§¶Ë
+    ## ä¸‹è½½é˜¿é‡Œäº‘ OSS Linux å®¢æˆ·ç«¯
     - wget -nc https://liuhu-img.oss-cn-hongkong.aliyuncs.com/common/deploy/ossutil64
     - chmod 755 ossutil64
-    ## ÅäÖÃ OSS ¿Í»§¶Ë, °üÀ¨ OSS µØÖ·£¬accessKeyID accessKeySecret£¬Ê¹ÓÃ·½Ê½¿ÉÒÔ²Î¿¼ https://www.alibabacloud.com/help/zh/doc-detail/50452.htm
+    ## é…ç½® OSS å®¢æˆ·ç«¯, åŒ…æ‹¬ OSS åœ°å€ï¼ŒaccessKeyID accessKeySecretï¼Œä½¿ç”¨æ–¹å¼å¯ä»¥å‚è€ƒ https://www.alibabacloud.com/help/zh/doc-detail/50452.htm
     - ./ossutil64 config -e "${OSS_ENDPOINT}" -i "${OSS_AKI}" -k "${OSS_AKS}"
     - cd ..
 
 install:
-    - npm install # °²×°hexo¼°²å¼ş
+    - npm install # å®‰è£…hexoåŠæ’ä»¶
 
 script:
-    - hexo clean # Çå³ı
-    - hexo g # Éú³É
+    - hexo clean # æ¸…é™¤
+    - hexo g # ç”Ÿæˆ
 
 after_script:
     - git clone https://${GH_REF} .deploy_git
@@ -36,19 +36,19 @@ after_script:
     - mv .deploy_git/.git/ ./public/
     - cd ./public
     - git add .
-    - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`" # Ìá½»¼ÇÂ¼°üº¬Ê±¼ä ¸úÉÏÃæ¸ü¸ÄÊ±ÇøÅäºÏ
+    - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`" # æäº¤è®°å½•åŒ…å«æ—¶é—´ è·Ÿä¸Šé¢æ›´æ”¹æ—¶åŒºé…åˆ
     - git push --force --quiet "https://${travis}@${GH_REF}" master:master
-    ## ´ò°ü¾²Ì¬ÎÄ¼ş
+    ## æ‰“åŒ…é™æ€æ–‡ä»¶
     - zip -r blog.zip ./*
-    ## É¾³ıOSSÉÏ¾ÉÎÄ¼ş
+    ## åˆ é™¤OSSä¸Šæ—§æ–‡ä»¶
     - ../tools/ossutil64 rm oss://lyz05blog/ -r -f
-    ## ÉÏ´«zipÎÄ¼ş
+    ## ä¸Šä¼ zipæ–‡ä»¶
     - ../tools/ossutil64 cp -f blog.zip oss://lyz05blog/
 
 branches:
     only:
-        - blog # Ö»¼à²âblog·ÖÖ§
+        - blog # åªç›‘æµ‹blogåˆ†æ”¯
 
 env:
     global:
-        - GH_REF: github.com/lyz05/lyz05.github.io.git #ÉèÖÃGH_REF£¬×¢Òâ¸ü¸Ä³É×Ô¼ºµÄ²Ö¿âµØÖ· 
+        - GH_REF: github.com/lyz05/lyz05.github.io.git #è®¾ç½®GH_REFï¼Œæ³¨æ„æ›´æ”¹æˆè‡ªå·±çš„ä»“åº“åœ°å€ 
