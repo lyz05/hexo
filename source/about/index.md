@@ -52,7 +52,7 @@ QQ:294068487
 [GoIndex](https://gd.lyz05.workers.dev/)
 [jsproxy](https://jp.lyz05.workers.dev/)
 [Google](https://jp.lyz05.workers.dev/-----https://www.google.com/)
-[Wikipedia](https://jp.lyz05.workers.dev/-----https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5)
+[万维百科](https://goo.gle.workers.dev/)
 
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 
