@@ -51,8 +51,8 @@ QQ:294068487
 **Cloudflare Workers**
 [GoIndex](https://gd.lyz05.workers.dev/)
 [jsproxy](https://jp.lyz05.workers.dev/)
-[Google](https://jp.lyz05.workers.dev/-----https://www.google.com/)
-[万维百科](https://goo.gle.workers.dev/)
+[Google](https://goo.gle.workers.dev/)
+[万维百科](https://wanweibaike.com/)
 
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 
