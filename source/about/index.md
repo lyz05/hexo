@@ -49,7 +49,7 @@ QQ:294068487
 [图书借阅管理系统](https://tomcat.home999.cc/book/)
 [ssm-crud](https://tomcat.home999.cc/ssm-crud/)
 **阿里云函数计算**
-[主流视频网站弹幕解析接口](https://fc.home999.cc/)
+[主流视频网站弹幕解析接口](http://fc.home999.cc/)
 **Cloudflare Workers**
 [GoIndex](https://gd.lyz05.workers.dev/)
 [jsproxy](https://jp.lyz05.workers.dev/)
