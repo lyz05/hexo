@@ -41,9 +41,10 @@ QQ:294068487
 [Syncthing](https://193.112.157.43:8384/)
 [aria2](https://aria.home999.cc/)
 **[FRP(内网穿透)](https://frp.home999.cc/)**
-[PandoraBox](http://newk2p.home999.cc:8080/)
-[myy Pandorabox](http://k2p.home999.cc:8080/)
-[myy Tenda](http://myy.home999.cc:8080/)
+[my PandoraBox](http://k2p1.frp.home999.cc/)
+[myy Pandorabox](http://k2p.frp.home999.cc/)
+[Aunt PandoraBox])(http://k2p2.frp.home999.cc/)
+[myy Tenda](http://myy.frp.home999.cc/)
 **[Tomcat(CDN)](https://tomcat.home999.cc/)**
 [The Wandering Earth](https://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](https://tomcat.home999.cc/book/)
@@ -51,7 +52,7 @@ QQ:294068487
 **阿里云函数计算**
 [主流视频网站弹幕解析接口](http://fc.home999.cc/)
 **Cloudflare Workers**
-[GoIndex](https://gd.lyz05.workers.dev/)
+[GoIndex](https://gd.home999.cc/)
 [jsproxy](https://jp.lyz05.workers.dev/)
 [Google](https://goo.gle.workers.dev/)
 [万维百科](https://wanweibaike.com/)
