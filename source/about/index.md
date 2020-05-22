@@ -38,7 +38,7 @@ QQ:294068487
 **Server**
 [Portainer(Docker管理)](https://portainer.home999.cc/)
 [phpMyAdmin](https://mysql.home999.cc/)
-[Syncthing](https://sync.home999.cc/)
+[Syncthing](https://193.112.157.43:8384/)
 [aria2](https://aria.home999.cc/)
 **[FRP(内网穿透)](https://frp.home999.cc/)**
 [PandoraBox](http://newk2p.home999.cc:8080/)
