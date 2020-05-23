@@ -40,12 +40,12 @@ QQ:294068487
 [phpMyAdmin](https://mysql.home999.cc/)
 [Syncthing](https://193.112.157.43:8384/)
 [aria2](https://aria.home999.cc/)
+[禅道](https://zentao.home999.cc/)
 **[FRP(内网穿透)](https://frp.home999.cc/)**
 [my PandoraBox](https://k2p1.home999.cc/)
 [myy Pandorabox](https://k2p.home999.cc/)
 [Aunt PandoraBox](https://k2p2.home999.cc/)
 [myy Tenda](https://myy.home999.cc/)
-[禅道](https://zentao.home999.cc/)
 **[Tomcat(CDN)](https://tomcat.home999.cc/)**
 [The Wandering Earth](https://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](https://tomcat.home999.cc/book/)
