@@ -30,10 +30,6 @@ comments: false
 Email:liuyuanzhe0515@gmail.com
 QQ:294068487
 
-# 博文链接
-[VPS使用记录](/2019/04/15/vps使用记录/)
-[PandoraBox使用记录](/2019/11/17/PandoraBox使用记录/)
-
 # 相关链接
 **Server**
 [Portainer(Docker管理)](https://portainer.home999.cc/)
@@ -53,10 +49,10 @@ QQ:294068487
 **阿里云函数计算**
 [主流视频网站弹幕解析接口](http://fc.home999.cc/)
 **Cloudflare Workers**
-[GoIndex](https://gd.home999.cc/)
+[GoIndex](https://gd.lyz05.workers.dev/)
 [jsproxy](https://jp.lyz05.workers.dev/)
 [Google](https://goo.gle.workers.dev/)
-[万维百科](https://wanweibaike.com/)
+[维基百科](https://wiki.lyz05.workers.dev/)
 
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 
