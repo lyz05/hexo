@@ -225,7 +225,7 @@ links_title: Links
 links_layout: inline
 links:
   IceCream: https://blog.xuegaogg.com
-  levan: http://levan.home999.cc/
+  levan: http://sub.tbetbe.com/
   Mchobby: https://mchobbylong.github.io/
   Rat's: https://www.moerats.com/
   Byvoid: https://www.byvoid.com/
@@ -941,7 +941,7 @@ mermaid:
 
 # Use velocity to animate everything.
 motion:
-  enable: true
+  enable: false
   async: true
   transition:
     # Transition variants:
