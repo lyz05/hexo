@@ -30,7 +30,7 @@ date: 2020-02-14 16:02:34
 在代码执行中直接粘贴下面的代码
 ![004](/images/基于阿里云函数实现OSS文件自动索引功能/004.png)
 
-```
+``` python
 import oss2
 import json
 import datetime
