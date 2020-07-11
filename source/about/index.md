@@ -27,21 +27,16 @@ comments: false
 爱好计算机，新科技，音乐，小而美的东西。
 
 # 联系方式
-Email:liuyuanzhe0515@gmail.com
-QQ:294068487
+Email:<liuyuanzhe0515@gmail.com>
 
 # 相关链接
 **Server**
-[Portainer(Docker管理)](https://portainer.home999.cc/)
-[phpMyAdmin](https://mysql.home999.cc/)
+[Portainer(Docker管理)](http://portainer.home999.cc/)
+[phpMyAdmin](http://mysql.home999.cc/)
 [Syncthing](https://193.112.157.43:8384/)
-[aria2](https://aria.home999.cc/)
-[禅道](https://zentao.home999.cc/)
-**[FRP(内网穿透)](https://frp.home999.cc/)**
-[my PandoraBox](https://k2p1.home999.cc/)
-[myy Pandorabox](https://k2p.home999.cc/)
-[Aunt PandoraBox](https://k2p2.home999.cc/)
-[myy Tenda](https://myy.home999.cc/)
+[aria2](http://aria.home999.cc/)
+[禅道](http://zentao.home999.cc/)
+**[FRP(内网穿透)](http://frp.home999.cc/)**
 **[Tomcat(CDN)](https://tomcat.home999.cc/)**
 [The Wandering Earth](https://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](https://tomcat.home999.cc/book/)
