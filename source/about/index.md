@@ -31,23 +31,24 @@ Email:<liuyuanzhe0515@gmail.com>
 
 # 相关链接
 **Server**
-[Portainer(Docker管理)](http://portainer.home999.cc/)
-[phpMyAdmin](http://mysql.home999.cc/)
-[Syncthing](https://193.112.157.43:8384/)
-[aria2](http://aria.home999.cc/)
-[禅道](http://zentao.home999.cc/)
-**[FRP(内网穿透)](http://frp.home999.cc/)**
-**[Tomcat(CDN)](http://tomcat.home999.cc/)**
-[The Wandering Earth](https://tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
-[图书借阅管理系统](https://tomcat.home999.cc/book/)
-[ssm-crud](https://tomcat.home999.cc/ssm-crud/)
+[Portainer(Docker管理)](//portainer.home999.cc/)
+[phpMyAdmin](//mysql.home999.cc/)
+[Syncthing](//193.112.157.43:8384/)
+[aria2](//aria.home999.cc/)
+[netdata](//netdata.home999.cc/)
+[禅道](//zentao.home999.cc/)
+**[FRP(内网穿透)](//frp.home999.cc/)**
+**[Tomcat(CDN)](//tomcat.home999.cc/)**
+[The Wandering Earth](//tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
+[图书借阅管理系统](//tomcat.home999.cc/book/)
+[ssm-crud](//tomcat.home999.cc/ssm-crud/)
 **阿里云函数计算**
-[主流视频网站弹幕解析接口](http://fc.home999.cc/)
+[主流视频网站弹幕解析接口](//fc.home999.cc/)
 **Cloudflare Workers**
-[GoIndex](https://gd.lyz05.workers.dev/)
-[jsproxy](https://jp.lyz05.workers.dev/)
-[Google](https://goo.gle.workers.dev/)
-[维基百科](https://wiki.lyz05.workers.dev/)
+[GoIndex](//gd.lyz05.workers.dev/)
+[jsproxy](//jp.lyz05.workers.dev/)
+[Google](//goo.gle.workers.dev/)
+[维基百科](//wiki.lyz05.workers.dev/)
 
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 
