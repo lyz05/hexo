@@ -38,7 +38,7 @@ Email:<liuyuanzhe0515@gmail.com>
 [netdata](//netdata.home999.cc/)
 [禅道](//zentao.home999.cc/)
 **[FRP(内网穿透)](//frp.home999.cc/)**
-**[Tomcat(CDN)](//tomcat.home999.cc/)**
+**[Tomcat(CDN)](http://tomcat.home999.cc:7500/)**
 [The Wandering Earth](//tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](//tomcat.home999.cc/book/)
 [ssm-crud](//tomcat.home999.cc/ssm-crud/)
