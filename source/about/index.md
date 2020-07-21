@@ -31,17 +31,17 @@ Email:<liuyuanzhe0515@gmail.com>
 
 # 相关链接
 **Server**
-[Portainer(Docker管理)](http://portainer.home999.cc:8050/)
-[phpMyAdmin](http://mysql.home999.cc:8050/)
+[Portainer(Docker管理)](http://portainer.home999.cc:58392/)
+[phpMyAdmin](http://mysql.home999.cc:58392/)
 [Syncthing](http://sync.home999.cc:8050/)
-[aria2](http://aria.home999.cc:8050/)
-[netdata](http://netdata.home999.cc:8050/)
+[aria2](http://aria.home999.cc:58392/)
+[netdata](http://netdata.home999.cc:58392/)
 [禅道](http://zentao.home999.cc:8050/)
-**[FRP(内网穿透)](http://frp.home999.cc:8050/)**
-**[Tomcat(CDN)](http://tomcat.home999.cc:8050/)**
-[The Wandering Earth](http://tomcat.home999.cc:8050/phase-04-implementation-003-javaWeb/)
-[图书借阅管理系统](http://tomcat.home999.cc:8050/book/)
-[ssm-crud](http://tomcat.home999.cc:8050/ssm-crud/)
+**[FRP(内网穿透)](http://frp.home999.cc:58392/)**
+**[Tomcat(CDN)](http://tomcat.home999.cc:58392/)**
+[The Wandering Earth](http://tomcat.home999.cc:58392/phase-04-implementation-003-javaWeb/)
+[图书借阅管理系统](http://tomcat.home999.cc:58392/book/)
+[ssm-crud](http://tomcat.home999.cc:58392/ssm-crud/)
 **阿里云函数计算**
 [主流视频网站弹幕解析接口](//fc.home999.cc/)
 **Cloudflare Workers**
