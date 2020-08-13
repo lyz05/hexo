@@ -37,7 +37,7 @@ Email:<liuyuanzhe0515@gmail.com>
 [aria2](http://aria.home999.cc:58392/)
 [netdata](http://netdata.home999.cc:58392/)
 [禅道](http://zentao.home999.cc:8050/)
-**[FRP(内网穿透)](http://frp.home999.cc:58392/)**
+**[FRP(内网穿透)](http://frp.home999.cc:8050/)**
 **[Tomcat(CDN)](http://tomcat.home999.cc:58392/)**
 [The Wandering Earth](http://tomcat.home999.cc:58392/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](http://tomcat.home999.cc:58392/book/)
