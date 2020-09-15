@@ -51,5 +51,5 @@ Email:<liuyuanzhe0515@gmail.com>
 
 # 邀请码
 ## SSRcloud
-[邀请链接1](https://www.clashcloud.net/auth/register?code=SAYv)
-[邀请链接2](https://ntt-co-jp.club/#/auth/register?code=SAYv)
+[邀请链接1](https://邀请01.很有精神.com/auth/register?code=GFRA)
+[邀请链接2](https://邀请01.很有精神.com/#/auth/register?code=GFRA)
