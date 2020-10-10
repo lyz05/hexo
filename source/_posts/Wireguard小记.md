@@ -36,7 +36,7 @@ Wireguard的配置部分只有一个配置文件`wg0.conf`
 PrivateKey = {PrivateKey}
 ListenPort = 7890               #监听端口
 Address = 192.168.88.102/24     #本机VPN接入地址
-#发往其他网络策略
+#发往其他网络策略的自动NAT策略
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o ens160 -j MASQUERADE
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o ens160 -j MASQUERADE
 DNS = 192.168.88.4              #设置全局DNS
@@ -70,5 +70,5 @@ PersistentKeepalive = 25        #位于NAT后的机子，为了保持隧道可�
 192.168.88.4    102 ESXi Ubuntu虚拟机
 192.168.88.100  笔电
 192.168.88.101  手机
-192.168.88.200  备用  
+192.168.88.200  备用
  -->
