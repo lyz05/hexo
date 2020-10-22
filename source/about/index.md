@@ -31,13 +31,9 @@ Email:<liuyuanzhe0515@gmail.com>
 
 # 相关链接
 **Server**
-[Portainer(Docker管理)](http://portainer.home999.cc:8050/)
 [phpMyAdmin](http://mysql.home999.cc:8050/)
 [Syncthing](http://sync.home999.cc:8050/)
 [aria2](http://aria.home999.cc:8050/)
-[aria2——TFCloud](http://dgnat.idc.tf:52990)
-[netdata](http://netdata.home999.cc:8050/)
-[禅道](http://zentao.home999.cc:8050/)
 **[FRP(内网穿透)](http://frp.home999.cc:8050/)**
 **[Tomcat(CDN)](http://tomcat.home999.cc:8050/)**
 [The Wandering Earth](http://tomcat.home999.cc:8050/phase-04-implementation-003-javaWeb/)
@@ -55,5 +51,5 @@ Email:<liuyuanzhe0515@gmail.com>
 
 # 邀请码
 ## SSRcloud
-[邀请链接1](https://www.clashcloud.net/auth/register?code=SAYv)
-[邀请链接2](https://ntt-co-jp.club/#/auth/register?code=SAYv)
+[邀请链接1](https://邀请01.很有精神.com/auth/register?code=GFRA)
+[邀请链接2](https://邀请01.很有精神.com/#/auth/register?code=GFRA)
