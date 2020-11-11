@@ -82,7 +82,7 @@ deploy:
 - type: git
   branch: master
   repository: 
-    github: https://github.com/lyz05/lyz05.github.io.git
+    github: git@github.com:lyz05/lyz05.github.io.git
     #coding: git@git.coding.net:lyz05/lyz05.git
     #aliyun: git@home999.cc:hexo.git
 
