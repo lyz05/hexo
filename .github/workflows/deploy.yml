@@ -49,4 +49,6 @@ jobs:
           access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
     
       - name: Deply To OSS
-        run: ossutil cp public oss://lyz05blog/ -rf
+        run: |
+          ossutil rm -rf oss://lyz05blog/
+          ossutil cp -rf public oss://lyz05blog/ 
