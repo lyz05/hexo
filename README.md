@@ -8,3 +8,8 @@ git clone git@github.com:lyz05/lyz05.github.io.git hexo
 cd hexo
 rm -rf node_modules && npm install --force
 ```
+
+# 检查组件更新
+```bash
+npm outdated
+```
