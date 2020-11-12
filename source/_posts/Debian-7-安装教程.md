@@ -13,11 +13,11 @@ First you should download the file of Debian 7 64 bit
 
 set source
 --
-```
+```sh
 #vim /etc/apt/sources.list
 ```
 Enter the following information
-```
+```sh
 deb http://mirrors.163.com/debian wheezy main non-free contrib
 deb-src http://mirrors.163.com/debian wheezy main non-free contrib
 
@@ -36,7 +36,7 @@ install some software
 --
 Open Terminal
 input order
-```
+```sh
 $su root
 #apt-get install vim
 #apt-get install gcc
@@ -47,7 +47,7 @@ $su root
 
 To solve the Chinese garbled
 --
-```
+```sh
 $su
 #apt-get install ttf-arphic-uming
 #apt-get install ttf-wqy-zenhei
@@ -69,7 +69,7 @@ LANG=en_US.UTF-8
 
 安装中文输入法
 --
-```
+```sh
 # apt-get install fcitx
 ```
 创建脚本以便X Window启动时自动载入fcitx: 
@@ -78,7 +78,7 @@ LANG=en_US.UTF-8
 # vi 25xchinput_start
 ```
 输入以下内容并保存： 
-```
+```sh
 export XMODIFIERS=@im=fcitx        
 export XIM=fcitx        
 export XIM_PROGRAM=fcitx        
@@ -88,7 +88,7 @@ export XIM_PROGRAM=fcitx
 fcitx翻页按钮=向下-向上
 
 安装vmware tools
-```
+```sh
 tar zxvf ***.tar.gz
 #sudo apt-get install make
 #sudo apt-get install gcc

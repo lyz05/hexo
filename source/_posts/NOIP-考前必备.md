@@ -62,7 +62,7 @@ goto loop
 ****
 cpp版本
 
-```
+```cpp
 #include <cstdio>
 #include <algorithm>
 #include <cstring>
@@ -79,7 +79,7 @@ int main()
 ```
 pascal版本
 
-```
+```pascal
 var	i,j,k,m,n:longint;
 begin
 	assign(input,'.in');reset(input);
@@ -91,7 +91,7 @@ end.
 
 ****
 对拍数据生成例程
-```
+```cpp
 #include <ctime>
 #include <iostream>
 #include <windows.h>

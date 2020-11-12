@@ -68,7 +68,7 @@ Analysis
 
 Code
 --
-```
+```cpp
 #include <cstdio>
 #include <algorithm>
 #include <cstring>

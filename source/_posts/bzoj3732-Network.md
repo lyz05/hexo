@@ -31,7 +31,7 @@ Analysis
 code
 ==
 
-```C++
+```cpp
 #include <cstdio>
 #include <algorithm>
 using namespace std;
