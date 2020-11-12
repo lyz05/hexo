@@ -180,7 +180,7 @@ config policy 'wwan1_only'
 这是我写的校园网认证用的shell脚本。
 这个脚本有指定从那个接口发包，拿去用时，要自己修改一下。
 auth.sh
-```
+```sh
 #!/bin/sh
 #依赖：curl,wget,network.sh
 
@@ -273,7 +273,7 @@ fi
 #/usr/bin/wget --bind-address=10.3.44.59 --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3" --header="Accept-Encoding: gzip, deflate" --header="Accept-Language: zh-CN,zh;q=0.9,zh-TW;q=0.8" -U "Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Nexus One Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" -O $logoutfilename $logouturl
 ```
 network.sh
-```
+```sh
 #!/bin/sh
 #检测网络连接
 #依赖：httping
@@ -321,18 +321,18 @@ fi
 与corntab结合可以实现定时自动认证，corntab+auth.sh relogin可以实现轮询检测是否断网，从而重新认证。
 对于我来说一般不会掉认证。但是因为学校的WIFI晚上1点会有使用时段限制，所以每天一大早就会掉认证，这就需要每天一大早，给他自动认证一发。
 corntab中使用的执行语句
-```
+```sh
 /root/auth.sh relogin > /root/auth.log 2>&1  &
 ```
 修改rc.local可以添加路由器启动时执行的语句
 因为rc.local执行的时候网络还没初始化好，所以要延迟执行语句,我设置的是1min，相对来说比较合适。
-```
+```sh
 sleep 60 && /root/auth.sh relogin > /root/auth.log 2>&1
 ```
 # LED灯开关
 鉴于晚上LED灯刺眼，所以使用脚本开关
 关灯脚本
-```
+```sh
 #!/bin/bash
 for i in `ls /sys/class/leds`
 do
@@ -342,7 +342,7 @@ do
 done
 ```
 开灯脚本
-```
+```sh
 /etc/init.d/led start
 ```
 然后弄一个crontab就好了

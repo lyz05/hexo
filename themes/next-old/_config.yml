@@ -157,13 +157,13 @@ baidu_push: false
 # Value after `||` delimiter is the name of FontAwesome icon. If icon (with or without delimiter) is not specified, question icon will be loaded.
 # External url should start with http:// or https://
 menu:
-  home: / || home
-  tags: /tags/ || tags
-  categories: /categories/ || th
-  archives: /archives/ || archive
-  file: https://static.home999.cc/ || folder
-  note: /note/ || clipboard
-  about: /about/ || user
+  home: / || fa fa-home
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+  file: https://static.home999.cc/ || fa fa-folder
+  note: /note/ || fa fa-clipboard
+  about: /about/ || fa fa-user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat

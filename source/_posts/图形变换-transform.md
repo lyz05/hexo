@@ -112,7 +112,7 @@ y' = 同理可得
 Code
 --
 
-```
+```cpp
 #include <cstdio>
 #include <cstring>
 #include <cmath>

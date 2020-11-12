@@ -1,0 +1,76 @@
+#language_switcher: true
+
+footer:
+    since: 2015
+    icon:
+      name: heart
+      animated: true
+      color: "#ff0000"
+
+tag_icon: true
+mobile_layout_economy: true
+  
+creative_commons:
+    sidebar: true
+    post: true
+
+scheme: Gemini
+
+darkmode: true
+
+menu:
+  home: / || home
+  tags: /tags/ || tags
+  categories: /categories/ || th
+  archives: /archives/ || archive
+  file: https://static.home999.cc/ || folder
+  note: /note/ || clipboard
+  about: /about/ || user
+  
+avatar:
+  url: /images/avatar.webp
+  rounded: true
+  
+social:
+  GitHub: https://github.com/lyz05 || github
+  E-Mail: mailto:liuyuanzhe0515@gmail.com || envelope
+  知乎: http://www.zhihu.com/people/liu-yuan-zhe-16 || globe
+  豆瓣: http://www.douban.com/people/140286755/ || globe
+
+links_settings:
+  layout: inline
+  
+links:
+  IceCream: https://blog.xuegaogg.com
+  levan: http://sub.tbetbe.com/
+  佩奇kakkoii: http://blog.d999k.cn/
+  Mchobby: https://mchobbylong.github.io/
+  Rat's: https://www.moerats.com/
+  Byvoid: https://www.byvoid.com/
+  hzwer: http://hzwer.com/
+  
+back2top:
+  scrollpercent: true
+  
+math:
+  per_page: true
+  mathjax:
+    enable: true
+    
+valine:
+  enable: true
+  appid: XIvfHitkQpcIdYONge8baBBR-gzGzoHsz
+  appkey: nV8vEtsT9WYR9pGPCxEXyqWl
+  visitor: true
+  
+local_search:
+  enable: true
+  
+pdf:
+  enable: true
+  
+codeblock:
+  highlight_theme: night blue
+  copy_button:
+    enable: true
+    show_result: true

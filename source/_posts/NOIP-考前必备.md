@@ -15,7 +15,7 @@ mathjax: true
 将.cpp，.pas关联至gvim。
 在_vimrc中敲入下面配置信息
 ****
-```
+```vim
 syntax on
 set nu!
 colorscheme darkblue
@@ -36,7 +36,7 @@ imap <F12> freopen(".in","r",stdin);
 打好对拍程序
 ****
 对拍
-```
+```bat
 @echo off
 :loop
 	data.exe>data.in
@@ -48,7 +48,7 @@ pause
 goto loop
 ```
 单测
-```
+```bat
 @echo off
 :loop
 	data.exe>data.in

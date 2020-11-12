@@ -36,7 +36,7 @@ mathjax: true
 还总是发短信，是真的良心，实则推销自己的企业版，自动打补丁。
 [阿里云ECS关闭删除安骑士](https://blog.mimvp.com/article/24653.html)
 核心代码
-```
+```sh
 wget http://update.aegis.aliyun.com/download/uninstall.sh
 bash uninstall.sh
 wget http://update.aegis.aliyun.com/download/quartz_uninstall.sh
@@ -51,7 +51,7 @@ rm -rf /usr/local/aegis*
 现在已经可以ssh远程系统了。因为我们直接用密码登录比较麻烦，再加之会有被暴力破解密码的风险，建议使用密钥认证登录，要使用密钥登录，首先需要在服务器上放置你ssh远程所有设备的公钥。
 某天，我装了Ubuntu18.04 server版，发现Ubuntu支持直接从Github上获取Github上保存的公钥。这操作非常的赞，这样就可以让我的所有远程设备都能轻轻松松的获取公钥。而且不需要我主动去维护公钥的一致性。
 从以下地址获取公钥并保存
-```
+```sh
 wget -O - https://github.com/lyz05.keys >> /root/.ssh/authorized_keys
 ```
 把这些公钥一个一行放置在`~/.ssh/authorized_keys`，我没有使用`ssh-copy-id`的命令
@@ -61,7 +61,7 @@ wget -O - https://github.com/lyz05.keys >> /root/.ssh/authorized_keys
 ## 修改终端命令行颜色
 默认的命令行的白字黑底，实在是太难分辨，所以修改配色，提升可读性是很有必要的。
 在`~/.bashrc`中添加如下内容
-```
+```sh
 PS1="${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
 export PS1
 ```
@@ -140,7 +140,7 @@ CDN加速可以使用同一域名，只是在填回源地址时，要填ip地址
 [项目地址](https://github.com/fatedier/frp/releases)
 在这里下载当前平台所需要的二进制运行文件。
 frps.ini配置文件如下：
-```
+```ini
 [common]
 bind_addr = 0.0.0.0
 bind_port = 7000
@@ -152,7 +152,7 @@ subdomain_host = home999.cc
 [部署教程](https://blog.csdn.net/fanxl10/article/details/82381176)
 作者很良心的写好了服务脚本，可以后台运行并开机自启
 部署好之后，有三个重要的管理代码
-```
+```sh
 systemctl start frps //启动
 systemctl status frps //状态查询
 systemctl enable frps //开机启动
@@ -165,7 +165,7 @@ frp十分强大，而且也足够简介，跟nginx一样通过修改配置文件
 网上有很多一键安装脚本
 [安装教程](https://ssr.tools/31)
 管理脚本
-```
+```sh
 ShadowsocksR 版：
 /etc/init.d/shadowsocks-r start | stop | restart | status
 ```
@@ -331,7 +331,7 @@ nginx本身只是一个很小的组件，但是拥有扩展的他具有无限可
 [Vultr+CentOS7+阿里云+Tomcat部署Web应用](https://www.jianshu.com/p/cd3d20b8c26b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
 上面是较为全面的搭建教程。
 省略复杂的过程及解释，直接来代码
-```
+```sh
 sudo apt-get install default-jre
 sudo apt-get install default-jdk
 ```
@@ -378,7 +378,7 @@ sudo apt-get install default-jdk
 ## WebDAV客户端
 [cadaver配置教程](https://blog.51cto.com/3331062/2306523)
 webdav客户端挂载工具`davfs`
-```
+```sh
 apt install davfs
 vi /etc/davfs2/davfs2.conf
 ignore_dav_header 1
@@ -407,7 +407,7 @@ umount /media/nextcloud
 
 ## speedtest测速软件
 安装
-```
+```sh
 wget https://raw.github.com/sivel/speedtest-cli/master/speedtest.py
 chmod a+rx speedtest.py
 mv speedtest.py /usr/local/bin/speedtest
@@ -461,7 +461,7 @@ Telegram有一个很强大的机器人，通过机器人API可以完成各种自
 `tar -cvf ***.tar ./file` | tar打包命令
 
 ## systemctl
-```
+```sh
 systemctl start nfs-server.service
 systemctl enable nfs-server.service
 systemctl disable nfs-server.service

@@ -80,7 +80,7 @@ $x = \frac {a\*x0-b\*y0}{2}+\frac {a\*b\*k}{p}$
 Code
 --
 代码1
-```
+```cpp
 #include <cstdio>
 #include <algorithm>
 #include <cstring>
@@ -144,7 +144,7 @@ int main()
 ```
 ***
 代码2
-```
+```pascal
 var n,m,t,t1,t2,tt,tt2,i,j:longint;
     mo:int64;
     b,d,g,mm:array[0..10001] of int64;

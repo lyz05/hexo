@@ -41,7 +41,7 @@ ans1=3
 Code
 --
 然而此题并不需要如此复杂的线段树，只要支持单点修改和区间查询最大值即可。当然如果你有能力完全可以写树状数组。
-```
+```pascal
 uses	math;
 const	maxn=100000;
 var	i,n,maxx:longint;

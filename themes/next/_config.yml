@@ -52,7 +52,7 @@ language_switcher: false
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
-  since: 2015
+  #since: 2015
 
   # Icon between year and copyright info.
   icon:
@@ -88,9 +88,9 @@ footer:
 # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
 creative_commons:
   license: by-nc-sa
-  sidebar: true
-  post: true
-  language: 
+  sidebar: false
+  post: false
+  language:
 
 
 # ---------------------------------------------------------------
@@ -98,13 +98,13 @@ creative_commons:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
+scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-scheme: Gemini
+#scheme: Gemini
 
 # Dark Mode
-darkmode: true
+darkmode: false
 
 
 # ---------------------------------------------------------------
@@ -118,12 +118,10 @@ darkmode: true
 # External url should start with http:// or https://
 menu:
   home: / || home
-  tags: /tags/ || tags
-  categories: /categories/ || th
-  archives: /archives/ || archive
-  file: https://static.home999.cc/ || folder
-  note: /note/ || clipboard
-  about: /about/ || user
+  #about: /about/ || user
+  #tags: /tags/ || tags
+  #categories: /categories/ || th
+  #archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -166,9 +164,9 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: /images/avatar.webp
+  url: #/images/avatar.gif
   # If true, the avatar will be dispalyed in circle.
-  rounded: true
+  rounded: false
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
@@ -180,10 +178,8 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/lyz05 || github
-  E-Mail: mailto:liuyuanzhe0515@gmail.com || envelope
-  知乎: http://www.zhihu.com/people/liu-yuan-zhe-16 || globe
-  豆瓣: http://www.douban.com/people/140286755/ || globe
+  #GitHub: https://github.com/yourname || github
+  #E-Mail: mailto:yourname@gmail.com || envelope
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -203,16 +199,10 @@ links_settings:
   icon: link
   title: Links
   # Available values: block | inline
-  layout: inline
+  layout: block
 
 links:
-  IceCream: https://blog.xuegaogg.com
-  levan: http://sub.tbetbe.com/
-  佩奇kakkoii: http://blog.d999k.cn/
-  Mchobby: https://mchobbylong.github.io/
-  Rat's: https://www.moerats.com/
-  Byvoid: https://www.byvoid.com/
-  hzwer: http://hzwer.com/
+  #Title: http://yoursite.com
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
@@ -365,12 +355,12 @@ codeblock:
   # Code Highlight theme
   # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
   # See: https://github.com/chriskempson/tomorrow-theme
-  highlight_theme: night blue
+  highlight_theme: normal
   # Add copy button on codeblock
   copy_button:
-    enable: true
+    enable: false
     # Show text copy result.
-    show_result: true
+    show_result: false
     # Available values: default | flat | mac
     style:
 
@@ -379,7 +369,7 @@ back2top:
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: true
+  scrollpercent: false
 
 # Reading progress bar
 reading_progress:
@@ -511,7 +501,7 @@ math:
 
   # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.
   mathjax:
-    enable: true
+    enable: false
     # See: https://mhchem.github.io/MathJax-mhchem/
     mhchem: false
 
@@ -621,9 +611,9 @@ changyan:
 # Valine
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 valine:
-  enable: true
-  appid: XIvfHitkQpcIdYONge8baBBR-gzGzoHsz # Your leancloud application appid
-  appkey: nV8vEtsT9WYR9pGPCxEXyqWl # Your leancloud application appkey
+  enable: false
+  appid: # Your leancloud application appid
+  appkey: # Your leancloud application appkey
   notify: false # Mail notifier
   verify: false # Verification code
   placeholder: Just go go # Comment box placeholder
@@ -631,7 +621,7 @@ valine:
   guest_info: nick,mail,link # Custom comment header
   pageSize: 10 # Pagination size
   language: # Language, available values: en, zh-cn
-  visitor: true # Article reading statistic
+  visitor: false # Article reading statistic
   comment_count: true # If false, comment count will only be displayed in post page, not in home page
   recordIP: false # Whether to record the commenter IP
   serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
@@ -681,7 +671,7 @@ add_this_id:
 
 # Google Analytics
 google_analytics:
-  tracking_id: UA-71705060-1 # <app_id>
+  tracking_id: # <app_id>
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false
@@ -708,7 +698,7 @@ leancloud_visitors:
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
-  security: false
+  security: true
 
 # Another tool to show number of visitors to each article.
 # Visit https://console.firebase.google.com/u/0/ to get apiKey and projectId.
@@ -750,7 +740,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: true
+  enable: false
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
@@ -816,7 +806,7 @@ tabs:
 # So, you have to install the dependency of pdf.js if you want to use pdf tag and make it available to all browsers.
 # See: https://github.com/theme-next/theme-next-pdf
 pdf:
-  enable: true
+  enable: false
   # Default height
   height: 500px
 
@@ -1006,6 +996,3 @@ vendors:
 css: css
 js: js
 images: images
-
-# Theme version
-version: 7.8.0

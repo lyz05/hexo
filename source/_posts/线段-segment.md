@@ -61,7 +61,7 @@ Analysis
 Code
 --
 
-```
+```pascal
 const	maxn=20000+2;mo=1000000007;hamo=200000+2;
 type	node=record
 		v,ad,ad2:longint;

@@ -1,0 +1,29 @@
+zh-CN:
+    menu:
+        file: 文件
+        note: 剪贴板
+    post:
+        comments:
+            valine: 评论
+
+
+zh-hk:
+    menu:
+        file: 文件
+        note: 剪贴板
+    post:
+        comments:
+            valine: 評論
+        
+zh-tw:
+    menu:
+        file: 檔案
+        note: 剪貼簿
+    post:
+        comments:
+            valine: 評論
+
+en:
+    menu:
+        file: File
+        note: Clipboard

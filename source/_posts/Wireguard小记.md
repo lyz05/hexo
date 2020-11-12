@@ -31,7 +31,7 @@ Wireguard对于Linux支持较好，功能较全。目前用的Windows,Android端
 # Wireguard软件配置
 Wireguard的配置部分只有一个配置文件`wg0.conf`
 这个配置文件形如：
-```
+```ini
 [Interface]
 PrivateKey = {PrivateKey}
 ListenPort = 7890               #监听端口
