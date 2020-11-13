@@ -6,7 +6,7 @@ const path = require('path');
 
 // Add comment
 hexo.extend.filter.register('theme_inject', injects => {
-  let theme = hexo.theme.config;
+  const theme = hexo.theme.config;
   if (!theme.livere_uid) return;
 
   injects.comment.raw('livere', `
@@ -15,6 +15,6 @@ hexo.extend.filter.register('theme_inject', injects => {
   </div>
   `, {}, {cache: true});
 
-  injects.bodyEnd.file('livere', path.join(hexo.theme_dir, 'layout/_third-party/comments/livere.swig'));
+  injects.bodyEnd.file('livere', path.join(hexo.theme_dir, 'layout/_third-party/comments/livere.njk'));
 
 });
