@@ -78,7 +78,7 @@ codeblock:
     style: mac
 
 motion:
-  enable: true
+  enable: false
   async: true
   transition:
     post_block: fadeIn
