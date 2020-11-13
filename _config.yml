@@ -144,3 +144,13 @@ neat_js:
     - '**/jquery.fancybox.pack.js'
     - '**/index.js'
     - '**/fireworks.js'
+
+# hexo-douban
+douban:
+  user: 140286755
+  builtin: true
+  book:
+    title: '阅读'
+  movie:
+    title: '观影'
+  timeout: 10000 

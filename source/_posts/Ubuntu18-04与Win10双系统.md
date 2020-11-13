@@ -18,16 +18,16 @@ mathjax: true
 2. 	准备4G以上空间U盘，并使用Rufus烧录
 	[Rufus官方下载页面](https://rufus.ie/en_IE.html)
 
-3. 	Rufus烧录使用默认配置，先选择U盘，选择好镜像，按要求先使用推荐的烧录方式。
+3. Rufus烧录使用默认配置，先选择U盘，选择好镜像，按要求先使用推荐的烧录方式。
 
-4. 	重启电脑，狂按F12进入一次启动页面，选择U盘启动。
+4. 重启电脑，狂按F12进入一次启动页面，选择U盘启动。
 
-5.	先`try ubuntu`，试试当前版本的Ubuntu与机子的硬件兼容性如何，如果有不兼容的建议换Ubuntu版本，不然找驱动可能要你命。
+5. 先`try ubuntu`，试试当前版本的Ubuntu与机子的硬件兼容性如何，如果有不兼容的建议换Ubuntu版本，不然找驱动可能要你命。
 
-6.	`Install Ubuntu`，一路正常安装，进入分区页面时，根据需要分区。至少需要两个区`/`与`swap`。启动引导安装位置有两种选择，一种是选择整个硬盘，会覆盖Windows Boot Mannager。另一种是选择分区`/boot`，装好Ubuntu后重启进入windows使用EasyBCD添加Ubuntu开机引导。
+6. `Install Ubuntu`，一路正常安装，进入分区页面时，根据需要分区。至少需要两个区`/`与`swap`。启动引导安装位置有两种选择，一种是选择整个硬盘，会覆盖Windows Boot Mannager。另一种是选择分区`/boot`，装好Ubuntu后重启进入windows使用EasyBCD添加Ubuntu开机引导。
 	![分区方式表](http://5b0988e595225.cdn.sohucs.com/images/20180628/d33a504fbbd242929da6a969dacded1a.jpeg)
 
-7. 	一切顺利的话，重启进入Ubuntu系统。能见到熟悉的Gnome界面
+7. 一切顺利的话，重启进入Ubuntu系统。能见到熟悉的Gnome界面
 
 
 # 安装Ubuntu下软件

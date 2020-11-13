@@ -14,7 +14,7 @@ date: 2020-10-10 08:44:45
 # 安装与配置
 ## 服务端配置
 Docker部署还是很香的，所以我这里使用的是Docker部署，使用官方的Docker镜像，写好一份`docker-compose.yml`配置文件,一键部署。因为Docker网络这块不太了解，所以直接使用宿主机网络，就不需要做端口映射了，也避免端口映射带来的奇怪问题。
-```yml
+```yml docker-compose.yml
 version: '3'
 
 services:
@@ -32,7 +32,7 @@ services:
 `Country.mmdb`文件理论上Clash可以自动下载，但我尝试并不行，后来是手动下载的
 `dashboard`目录用于WEB端控制的前端代码。
 因为要实现透明代理，按照官方文档必须启用DNS，这里有一份`config.yaml`示例
-```yml
+```yml config.yaml
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -62,7 +62,7 @@ rules:
 成功启动后接下来就是编写最为关键的`iptables`规则
 为了规避流量成环问题，规则中没有对设备进行透明代理的相关代码。只有经过此电脑中转的数据包才会进行透明代理。
 在此之前需要开启当前linux系统的路由功能。
-```sh
+```sh setproxy.sh
 iptables -t nat -N V2RAY # 新建一个名为V2RAY 的链
 
 # Whitelist LANs and some other reserved addresses.

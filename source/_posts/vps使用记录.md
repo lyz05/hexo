@@ -61,7 +61,7 @@ wget -O - https://github.com/lyz05.keys >> /root/.ssh/authorized_keys
 ## 修改终端命令行颜色
 默认的命令行的白字黑底，实在是太难分辨，所以修改配色，提升可读性是很有必要的。
 在`~/.bashrc`中添加如下内容
-```sh
+```sh .bashrc
 PS1="${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
 export PS1
 ```
@@ -94,7 +94,7 @@ export PS1
  - [tldr](https://github.com/tldr-pages/tldr)
  - [Thefuck](https://www.jianshu.com/p/0d37b22aabba)
  - [Besttrace](https://www.xiaoz.me/archives/11769)
- - [youtube-dl]()
+ - [youtube-dl](https://youtube-dl.org/)
  
 # 阿里云OSS
 首先声明这个阿里云的OSS性能十分堪忧，主要是ossfs这个挂载工具堪忧。
@@ -140,7 +140,7 @@ CDN加速可以使用同一域名，只是在填回源地址时，要填ip地址
 [项目地址](https://github.com/fatedier/frp/releases)
 在这里下载当前平台所需要的二进制运行文件。
 frps.ini配置文件如下：
-```ini
+```ini frps.ini
 [common]
 bind_addr = 0.0.0.0
 bind_port = 7000
@@ -578,5 +578,3 @@ windows客户端要去github上找Release，体验了一下发现没有宣传的
 上面这篇教程在安装`kodexplorer`之前，先使用了一键安装脚本`oneinstack`解决大部分服务器所需要的服务，虽然也是国人制作的一键安装脚本，但是相比宝塔面板，要干净很多。
 在此之前推荐使用全新干净的系统安装。
 不需要桌面此类的东西，而且不够简约，每打开一个东西都开新窗口，不大喜欢这种WEB OS的风格。
-
-

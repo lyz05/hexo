@@ -23,13 +23,13 @@ comments: false
 5.  各色网络资源的汇总库。
 
 # 关于我
-一名在读大二生，同时也是一名已经退役的蒟蒻OIER。
+一名在读大三生，同时也是一名已经退役的蒟蒻OIER。
 爱好计算机，新科技，音乐，小而美的东西。
 
 # 联系方式
 Email:<liuyuanzhe0515@gmail.com>
 
-# 相关链接
+# 导航链接
 **Server**
 [phpMyAdmin](http://mysql.home999.cc:8050/)
 [Syncthing](http://sync.home999.cc:8050/)
@@ -50,6 +50,6 @@ Email:<liuyuanzhe0515@gmail.com>
 <!-- [ZHBIT OJ](http://oj.home999.cc:8080/) -->
 
 # 邀请码
-## SSRcloud
+## CNIX(ssrcloud)
 [邀请链接1](https://邀请01.很有精神.com/auth/register?code=GFRA)
 [邀请链接2](https://邀请01.很有精神.com/#/auth/register?code=GFRA)

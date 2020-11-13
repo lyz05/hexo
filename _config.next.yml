@@ -10,7 +10,7 @@ mobile_layout_economy: true
   
 creative_commons:
     sidebar: true
-    post: true
+    post: false
 
 scheme: Gemini
 
@@ -23,6 +23,8 @@ menu:
   archives: /archives/ || fa fa-archive
   file: https://static.home999.cc/ || fa fa-folder
   note: /note/ || fa fa-clipboard
+  books: /books/ || fa fa-book
+  movie: /movies/ || fa fa-film
   about: /about/ || fa fa-user
 
 menu_settings:
@@ -34,10 +36,13 @@ avatar:
   rounded: true
   
 social:
-  GitHub: https://github.com/lyz05 || fa fa-github
+  GitHub: https://github.com/lyz05 || fab fa-github
   E-Mail: mailto:liuyuanzhe0515@gmail.com || fa fa-envelope
-  知乎: http://www.zhihu.com/people/liu-yuan-zhe-16 || fa fa-globe
-  豆瓣: http://www.douban.com/people/140286755/ || fa fa-globe
+  知乎: http://www.zhihu.com/people/liu-yuan-zhe-16 || iconfont icon-douban
+  豆瓣: http://www.douban.com/people/140286755/ || iconfont icon-zhihu
+
+social_icons:
+  icons_only: true
 
 links_settings:
   layout: inline
@@ -93,3 +98,6 @@ quicklink:
   enable: true
   home: true
   archive: true
+  
+custom_file_path:
+  style: source/_data/styles.styl

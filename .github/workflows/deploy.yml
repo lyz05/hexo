@@ -42,7 +42,7 @@ jobs:
         run: |
           hexo clean
           hexo g
-          hexo d
+          hexo deploy
           
       - name: Setup ossutil
         uses: manyuanrong/setup-ossutil@v2.0
