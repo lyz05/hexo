@@ -75,7 +75,6 @@ pdf:
 codeblock:
   copy_button:
     enable: true
-    style: mac
 
 motion:
   enable: false
@@ -89,3 +88,8 @@ motion:
     
 nprogress:
   enable: true
+  
+quicklink:
+  enable: true
+  home: true
+  archive: true

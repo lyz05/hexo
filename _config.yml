@@ -95,14 +95,15 @@ archive_generator:
 
 tag_generator:
   per_page: 10
-  
+
+# hexo-generator-searchdb
 search:
   path: search.xml
   field: post
   format: html
   limit: 10000
   
-# sitemap
+# hexo-generator-sitemap
 sitemap:
   path: sitemap.xml
   
@@ -113,10 +114,33 @@ symbols_count_time:
   total_time: false
   exclude_codeblock: false
 
-#BY hexo-excerpt
+# hexo-excerpt
 excerpt:
   depth: 10
   excerpt_excludes: []
   more_excludes: []
   hideWholePostExcerpts: true
 
+# hexo-neat
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: true
+  exclude:
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+# 压缩js
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/jquery.fancybox.pack.js'
+    - '**/index.js'
+    - '**/fireworks.js'
