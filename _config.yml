@@ -26,8 +26,6 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render: 
- - 'note/*'
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -148,7 +146,7 @@ neat_js:
 # hexo-douban
 douban:
   user: 140286755
-  builtin: true
+  builtin: false
   book:
     title: '阅读'
   movie:

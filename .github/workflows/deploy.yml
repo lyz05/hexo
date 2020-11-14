@@ -41,6 +41,7 @@ jobs:
       - name: Deploy
         run: |
           hexo clean
+          hexo douban -bm
           hexo g
           hexo deploy
           

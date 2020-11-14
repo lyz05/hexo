@@ -95,9 +95,7 @@ nprogress:
   enable: true
   
 quicklink:
-  enable: true
-  home: true
-  archive: true
+  enable: false
   
 custom_file_path:
   style: source/_data/styles.styl
