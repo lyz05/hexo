@@ -16,7 +16,9 @@ comments: false
   }
 </style>
 <!-- LeanCloud -->
-<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.7.0/dist/av-min.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.7.0/dist/av-min.js"></script> -->
+<!-- 无需加载 av-min.js -->
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.7.0/dist/av-live-query-min.js"></script>
 <!-- jQuery -->
 <script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
 <!-- clipboard -->
