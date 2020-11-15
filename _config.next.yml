@@ -66,10 +66,10 @@ math:
     
 valine:
   enable: true
-  appId: XIvfHitkQpcIdYONge8baBBR-gzGzoHsz
-  appKey: nV8vEtsT9WYR9pGPCxEXyqWl
+  appId: IOO0v6UWzOQE94hPLrgXiQhg-9Nh9j0Va
+  appKey: vBfyrsgGJnqg8qG3PD4MglR8
   visitor: true
-  serverURLs: https://xivfhitk.lc-cn-n1-shared.com
+  serverURLs: https://ioo0v6uw.lc-cn-e1-shared.com
   
 local_search:
   enable: true
