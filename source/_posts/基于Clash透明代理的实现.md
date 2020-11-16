@@ -9,7 +9,8 @@ mathjax: true
 date: 2020-10-10 08:44:45
 ---
 # 研究原因
-为了使之前写的WireGuard大内网融合方案，能更进一步完成科学上网。而不需要在多个VPN频繁切换。目的就是实现一次接入，内网外网都可用。
+为了使之前写的WireGuard大内网融合方案，能更进一步完成科学上网。而不需要在多个VPN频繁切换。
+实现一次接入，打通内网外网，实现真正意义上的异地组网融合。
 
 # 安装与配置
 ## 服务端配置
@@ -63,27 +64,26 @@ rules:
 为了规避流量成环问题，规则中没有对设备进行透明代理的相关代码。只有经过此电脑中转的数据包才会进行透明代理。
 在此之前需要开启当前linux系统的路由功能。
 ```sh setproxy.sh
-iptables -t nat -N V2RAY # 新建一个名为V2RAY 的链
+iptables -t nat -N clash
+iptables -t nat -A clash -d 0.0.0.0/8 -j RETURN
+iptables -t nat -A clash -d 10.0.0.0/8 -j RETURN
+iptables -t nat -A clash -d 127.0.0.0/8 -j RETURN
+iptables -t nat -A clash -d 169.254.0.0/16 -j RETURN
+iptables -t nat -A clash -d 172.16.0.0/12 -j RETURN
+iptables -t nat -A clash -d 192.168.0.0/16 -j RETURN
+iptables -t nat -A clash -d 224.0.0.0/4 -j RETURN
+iptables -t nat -A clash -d 240.0.0.0/4 -j RETURN
+iptables -t nat -A clash -d "$local_ipv4" -j RETURN
+iptables -t nat -A clash -p tcp -j REDIRECT --to-port "$proxy_port"
+iptables -t nat -I PREROUTING -p tcp -d 8.8.8.8 -j REDIRECT --to-port "$proxy_port"
+iptables -t nat -I PREROUTING -p tcp -d 8.8.4.4 -j REDIRECT --to-port "$proxy_port"
+iptables -t nat -A PREROUTING -p tcp -j clash
 
-# Whitelist LANs and some other reserved addresses.
-iptables -t nat -A V2RAY -d 0.0.0.0/8 -j RETURN
-iptables -t nat -A V2RAY -d 10.0.0.0/8 -j RETURN
-iptables -t nat -A V2RAY -d 127.0.0.0/8 -j RETURN
-iptables -t nat -A V2RAY -d 169.254.0.0/16 -j RETURN 
-iptables -t nat -A V2RAY -d 172.16.0.0/12 -j RETURN 
-iptables -t nat -A V2RAY -d 192.168.0.0/16 -j RETURN 
-iptables -t nat -A V2RAY -d 224.0.0.0/4 -j RETURN
-iptables -t nat -A V2RAY -d 240.0.0.0/4 -j RETURN
-
-# whitelist China ip.
-#iptables -t nat -A V2RAY -p tcp -m set --match-set china dst -j RETURN
-
-iptables -t nat -A V2RAY -p tcp -j RETURN -m mark --mark 0xff # 此规则目的是避免代理本机流量出现回环问题
-iptables -t nat -A V2RAY -p tcp -s 192.168.88.0/24 ! -d 192.168.88.0/24 -j REDIRECT --to-ports 7892 # 指定CIDR地址流量转发7892端口
-iptables -t nat -A V2RAY -p tcp -s 192.168.10.0/23 ! -d 192.168.10.0/23 -j REDIRECT --to-ports 7892 # 指定CIDR地址流量转发7892端口
-
-iptables -t nat -A PREROUTING -p tcp -j V2RAY # 对局域网其他设备进行透明代理
-#iptables -t nat -A OUTPUT -p tcp -j V2RAY # 对本机进行透明代理
+iptables -t nat -N CLASH_DNS
+iptables -t nat -F CLASH_DNS 
+iptables -t nat -A CLASH_DNS -p udp -j REDIRECT --to-port 1053
+iptables -t nat -I OUTPUT -p udp --dport 53 -j CLASH_DNS
+iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to 1053
 ```
 配置好后可以观察能否进行透明代理。
 通过在本机访问http://localhost:9090/ui/可以使用WEB管理Clash
@@ -104,3 +104,6 @@ Windows IOS均需要启用代理自动获取
 # 与WireGuard联动
 在相同的机子部署WireGuard，并设置这台电脑为出口网关，其余设备只要接入WireGuard，就既能访问WireGuard设备中的内网资源，又能完成科学上网。
 如果你的机子与部署WireGuard的服务器位于同一局域网（二层网络中），通过修改网关即可接入，不需要再挂Wireguard VPN。
+
+# 参考文档
+[Clash Document](https://lancellc.gitbook.io/clash/)
