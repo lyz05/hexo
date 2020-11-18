@@ -34,7 +34,9 @@ date: 2020-02-14 16:02:34
 import oss2
 import json
 import datetime
+import pytz  # 时区
 
+tz = pytz.timezone('Asia/Shanghai')  # +8时区
 auth = oss2.Auth('<你的阿里云AccessKey>', '<你的阿里云AccessKeySecret>')
 endpoint = 'oss-cn-hongkong-internal.aliyuncs.com'
 #endpoint = 'oss-cn-hongkong.aliyuncs.com'
@@ -43,83 +45,97 @@ bucket = oss2.Bucket(auth, endpoint, bucketName)
 #返回给云函数的信息
 message = ""
 
-#列举Object大小
+# 列举Object大小
 def objsize(obj):
-    dict = {0:'B',1:'KB',2:'MB',3:'GB'}
+    dict = {0: 'B', 1: 'KB', 2: 'MB', 3: 'GB'}
     size = obj.size
     cnt = 0
-    while (size/1024>=1 and cnt<3):
+    while (size / 1024 >= 1 and cnt < 3):
         size /= 1024
         cnt += 1
-    return str(round(size,2))+dict[cnt]
+    return str(round(size, 2)) + dict[cnt]
 
-#列举Object最后修改时间
+
+# 列举Object最后修改时间
 def objtime(obj):
     timestamp = obj.last_modified
-    time = datetime.datetime.fromtimestamp(timestamp)
+    time = datetime.datetime.fromtimestamp(timestamp, tz)
     return time.strftime("%Y-%m-%d %H:%M:%S")
 
+
 # 写某一个Object的链接
-def writeitem(obj,folder):
-    #当前Object不是首页和当前目录
+def writeitem(obj, folder):
+    # 当前Object不是首页和当前目录
     if (len(folder) != len(obj.key) and obj.key.find('index.html') == -1):
-        #Object是目录
+        # Object是目录
         if (obj.is_prefix()):
-            return "<tr><td><a href='/"+obj.key+"'>"+obj.key[len(folder):]+"</a></td><td></td><td></td></tr>"
+            return "<tr><td><a href='/" + obj.key + "'>" + obj.key[len(folder):] + "</a></td><td></td><td></td></tr>"
         else:
-            return "<tr><td><a href='/"+obj.key+"'>"+obj.key[len(folder):]+"</a></td><td>"+objsize(obj)+"</td><td>"+objtime(obj)+"</td></tr>\n"
+            return "<tr><td><a href='/" + obj.key + "'>" + obj.key[len(folder):] + "</a></td><td>" + objsize(
+                obj) + "</td><td>" + objtime(obj) + "</td></tr>\n"
     else:
         return ""
 
+
 # 列举folder目录下所有文件和子目录。flag:是否递归
-def dfs(folder,flag):
+def dfs(folder, flag):
     global message
-    #index.html头部信息
-    html = "<!DOCTYPE html><html><head><meta http-equiv=\"content-type\" content=\"txt/html; charset=utf-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"stylesheet\" href=\"https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css\"><title>Index of /"+folder+"</title></head><body><div class=\"container\"><div class=\"row\"><h1>Index of /"+folder+"</h1><hr><table class=\"table table-striped table-hover\"><thead><tr><th>File name</th><th>File Size</th><th>Date</th></tr></thead><tbody>"
-    #首页不需要返回上一层
-    if (folder!=''):
+    # index.html头部信息
+    html = "<!DOCTYPE html><html><head><meta http-equiv=\"content-type\" content=\"txt/html; charset=utf-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css\"><title>Index of /" + folder + "</title></head><body><div class=\"container\"><div class=\"row\"><h1>Index of /" + folder + "</h1><hr><table class=\"table table-striped table-hover\"><thead><tr><th>File name</th><th>File Size</th><th>Date</th></tr></thead><tbody>"
+    # 首页不需要返回上一层
+    if (folder != ''):
         html += "<tr><td><a href='../'>../</a></td><td></td><td></td></tr>\n"
     # 列举文件夹
-    for obj in oss2.ObjectIterator(bucket, prefix=folder, delimiter = '/'):
+    for obj in oss2.ObjectIterator(bucket, prefix=folder, delimiter='/'):
         if obj.is_prefix():
-            html += writeitem(obj,folder)
-            #message += 'directory: ' + obj.key+'\n'
+            html += writeitem(obj, folder)
+            # message += 'directory: ' + obj.key+'\n'
     # 列举文件
-    for obj in oss2.ObjectIterator(bucket, prefix=folder, delimiter = '/'): 
+    for obj in oss2.ObjectIterator(bucket, prefix=folder, delimiter='/'):
         if not obj.is_prefix():
-            html += writeitem(obj,folder)
-            #message += 'file:' + obj.key+'\n'
-    #index.html尾部信息
+            html += writeitem(obj, folder)
+            # message += 'file:' + obj.key+'\n'
+    # index.html尾部信息
     html += "</table><hr></div></div></body></html>"
-    #上传index.html的地址
-    url = folder+"index.html"
-    #上传index文件
+    # 上传index.html的地址
+    url = folder + "index.html"
+    # 上传index文件
     result = bucket.put_object(url, html)
-    #print(html)
+    # print(html)
     message += 'Url:{0}'.format(url) + '\n'
-    message += 'HTTP status: {0}'.format(result.status)+'\n'
-    #递归操作
+    message += 'HTTP status: {0}'.format(result.status) + '\n'
+    # 递归操作
     if (flag):
-        for obj in oss2.ObjectIterator(bucket, prefix=folder, delimiter = '/'):
+        for obj in oss2.ObjectIterator(bucket, prefix=folder, delimiter='/'):
             if obj.is_prefix():  # 文件夹
-                dfs(obj.key,flag)
+                dfs(obj.key, flag)
 
-#OSS有创建删除Object事件产生
+
+# OSS有创建删除Object事件产生
 def handler(event, context):
+    result = bucket.head_object('event.txt')
+    bucket.append_object('event.txt',result.content_length,event)
     global message
-    message=""
+    message = ""
     eventObj = json.loads(event)["events"]
     url = eventObj[0]['oss']['object']['key']
-    #得到事件发生Object的URL
-    if (url.find('index.html')==-1 and len(url)-1!=url.rfind('/')):
-        #不是index.html且不是目录
-        if (url.find('/')==-1):
-            dfs(folder = '',flag = False)
+    eventName = eventObj[0]['eventName']
+    # 得到事件发生Object的URL
+    if (url.find('index.html') == -1):
+        # 不是index.html
+        if (len(url) - 1 == url.rfind('/')):
+            # 如果是创建修改目录,当前目录需要更新
+            dfs(url,False)
+            # 同时目录的上层目录需要更新
+            url = url[:-1]
+        if (url.find('/') == -1):
+            dfs(folder='', flag=False)
         else:
-            dfs(url[:url.rfind('/')+1],False)
+            dfs(url[:url.rfind('/') + 1], False)
         return message
     else:
         return 'Not Modified'
+
 ```
 可以在触发事件中选一个OSS模板的测试事件
 
