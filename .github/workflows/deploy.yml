@@ -36,11 +36,11 @@ jobs:
           git config --global user.name "lyz05"
           npm install hexo-cli -g
           npm install
+          hexo clean
+          hexo douban -bm
 
       - name: Deploy To Github Pages
         run: |
-          hexo clean
-          hexo douban -bm
           hexo g
           hexo deploy
           
@@ -53,8 +53,5 @@ jobs:
     
       - name: Deply To OSS
         run: |
-          hexo clean
-          hexo douban -bm
           hexo g --config _config.yml,_config.lang.yml
-          ossutil rm -rf oss://lyz05blog/
-          ossutil cp -rf public oss://lyz05blog/ 
+          ossutil cp -ru public oss://lyz05blog/ 
