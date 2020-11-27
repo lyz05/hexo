@@ -37,7 +37,6 @@ Email:<liuyuanzhe0515@gmail.com>
 [The Wandering Earth](http://tomcat.home999.cc:8050/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](http://tomcat.home999.cc:8050/book/)
 [ssm-crud](http://tomcat.home999.cc:8050/ssm-crud/)
-[UptimeRobot](https://stats.home999.cc/)
 **阿里云函数计算**
 [主流视频网站弹幕解析接口](//fc.home999.cc/)
 **Cloudflare Workers**
@@ -45,6 +44,8 @@ Email:<liuyuanzhe0515@gmail.com>
 [jsproxy](//jp.lyz05.workers.dev/)
 [Google](//goo.gle.workers.dev/)
 [维基百科](//wiki.lyz05.workers.dev/)
+**网站监控**
+[UptimeRobot](https://stats.home999.cc/)
 
 # 邀请码
 ## CNIX(ssrcloud)
