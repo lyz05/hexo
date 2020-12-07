@@ -55,3 +55,10 @@ jobs:
         run: |
           hexo g --config _config.yml,_config.lang.yml
           ossutil cp -ru public oss://lyz05blog/ 
+
+      - name: Sending message
+        uses: yakumioto/serverchan-action@v1
+        with:
+          key: ${{ secrets.sckey }}
+          text: 博客部署成功
+          desp: 博客部署成功
