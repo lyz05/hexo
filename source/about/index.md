@@ -33,7 +33,7 @@ Email:<liuyuanzhe0515@gmail.com>
 **Server**
 [aria2](http://aria.home999.cc:8050/)
 **[FRP(内网穿透)](http://frp.home999.cc:8050/)**
-**[Tomcat(CDN)](http://tomcat.home999.cc:8050/)**
+**[Tomcat(CDN)](https://tomcat.home999.cc:52583/)**
 [The Wandering Earth](https://tomcat.home999.cc:52583/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](https://tomcat.home999.cc:52583/book/)
 [ssm-crud](https://tomcat.home999.cc:52583/ssm-crud/)
