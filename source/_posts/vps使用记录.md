@@ -372,6 +372,7 @@ sudo apt-get install default-jdk
 ## docker容器
 [Docker 教程](https://www.runoob.com/docker/docker-hello-world.html)
 [Docker对象清理](https://blog.csdn.net/weixin_32820767/article/details/81196250)
+[docker 迁移 /var/lib/docker](https://blog.csdn.net/catoop/article/details/103290673)
 
 # 客户端搭建
 

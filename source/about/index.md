@@ -34,9 +34,9 @@ Email:<liuyuanzhe0515@gmail.com>
 [aria2](http://aria.home999.cc:8050/)
 **[FRP(内网穿透)](http://frp.home999.cc:8050/)**
 **[Tomcat(CDN)](http://tomcat.home999.cc:8050/)**
-[The Wandering Earth](http://tomcat.home999.cc:8050/phase-04-implementation-003-javaWeb/)
-[图书借阅管理系统](http://tomcat.home999.cc:8050/book/)
-[ssm-crud](http://tomcat.home999.cc:8050/ssm-crud/)
+[The Wandering Earth](https://tomcat.home999.cc:52583/phase-04-implementation-003-javaWeb/)
+[图书借阅管理系统](https://tomcat.home999.cc:52583/book/)
+[ssm-crud](https://tomcat.home999.cc:52583/ssm-crud/)
 **阿里云函数计算**
 [主流视频网站弹幕解析接口](//fc.home999.cc/)
 **Cloudflare Workers**
