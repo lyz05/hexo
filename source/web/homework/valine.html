@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言版 - WEB程序设计</title>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+<body>
+    <h1 style="text-align:center;">留言板</h1>
+    <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'sAHleptFhDA3fhiv6ybjMd7b-9Nh9j0Va',
+            appKey: '1ylHrs5cgBkYyw7QtP5cL0S0',
+            serverURLs: 'https://sahleptf.lc-cn-e1-shared.com'
+        })
+    </script>
+</body>
+
+</html>

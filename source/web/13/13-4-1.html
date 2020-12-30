@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5表单form的autocomplete和novalidate属性的应用</title>
+</head>
+
+<body>
+    <form action="" method="get" novalidate="novalidate" autocomplete="on">
+        <fieldset>
+            <legend align="center">
+                个人基本信息
+            </legend>
+            姓名：<input type="text" name="name" /> <br /> 邮箱：
+            <input type="email" name="email" autocomplete="off" /> <br />
+            <input type="submit" value="提交" />
+        </fieldset>
+    </form>
+    <p>请填写并提交此表单，然后重载页面，来查看自动完成功能是如何工作的。</p>
+    <p>请注意，表单的自动完成功能是打开的，而email域是关闭的</p>
+</body>
+
+</html>

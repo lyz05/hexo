@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>响应鼠标和键盘事件</title>
+	</head>
+	<body onkeydown="down(event)">
+		<p id="p1">&nbsp;</p>
+		<p id="p2">&nbsp;</p>
+		<button type="button" id="inp">清空</button>
+		<canvas id="c1" width="400px" height="400px" style="border: 1px solid black;"></canvas>
+		<br>
+		<script type="text/javascript">
+			var oC1=document.getElementById("c1");
+			var oInp=document.getElementById("inp");
+			var oGC=oC1.getContext("2d");
+			oGC.strokeStyle="#f00";
+			oC1.onmousedown=function(ev){
+				console.log(ev)
+				var ev=ev || event;
+				oGC.beginPath();  //结束上一次路径绘制，开始新的绘制
+				oGC.moveTo(ev.clientX-oC1.offsetLeft,ev.clientY-oC1.offsetTop);
+				document.onmousemove=function(ev){
+					var ev= ev||event;
+					oGC.lineTo(ev.clientX-oC1.offsetLeft,ev.clientY-oC1.offsetTop);
+					oGC.stroke();
+					document.getElementById("p1").innerHTML="offsetLeft:"+ev.offsetX+"   "+"offsetTop"+ev.offsetY;
+					document.getElementById("p2").innerHTML="clientX:"+ev.clientX+"   "+"clientY"+ev.clientY;
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+				}
+			}
+			oInp.onclick=function(){
+				oGC.clearRect(0,0,oC1.width,oC1.height);
+			}
+			
+			function down(e){
+				if(e.ctrlKey){
+					switch (e.keyCode){
+						case 66:
+							oGC.strokeStyle="blue";
+							break;
+							case 66:
+								oGC.strokeStyle="blue";
+								break;
+							case 71:
+								oGC.strokeStyle="green";
+								break;
+							case 82:
+								oGC.strokeStyle="red";
+								break;
+							case 38:
+								oGC.lineWidth+=1;
+								break;
+								//上
+							case 40:
+								oGC.lineWidth-=1;
+								break;
+								//下
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

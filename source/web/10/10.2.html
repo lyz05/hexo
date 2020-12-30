@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DIV+CSS布局</title>
+    <style type="text/css">
+        * {
+            font: 24px/1.5em 黑体;
+            margin: 0 auto;
+            padding: 0px;
+        }
+        
+        #Container {
+            width: 1006px;
+            margin: 0 auto;
+            /*设置整个容器在浏览器中水平居中*/
+        }
+        
+        #Header {
+            height: 120px;
+            background: #093;
+        }
+        
+        #logo {
+            height: 80px;
+            background: #5f5;
+            border-bottom: 2px solid white;
+        }
+        
+        #nav {
+            height: 40px;
+            background: #3f5;
+            border-bottom: 2px solid white;
+        }
+        
+        #Content {
+            width: 100%;
+            height: 400px;
+            background: #00EEFF;
+        }
+        /*设置浮动，实现多列效果，div+Css布局中很重要的*/
+        
+        #Content-left {
+            height: 400px;
+            width: 250px;
+            float: left;
+            background: #66ff66;
+            border-right: 2px solid white;
+        }
+        
+        #Content-center-left {
+            height: 400px;
+            width: 250px;
+            float: left;
+            background: #77ff66;
+            border-right: 2px solid white;
+        }
+        
+        #Content-center-right {
+            height: 400px;
+            width: 250px;
+            float: left;
+            background: #88ffDD;
+            border-right: 2px solid white;
+        }
+        
+        #Content-right {
+            height: 400px;
+            width: 250px;
+            float: left;
+            background: #99ff66;
+        }
+        
+        #Footer {
+            height: 40px;
+            background: #6FC;
+            border-top: 2px solid white;
+        }
+        
+        .Clear {
+            clear: both;
+            margin: 0 auto;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Container">
+        <div id="Header">
+            <div id="logo">logo</div>
+            <div id="nav">nav</div>
+        </div>
+        <div id="Content">
+            <div id="Content-left">Content-left</div>
+            <div id="Content-center-left">Content-center-left</div>
+            <div id="Content-center-right">Content-center-right</div>
+            <div id="Content-right">Content-right</div>
+        </div>
+        <div class="Clear">
+            <!--如何你上面用到float,下面布局开始前最好清除一下。-->
+        </div>
+        <div id="Footer">Footer</div>
+    </div>
+</body>
+
+</html>

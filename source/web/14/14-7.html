@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>手机批发业务</title>
+    <style type="text/css">
+        table {
+            width: 580px;
+            height: 200px;
+        }
+        
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .myBtn {
+            margin: 20px;
+            width: 120px;
+            height: 45px;
+            border: 1px ridge #44FFEE;
+        }
+    </style>
+    <script type="text/javascript">
+        var result = ""; //存放选购信息
+        var price = new Array(2576.00, 2999.00, 699.00, 599.00, 699.00);
+        var product = new Array("iphone 6 32G 金色 移动联通电信4G手机", "oppo R11 全网通 黑色版", "Apple iphone6s Plus 32G 金色 移动联通电信4G手机", "小米 红米手机4X 全网通 2GB内存 16GB 香槟金", "小米 红米手机4A 全网通版 2GB 16内存玫瑰金", "小米 红米4X 全网通版 2GB内存 16GB樱花粉");
+        var isSelected = new Array(0, 0, 0, 0, 0, 0);
+
+        function clearAll() {
+            isSelected = [0, 0, 0, 0, 0, 0]; //选取状态全部置零
+            myForm.sp0.checked = false;
+            myForm.sp1.checked = false;
+            myForm.sp2.checked = false;
+            myForm.sp3.checked = false;
+            myForm.sp4.checked = false;
+            myForm.sp5.checked = false;
+        }
+
+        function checkOut() {
+            var total = 0; //存放小计金额
+            var count = 0; //存访选购产品件数
+            for (var i = 0; i < isSelected.length; i++) {
+                count += isSelected[i];
+            }
+            for (var i = 0; i < price.length; i++) {
+                total = total + price[i] * isSelected[i] //累计金额
+            }
+            alert("您所选购的" + count + "件，产品总价=" + total + "\n" + "请去支付！");
+        }
+
+        function shoppingCart() {
+            //判断有多少个复选框被选中
+            var selectList = ""; //保存所选产品清单
+            for (var j = 0; j < product.length; j++) {
+                if (isSelected[j]) {
+                    //分行显示
+                    selectList += (j + 1) + " " + product[j] + ",价值=" + price[j] + "\n";
+                }
+            }
+            var info = (selectList == "") ? "您的购物车为空，请选购！" : selectList;
+            alert(info);
+        }
+
+        function checkSelect(number) {
+            var temp; //暂存复选框状态
+            switch (number) {
+                case 0:
+                    temp = myForm.sp0.checked;
+                    break;
+                case 1:
+                    temp = myForm.sp1.checked;
+                    break;
+                case 2:
+                    temp = myForm.sp2.checked;
+                    break;
+                case 3:
+                    temp = myForm.sp3.checked;
+                    break;
+                case 4:
+                    temp = myForm.sp4.checked;
+                    break;
+                case 5:
+                    temp = myForm.sp5.checked;
+                    break;
+            }
+            isSelected[number] = (temp) ? 1 : 0; //记录下选中产品，1-选中；0-未选
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myForm" method="post" action="">
+        <table align="center" border="1px">
+            <caption>手机批发业务-商品备选区</caption>
+            <tr>
+                <td><img src="image/mobile_1.jpg"><br>
+                    <h4 name="h41">iphone 6 32G 金色 移动联通电信4G手机</h4>
+                    <input type="checkbox" name="sp0" value="2576" onclick="checkSelect(0);" />￥2576.00
+                    <br>
+                </td>
+                <td><img src="image/moblie_2.jpg"><br>
+                    <h4 name="h421">oppo R11 全网通 黑色版</h4>
+                    <input type="checkbox" name="sp1" value="2999" onclick="checkSelect(1);" />￥2999.00
+                    <br>
+                </td>
+                <td><img src="image/moblie_3.jpg"><br>
+                    <h4 name="h43">Apple iphone6s Plus 32G 金色 移动联通电信4G手机</h4>
+                    <input type="checkbox" name="sp2" value="3898" onclick="checkSelect(2);" />￥3898.00
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="image/moblie_4.jpg"><br>
+                    <h4 name="h44">小米 红米手机4X 全网通 2GB内存 16GB 香槟金</h4>
+                    <input type="checkbox" name="sp3" value="699" onclick="checkSelect(3);" />￥699.00
+                    <br>
+                </td>
+                <td><img src="image/moblie_5.jpg"><br>
+                    <h4 name="h45">小米 红米手机4A 全网通版 2GB 16内存玫瑰金</h4>
+                    <input type="checkbox" name="sp4" value="599" onclick="checkSelect(4);" />￥599.00
+                    <br>
+                </td>
+                <td><img src="image/moblie_6.jpg"><br>
+                    <h4 name="h46">小米 红米4X 全网通版 2GB内存 16GB樱花粉</h4>
+                    <input type="checkbox" name="sp5" value="699" onclick="checkSelect(5);" />￥699.00
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input class="myBtn" type="button" value="查看购物车" onclick="shoppingCart();" />
+                    <input class="myBtn" type="button" value="收银台结算" onclick="checkOut();" />
+                    <input class="myBtn" type="button" value="初始化参数" onclick="clearAll();" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

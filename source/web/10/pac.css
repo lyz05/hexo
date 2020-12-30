@@ -1,0 +1,128 @@
+body {
+    color: #010101;
+    background: #fff;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+body,
+html {
+    font: 12px/1.5 tahoma, arial, sans-serif;
+    display: block;
+}
+
+.body-top {
+    height: 297px;
+    background: url("v9/b1.jpg");
+}
+
+.header,
+.header .logo {
+    width: 960px;
+    margin: 0 auto;
+    height: 297px;
+    background: url("v9/b2.jpg") no-repeat center;
+}
+
+
+/*New Nav Style*/
+
+#nav ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#nav_wrap {
+    width: 960px;
+    overflow: hidden;
+    padding-top: 223px;
+}
+
+#nav {
+    height: 69px;
+    width: 960px;
+    margin: 0 auto;
+    padding: 0px 5px;
+    position: relative;
+}
+
+#nav li {
+    float: left;
+    list-style: none;
+}
+
+#nav li .v a {
+    padding: 0 4px;
+    height: 39px;
+    line-height: 33px;
+    display: block;
+    color: #0d2972;
+    float: left;
+}
+
+#nav li .v a:hover {
+    color: #d62e38;
+    text-decoration: none;
+}
+
+#nav .kind_menu {
+    height: 30px;
+    width: 880px;
+    top: 26px;
+    left: 70px;
+    line-height: 30px;
+    vertical-align: middle;
+    position: absolute;
+    padding-top: 18px;
+    font-weight: normal;
+    color: #152026;
+    font-size: 12px;
+    text-align: left;
+    display: none;
+    /*初始不显示*/
+}
+
+#nav .kind_menu a {
+    color: #152026;
+    text-align: center;
+    padding: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nav .kind_menu a:hover {
+    text-decoration: none;
+}
+
+#nav .kind_menu span {
+    font-size: 10px;
+    color: #cecece;
+    line-height: 30px;
+}
+
+.cut_line {
+    padding-top: 4px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+
+/*鼠标滑过时显示二级菜单*/
+
+#nav ul li:hover .kind_menu {
+    display: block;
+    left: 100px;
+    /*显示子菜单*/
+}
+
+.changediv {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+}
+
+img {
+    border: 0px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>数据库连接测试</title>
+    <script type="text/javascript">
+        var request = window.indexedDB.open("myBooks", 1);
+        request.onerror = function(event) {
+            alert("数据库连接失败：" + event.target.errorCode);
+        }
+        request.onupgradeneeded = function(event) {
+            var db = request.result;
+            var store = db.createObjectStore("books", {
+                keyPath: "isbn"
+            });
+            var titleIndex = store.createIndex("by_title", "title", {
+                unique: true
+            });
+            var authorIndex = store.createIndex("by_author", "author");
+            store.put({
+                title: "计算机组成原理(修订版)",
+                author: "张功萱",
+                isbn: "9787302433637"
+            });
+            store.put({
+                title: "Java 2实用教程(第5版)",
+                author: "耿祥义",
+                isbn: "9787302464259"
+            });
+        }
+        request.onsuccess = function(event) {
+            db = event.target.result;
+            alert("数据库连接成功");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

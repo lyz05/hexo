@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册页面</title>
+    <style type="text/css">
+        strong {
+            color: red;
+            font-size: bolder;
+        }
+        
+        fieldset {
+            width: 560px;
+            height: 186px;
+            padding: 0px 50px;
+        }
+        
+        #button {
+            margin: 10px 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function checkReg() {
+            var username = $("myname").value;
+            var pwd = $("mypwd1").value;
+            var pwdConfirm = $("mypwd2").value;
+            var checkright = true;
+            if (username == "" || pwd == "") {
+                alert("请确认用户名和密码输入是否正确！！");
+                checkright = false;
+            } else {
+                if (username.length < 6) {
+                    alert("用户名长度太短，最少6个字符！！");
+                    checkright = false;
+                } else if (pwd.length < 6) {
+                    alert("密码长度太短，至少6个字符！！");
+                } else if (pwd != pwdConfirm) {
+                    alert("两次输入的密码必须一致");
+                    checkright = false;
+                } else {
+                    checkright = true;
+                }
+                return checkright;
+            }
+        }
+
+        function clearInfo() {
+            var flag = confirm("确认要重置数据吗？");
+            if (flag == true) {
+                $("myname").value = "";
+                $("mypwd1").value = "";
+                $("mypwd2").value = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form accept="regsuccess.html" method="get" onsubmit="return checkReg()" onreset="clearInfo()">
+        <fieldset>
+            <legend align="center">新用户注册</legend>
+            <div>
+                <label for="">用户名：</label>
+                <input type="text" name="myname" id="myname">
+                <strong>(用户名要大于6位)</strong><br>
+                <label for="">登录密码：</label>
+                <input type="password" name="mypwd1" id="mypwd1">
+                <strong>(密码要大于6位)</strong><br>
+                <label for="">密码确认：</label>
+                <input type="password" name="mypwd2" id="mypwd2"><br>
+                <input type="submit" value="用户注册" id="button">
+                <input type="reset" id="button" value="重置">
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>

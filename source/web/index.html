@@ -1,0 +1,298 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>WEB程序设计</title>
+    <style type="text/css">
+        ul li ul {
+            display: none;
+        }
+        
+        ul li:hover ul {
+            display: block;
+        }
+        
+        .body {
+            padding-top: 70px;
+            background: #eee;
+        }
+        
+        .footer {
+            color: #999;
+            font-size: .875em;
+            padding: 10px 0;
+        }
+        
+        .sidebar-inner {
+            background: #fff;
+            /* border-radius:initial; */
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 -1px .5px 0 rgba(0, 0, 0, .09);
+            box-sizing: border-box;
+            /* padding: 18px 10px; */
+        }
+    </style>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!--  Vue.js  -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- BootStrap4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- LeanCloud -->
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.7.0/dist/av-live-query-min.js"></script>
+    <script type="text/javascript" src="homework/init.js"></script>
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body class="body">
+    <div id="app" class="container-fluid">
+        <header>
+            <router-view name="navbar"></router-view>
+        </header>
+
+        <div role="main">
+            <div class="row">
+                <router-view name="sidebar"></router-view>
+                <router-view name="maincontent"></router-view>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="text-center">
+                <div id="copyright ">
+                    © 2015 –2020
+                    <i class="fa fa-heart"></i>
+                    <span>lyz05</span>
+                </div>
+                <div id="powered-by">
+                    Powered by
+                    <a href="https://cn.vuejs.org/index.html" class="theme-link" rel="noopener" target="_blank">Vue.js</a> &amp;
+                    <a href="https://getbootstrap.com/" class="theme-link" rel="noopener" target="_blank">Bootstrap</a> &amp;
+                    <a href="https://www.leancloud.cn/" class="theme-link" rel="noopener" target="_blank">LeanCloud</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/x-template" id="sidebar">
+        <div class="col-2" v-if="navindex!=-1">
+            <transition enter-active-class="animate__animated animate__fadeInLeft">
+                <div id="homework" v-if="navindex==0" class="sidebar-inner">
+                    <ul v-for="(items, name) in homework">
+                        <li>
+                            {{name}}
+                            <ul>
+                                <li v-for="item in items">
+                                    <a :href="item.href" target="index">{{item.name}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- <div v-for="(items, name) in homework" class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2">
+                                {{name}}
+                            </button>
+                        </div>
+                        <div id="collapse2" class="collapse" data-parent="#accordionExample">
+                            <a v-for="item in items" class="list-group-item" :href="item.href" target="index">{{item.name}}</a>
+                        </div>
+                    </div>
+                </div> -->
+                </div>
+            </transition>
+            <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="">
+                <div id="bighomework" v-if="navindex==1" class="sidebar-inner">
+                    <div class="list-group">
+                        <a v-for="(item,index) in sidebar" class="list-group-item list-group-item-action" :class="{active: sidebarindex==index}" :href="item.href" target="index" @click="sidebarclick(index)">{{item.name}}</a>
+                    </div>
+                </div>
+            </transition>
+        </div>
+    </script>
+    <script type="text/x-template" id="navbar">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+            <!-- <a class="navbar-brand" href="./" @click="navclick(-1)">Web程序设计</a> -->
+            <router-link class="navbar-brand" to="/">Web程序设计</router-link>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto col-auto">
+                    <li class="nav-item" :class="{'active': navindex == index}" v-for="(item,index) in navlist">
+                        <!-- <a class="nav-link" href="#" @click="navclick(index)">{{item}}</a> -->
+                        <router-link class="nav-link" :to="'/'+index">{{item}}</router-link>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav col-auto">
+                    <li class="nav-item dropdown col-auto" v-if="username!=null">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="http://photo.fanya.chaoxing.com/p/85163800_80" width="30" height="30" alt="" loading="lazy" class="d-inline-block align-top rounded-circle"> {{username}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-header">用户管理</div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="homework/login.html#/alterpassword" target="index">
+                                修改密码
+                            </a>
+
+                            <a class="dropdown-item" href="homework/login.html#/logout" target="index">注销</a>
+                        </div>
+                    </li>
+                    <li class="nav-item" v-if="username==null">
+                        <a class="nav-link" target="index" href="javascript:void(0);" @click="menuclick">{{menuname}}</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </script>
+    <script type="text/x-template" id="maincontent">
+        <div id="main" class="col animate__animated animate__fadeInDown">
+            <iframe id="main-iframe" class="sidebar-inner" name="index" width="100%" :height="iframeheight" :src="iframesrc" scrolling="yes" style="overflow-x:scroll; overflow-y:hidden; border:none;"></iframe>
+        </div>
+    </script>
+    <script>
+        const currentUser = AV.User.current();
+
+        const navbar = {
+            template: '#navbar',
+            props: ['navindex'],
+            data() {
+                return {
+                    navlist: null,
+                    username: null,
+                    menuname: null
+                }
+            },
+            mounted() {
+                if (currentUser) {
+                    this.navlist = ['作业展示', '大作业展示']
+                    this.username = currentUser.getUsername()
+                } else {
+                    this.navlist = []
+                    this.username = null
+                    this.menuclick()
+                }
+            },
+            methods: {
+                menuclick() {
+                    index.location.href = this.menuname == '注册' ? 'homework/login.html#/register' : 'homework/login.html#/login';
+                    this.menuname = (this.menuname == null || this.menuname == '登录') ? '注册' : '登录'
+                }
+            }
+        }
+
+        const sidebar = {
+            template: '#sidebar',
+            props: ['navindex'],
+            data() {
+                return {
+                    sidebarindex: null,
+                    sidebar: [{
+                        name: '答题页面',
+                        href: 'homework/test.html',
+                    }, {
+                        name: '留言板',
+                        href: 'homework/valine.html',
+                    }, {
+                        name: '剪切板',
+                        href: 'homework/note.html',
+                    }, {
+                        name: '实时：新冠肺炎疫情动态',
+                        href: 'homework/echart.html',
+                    }, {
+                        name: '画图工具',
+                        href: 'homework/canvas.html',
+                    }],
+                    homework: null
+                }
+            },
+            mounted() {
+                axios
+                    .get('sidebar.json')
+                    .then(response => (this.homework = response.data))
+            },
+            methods: {
+                sidebarclick(index) {
+                    this.sidebarindex = index
+                }
+            },
+        }
+        const maincontent = {
+            template: '#maincontent',
+            data() {
+                return {
+                    iframesrc: null,
+                    clientHeight: null
+                }
+            },
+            computed: {
+                iframeheight() {
+                    return this.clientHeight - 135;
+                }
+            },
+            mounted() {
+                if (currentUser) {
+                    this.iframesrc = "./carousel.html";
+                } else {
+                    this.iframesrc = "homework/login.html";
+                }
+                // 在DOM渲染数据时，设置下区域高度为浏览器可视区域高度．
+                this.clientHeight = document.body.clientHeight;
+                // 监听window的resize事件．在浏览器窗口变化时再设置下区域高度．
+                const _this = this;
+                window.onresize = function temp() {
+                    _this.clientHeight = document.body.clientHeight;
+                }
+            }
+        }
+
+
+        // 3. 创建 router 实例，然后传 `routes` 配置
+        const router = new VueRouter({
+            routes: [{
+                path: '/:navindex',
+                components: {
+                    navbar: navbar,
+                    sidebar: sidebar,
+                    maincontent: maincontent
+                },
+                props: {
+                    navbar: true,
+                    sidebar: true,
+                    maincontent: false
+                }
+            }, {
+                path: '/',
+                redirect: '/-1'
+            }]
+        });
+        //路由守卫
+        router.beforeEach((to, from, next) => {
+            var navindex = to.params.navindex;
+            //未登录跳转到登录页面
+            if (!currentUser && navindex != -1) {
+                next("/-1")
+                return;
+            }
+            if (currentUser && navindex == -1) {
+                next("/0")
+                return;
+            }
+            next()
+        })
+        const vm1 = new Vue({
+            router
+        }).$mount('#app')
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/hustcc/canvas-nest.js@2.0.1/dist/canvas-nest.js" type="text/javascript"></script> -->
+</body>
+
+</html>

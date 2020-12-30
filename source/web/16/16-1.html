@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>猜字游戏</title>
+    <script type="text/javascript">
+        var win_rate = 0;
+        var play_times = 0;
+        var wins = 0;
+        var last_digits;
+        var last_win;
+
+        function playOnce() {
+            var i, digit;
+            play_times++;
+            last_digits = "";
+            last_win = false;
+            for (i = 0; i < 3; i++) {
+                digit = Math.floor(Math.random() * 9) + 1;
+                last_digits += digit;
+                if (digit == 8)
+                    last_win = true;
+            }
+            if (last_win)
+                wins++;
+            win_rate = Math.floor(100 * (wins / play_times));
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        while (true) {
+            playOnce();
+            if (!confirm(last_digits + "\n" + (last_win ? "赢" : "输") + "\n您累计玩了" + play_times + "次，赢了" + wins + "次，胜率" + win_rate + "%,继续吗?"))
+                break;
+        }
+    </script>
+</body>
+
+</html>

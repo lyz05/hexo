@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>localstorage对象的API综合应用</title>
+</head>
+
+<body>
+    <fieldset id="2121" style="float:left;width:300px;text-align:center;">
+        <legend>通讯录添加</legend>
+        <label for="name">姓名(key):</label>
+        <input type="text" id="username" name="username" required />
+        <br />
+        <label for="telphone">电话(value):</label>
+        <input type="text" id="userphone" name="userphone" required />
+        <br />
+        <br />
+        <input type="button" onclick="saveInfo()" value="添加通讯录" />
+        <input type="reset" />
+        <div id="displayallinfo" name="displayallinfo"></div>
+    </fieldset>
+    <fieldset style="float:left;width:300px;height:100px;text-align:center;">
+        <legend>通讯录查询与删除</legend>
+        <label for="search_phone">输入姓名: </label>
+        <input type="text" id="search_name" name="search_name" required />
+        <br>
+        <label>电话: </label>
+        <input type="text" name="aa" id="userphone1" readonly />
+        <br />
+        <input type="button" onclick="findForName()" value="查找通讯录" />
+        <input type="button" onclick="deleteName()" value="删除通讯录" />
+    </fieldset>
+    <script type="text/javascript">
+        //载入所有存储在1oca1storage的通讯录信息
+        loadAllInfo();
+        //保存一条通讯记录数据，同时显示在div中
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function saveInfo() {
+            var name1 = $("username").value; //取姓名
+            var phone1 = $("userphone").value; //取电话
+            if (name1 != "" && phone1 != "") //不为空处理
+            {
+                localStorage.setItem(name1, phone1);
+                loadAllInfo();
+                alert("添加成功");
+            } else { //姓名或电话为空，告警并获得焦点
+                alert("请输入姓名和电话!");
+                $("username").focus();
+            }
+        }
+        //以姓名查找通讯录信息
+        function findForName() {
+            var searchname = $("search_name").value;
+            var searchphone = localStorage.getItem(searchname); //取电话
+            $("userphone1").value = searchphone; //填充电话
+        }
+        //从1ocalstorage中取出所有通讯录中信息，并展现到界面上
+        function loadAllInfo() {
+            //localStorage.clear()；
+            var result = "";
+            if (localStorage.length > 0) {
+                result += "姓名        电话</br><hr>";
+                for (var i = 0; i < localStorage.length; i++) {
+                    var name = localStorage.key(i);
+                    var phone = localStorage.getItem(name);
+                    result += name + "   ---   " + phone + "</br>";
+                }
+                console.log($("username"))
+                $("displayallinfo").innerHTML = result;
+            } else {
+                $("displayallinfo").innerHTML = "数据为空……";
+            }
+        }
+
+        //删除某一条通讯信息
+        function deleteName() {
+            localStorage.removeItem($("search_name").value); //取电话
+            $("search_name").value = ""; //填充电话
+            loadAllInfo();
+        }
+    </script>
+</body>
+
+</html>

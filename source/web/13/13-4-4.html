@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5的input标记新增部分属性的应用</title>
+    <script type="text/javascript" src="html5shiv.js"></script>
+</head>
+
+<body>
+    <form oninput="sum.value=parseInt(num1.value)+parseInt(num2.value)">
+        0<input type="range" id="num1" value="50" min="0" max="100">100 +
+        <input type="number" id="num2" value="50"> =
+        <output name="sum" for="num1 num2"></output>
+    </form>
+    <p><strong>注意：</strong>IE浏览器不支持output标记。</p>
+</body>
+
+</html>
