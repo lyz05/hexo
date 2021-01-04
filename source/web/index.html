@@ -4,14 +4,6 @@
     <meta charset="utf-8">
     <title>WEB程序设计</title>
     <style type="text/css">
-        ul li ul {
-            display: none;
-        }
-        
-        ul li:hover ul {
-            display: block;
-        }
-        
         .body {
             padding-top: 70px;
             background: #eee;
@@ -31,6 +23,8 @@
             /* padding: 18px 10px; */
         }
     </style>
+    <!-- darkmode -->
+    <link rel="stylesheet" href="homework/darkmode.css">
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- font-awesome -->
@@ -83,7 +77,7 @@
         <div class="col-2" v-if="navindex!=-1">
             <transition enter-active-class="animate__animated animate__fadeInLeft">
                 <div id="homework" v-if="navindex==0" class="sidebar-inner">
-                    <ul v-for="(items, name) in homework">
+                    <!-- <ul v-for="(items, name) in homework">
                         <li>
                             {{name}}
                             <ul>
@@ -92,19 +86,18 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
-                    <!-- <div v-for="(items, name) in homework" class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2">
+                    </ul> -->
+                    <div class="accordion" id="accordionExample">
+                        <div class="card" v-for="(items, name) in homework">
+                            <button class="card-header btn btn-light collapsed" type="button" data-toggle="collapse" :data-target="'#'+name">
                                 {{name}}
                             </button>
-                        </div>
-                        <div id="collapse2" class="collapse" data-parent="#accordionExample">
-                            <a v-for="item in items" class="list-group-item" :href="item.href" target="index">{{item.name}}</a>
+
+                            <div :id="name" class="collapse" data-parent="#accordionExample">
+                                <a v-for="item in items" class="list-group-item btn-light text-center" :href="item.href" target="index">{{item.name}}</a>
+                            </div>
                         </div>
                     </div>
-                </div> -->
                 </div>
             </transition>
             <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="">

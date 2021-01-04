@@ -34,10 +34,10 @@ Email:<liuyuanzhe0515@gmail.com>
 **Server**
 [aria2](http://aria.home999.cc:8050/)
 **[FRP(内网穿透)](http://frp.home999.cc:8050/)**
-**[Tomcat(CDN)](https://tomcat.home999.cc:52583/)**
-[The Wandering Earth](https://tomcat.home999.cc:52583/phase-04-implementation-003-javaWeb/)
-[图书借阅管理系统](https://tomcat.home999.cc:52583/book/)
-[ssm-crud](https://tomcat.home999.cc:52583/ssm-crud/)
+**[Tomcat(CDN)](https://tomcat.home999.cc:12890/)**
+[The Wandering Earth](https://tomcat.home999.cc:12890/phase-04-implementation-003-javaWeb/)
+[图书借阅管理系统](https://tomcat.home999.cc:12890/book/)
+[ssm-crud](https://tomcat.home999.cc:12890/ssm-crud/)
 **阿里云函数计算**
 [主流视频网站弹幕解析接口](//fc.home999.cc/)
 **Cloudflare Workers**
@@ -45,6 +45,8 @@ Email:<liuyuanzhe0515@gmail.com>
 [jsproxy](//jp.lyz05.workers.dev/)
 [Google](//goo.gle.workers.dev/)
 [维基百科](//wiki.lyz05.workers.dev/)
+**ZHBIT OJ**
+[OJ](https://oj.za102.cf:12890/)
 **网站监控**
 [UptimeRobot](https://stats.home999.cc/)
 

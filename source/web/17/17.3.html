@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5拖动图像应用</title>
+    <style type="text/css">
+        #div1,
+        #div2 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 15px;
+            padding: 15px;
+            border: 1px dashed #0066ff;
+        }
+        
+        #drag1 {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function allowDrop(ev) {
+            //阻止对元素的默认处理方式
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            //设置被拖数据的数据类型和值
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault(); //阻止对元素的默认处理方式
+            var data = ev.dataTransfer.getData("Text"); //获得被拖的数据
+            ev.target.appendChild($(data)); //添加拖放的元素
+        }
+    </script>
+</head>
+
+<body>
+    <h3>两个div中图像互相拖放</h3>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="qiyejianjie_small.jpg" draggable="true" ondragstart="drag(event)" id="drag1">
+    </div>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+    </div>
+</body>
+
+</html>
