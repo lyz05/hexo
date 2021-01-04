@@ -45,8 +45,6 @@ Email:<liuyuanzhe0515@gmail.com>
 [jsproxy](//jp.lyz05.workers.dev/)
 [Google](//goo.gle.workers.dev/)
 [维基百科](//wiki.lyz05.workers.dev/)
-**ZHBIT OJ**
-[OJ](https://oj.za102.cf:12890/)
 **网站监控**
 [UptimeRobot](https://stats.home999.cc/)
 
