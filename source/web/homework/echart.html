@@ -21,15 +21,15 @@
         }
     </style>
     <!--  Vue.js  -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
     <!-- BootStrap4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Jquery -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
     <!-- 引入 echarts.js -->
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.staticfile.org/echarts/5.0.0-rc.1/echarts.min.js"></script>
     <!--引入中国的地图数据js文件，引入后会自动注册地图名字和数据-->
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="./china.js"></script>
 </head>
 
 <body>
@@ -40,16 +40,17 @@
         </div>
         <div class="bd-example">
             <div class="row row-cols-1 row-cols-md-3">
-                <div class="col mb-4" v-for="(val, key, index) in china.Total">
+                <div class="col mb-4" v-for="(val, key, index) in dict">
                     <div class="card text-center" style="width: 18rem;">
                         <div class="card-body">
+                            <!-- {{dict[key].class}} -->
                             <h5 class="card-subtitle mb-2 text-muted">较上日
-                                <span :class="dict[key][1]">
+                                <span :class="dict[key].class">
                                     {{china.Add[key]>0?'+'+china.Add[key]:china.Add[key]}}
                                 </span>
                             </h5>
-                            <h1 class="card-text" :class="dict[key][1]">{{val}}</h1>
-                            <h4 class="card-title">{{dict[key][0]}}</h4>
+                            <h1 class="card-text" :class="dict[key].class">{{china.Total[key]}}</h1>
+                            <h4 class="card-title">{{dict[key].name}}</h4>
                         </div>
                     </div>
                 </div>
@@ -63,19 +64,52 @@
             el: "#app1",
             data: {
                 china: {
-                    Total: {},
-                    Add: {}
+                    Total: {
+                        confirm: 0,
+                        heal: 0,
+                        dead: 0,
+                        nowConfirm: 0,
+                        importedCase: 0,
+                        noInfect: 0
+                    },
+                    Add: {
+                        confirm: 0,
+                        heal: 0,
+                        dead: 0,
+                        nowConfirm: 0,
+                        importedCase: 0,
+                        noInfect: 0
+                    }
                 },
                 dict: {
-                    confirm: ['累计确诊', 'text-danger'],
-                    heal: ['累计治愈', 'text-success'],
-                    dead: ['累计死亡', 'text-dark'],
-                    nowConfirm: ['现有确诊', 'text-danger'],
-                    importedCase: ['境外输入', 'text-warning'],
-                    noInfect: ['无症状感染者', 'text-info']
+                    confirm: {
+                        name: '累计确诊',
+                        class: 'text-danger'
+                    },
+                    heal: {
+                        name: '累计治愈',
+                        class: 'text-success'
+                    },
+                    dead: {
+                        name: '累计死亡',
+                        class: 'text-dark'
+                    },
+                    nowConfirm: {
+                        name: '现有确诊',
+                        class: 'text-danger'
+                    },
+                    importedCase: {
+                        name: '境外输入',
+                        class: 'text-warning'
+                    },
+                    noInfect: {
+                        name: '无症状感染者',
+                        class: 'text-info'
+                    }
                 }
             },
             mounted() {
+                console.log(this.dict['confirm'][1]);
                 //初始化echarts实例
                 var myChart = echarts.init(document.getElementById('myEcharts'));
                 //显示Loading
@@ -167,19 +201,19 @@
 
                 //使用指定的配置项和数据显示图表
                 myChart.setOption(option);
-
-                //获取数据
+                var _this = this
+                    //获取数据
                 $.ajax({
                     url: "https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5",
                     dataType: "jsonp",
                     success: function(data) {
                         var res = data.data || "";
                         res = JSON.parse(res);
-                        console.log(res)
-                        vm1.china.Total = res.chinaTotal
-                        delete vm1.china.Total.suspect
-                        delete vm1.china.Total.nowSevere
-                        vm1.china.Add = res.chinaAdd
+                        console.log(res.chinaTotal);
+
+                        vm1.$data.china.Total = res.chinaTotal
+                        vm1.$data.china.Add = res.chinaAdd
+
                         var newArr = [];
                         //newArr的数据格式为：
                         // [{

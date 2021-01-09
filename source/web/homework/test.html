@@ -5,12 +5,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>作业 - Web程序设计</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./callouts.css">
     <!--  Vue.js  -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
     <!-- LeanCloud -->
     <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.7.0/dist/av-live-query-min.js"></script>
     <script type="text/javascript" src="init.js"></script>
+    <style>
+        .answer-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-content: flex-end;
+            flex-wrap: nowrap;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,15 +29,25 @@
                 <h1>
                     Web程序设计<small>答题页面</small>
                 </h1>
+                <div v-if="seen">
+                    <h3><small>最终得分：{{(score()*100).toFixed(2)+"%"}}</small></h3>
+                </div>
             </div>
             <form>
-                <questions ref="child1" :obj="selectquestion" :seen="seen"></questions>
-                <questions ref="child2" :obj="yesnoquestion" :seen="seen"></questions>
-                <questions ref="child3" :obj="selectquestions" :seen="seen"></questions>
+                <questions v-show="index==1" ref="child1" :obj="selectquestion" :seen="seen"></questions>
+                <questions v-show="index==2" ref="child2" :obj="yesnoquestion" :seen="seen"></questions>
+                <questions v-show="index==3" ref="child3" :obj="selectquestions" :seen="seen"></questions>
                 <div class="col-md-offset-2 col-md-8">
-                    <div v-if="seen" class="alert alert-success" role="alert">
-                        最终得分：{{(score()*100).toFixed(2)+"%"}}
-                    </div>
+                    <nav aria-label="...">
+                        <ul class="pager">
+                            <li class="previous" :class="{'disabled': index==1}">
+                                <a href="javascript:void(0)" @click="indexchange(-1)"><span aria-hidden="true">&larr;</span> Older</a>
+                            </li>
+                            <li class="next" :class="{'disabled': index==3}">
+                                <a href="javascript:void(0)" @click="indexchange(1)">Newer <span aria-hidden="true">&rarr;</span></a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
                 <div class="col-md-offset-2 col-md-8">
                     <div class="btn-group" role="group" aria-label="...">
@@ -51,10 +70,14 @@
                 <selectquestion-option v-if="obj.title=='单选题'" :question="question"></selectquestion-option>
                 <yesnoquestion-option v-if="obj.title=='判断题'" :question="question"></yesnoquestion-option>
                 <selectquestions-option v-if="obj.title=='多选题'" :question="question"></selectquestions-option>
-                <div v-if="seen" class="alert" v-bind:class="{ 'alert-success': question.isCorrect ,'alert-danger': !question.isCorrect}" role="alert">
-                    我的答案：{{question.useranswer}} 正确答案：{{question.answer}}
+                <div v-if="seen" class="callout" :class="{ 'callout-success': question.isCorrect ,'callout-danger': !question.isCorrect}">
+                    <h4>{{question.isCorrect?'答案正确':'答案错误'}}</h4>
+                    <div class="answer-wrap">
+                        <p><strong>我的答案：{{question.useranswer}}</strong></p>
+                        <p :class="{ 'text-success': question.isCorrect ,'text-danger': !question.isCorrect}"><strong>正确答案：{{question.answer}}</strong></p>
+                    </div>
                 </div>
-                <hr>
+                <br>
             </div>
         </div>
     </script>
@@ -63,7 +86,7 @@
         <div>
             <div class="radio" v-for="(item, index) in question.items">
                 <label>
-                <input type="radio" v-bind:value="item" v-model="question.useranswer" @change="judgeAnswer()">
+                <input type="radio" v-bind:value="String.fromCharCode(index+65)" v-model="question.useranswer" @change="judgeAnswer()">
                 {{ String.fromCharCode(index+65) }}、{{item}}
             </label>
             </div>
@@ -72,10 +95,10 @@
     <script type="text/x-template" id="yesnoquestion-option">
         <div class="radio">
             <label class="radio-inline">
-            <input type="radio" value="true" v-model="question.useranswer" @change="judgeAnswer()"> √
+            <input type="radio" value="√" v-model="question.useranswer" @change="judgeAnswer()"> √
                 </label>
             <label class="radio-inline">
-            <input type="radio" value="false" v-model="question.useranswer" @change="judgeAnswer()"> ×
+            <input type="radio" value="×" v-model="question.useranswer" @change="judgeAnswer()"> ×
                 </label>
         </div>
     </script>
@@ -83,7 +106,7 @@
         <div>
             <div class="checkbox" v-for="(item, index) in question.items">
                 <label>
-                  <input type="checkbox" :value="item" v-model="question.useranswer" @change="judgeAnswer()">
+                  <input type="checkbox" :value="String.fromCharCode(index+65)" v-model="question.useranswer" @change="judgeAnswer()">
                   {{ String.fromCharCode(index+65) }}、{{item}}
                 </label>
             </div>
@@ -107,7 +130,6 @@
             props: ['question'],
             methods: {
                 judgeAnswer: function() {
-                    this.question.useranswer = this.question.useranswer == 'true';
                     this.question.isCorrect = this.question.useranswer == this.question.answer;
                 }
             }
@@ -144,6 +166,7 @@
             data() {
                 return {
                     seen: false,
+                    index: 1,
                     selectquestion: {
                         title: '',
                         questions: []
@@ -159,6 +182,12 @@
                 };
             },
             methods: {
+                indexchange(dir) {
+                    var newindex = this.index + dir
+                    if (newindex > 3 || newindex < 1)
+                        return;
+                    this.index = newindex;
+                },
                 sub() {
                     if (isNaN(this.score())) {
                         alert("请答完所有题目，再点击提交哦！");
@@ -230,6 +259,7 @@
                         // 成功保存之后，执行其他逻辑
                         console.log(`新建成功。objectId：${todo.id}`);
                         dataobjid = todo.id;
+                        alert("提交成功")
                     }, (error) => {
                         // 异常处理
                     });
