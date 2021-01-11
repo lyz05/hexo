@@ -31,6 +31,7 @@ Email:<liuyuanzhe0515@gmail.com>
 
 # 导航链接
 [WEB程序设计大作业](/web/)
+[WEB项目页面](https://github.com/lyz05/lyz05.github.io/tree/blog/source/web/)
 **Server**
 [aria2](http://aria.home999.cc:8050/)
 **[FRP(内网穿透)](http://frp.home999.cc:8050/)**
