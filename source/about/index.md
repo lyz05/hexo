@@ -46,7 +46,7 @@ Email:<liuyuanzhe0515@gmail.com>
 [Google](//goo.gle.workers.dev/)
 [维基百科](//wiki.lyz05.workers.dev/)
 **网站监控**
-[UptimeRobot](https://stats.home999.cc/)
+[UptimeRobot](https://stats.uptimerobot.com/XnEypsn5VN)
 
 # 邀请码
 ## CNIX(ssrcloud)
