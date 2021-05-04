@@ -31,13 +31,14 @@ Email:<liuyuanzhe0515@gmail.com>
 
 # 导航链接
 [WEB程序设计大作业](/web/)
+[WEB项目页面](https://github.com/lyz05/lyz05.github.io/tree/blog/source/web/)
 **Server**
 [aria2](http://aria.home999.cc:8050/)
 **[FRP(内网穿透)](http://frp.home999.cc:8050/)**
-**[Tomcat(CDN)](https://tomcat.home999.cc:12890/)**
-[The Wandering Earth](https://tomcat.home999.cc:12890/phase-04-implementation-003-javaWeb/)
-[图书借阅管理系统](https://tomcat.home999.cc:12890/book/)
-[ssm-crud](https://tomcat.home999.cc:12890/ssm-crud/)
+**[Tomcat(CDN)](http://tomcat.home999.cc:8050/)**
+[The Wandering Earth](http://tomcat.home999.cc:8050/phase-04-implementation-003-javaWeb/)
+[图书借阅管理系统](http://tomcat.home999.cc:8050/book/)
+[ssm-crud](http://tomcat.home999.cc:8050/ssm-crud/)
 **阿里云函数计算**
 [主流视频网站弹幕解析接口](//fc.home999.cc/)
 **Cloudflare Workers**
