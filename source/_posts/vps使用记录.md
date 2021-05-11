@@ -473,6 +473,9 @@ systemctl
 [服务管理--systemctl命令](https://my.oschina.net/5lei/blog/191370)
 
 # VPS性能测试
+## Ping.pe
+Ping.Pe 是一个非常强大的免费站长工具，可以从全世界 30 个节点检测网站 Ping 时间、MTR 和封包传输速度，站长们只要输入查询的 IP 或域名就能从全世界 30 个测试节点来测试封包的传输时间、经过的节点和掉包率等信息。
+
 ## Zbench
 ```
 #中文版
