@@ -31,9 +31,7 @@ Email:<liuyuanzhe0515@gmail.com>
 
 # 导航链接
 [WEB程序设计大作业](/web/)
-[WEB项目页面](https://github.com/lyz05/lyz05.github.io/tree/blog/source/web/)
 **Server**
-[aria2](http://aria.home999.cc:8050/)
 **[FRP(内网穿透)](http://frp.home999.cc:8050/)**
 **[Tomcat(CDN)](http://tomcat.home999.cc:8050/)**
 [The Wandering Earth](http://tomcat.home999.cc:8050/phase-04-implementation-003-javaWeb/)
@@ -47,9 +45,10 @@ Email:<liuyuanzhe0515@gmail.com>
 [Google](//goo.gle.workers.dev/)
 [维基百科](//wiki.lyz05.workers.dev/)
 **网站监控**
-[UptimeRobot](https://stats.uptimerobot.com/XnEypsn5VN)
+[UptimeRobot](//stats.uptimerobot.com/XnEypsn5VN)
 
 # 邀请码
 ## CNIX(ssrcloud)
 [邀请链接1](https://邀请01.很有精神.com/auth/register?code=GFRA)
 [邀请链接2](https://邀请01.很有精神.com/#/auth/register?code=GFRA)
+[订阅连接](https://fc.home999.cc/sub)

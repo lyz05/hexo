@@ -12,4 +12,4 @@ cc软件集2.5安装包地址http://pan.baidu.com/s/1o6xfH1o
 cc软件集2.3安装包地址http://pan.baidu.com/s/1ntxhKtr
 目前没有升级补丁或升级包
 
-如有疑问，请发送邮件至:<a style="line-height: 28px;" rel="nofollow" href="mailto:294068487@qq.com">liuyuanzhe0515</a></div>
+如有疑问，请发送邮件至:[lyz05](mailto:294068487@qq.com)
