@@ -44,6 +44,7 @@ Email:<liuyuanzhe0515@gmail.com>
 [jsproxy](//jp.lyz05.workers.dev/)
 [Google](//goo.gle.workers.dev/)
 [维基百科](//wiki.lyz05.workers.dev/)
+[freecdn](//proxy.freecdn.workers.dev/?url=)
 **网站监控**
 [UptimeRobot](//stats.uptimerobot.com/XnEypsn5VN)
 
