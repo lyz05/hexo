@@ -1,20 +1,13 @@
-#language_switcher: true
-
-footer:
-    since: 2015
-    icon:
-      animated: true
-
-tag_icon: true
-mobile_layout_economy: true
-  
-creative_commons:
-    sidebar: true
-    post: false
+# Remove unnecessary files after hexo generate.
+minify: true
 
 scheme: Gemini
 
 darkmode: true
+  
+creative_commons:
+    sidebar: true
+    post: false
 
 menu:
   home: / || fa fa-home
@@ -100,3 +93,15 @@ quicklink:
   
 custom_file_path:
   style: source/_data/styles.styl
+
+footer:
+    since: 2015
+    icon:
+      animated: true
+
+tag_icon: true
+mobile_layout_economy: true
+
+github_banner:
+  enable: true
+  permalink: https://github.com/lyz05
