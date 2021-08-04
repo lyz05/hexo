@@ -53,7 +53,6 @@ jobs:
     
       - name: Deply To OSS
         run: |
-          hexo g --config _config.yml,_config.lang.yml
           ossutil cp -ru public oss://lyz05blog/ 
 
       - name: Sending message

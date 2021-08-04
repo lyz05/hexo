@@ -21,7 +21,6 @@ menu:
   about: /about/ || fa fa-user
 
 menu_settings:
-  icons: true
   badges: true
 
 avatar:
@@ -49,6 +48,7 @@ links:
   Byvoid: https://www.byvoid.com/
   hzwer: http://hzwer.com/
   VsKendo: https://blog.nowcoder.net/vskendo
+  Kai's Blog: https://blog.0xfc.cf/
   
 back2top:
   scrollpercent: true
@@ -56,7 +56,7 @@ back2top:
 math:
   mathjax:
     enable: true
-    
+
 valine:
   enable: true
   appId: IOO0v6UWzOQE94hPLrgXiQhg-9Nh9j0Va
@@ -74,6 +74,7 @@ codeblock:
   copy_button:
     enable: true
 
+# 动画
 motion:
   enable: false
   async: true
@@ -83,15 +84,26 @@ motion:
     post_body: 
     coll_header: 
     sidebar: fadeInUp
-    
+
+# 顶部进度条
 nprogress:
-  enable: false
-  
+  enable: true
+
+# 图片懒加载
+lazyload: true
+
+# 中英文文字留白
+pangu: true
+
+# 页面预加载
 quicklink:
-  enable: false
+  enable: true
+  home: true
+  archive: true
   
 custom_file_path:
   style: source/_data/styles.styl
+  footer: source/_data/footer.njk
 
 footer:
     since: 2015
@@ -102,6 +114,8 @@ mobile_layout_economy: true
 github_banner:
   enable: true
   permalink: https://github.com/lyz05
+
+index_with_subtitle: true
 
 # It's recommended to use the same version as in `_vendors.yml` to avoid potential problems.
 # Remember to use the https protocol of CDN links when you enable https on your site.

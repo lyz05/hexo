@@ -8,7 +8,7 @@ subtitle: Never Give Up
 description: 怯,你就会输一辈子
 keywords:
 author: lyz05
-language: en
+language: zh-CN
 timezone:
 
 # URL
@@ -107,7 +107,8 @@ search:
 # hexo-generator-sitemap
 sitemap:
   path: sitemap.xml
-  
+
+# hexo-symbols-count-time
 symbols_count_time:
   symbols: true
   time: true
