@@ -54,7 +54,6 @@ back2top:
   scrollpercent: true
   
 math:
-  per_page: true
   mathjax:
     enable: true
     
@@ -86,7 +85,7 @@ motion:
     sidebar: fadeInUp
     
 nprogress:
-  enable: true
+  enable: false
   
 quicklink:
   enable: false
@@ -96,8 +95,6 @@ custom_file_path:
 
 footer:
     since: 2015
-    icon:
-      animated: true
 
 tag_icon: true
 mobile_layout_economy: true
