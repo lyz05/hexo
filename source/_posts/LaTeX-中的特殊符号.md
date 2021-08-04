@@ -11,10 +11,3 @@ comments: false
 type: link
 link: http://blog.sina.com.cn/s/blog_642075770100u0np.html
 ---
-[转载文章](http://blog.sina.com.cn/s/blog_642075770100u0np.html)
-<!-- more -->
-<!-- 进入网页后的跳转 -->
-<html><head><meta 
-http-equiv="Content-Language" content="zh-CN"><meta HTTP-EQUIV="Content-Type" CONTENT="text/html; 
-charset=gb2312"><meta http-equiv="refresh" 
-content="0.05;url=http://blog.sina.com.cn/s/blog_642075770100u0np.html"><title></title></head><body></body></html>
