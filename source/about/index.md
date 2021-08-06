@@ -1,5 +1,5 @@
 ---
-title: About
+title: 关于
 
 date: 2015-12-11 18:55:44
 
@@ -29,27 +29,9 @@ comments: false
 # 联系方式
 Email:<liuyuanzhe0515@gmail.com>
 
-# 导航链接
-[WEB程序设计大作业](/web/)
-**Server**
-**[FRP(内网穿透)](http://frp.home999.cc:8050/)**
-**[Tomcat(CDN)](http://tomcat.home999.cc:8050/)**
-[The Wandering Earth](http://tomcat.home999.cc:8050/phase-04-implementation-003-javaWeb/)
-[图书借阅管理系统](http://tomcat.home999.cc:8050/book/)
-[ssm-crud](http://tomcat.home999.cc:8050/ssm-crud/)
-**阿里云函数计算**
-[主流视频网站弹幕解析接口](//fc.home999.cc/)
-**Cloudflare Workers**
-[GoIndex](//gd.lyz05.workers.dev/)
-[jsproxy](//jp.lyz05.workers.dev/)
-[Google](//goo.gle.workers.dev/)
-[维基百科](//wiki.lyz05.workers.dev/)
-[freecdn](//proxy.freecdn.workers.dev/?url=)
-**网站监控**
-[UptimeRobot](//stats.uptimerobot.com/XnEypsn5VN)
+# 打赏
+我在这里偷偷放一个打赏功能，不知道会不会有人看到...
 
-# 邀请码
-## CNIX(ssrcloud)
-[邀请链接1](https://邀请01.很有精神.com/auth/register?code=GFRA)
-[邀请链接2](https://邀请01.很有精神.com/#/auth/register?code=GFRA)
-[订阅连接](https://fc.home999.cc/sub)
+|微信支付|支付宝|
+|  ----  | ----  |
+|![微信支付](/images/wechatpay.png)|![支付宝](/images/alipay.jpg)|

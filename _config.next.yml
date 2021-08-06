@@ -1,38 +1,48 @@
 # Remove unnecessary files after hexo generate.
 minify: true
 
+# 主题
 scheme: Gemini
 
+# 暗黑模式
 darkmode: true
   
+# 创作者协议
 creative_commons:
     sidebar: true
     post: false
 
+# 主菜单
 menu:
   home: / || fa fa-home
+  archives: /archives/ || fa fa-archive
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
-  archives: /archives/ || fa fa-archive
-  file: https://gd.home999.cc/ || fa fa-folder
-  note: /note/ || fa fa-clipboard
+  lab: 
+    default: /lab/ || fa fa-flask fa-fw
+    file: https://gd.home999.cc/ || fa fa-folder
+    note: /note/ || fa fa-clipboard
   books: /books/ || fa fa-book
   movie: /movies/ || fa fa-film
   about: /about/ || fa fa-user
 
 menu_settings:
-  badges: true
+# 徽标
+  badges: true 
 
+# 头像
 avatar:
   url: /images/avatar.webp
   rounded: true
-  
+
+# 社交链接
 social:
   GitHub: https://github.com/lyz05 || fab fa-github
   E-Mail: mailto:liuyuanzhe0515@gmail.com || fa fa-envelope
   知乎: http://www.zhihu.com/people/liu-yuan-zhe-16 || iconfont icon-douban
   豆瓣: http://www.douban.com/people/140286755/ || iconfont icon-zhihu
 
+# 社交图标
 social_icons:
   icons_only: true
 
@@ -57,6 +67,7 @@ math:
   mathjax:
     enable: true
 
+# Leancloud统计字数与评论功能
 valine:
   enable: true
   appId: IOO0v6UWzOQE94hPLrgXiQhg-9Nh9j0Va
@@ -69,7 +80,8 @@ local_search:
   
 pdf:
   enable: true
-  
+
+# 代码块
 codeblock:
   copy_button:
     enable: true
@@ -100,7 +112,8 @@ quicklink:
   enable: true
   home: true
   archive: true
-  
+
+# 自定义文件
 custom_file_path:
   style: source/_data/styles.styl
   footer: source/_data/footer.njk
@@ -115,10 +128,9 @@ github_banner:
   enable: true
   permalink: https://github.com/lyz05
 
+# SEO
 index_with_subtitle: true
 
-# It's recommended to use the same version as in `_vendors.yml` to avoid potential problems.
-# Remember to use the https protocol of CDN links when you enable https on your site.
 vendors:
   # The CDN provider of NexT internal scripts.
   # Available values: local | jsdelivr | unpkg | cdnjs

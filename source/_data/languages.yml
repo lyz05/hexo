@@ -4,6 +4,7 @@ zh-CN:
         note: 剪贴板
         books: 阅读
         movie: 观影
+        lab: 实验室
     post:
         comments:
             valine: 评论
@@ -15,6 +16,7 @@ zh-hk:
         note: 剪貼簿
         books: 閲讀
         movie: 觀影
+        lab: 實驗室
     post:
         comments:
             valine: 評論
@@ -25,6 +27,7 @@ zh-tw:
         note: 剪貼簿
         books: 閲讀
         movie: 觀影
+        lab: 實驗室
     post:
         comments:
             valine: 評論
@@ -35,3 +38,4 @@ en:
         note: Clipboard
         books: Reading
         movie: Watching
+        lab: laboratory
