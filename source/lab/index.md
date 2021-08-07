@@ -30,7 +30,12 @@ comments: false
 [UptimeRobot](//stats.uptimerobot.com/XnEypsn5VN)
 
 # 邀请码
-[订阅链接](https://fc.home999.cc/sub)
+输入用户名获取您的专属订阅链接：
+<form name="sub" action="https://fc.home999.cc/sub" method="get">
+    <input type="text" placeholder="用户名" name="user"></input>&nbsp;&nbsp;
+    <input type="submit"></input>
+</form>
+
 ## CNIX(ssrcloud)
 [邀请链接1](https://sgi.anycast.gay/auth/register?code=GFRA)
 [邀请链接2](https://sgi.anycast.gay/#/auth/register?code=GFRA)
