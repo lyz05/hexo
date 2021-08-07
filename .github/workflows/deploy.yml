@@ -53,7 +53,7 @@ jobs:
     
       - name: Deply To OSS
         run: |
-          ossutil cp -ru public oss://lyz05blog/ 
+          ossutil cp -r -u -j 16 public oss://lyz05blog/ 
 
       - name: Sending message
         uses: yakumioto/serverchan-action@v1

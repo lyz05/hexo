@@ -12,30 +12,15 @@ comments: false
 
 # 导航链接
 [WEB程序设计大作业](../web/)
-**Server**
-**[FRP(内网穿透)](http://frp.home999.cc:8050/)**
-**[Tomcat(CDN)](http://tomcat.home999.cc:8050/)**
+## Server
+### [FRP(内网穿透)](http://frp.home999.cc:8050/)
+### [Tomcat(CDN)](http://tomcat.home999.cc:8050/)
 [The Wandering Earth](http://tomcat.home999.cc:8050/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](http://tomcat.home999.cc:8050/book/)
 [ssm-crud](http://tomcat.home999.cc:8050/ssm-crud/)
-**阿里云函数计算**
-[主流视频网站弹幕解析接口](//fc.home999.cc/)
-**Cloudflare Workers**
+## Cloudflare Workers
 [GoIndex](//gd.lyz05.workers.dev/)
 [jsproxy](//jp.lyz05.workers.dev/)
 [Google](//goo.gle.workers.dev/)
 [维基百科](//wiki.lyz05.workers.dev/)
-[freecdn](//proxy.freecdn.workers.dev/?url=)
-**网站监控**
-[UptimeRobot](//stats.uptimerobot.com/XnEypsn5VN)
-
-# 邀请码
-输入用户名获取您的专属订阅链接：
-<form name="sub" action="https://fc.home999.cc/sub" method="get">
-    <input type="text" placeholder="用户名" name="user"></input>&nbsp;&nbsp;
-    <input type="submit"></input>
-</form>
-
-## CNIX(ssrcloud)
-[邀请链接1](https://sgi.anycast.gay/auth/register?code=GFRA)
-[邀请链接2](https://sgi.anycast.gay/#/auth/register?code=GFRA)
+[CF反代](//proxy.freecdn.workers.dev/?url=)

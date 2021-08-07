@@ -35,3 +35,8 @@ Email:<liuyuanzhe0515@gmail.com>
 |微信支付|支付宝|
 |  ----  | ----  |
 |![微信支付](/images/wechatpay.png)|![支付宝](/images/alipay.jpg)|
+
+# 机场邀请码
+## CNIX(ssrcloud)
+[邀请链接1](https://sgi.anycast.gay/auth/register?code=GFRA)
+[邀请链接2](https://sgi.anycast.gay/#/auth/register?code=GFRA)

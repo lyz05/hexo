@@ -5,6 +5,9 @@ zh-CN:
         books: 阅读
         movie: 观影
         lab: 实验室
+        uptime: 网站监控
+        FC: 函数计算
+        links: 友链
     post:
         comments:
             valine: 评论
@@ -17,6 +20,8 @@ zh-hk:
         books: 閲讀
         movie: 觀影
         lab: 實驗室
+        uptime: 網站監控
+        FC: 函數計算
     post:
         comments:
             valine: 評論
@@ -28,6 +33,8 @@ zh-tw:
         books: 閲讀
         movie: 觀影
         lab: 實驗室
+        uptime: 網站監控
+        FC: 函數計算
     post:
         comments:
             valine: 評論
@@ -39,3 +46,6 @@ en:
         books: Reading
         movie: Watching
         lab: laboratory
+        uptime: Website Status
+        FC: Function calculation
+        links: Links

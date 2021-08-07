@@ -22,9 +22,12 @@ menu:
     default: /lab/ || fa fa-flask fa-fw
     file: https://gd.home999.cc/ || fa fa-folder
     note: /note/ || fa fa-clipboard
+    uptime: https://stats.uptimerobot.com/XnEypsn5VN || fas fa-heartbeat
+    FC: /FC/ || fas fa-rocket
   books: /books/ || fa fa-book
   movie: /movies/ || fa fa-film
   about: /about/ || fa fa-user
+  links: /links/ || fas fa-link
 
 menu_settings:
 # 徽标
@@ -45,21 +48,7 @@ social:
 # 社交图标
 social_icons:
   icons_only: true
-
-links_settings:
-  layout: inline
-  
-links:
-  IceCream: https://blog.xuegaogg.com
-  levan: http://sub.tbetbe.com/
-  佩奇kakkoii: http://blog.d999k.cn/
-  Mchobby: https://mchobbylong.github.io/
-  Rat's: https://www.moerats.com/
-  Byvoid: https://www.byvoid.com/
-  hzwer: http://hzwer.com/
-  VsKendo: https://blog.nowcoder.net/vskendo
-  Kai's Blog: https://blog.0xfc.cf/
-  
+   
 back2top:
   scrollpercent: true
   
