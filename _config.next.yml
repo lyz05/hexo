@@ -109,7 +109,20 @@ custom_file_path:
   footer: source/_data/footer.njk
 
 footer:
-    since: 2015
+  since: 2015
+
+# Post元信息显示
+post_meta:
+  updated_at:
+    enable: false
+
+# Post关联github编辑博文
+post_edit:
+  enable: true
+  url: https://github.com/lyz05/lyz05.github.io/tree/blog/source/ # Link for view source
+
+# 为字体插件建立早期链接
+preconnect: true
 
 tag_icon: true
 mobile_layout_economy: true
