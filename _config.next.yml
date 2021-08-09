@@ -1,6 +1,11 @@
 # Remove unnecessary files after hexo generate.
 minify: true
 
+# 自定义文件
+custom_file_path:
+  style: source/_data/styles.styl
+  footer: source/_data/footer.njk
+
 # 主题
 scheme: Gemini
 
@@ -48,7 +53,18 @@ social:
 # 社交图标
 social_icons:
   icons_only: true
-   
+
+footer:
+  since: 2015
+
+# Post元信息显示
+post_meta:
+  created_at: true
+  updated_at:
+    enable: false
+
+mobile_layout_economy: true
+
 back2top:
   scrollpercent: true
   
@@ -56,13 +72,7 @@ math:
   mathjax:
     enable: true
 
-# Leancloud统计字数与评论功能
-valine:
-  enable: true
-  appId: IOO0v6UWzOQE94hPLrgXiQhg-9Nh9j0Va
-  appKey: vBfyrsgGJnqg8qG3PD4MglR8
-  visitor: true
-  serverURLs: https://ioo0v6uw.lc-cn-e1-shared.com
+cloudflare_analytics: ebddc42d1db14fe2b0307d0dce464211
   
 local_search:
   enable: true
@@ -103,19 +113,6 @@ quicklink:
   home: true
   archive: true
 
-# 自定义文件
-custom_file_path:
-  style: source/_data/styles.styl
-  footer: source/_data/footer.njk
-
-footer:
-  since: 2015
-
-# Post元信息显示
-post_meta:
-  updated_at:
-    enable: false
-
 # Post关联github编辑博文
 post_edit:
   enable: true
@@ -125,7 +122,7 @@ post_edit:
 preconnect: true
 
 tag_icon: true
-mobile_layout_economy: true
+
 
 github_banner:
   enable: true
@@ -143,3 +140,12 @@ vendors:
   # Available values: local | jsdelivr | unpkg | cdnjs
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
   plugins: jsdelivr
+
+
+# Leancloud统计字数与评论功能
+valine:
+  enable: true
+  appId: IOO0v6UWzOQE94hPLrgXiQhg-9Nh9j0Va
+  appKey: vBfyrsgGJnqg8qG3PD4MglR8
+  visitor: true
+  serverURLs: https://ioo0v6uw.lc-cn-e1-shared.com
