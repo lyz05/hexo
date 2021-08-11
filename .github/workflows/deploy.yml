@@ -56,7 +56,7 @@ jobs:
           ossutil cp -r -u -j 24 public oss://lyz05blog/ 
 
       - name: Sending message
-        uses: yakumioto/serverchan-action@v1
+        uses: yakumioto/serverchan-action@v2
         with:
           key: ${{ secrets.sckey }}
           text: 博客部署成功
