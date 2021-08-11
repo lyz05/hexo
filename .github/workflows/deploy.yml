@@ -23,24 +23,24 @@ jobs:
         with:
           node-version: '12'
 
-      - name: Setup Hexo
+      - name: Setup NPM & Hexo environment
         env:
           ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
         run: |
           mkdir -p ~/.ssh/
           echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
-          chmod 700 ~/.ssh
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.email "294068487@qq.com"
           git config --global user.name "lyz05"
-          npm install hexo-cli -g
-          npm install
+          npm install hexo-cli yarn -g
+          yarn
+
+
+      - name: Hexo generate & Deploy To Github Pages
+        run: |
           hexo clean
           hexo douban -bm
-
-      - name: Deploy To Github Pages
-        run: |
           hexo g
           hexo deploy
           
@@ -56,8 +56,9 @@ jobs:
           ossutil cp -r -u -j 24 public oss://lyz05blog/ 
 
       - name: Sending message
-        uses: yakumioto/serverchan-action@v2
-        with:
+        env:
           key: ${{ secrets.sckey }}
-          text: 博客部署成功
+          title: 博客部署成功
           desp: 博客部署成功
+        run: |
+           curl -d "title=$title&desp=$desp" https://sctapi.ftqq.com/$key.send
