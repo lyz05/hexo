@@ -19,9 +19,9 @@ comments: false
     <input type="submit"></input>
 </form>
 
-# CF反代
+<!-- # CF反代
 输入反代网址链接：
 <form name="proxy" action="https://gd.home999.cc/0:view" method="get">
     <input type="text" placeholder="链接" name="url"></input>&nbsp;&nbsp;
     <input type="submit"></input>
-</form>
+</form> -->
