@@ -20,8 +20,6 @@ comments: false
 [ssm-crud](http://tomcat.home999.cc:8050/ssm-crud/)
 
 ## Cloudflare Workers
-[GoIndex](//gd.lyz05.workers.dev/)
 [jsproxy](//jp.lyz05.workers.dev/)
 [Google](//goo.gle.workers.dev/)
 [维基百科](//wiki.lyz05.workers.dev/)
-[CF反代](//proxy.freecdn.workers.dev/)
