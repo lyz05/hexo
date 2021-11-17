@@ -46,7 +46,7 @@ external-ui: dashboard
 #此处内容请安装一个gui版本的clash然后在里面配置好代理然后抄过来
 dns:
   enable: true
-  listen: 0.0.0.0:53
+  listen: :1053
   enhanced-mode: redir-host
   nameserver:
     - '114.114.114.114'
