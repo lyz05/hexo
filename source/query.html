@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Query:&nbsp;baidu.com -&nbsp;Google Public DNS</title>
+    <meta charset="UTF-8">
+    <link href="./dns/matter.min.css" rel="stylesheet">
+    <!-- <link href="./dns/shared.css" rel="stylesheet"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="./dns/query.css" rel="stylesheet"> </head> -->
+
+    <body>
+        <form action="/query" method="GET">
+            <header>
+                <div class="content">
+                    <a href="/">
+                        <h1>Public DNS</h1>
+                    </a>
+                    <label class="matter-textfield-outlined"> 
+                        <input value="baidu.com" type="text" name="name" placeholder="&nbsp;">
+                         <span>DNS Name</span>
+                    </label>
+                    <button class="matter-button-contained matter-primary" type="submit">Resolve</button>
+                </div>
+            </header>
+            <div class="content"> <label class="matter-textfield-outlined"> <input value="A" type="text" name="rr_type" list="rr_types" placeholder="&nbsp;" size="10"> <span>RR Type</span> </label> <datalist id="rr_types"> <option value="A"></option><option value="AAAA"></option><option value="ALL"></option><option value="CAA"></option><option value="CDS"></option><option value="CERT"></option><option value="CNAME"></option><option value="DNAME"></option><option value="DNSKEY"></option><option value="DS"></option><option value="HINFO"></option><option value="HTTPS"></option><option value="INTEGRITY"></option><option value="IPSECKEY"></option><option value="KEY"></option><option value="MX"></option><option value="NAPTR"></option><option value="NS"></option><option value="NSEC"></option><option value="NSEC3"></option><option value="NSEC3PARAM"></option><option value="PTR"></option><option value="RP"></option><option value="RRSIG"></option><option value="SIG"></option><option value="SOA"></option><option value="SPF"></option><option value="SRV"></option><option value="SSHFP"></option><option value="SVCB"></option><option value="TLSA"></option><option value="TXT"></option><option value="WKS"></option> </datalist>                <label class="matter-textfield-outlined"> <input value="" type="text" name="ecs" placeholder="&nbsp;"> <span>EDNS Client Subnet</span> </label> <label class="matter-switch"> <input type="checkbox" role="switch" name="disable_dnssec" value="true"> <span>Disable DNSSEC validation</span> </label>                <label class="matter-switch"> <input type="checkbox" role="switch" name="show_dnssec" value="true"> <span>Show DNSSEC detail</span> </label>
+                <h5>Result for&#x20;baidu.com/A&#x20;with DNSSEC validation&#x20;and&#x20;without DNSSEC detail:</h5>
+                <pre class="output" id="results">
+{
+    "Status": 0,
+    "TC": false,
+    "RD": true,
+    "RA": true,
+    "AD": false,
+    "CD": false,
+    "Question": [
+        {
+        "name": "baidu.com.",
+        "type": 1
+        }
+    ],
+    "Answer": [
+        {
+        "name": "baidu.com.",
+        "type": 1,
+        "TTL": 38,
+        "data": "220.181.38.251"
+        },
+        {
+        "name": "baidu.com.",
+        "type": 1,
+        "TTL": 38,
+        "data": "220.181.38.148"
+        }
+    ]
+}
+                </pre>
+                <p> You may also resolve directly at:
+                    <a href="https://dns.google/resolve?name=baidu.com&amp;type=A">
+                    https://dns.google/resolve?name=baidu.com&amp;type=A
+                </a>
+                </p>
+            </div>
+        </form> <span class="filler bottom"></span>
+
+        <script src="./dns/query.js" nonce="e6ZwWLwSc8TXgG22gXMXdQ=="></script>
+        <script nonce="e6ZwWLwSc8TXgG22gXMXdQ==">
+            (function() {
+                var resolve_url = 'https://dns.google/resolve?name\x3dbaidu.com\x26type\x3dA';
+                resolve(resolve_url);
+            })();
+        </script>
+        <script nonce="e6ZwWLwSc8TXgG22gXMXdQ==">
+            document.forms[0].name.focus();
+        </script>
+    </body>
+
+</html>

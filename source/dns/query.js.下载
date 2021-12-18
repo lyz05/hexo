@@ -1,0 +1,13 @@
+/**
+ * Fetch and display DNS results via DoH.
+ * @param {string} url The DoH URL to fetch results from.
+ */
+function resolve(url) {
+  const fetchOpts = {credentials: 'omit'};
+  const resultsEl = document.getElementById('results');
+
+  fetch(url, fetchOpts)
+    .then(response => response.json())
+    .then(j => resultsEl.innerText = JSON.stringify(j, null, 2))
+    .catch(error => resultsEl.innerText = error);
+}

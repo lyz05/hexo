@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Google+Sans_old');
+
+h1 {
+  color: #4285f4;
+  display: inline;
+  font-family: "Google Sans", sans-serif;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h2 {
+  /* https://www.materialui.co/colors/grey/800 */
+  color: #424242;
+  margin-bottom: 2ex;
+  margin-top: 3ex;
+}
+
+header {
+  box-shadow:
+      0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  margin-bottom: 1ex;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header img {
+  vertical-align: middle;
+}
+
+header input {
+  min-width: 350px;
+}
+
+@media (max-width: 400px) {
+  header input {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+form button, form label.matter-switch {
+  /* In case of wrapping on narrow screens, match height to text input. */
+  margin: 12px 0;
+}
+
+form label.matter-switch {
+  margin-right: 2ex;
+}
+
+form label {
+  margin-right: 2ex;
+}
+
+.content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+pre.output {
+  background-color: #f5f5f5;
+  color: black;
+  font: 400 14px/20px "Roboto Mono", monospace;
+  padding: 1em;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+pre.output:empty {
+  display: none;
+}
+
+table.output tr:nth-child(3n+2) {
+  /* https://www.materialui.co/colors/grey/200 */
+  background-color: #eee;
+}
+
+table.output td {
+  vertical-align: top;
+}
+table.output td[aria-describedby*="tooltip"] {
+  position: relative;
+}
+table.output td .matter-tooltip > span {
+  margin: 0;
+}
+
+table.output summary {
+  cursor: pointer;
+}
+
+table.output pre {
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
