@@ -23,6 +23,16 @@ comments: false
 ## 订阅转换
 <iframe src="https://fc.home999.cc/subconverter/" width="100%" height=900px style="border:none;"></iframe>
 
+## DNS Over HTTPS（测试）
+地址：https://fc.home999.cc/dns-query
+使用[该项目](https://github.com/m13253/dns-over-https)搭建于香港阿里云函数计算
+支持EDNS，支持[Google](https://developers.google.com/speed/public-dns/docs/dns-over-https)与[IETF](https://www.rfc-editor.org/rfc/rfc8484.txt)标准。
+上游使用Google Public DNS。
+简单测试：
+```bash
+curl -H 'accept: application/dns-json' 'https://fc.home999.cc/dns-query?name=www.google.com&type=A' | jq
+```
+
 # Cloudflare Workers
 # CF反代
 <iframe src="https://gd.home999.cc/proxy/" width="100%" height=260px style="border:none;"></iframe>
