@@ -13,11 +13,11 @@ comments: false
 # 导航链接
 [WEB程序设计大作业](../web/)
 ## Server
-### [FRP(内网穿透)](//frp.home999.cc/)
-### [Tomcat(CDN)](//tomcat.home999.cc/)
+### [FRP(内网穿透)](http://192.168.88.1:7500/)
+<!-- ### [Tomcat(CDN)](//tomcat.home999.cc/)
 [The Wandering Earth](//tomcat.home999.cc/phase-04-implementation-003-javaWeb/)
 [图书借阅管理系统](//tomcat.home999.cc/book/)
-[ssm-crud](//tomcat.home999.cc/ssm-crud/)
+[ssm-crud](//tomcat.home999.cc/ssm-crud/) -->
 
 ## Cloudflare Workers
 [jsproxy](//jp.lyz05.workers.dev/)
