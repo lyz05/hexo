@@ -63,6 +63,7 @@ post_meta:
   updated_at:
     enable: false
 
+
 mobile_layout_economy: true
 
 back2top:
@@ -135,11 +136,11 @@ vendors:
   # The CDN provider of NexT internal scripts.
   # Available values: local | jsdelivr | unpkg | cdnjs
   # Warning: If you are using the latest master branch of NexT, please set `internal: local`
-  internal: jsdelivr
+  internal: local
   # The default CDN provider of third-party plugins.
   # Available values: local | jsdelivr | unpkg | cdnjs
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
-  plugins: jsdelivr
+  plugins: local
 
 
 # Leancloud统计字数与评论功能
