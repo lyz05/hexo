@@ -10,7 +10,7 @@ defaultlinks:
     avatar: https://avatars3.githubusercontent.com/u/32614955?s=460&v=3 # 网站头像
 
   - name: VsKendo # 网站名称
-    site: https://blog.nowcoder.net/vskendo # 网站地址
+    site: http://vskendo.com/ # 网站地址
     info: 前人栽树，后人乘凉 # 网站描述
     avatar: https://avatars.githubusercontent.com/u/44796030?v=4 # 网站头像
 
