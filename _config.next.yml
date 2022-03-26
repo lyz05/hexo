@@ -99,7 +99,7 @@ motion:
     sidebar: fadeInUp
 
 # 顶部进度条
-nprogress:
+pace:
   enable: true
 
 # 图片懒加载
@@ -150,3 +150,4 @@ valine:
   appKey: vBfyrsgGJnqg8qG3PD4MglR8
   visitor: true
   serverURLs: https://ioo0v6uw.lc-cn-e1-shared.com
+  recordIP: true

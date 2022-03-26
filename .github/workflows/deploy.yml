@@ -28,8 +28,8 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.email "294068487@qq.com"
           git config --global user.name "lyz05"
-          npm install hexo-cli -g
-          npm install
+          npm install hexo-cli yarn -g
+          yarn
 
 
       - name: Hexo generate & Deploy To Github Pages
