@@ -38,3 +38,8 @@ defaultlinks:
     site: https://yhsyc.club/ # 网站地址
     info: 随便摆摆 # 网站描述
     avatar: https://yhsyc.club/images/we-white.svg # 网站头像
+    
+  - name: 沃若 # 网站名称
+    site: https://www.woruo.online/ # 网站地址
+    info: 桑之未落，其叶沃若。 # 网站描述
+    avatar: https://www.woruo.online/images/avatar.png # 网站头像
