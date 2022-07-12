@@ -2,6 +2,13 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server",
+    "douban": "hexo douban -bm"
+  },
   "hexo": {
     "version": "6.2.0"
   },
