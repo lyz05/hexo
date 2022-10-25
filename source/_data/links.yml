@@ -42,4 +42,9 @@ defaultlinks:
   - name: 沃若 # 网站名称
     site: https://www.woruo.online/ # 网站地址
     info: 桑之未落，其叶沃若。 # 网站描述
-    avatar: https://www.woruo.online/images/avatar.png # 网站头像
+    avatar: https://www.woruo.online/assets/images/avatar.png # 网站头像
+
+  - name: 安联之夜
+    site: https://blog.csdn.net/anlianzhiye/
+    info: anlianzhiye的博客
+    avatar: https://profile-avatar.csdnimg.cn/48cab76f07354fe4a83ff87ab8660bf6_anlianzhiye.jpg!1

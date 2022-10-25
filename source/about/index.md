@@ -23,7 +23,7 @@ comments: false
 5.  各色网络资源的汇总库。
 
 # 关于我
-一名在读大三生，同时也是一名已经退役的蒟蒻OIER。
+一位废柴，一位懒人，一位懒惰的废柴懒人。
 爱好计算机，新科技，音乐，小而美的东西。
 
 # 联系方式
@@ -37,6 +37,5 @@ Email:<liuyuanzhe0515@gmail.com>
 |![微信支付](/images/wechatpay.png)|![支付宝](/images/alipay.jpg)|
 
 # 机场邀请码
-## CNIX(ssrcloud)
-[邀请链接1](https://sgi.anycast.gay/auth/register?code=GFRA)
-[邀请链接2](https://sgi.anycast.gay/#/auth/register?code=GFRA)
+## IBCN
+[邀请链接](https://dash.ibcn.space/auth/register?code=iLY1)
