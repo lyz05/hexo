@@ -150,7 +150,7 @@ neat_js:
 
 # hexo-douban
 douban:
-  user: 140286755
+  id: 140286755
   builtin: false
   book:
     title: '阅读'
