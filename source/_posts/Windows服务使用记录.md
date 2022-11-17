@@ -7,6 +7,7 @@ categories:
   - 原创
 mathjax: true
 date: 2019-12-01 23:07:47
+updated: 2022-11-16 18:42:00
 ---
 # Windows防火墙
 因为我比较菜，而Windows防火墙太过严苛，我一般是把windows防火墙关掉！但这样WIN10会一直发出警报，裸奔不够安全，建议还是上一个火绒，一切问题都解决了。
@@ -36,3 +37,8 @@ RDP默认端口3389
 `netsh interface portproxy show all`|查看所有的端口转发
 `netsh interface portproxy delete v4tov4 listenport=3340 listenaddress=10.1.1.110`|删除指定的端口转发规则
 `netsh interface portproxy add v4tov4 listenaddress=192.168.222.145 listenport=15001 connectaddress=192.168.222.63 connectport=81`|添加指定的端口转发规则
+
+# nssm
+NSSM是一个服务封装程序，它可以将普通exe程序封装成服务，使之像windows服务一样运行。
+有一些windows下的服务软件可能没有自带安装成系统服务的功能，这时候就可以使用nssm来实现。
+下载地址：[https://nssm.cc/download](https://nssm.cc/download)

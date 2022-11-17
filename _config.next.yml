@@ -151,3 +151,11 @@ valine:
   visitor: true
   serverURLs: https://ioo0v6uw.lc-cn-e1-shared.com
   recordIP: true
+
+# Mermaid 标签
+mermaid:
+  enable: true
+  # Available themes: default | dark | forest | neutral
+  theme:
+    light: default
+    dark: dark
