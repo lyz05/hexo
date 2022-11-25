@@ -3,6 +3,7 @@ minify: true
 
 # 自定义文件
 custom_file_path:
+  head: source/_data/head.njk
   style: source/_data/styles.styl
   footer: source/_data/footer.njk
 

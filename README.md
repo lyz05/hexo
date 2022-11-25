@@ -18,6 +18,7 @@ npm run clean   # 清理配置信息
 npm run deploy  # 部署到Github Pages
 npm run server  # 本地调试
 npm run douban  # 生成豆瓣电影图书信息
+hexo deploy     # 部署到Github Pages
 s deploy        #部署到阿里云OSS
 ```
 

@@ -27,6 +27,7 @@
     "hexo-generator-tag": "^2.0.0",
     "hexo-neat": "^1.0.9",
     "hexo-next-valine": "github:next-theme/hexo-next-valine",
+    "hexo-offline": "^2.0.1",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^6.0.0",
     "hexo-renderer-stylus": "^2.0.1",
