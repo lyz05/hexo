@@ -160,3 +160,15 @@ mermaid:
   theme:
     light: default
     dark: dark
+
+# 打赏设置
+reward_settings:
+  enable: true
+  animation: false
+  comment: 赏个鸡腿🍗
+
+reward:
+  wechatpay: /images/wechatpay.png
+  alipay: /images/alipay.jpg
+  #paypal: /images/paypal.png
+  #bitcoin: /images/bitcoin.png
