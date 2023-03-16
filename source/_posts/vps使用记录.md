@@ -79,15 +79,80 @@ export PS1
 [Ubuntu打开终端出错：failed to execute default terminal emulator（如图示） ](https://zhidao.baidu.com/question/1770374646687303580.html)
 因为我嫌Xubuntu自带的进程管理器太丑了，安装了gnome默认的`gnome-system-monitor`。
 
-# Ubuntu 18.04——Vmware
+# Ubuntu 18.04——Vmware Workstation
 因为穷，买不起云服务器，遂在本地跑起了虚拟机。
 在本地用就一个字爽，缺点就是没公网ip，只能对内网设备提供服务。
-## 安装Vmware
-网上有破解版安装包，安装好之后需要进BIOS启用CPU虚拟化。
+
+## 安装Vmware Workstation
+直接去官网现在最新版安装，网上的密钥基本都可以用于激活。
+安装好之后需要进BIOS启用CPU虚拟化。
+
 ## Ubuntu镜像
 不同于云服务厂商，镜像需要自己下载
 [Ubuntu Server官网镜像下载页面](https://ubuntu.com/download/server)
 下载之后安装就是无图形界面的最小化Ubuntu安装，可以很人性化的导入Github上的公钥。
+
+## Windows镜像
+跑windows系统也不再话下，直接下载镜像，安装时选择镜像安装就行。
+VMware能自动识别操作系统，填写产品密钥后自动安装。
+
+## 导入制作的OVF镜像
+为了进一步减少安装操作系统的时间，或者希望自己定制一套镜像来使用。
+可以在虚拟机中安装必要软件后导出成OVF，分发给要使用虚拟机的人。这样全新安装虚拟机是最快的。
+
+## 网络穿透
+一般需要用到VMware Workstation的服务器往往在内网之中，如果希望在互联网上远程连接虚拟机，还需要解决虚拟机内网穿透的问题。
+一种免费解决方案是使用传统的远程控制软件，如：TeamViewer、AnyDesk、ToDesk、向日葵等。
+另一种是使用自建的内网穿透服务，如：frp、ngrok、natapp等。
+
+## 命令行操作虚拟机
+要使用命令行创建VMware Workstation虚拟机，您需要使用VMware提供的命令行工具 vmrun。
+vmrun 是 VMware Workstation 提供的命令行工具，用于启动、关闭、暂停、恢复虚拟机等操作。下面是 vmrun 的使用方法和例子：
+1. 启动虚拟机
+启动虚拟机的命令如下：
+```
+vmrun start <虚拟机文件路径> [可选参数]
+```
+可选参数一般用于指定虚拟机启动时的配置，例如：
+```
+vmrun start /path/to/vmware/ubuntu.vmx nogui
+```
+这个命令启动名为 "ubuntu" 的虚拟机，并且不在 GUI 模式下运行。
+2. 关闭虚拟机
+关闭虚拟机的命令如下：
+```
+vmrun stop <虚拟机文件路径> [可选参数]
+```
+可选参数一般用于指定关闭虚拟机的方式，例如：
+```
+vmrun stop /path/to/vmware/ubuntu.vmx hard
+```
+3. 暂停虚拟机
+暂停虚拟机的命令如下：
+```
+vmrun pause /path/to/vmware/ubuntu.vmx
+```
+这个命令将名为 "ubuntu" 的虚拟机暂停。
+4. 恢复虚拟机
+恢复虚拟机的命令如下：
+```
+vmrun unpause /path/to/vmware/ubuntu.vmx
+```
+这个命令将名为 "ubuntu" 的虚拟机从暂停状态恢复。
+5. 列出虚拟机
+列出虚拟机的命令如下：
+```
+vmrun list
+```
+这个命令将列出所有正在运行的虚拟机。
+6. 获取虚拟机 IP 地址
+```
+vmrun getGuestIPAddress /path/to/vmware/ubuntu.vmx
+```
+7. 删除虚拟机
+```
+vmrun deleteVM /path/to/vmware/ubuntu.vmx
+```
 
 # 相关有用的小工具安装
  - [zsh](https://www.cnblogs.com/dhcn/p/11666845.html)
@@ -442,24 +507,24 @@ Telegram有一个很强大的机器人，通过机器人API可以完成各种自
 [用Telegram管理VPS：我的5个Telegram机器人脚本](https://www.shuyz.com/posts/5-telegram-bot-script-for-vps-management/)
 
 # 维护服务器命令
-命令 | 备注
--|-
-`netstat -nltp`     |   查看当前开放listen的所有Tcp端口信息
-`htop`              |   系统资源管理器
-`iftop`             |   [查看实时带宽流量情况](https://www.cnblogs.com/fklin/p/4986645.html)
-`ifstat`            |   网络资源管理器
-`df`                |   查看磁盘空间
-`du -sh ./* --exclude="media"` | 查看当前目录文件(夹)大小并排除media文件夹
-`screen`            |   [管理多终端](https://www.cnblogs.com/cute/p/5015852.html)
-`screen -S new`     |
-`screen -R reload`  |
-`cat /var/log/dist-upgrade/main.log \| grep ERR` | 查看系统升级出错日志
-`crontab`           |   [计划任务](https://www.runoob.com/w3cnote/linux-crontab-tasks.html)
-`ps aux `           |   查看进程信息
-`kill 9 PID`        |   杀制定PID的进程
-`tar -xzvf file.tar.gz` | tar.gz解压命令
-`tar -czvf ***.tar.gz ./file` | tar.gz压缩命令
-`tar -cvf ***.tar ./file` | tar打包命令
+| 命令                                             | 备注                                                                 |
+| ------------------------------------------------ | -------------------------------------------------------------------- |
+| `netstat -nltp`                                  | 查看当前开放listen的所有Tcp端口信息                                  |
+| `htop`                                           | 系统资源管理器                                                       |
+| `iftop`                                          | [查看实时带宽流量情况](https://www.cnblogs.com/fklin/p/4986645.html) |
+| `ifstat`                                         | 网络资源管理器                                                       |
+| `df`                                             | 查看磁盘空间                                                         |
+| `du -sh ./* --exclude="media"`                   | 查看当前目录文件(夹)大小并排除media文件夹                            |
+| `screen`                                         | [管理多终端](https://www.cnblogs.com/cute/p/5015852.html)            |
+| `screen -S new`                                  |
+| `screen -R reload`                               |
+| `cat /var/log/dist-upgrade/main.log \| grep ERR` | 查看系统升级出错日志                                                 |
+| `crontab`                                        | [计划任务](https://www.runoob.com/w3cnote/linux-crontab-tasks.html)  |
+| `ps aux `                                        | 查看进程信息                                                         |
+| `kill 9 PID`                                     | 杀制定PID的进程                                                      |
+| `tar -xzvf file.tar.gz`                          | tar.gz解压命令                                                       |
+| `tar -czvf ***.tar.gz ./file`                    | tar.gz压缩命令                                                       |
+| `tar -cvf ***.tar ./file`                        | tar打包命令                                                          |
 
 ## systemctl
 ```sh
