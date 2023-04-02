@@ -159,3 +159,43 @@ is in the center of 天安门广场。
 \paragraph{山东大学} is one of the best university in 山东。
 \end{document}
 ```
+## 三线表
+记得在`table`环境中加上`[h]`参数，可以让表格在固定位置输出，否则表格会在文档中浮动显示。
+```latex table.tex
+\documentclass[UTF8]{ctexart}
+\usepackage{booktabs}
+
+\begin{document}
+
+\begin{table}[h]
+  \centering
+  \caption{Sample Table}
+  \begin{tabular}{ccc}
+    \toprule
+    Header 1 & Header 2 & Header 3 \\
+    \midrule
+    Row 1, Column 1 & Row 1, Column 2 & Row 1, Column 3 \\
+    Row 2, Column 1 & Row 2, Column 2 & Row 2, Column 3 \\
+    Row 3, Column 1 & Row 3, Column 2 & Row 3, Column 3 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\end{document}
+```
+
+## 图片
+```latex image.tex
+\documentclass[UTF8]{ctexart}
+\usepackage{graphicx}
+\begin{document}
+以下是一张示例图片：
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{example.png}
+  \caption{示例图片}
+  \label{fig:example}
+\end{figure}
+在文中引用该图片可以使用“如图 \ref{fig:example} 所示”。
+\end{document}
+```
