@@ -39,3 +39,5 @@ Email:<liuyuanzhe0515@gmail.com>
 # 机场邀请码
 ## IBCN
 [邀请链接](https://dash.ibcn.space/auth/register?code=iLY1)
+## 大航海
+[邀请链接](https://dhh.moe/#/register?code=1KtiO6sd)
