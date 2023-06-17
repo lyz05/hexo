@@ -7,12 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source
         uses: actions/checkout@v2
-          
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
@@ -28,8 +28,8 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.email "294068487@qq.com"
           git config --global user.name "lyz05"
-          npm install hexo-cli yarn -g
-          yarn
+          npm install hexo-cli -g
+          npm install
 
 
       - name: Hexo generate & Deploy To Github Pages
@@ -38,14 +38,14 @@ jobs:
           hexo douban -bm
           hexo g
           hexo deploy
-          
+
       - name: Setup ossutil
         uses: manyuanrong/setup-ossutil@v2.0
         with:
           endpoint: "oss-cn-hongkong.aliyuncs.com"
           access-key-id: ${{ secrets.ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
-    
+
       - name: Deply To OSS
         run: |
           ossutil cp -r -u -j 24 public oss://lyz05blog/ 

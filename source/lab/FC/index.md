@@ -20,6 +20,8 @@ comments: false
     <input type="submit"></input>
 </form>
 
+## [机场软件下载](https://fc.home999.cc/sub/download)
+
 ## [订阅转换](https://sub.home999.cc/)
 <iframe src="https://sub.home999.cc/" width="100%" height=900px style="border:none;"></iframe>
 

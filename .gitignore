@@ -8,3 +8,4 @@ public/
 _multiconfig.yml
 yarn.lock
 .idea
+package-lock.json
