@@ -20,7 +20,4 @@ comments: false
 [图书借阅管理系统](//tomcat.home999.cc/book/)
 [ssm-crud](//tomcat.home999.cc/ssm-crud/) -->
 
-## Cloudflare Workers
-[jsproxy](//jp.lyz05.workers.dev/)
-[Google](//goo.gle.workers.dev/)
-[维基百科](//wiki.lyz05.workers.dev/)
+
