@@ -14,7 +14,8 @@ date: 2020-10-10 08:44:45
 
 # 安装与配置
 ## 服务端配置
-Docker部署还是很香的，所以我这里使用的是Docker部署，使用官方的Docker镜像，写好一份`docker-compose.yml`配置文件,一键部署。因为Docker网络这块不太了解，并且要在宿主机上配置iptables防火墙与路由，所以直接使用宿主机网络。就不需要做端口映射了。
+Docker部署还是很香的，所以我这里使用的是Docker部署，使用官方的Docker镜像，写好一份`docker-compose.yml`配置文件,一键部署。
+因为Docker网络这块不太了解，并且要在宿主机上配置iptables防火墙与路由，所以直接使用宿主机网络。就不需要做端口映射了。
 ```yml docker-compose.yml
 version: '3.4'
 
@@ -41,7 +42,7 @@ services:
 由于现在多数的Public DNS都已经支持EDNS，所以解析结果会更加精准。
 理论上选择一个国外DNS就够了，但为了更快的速度，国内解析结果用国内DNS更快。
 由于现在境内对境外DNS的干扰严重，DoT，DoH都已经是重点关照对象。虽然没有直接封禁Public DNS的IP地址，但是其他相关的检测技术都用上了。目前还能无污染的拿到IP地址的方式也就只有使用非常规端口了。
-然而Clash并不依赖于准确的IP地址解析，即使是污染的地址，Clash也会重构发往代理的数据包，将IP地址反向解析为域名，并让远端代理服务器去解析真正的IP，所以在本地只起到一种域名与IP的映射功能，类似于fake-ip模式。
+然而Clash并不依赖于准确的IP地址解析，即使是污染的地址，Clash也会重构发往代理的数据包，将IP地址反向解析为域名，并让远端代理服务器去解析真正的IP，所以在本地只起到一种域名与IP的映射功能。
 ```yml config.yaml
 port: 7890
 socks-port: 7891
@@ -51,7 +52,7 @@ mode: Rule
 log-level: warning
 external-controller: 0.0.0.0:9090
 secret: ""
-external-ui: dashboard
+external-ui: ui
 #此处内容请安装一个gui版本的clash然后在里面配置好代理然后抄过来
 dns:
   enable: true
@@ -153,3 +154,4 @@ Windows IOS均需要启用代理自动获取
 
 # 参考文档
 [Clash Document](https://lancellc.gitbook.io/clash/)
+<!-- 重传文件，以应对阿里云OSS封禁 -->
