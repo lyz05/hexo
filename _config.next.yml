@@ -12,7 +12,7 @@ scheme: Gemini
 
 # 暗黑模式
 darkmode: true
-  
+
 # 创作者协议
 creative_commons:
     sidebar: true
@@ -24,9 +24,9 @@ menu:
   archives: /archives/ || fa fa-archive
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
-  lab: 
+  lab:
     default: /lab/ || fa fa-flask fa-fw
-    file: https://gd.home999.cc/ || fa fa-folder
+    file: https://od.home999.cc/ || fa fa-folder
     note: /note/ || fa fa-clipboard
     uptime: https://stats.uptimerobot.com/XnEypsn5VN || fas fa-heartbeat
     FC: /FC/ || fas fa-rocket
@@ -37,7 +37,7 @@ menu:
 
 menu_settings:
 # 徽标
-  badges: true 
+  badges: true
 
 # 头像
 avatar:
@@ -69,17 +69,17 @@ mobile_layout_economy: true
 
 back2top:
   scrollpercent: true
-  
+
 math:
   mathjax:
     enable: true
 
 cloudflare_analytics: ebddc42d1db14fe2b0307d0dce464211
-  
+
 local_search:
   enable: true
   preload: true
-  
+
 pdf:
   enable: true
 
@@ -94,9 +94,9 @@ motion:
   async: true
   transition:
     post_block: fadeIn
-    post_header: 
-    post_body: 
-    coll_header: 
+    post_header:
+    post_body:
+    coll_header:
     sidebar: fadeInUp
 
 # 顶部进度条
