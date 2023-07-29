@@ -18,11 +18,11 @@ comments: false
 <!-- LeanCloud -->
 <!-- <script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.7.0/dist/av-min.js"></script> -->
 <!-- 无需加载 av-min.js -->
-<script src="./leancloud-storage@4.7.0/dist/av-live-query-min.js"></script>
+<script src="./static/leancloud-storage@4.7.0/dist/av-live-query-min.js"></script>
 <!-- jQuery -->
-<script src="./jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="./static/jquery@3.2.1/dist/jquery.min.js"></script>
 <!-- clipboard -->
-<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="./static/index.js"></script>
 <div class="textarea-wrapper">
     <textarea class="field-textarea" rows="25" name="content" id="content"></textarea>
 </div>
