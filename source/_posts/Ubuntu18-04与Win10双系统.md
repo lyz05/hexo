@@ -86,11 +86,7 @@ Shutter 建议在设置-键盘中设置快捷键命令：`shutter -s`
 # 博客工具
 hexo
 
-# 翻墙工具
-shadowsocksR
-lantern
-
-#其他工具
+# 其他工具
 [thefuck](https://www.jianshu.com/p/0d37b22aabba)
 [indicator-sysmonitor](https://blog.csdn.net/tecn14/article/details/24489031/) 状态栏网速监控工具
 
