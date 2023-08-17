@@ -47,15 +47,21 @@ dnsmasq的扩展功能
 手动端口转发也在此设置，一般我会设置以下功能的端口转发：
  - 电脑远程桌面（rdp）
  - 比特彗星（BitComet）
- - 路由器WEB管理页面
  - VPN（Wireguard）
  - FRPS
+
 ### 动态域名解析
 有待研究！
 目前我是通过脚本的方式实现DDNS。
 
 # 防火墙
-一般情况下，我都懒得设置路由器上的防火墙，都将其关闭。但一定要确保内网的设备开了防火墙。同时也要检查一下路由器监听的端口是不是都是必要的。
+在开启的情况下INPUT与FORWARD链的Policy都是DROP。
+需要单独使用iptables与ip6tables设置。
+```bash 在防火墙规则启动后执行
+ip6tables -I FORWARD -p tcp -m multiport --dport 8080,51820,22604,3389 -j ACCEPT
+ip6tables -I FORWARD -p udp -m multiport --dport 8080,51820,22604,3389 -j ACCEPT
+```
+前面设置过的IPv4端口转发依旧生效。
 
 # 系统管理
 ## 系统
