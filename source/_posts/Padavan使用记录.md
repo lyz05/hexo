@@ -88,7 +88,32 @@ ip6tables -I FORWARD -p udp -m multiport --dport 8080,51820,22604,3389 -j ACCEPT
 ## ddns.sh
 ```bash /etc/storage/ddns.sh
 #!/bin/bash
-curl -k -6 --resolve fc.home999.cc:443:2a09:8280:1::96cf https://fc.home999.cc/ipinfo/ddns?subdomain=<域名>
+curl -k -4 https://fc.home999.cc/ipinfo/ddns?subdomain=<域名>
+ip=`ip -6 addr show br0 |grep 'scope global'|grep -v deprecated|awk -F '/|inet6 ' 'NR==1{print $2;}'iP`
+curl -k https://fc.home999.cc/ipinfo/ddns?subdomain=<域名>&ip=${ip}
+
+leases_file="/tmp/dnsmasq.leases"  # dnsmasq.leases 文件路径
+
+# 检查文件是否存在
+if [ ! -f "$leases_file" ]; then
+    echo "Error: dnsmasq.leases file not found."
+    exit 1
+fi
+
+# 使用grep过滤包含 "240e" 的行，并逐行读取过滤结果
+grep "240e" "$leases_file" | while IFS=' ' read -r lease_time mac_address ip_address hostname client_id; do
+    # 在这里可以对满足条件的行进行处理
+    # echo "Lease Time: $lease_time"
+    # echo "MAC Address: $mac_address"
+    echo "IP Address: $ip_address"
+    echo "Hostname: $hostname"
+    # echo "Client ID: $client_id"
+	curl -k "https://fc.home999.cc/ipinfo/ddns?subdomain=${hostname}&ip=${ip_address}"
+	echo ""
+    echo "--------------------------"
+    # 在这里可以根据需要进行其他操作
+
+done
 ```
 
 # 参考文献
