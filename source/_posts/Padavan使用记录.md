@@ -88,9 +88,11 @@ ip6tables -I FORWARD -p udp -m multiport --dport 8080,51820,22604,3389 -j ACCEPT
 ## ddns.sh
 ```bash /etc/storage/ddns.sh
 #!/bin/bash
-curl -k -4 https://fc.home999.cc/ipinfo/ddns?subdomain=<域名>
+curl -k -4 "https://fc.home999.cc/ipinfo/ddns?subdomain=<domain>"
+echo -e "\n****ipv4 update complete**"
 ip=`ip -6 addr show br0 |grep 'scope global'|grep -v deprecated|awk -F '/|inet6 ' 'NR==1{print $2;}'iP`
-curl -k https://fc.home999.cc/ipinfo/ddns?subdomain=<域名>&ip=${ip}
+curl -k "https://fc.home999.cc/ipinfo/ddns?subdomain=<domain>&ip=${ip}"
+echo -e "\n****ipv6 update complete"
 
 leases_file="/tmp/dnsmasq.leases"  # dnsmasq.leases 文件路径
 
