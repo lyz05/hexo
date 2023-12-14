@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Setup NPM & Hexo environment
         env:
@@ -43,8 +43,8 @@ jobs:
         uses: manyuanrong/setup-ossutil@v2.0
         with:
           endpoint: "oss-cn-hongkong.aliyuncs.com"
-          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+          access-key-id: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_SECRET }}
 
       - name: Deply To OSS
         run: |

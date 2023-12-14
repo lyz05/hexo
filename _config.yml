@@ -160,6 +160,7 @@ douban:
     title: '观影'
   timeout: 10000
 
+# hexo-offline-popup 
 # offline config passed to sw-precache.
 service_worker:
   maximumFileSizeToCacheInBytes: 5242880

@@ -87,6 +87,9 @@ pdf:
 codeblock:
   copy_button:
     enable: true
+  fold:
+    enable: true
+    height: 500
 
 # 动画
 motion:

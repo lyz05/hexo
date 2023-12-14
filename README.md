@@ -27,4 +27,5 @@ s deploy        #部署到阿里云OSS
 ```bash
 yarn upgrade-interactive --latest
 npm outdated
+npm update
 ```
