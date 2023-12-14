@@ -8,21 +8,21 @@ type: "about"
 comments: false
 
 ---
-# [主流视频网站弹幕解析接口](https://fc.home999.cc/)
-
-<iframe src="https://fc.home999.cc/" width="100%" height=760px style="border:none;"></iframe>
+# [主流视频网站弹幕解析接口](//fc.home999.cc/)
+<iframe src="//fc.home999.cc/" width="100%" height=770px style="border:none;"></iframe>
 
 # 机场订阅链接
 输入用户名获取您的专属订阅链接：
-<form name="sub" action="https://fc.home999.cc/sub" method="get">
+<form name="sub" action="//fc.home999.cc/sub" method="get">
     <input type="text" placeholder="用户名" name="user"></input>&nbsp;&nbsp;
     <input type="submit"></input>
 </form>
 
-# [机场软件下载](https://fc.home999.cc/sub/download)
+# [机场软件下载](//sub.home999.cc/sub/download)
+<iframe src="//sub.home999.cc/sub/download" width="100%" height=900px style="border:none;"></iframe>
 
-# [订阅转换](https://sub.home999.cc/)
-<iframe src="https://sub.home999.cc/" width="100%" height=900px style="border:none;"></iframe>
+# [订阅转换](//sub.home999.cc/)
+<iframe src="//sub.home999.cc/" width="100%" height=950px style="border:none;"></iframe>
 
 # DNS Over HTTPS
 地址：https://sub.home999.cc/dns-query
@@ -33,9 +33,13 @@ comments: false
 ```bash
 curl -H 'accept: application/dns-json' 'https://sub.home999.cc/dns-query?name=www.google.com&type=A' | jq
 ```
+<form name="dns" action="//sub.home999.cc/dns-query" method="get">
+    <input type="name" placeholder="DNS Name" name="name"></input>&nbsp;&nbsp;
+    <input type="submit" value="Resolve"></input>
+</form>
 
-# [Cloudflare反代](https://gd.home999.cc/proxy/)
-<iframe src="https://gd.home999.cc/proxy/" width="100%" height=260px style="border:none;"></iframe>
+# [Cloudflare反代](//gd.home999.cc/proxy/)
+<iframe src="//gd.home999.cc/proxy/" width="100%" height=260px style="border:none;"></iframe>
 
-# [GitHub文件加速](https://gd.home999.cc/gh-proxy/)
-<iframe src="https://gd.home999.cc/gh-proxy/" width="100%" height=730px style="border:none;"></iframe>
+# [GitHub文件加速](//gd.home999.cc/gh-proxy/)
+<iframe src="//gd.home999.cc/gh-proxy/" width="100%" height=730px style="border:none;"></iframe>
