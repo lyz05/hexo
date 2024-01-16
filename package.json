@@ -10,7 +10,7 @@
     "douban": "hexo douban -bm"
   },
   "hexo": {
-    "version": "7.0.0"
+    "version": "6.3.0"
   },
   "dependencies": {
     "@next-theme/plugins": "^8.19.1",

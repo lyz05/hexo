@@ -1,5 +1,5 @@
 // 声明 class
-var objid = '5e33b120ff02830008194823';
+var objid = '65a670d939456b6fd8d45ed7';
 var lastupdate = 0;
 
 function get() {
@@ -45,12 +45,12 @@ function livequery() {
 function init() {
     // LeanCloud - 初始化 - 将这里的 APP_ID 和 APP_KEY 替换成自己的应用数据
     // https://leancloud.cn/docs/sdk_setup-js.html#初始化
-    var APP_ID = 'sAHleptFhDA3fhiv6ybjMd7b-9Nh9j0Va';
-    var APP_KEY = '1ylHrs5cgBkYyw7QtP5cL0S0';
+    var APP_ID = 'IOO0v6UWzOQE94hPLrgXiQhg-9Nh9j0Va';
+    var APP_KEY = 'vBfyrsgGJnqg8qG3PD4MglR8';
     AV.init({
         appId: APP_ID,
         appKey: APP_KEY,
-        serverURL: 'https://sahleptf.lc-cn-e1-shared.com'
+        serverURL: 'https://ioo0v6uw.lc-cn-n1-shared.com'
     });
 }
 
