@@ -27,7 +27,7 @@ comments: false
 爱好计算机，新科技，音乐，小而美的东西。
 
 # 联系方式
-Email:<liuyuanzhe0515@gmail.com>
+Email:<blog@lyz05.cn>
 
 # 打赏
 我在这里偷偷放一个打赏功能，不知道会不会有人看到...
