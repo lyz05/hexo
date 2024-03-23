@@ -38,8 +38,8 @@ curl -H 'accept: application/dns-json' 'https://sub.lyz05.cn/dns-query?name=www.
     <input type="submit" value="Resolve"></input>
 </form>
 
-# [Cloudflare反代](//gd.home999.cc/proxy/)
-<iframe src="//gd.home999.cc/proxy/" width="100%" height=260px style="border:none;"></iframe>
+# [Cloudflare反代](//gd.lyz05.cn/proxy/)
+<iframe src="//gd.lyz05.cn/proxy/" width="100%" height=260px style="border:none;"></iframe>
 
-# [GitHub文件加速](//gd.home999.cc/gh-proxy/)
-<iframe src="//gd.home999.cc/gh-proxy/" width="100%" height=730px style="border:none;"></iframe>
+# [GitHub文件加速](//gd.lyz05.cn/gh-proxy/)
+<iframe src="//gd.lyz05.cn/gh-proxy/" width="100%" height=730px style="border:none;"></iframe>
