@@ -47,6 +47,6 @@ jobs:
         env:
           key: ${{ secrets.sckey }}
           title: 博客部署成功
-          desp: 博客部署成功
+          content: 博客部署成功
         run: |
-           curl -d "title=$title&desp=$desp" https://sctapi.ftqq.com/$key.send
+           curl -d "title=$title&content=$content" http://www.pushplus.plus/send/$key
