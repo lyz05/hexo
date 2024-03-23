@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://blog.home999.cc
+url: https://blog.lyz05.cn
 root: /
 permalink: :year/:title/
 permalink_defaults:
@@ -80,14 +80,14 @@ pagination_dir: page
 theme: next
 
 # Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-- type: git
-  branch: master
-  repository:
-    github: git@github.com:lyz05/lyz05.github.io.git
+## Docs: https://hexo.io/zh-cn/docs/one-command-deployment
+# deploy:
+# - type: git
+#   branch: master
+#   repository:
+#     github: git@github.com:lyz05/lyz05.github.io.git
     #coding: git@git.coding.net:lyz05/lyz05.git
-    #aliyun: git@home999.cc:hexo.git
+    #aliyun: git@lyz05.cn:hexo.git
 
 # 以下是新添加的配置
 # hexo-generator-archive 归档生成

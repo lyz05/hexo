@@ -21,7 +21,7 @@ ServerChan能提供每天500次推送请求。ServerChan同样拥有一个URL，
 此博文使用的方式是PHP，但是要在服务器上部署PHP环境实在太麻烦了，而且还要出一个服务器的钱，也很难保证稳定性。
 
 # 部署
-此次使用的方式是阿里云函数的Http触发器，可以先参考一下我的另一篇博文[基于阿里云函数实现弹幕文件解析接口](https://blog.home999.cc/2020/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E5%BC%B9%E5%B9%95%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%8E%A5%E5%8F%A3/)了解一下如何快速的搭建一个Python环境的Http触发器。
+此次使用的方式是阿里云函数的Http触发器，可以先参考一下我的另一篇博文[基于阿里云函数实现弹幕文件解析接口](/2020/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E5%BC%B9%E5%B9%95%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%8E%A5%E5%8F%A3/)了解一下如何快速的搭建一个Python环境的Http触发器。
 然后在index.py中粘贴上我下方的代码：
 ``` Python index.py
 # -*- coding: utf-8 -*-
@@ -96,4 +96,4 @@ def handler(environ, start_response):
 后面可以参考[Uptime Robot接入微信提醒](https://blog.chrxw.com/archives/2019/12/02/794.html)，在UptimeRobot添加一个WebHook功能，注意要将查询字符串中的token改成你自己在ServerChan中获取到的SCKEY。
 
 然后就可以了。
-当然如果你实在是懒得可以，也可以直接调用我用上面代码实现的API:[https://fc.home999.cc/webhook?token=xxxx&](https://fc.home999.cc/webhook?token=xxxx&),如果不放心后端代码实现，那还是自己部署吧。
+当然如果你实在是懒得可以，也可以直接调用我用上面代码实现的API:[https://fc.lyz05.cn/webhook?token=xxxx&](https://fc.lyz05.cn/webhook?token=xxxx&),如果不放心后端代码实现，那还是自己部署吧。

@@ -26,7 +26,7 @@ menu:
   categories: /categories/ || fa fa-th
   lab:
     default: /lab/ || fa fa-flask fa-fw
-    file: http://home.home999.cc:5244/ || fa fa-folder
+    file: http://home.lyz05.cn:5244/ || fa fa-folder
     note: /note/ || fa fa-clipboard
     uptime: https://stats.uptimerobot.com/XnEypsn5VN || fas fa-heartbeat
     FC: /FC/ || fas fa-rocket

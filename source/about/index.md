@@ -37,7 +37,6 @@ Email:<liuyuanzhe0515@gmail.com>
 |![微信支付](/images/wechatpay.png)|![支付宝](/images/alipay.jpg)|
 
 # 机场邀请码
-## IBCN
-[邀请链接](https://dash.ibcn.space/auth/register?code=iLY1)
+目前在用机场的邀请链接，需要的小伙伴可以注册支持一下！
 ## 大航海
 [邀请链接](https://dhh.moe/#/register?code=1KtiO6sd)
