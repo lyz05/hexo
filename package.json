@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@next-theme/plugins": "^8.19.1",
-    "hexo": "^7.0.0",
+    "hexo": "^6.3.0",
+    "hexo-deployer-ali-oss": "^1.0.0",
     "hexo-deployer-git": "^4.0.0",
     "hexo-douban": "^2.2.6",
     "hexo-excerpt": "^1.3.0",

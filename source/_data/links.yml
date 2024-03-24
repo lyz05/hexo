@@ -1,50 +1,49 @@
-defaultlinks:
-  - name: IceCream # 网站名称
-    site: https://blog.xuegaogg.com # 网站地址
-    info: 不愿意将就并且专注于网络技术的攻城狮（们）
-    avatar: https://mirror.xuegaogg.com/icon/ice_cream.png
+- name: IceCream # 网站名称
+  site: https://blog.xuegaogg.com # 网站地址
+  info: 不愿意将就并且专注于网络技术的攻城狮（们）
+  avatar: https://mirror.xuegaogg.com/icon/ice_cream.png
 
-  - name: Mchobby # 网站名称
-    site: https://mchobbylong.github.io/ # 网站地址
-    info: Student & Developer # 网站描述
-    avatar: https://avatars3.githubusercontent.com/u/32614955?s=460&v=3 # 网站头像
+- name: Mchobby # 网站名称
+  site: https://mchobbylong.github.io/ # 网站地址
+  info: Student & Developer # 网站描述
+  avatar: https://avatars3.githubusercontent.com/u/32614955?s=460&v=3 # 网站头像
 
-  - name: VsKendo # 网站名称
-    site: http://vskendo.com/ # 网站地址
-    info: 前人栽树，后人乘凉 # 网站描述
-    avatar: https://avatars.githubusercontent.com/u/44796030?v=4 # 网站头像
+- name: VsKendo # 网站名称
+  site: http://vskendo.com/ # 网站地址
+  info: 前人栽树，后人乘凉 # 网站描述
+  avatar: https://avatars.githubusercontent.com/u/44796030?v=4 # 网站头像
 
-  - name: Kai's Blog # 网站名称
-    site: https://blog.0xfc.cf/ # 网站地址
-    info: 随便写写 # 网站描述
-    avatar: https://blog.0xfc.cf/favicon.ico # 网站头像
+- name: Kai's Blog # 网站名称
+  site: https://blog.0xfc.cf/ # 网站地址
+  info: 随便写写 # 网站描述
+  avatar: https://blog.0xfc.cf/favicon.ico # 网站头像
 
-  - name: Levan's Blog # 网站名称
-    site: https://levani.cn/ # 网站地址
-    info: 何以解忧，后人乘凉 # 网站描述
-    avatar: https://levani.cn/favicon.ico # 网站头像
+- name: Levan's Blog # 网站名称
+  site: https://levani.cn/ # 网站地址
+  info: 何以解忧，后人乘凉 # 网站描述
+  avatar: https://levani.cn/favicon.ico # 网站头像
 
-  - name: Rat's # 网站名称
-    site: https://www.moerats.com/ # 网站地址
-    info: 何以解忧，唯有暴富。 # 网站描述
-    avatar: https://www.moerats.com/usr/picture/rats.png # 网站头像
+- name: Rat's # 网站名称
+  site: https://www.moerats.com/ # 网站地址
+  info: 何以解忧，唯有暴富。 # 网站描述
+  avatar: https://www.moerats.com/usr/picture/rats.png # 网站头像
 
-  - name: Byvoid # 网站名称
-    site: https://www.byvoid.com/ # 网站地址
-    info: Beyond the Void # 网站描述
-    avatar: https://byvoid.com/favicon.ico # 网站头像
-    
-  - name: Sunnyrian's Blog # 网站名称
-    site: https://yhsyc.club/ # 网站地址
-    info: 随便摆摆 # 网站描述
-    avatar: https://yhsyc.club/images/we-white.svg # 网站头像
-    
-  - name: 沃若 # 网站名称
-    site: https://www.woruo.online/ # 网站地址
-    info: 桑之未落，其叶沃若。 # 网站描述
-    avatar: https://www.woruo.online/assets/images/avatar.png # 网站头像
+- name: Byvoid # 网站名称
+  site: https://www.byvoid.com/ # 网站地址
+  info: Beyond the Void # 网站描述
+  avatar: https://byvoid.com/favicon.ico # 网站头像
+  
+- name: Sunnyrian's Blog # 网站名称
+  site: https://yhsyc.club/ # 网站地址
+  info: 随便摆摆 # 网站描述
+  avatar: https://yhsyc.club/images/we-white.svg # 网站头像
+  
+- name: 沃若 # 网站名称
+  site: https://www.woruo.online/ # 网站地址
+  info: 桑之未落，其叶沃若。 # 网站描述
+  avatar: https://www.woruo.online/assets/images/avatar.png # 网站头像
 
-  - name: 安联之夜
-    site: https://blog.csdn.net/anlianzhiye/
-    info: anlianzhiye的博客
-    avatar: https://profile-avatar.csdnimg.cn/48cab76f07354fe4a83ff87ab8660bf6_anlianzhiye.jpg!1
+- name: 安联之夜
+  site: https://blog.csdn.net/anlianzhiye/
+  info: anlianzhiye的博客
+  avatar: https://profile-avatar.csdnimg.cn/48cab76f07354fe4a83ff87ab8660bf6_anlianzhiye.jpg!1
