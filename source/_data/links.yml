@@ -13,15 +13,15 @@
   info: 前人栽树，后人乘凉 # 网站描述
   avatar: https://avatars.githubusercontent.com/u/44796030?v=4 # 网站头像
 
-- name: Kai's Blog # 网站名称
-  site: https://blog.0xfc.cf/ # 网站地址
-  info: 随便写写 # 网站描述
-  avatar: https://blog.0xfc.cf/favicon.ico # 网站头像
+# - name: Kai's Blog # 网站名称
+#   site: https://blog.0xfc.cf/ # 网站地址
+#   info: 随便写写 # 网站描述
+#   avatar: https://blog.0xfc.cf/favicon.ico # 网站头像
 
-- name: Levan's Blog # 网站名称
-  site: https://levani.cn/ # 网站地址
-  info: 何以解忧，后人乘凉 # 网站描述
-  avatar: https://levani.cn/favicon.ico # 网站头像
+# - name: Levan's Blog # 网站名称
+#   site: https://levani.cn/ # 网站地址
+#   info: 何以解忧，后人乘凉 # 网站描述
+#   avatar: https://levani.cn/favicon.ico # 网站头像
 
 - name: Rat's # 网站名称
   site: https://www.moerats.com/ # 网站地址

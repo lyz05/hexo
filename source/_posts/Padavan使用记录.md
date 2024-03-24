@@ -7,6 +7,7 @@ categories:
   - 原创
 mathjax: true
 date: 2023-08-16 21:45:16
+updated: 2024-03-24 15:42:00
 ---
 # 序
 主流的路由器固件中的一种，同样是基于Linux改的。给我的感觉是，相比于Openwrt更像路由器系统。并且功能菜单分类的更好，缺点是没Openwrt灵活，但稳定性不错。
@@ -53,6 +54,7 @@ dnsmasq的扩展功能
 ### 动态域名解析
 有待研究！
 目前我是通过脚本的方式实现DDNS。
+参考附录中的DDNS脚本，以及此博文[^2]。
 
 # 防火墙
 在开启的情况下INPUT与FORWARD链的Policy都是DROP。
@@ -88,12 +90,12 @@ ip6tables -I FORWARD -p udp -m multiport --dport 8080,51820,22604,3389 -j ACCEPT
 ## ddns.sh
 ```bash /etc/storage/ddns.sh
 #!/bin/bash
-curl -k -4 "https://fc.lyz05.cn/ipinfo/ddns?subdomain=<domain>"
-echo -e "\n****ipv4 update complete**"
-ip=`ip -6 addr show br0 |grep 'scope global'|grep -v deprecated|awk -F '/|inet6 ' 'NR==1{print $2;}'iP`
-curl -k "https://fc.lyz05.cn/ipinfo/ddns?subdomain=<domain>&ip=${ip}"
-echo -e "\n****ipv6 update complete"
+echo "*** 1306.dnspod.lyz05.cn ***"
+/etc/storage/ddns/1306.dnspod.lyz05.cn@dnspod_IPV4_ppp0.sh
+echo "*** 1306v6.dnspod.lyz05.cn ***"
+/etc/storage/ddns/1306v6.dnspod.lyz05.cn@dnspod_IPV6_br0.sh
 
+echo "*** Dnsmasq IPv6 DDNS ***"
 leases_file="/tmp/dnsmasq.leases"  # dnsmasq.leases 文件路径
 
 # 检查文件是否存在
@@ -105,13 +107,13 @@ fi
 # 使用grep过滤包含 "240e" 的行，并逐行读取过滤结果
 grep "240e" "$leases_file" | while IFS=' ' read -r lease_time mac_address ip_address hostname client_id; do
     # 在这里可以对满足条件的行进行处理
-    # echo "Lease Time: $lease_time"
-    # echo "MAC Address: $mac_address"
+        echo "--------------------------"
+    echo "Lease Time: $lease_time"
+    echo "MAC Address: $mac_address"
     echo "IP Address: $ip_address"
     echo "Hostname: $hostname"
     # echo "Client ID: $client_id"
-	curl -k "https://fc.lyz05.cn/ipinfo/ddns?subdomain=${hostname}&ip=${ip_address}"
-	echo ""
+        curl -k "http://sub.lyz05.cn/ipinfo/ddns?subdomain=${hostname}&ip=${ip_address}"
     echo "--------------------------"
     # 在这里可以根据需要进行其他操作
 
@@ -120,3 +122,4 @@ done
 
 # 参考文献
 [^1]: [不用开机键，你的 Windows 也能随时就绪：WoL 网络唤醒入门](https://sspai.com/post/67003)
+[^2]: [UE-DDNS 一个通用嵌入式DDNS脚本](https://blog.03k.org/post/ue-ddns.html)

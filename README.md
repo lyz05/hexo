@@ -5,21 +5,18 @@ Website: https://blog.lyz05.cn/
 # 快速开始
 ## 依赖安装
 ```bash
-git clone git@github.com:lyz05/lyz05.github.io.git blog
-cd blog
+git clone git@github.com:lyz05/hexo
+cd hexo
 npm i hexo-cli yarn -g
-yarn
+npm install
 ```
 
 ## 运行项目
 ```bash
 npm run build   # 普通构建
 npm run clean   # 清理配置信息
-npm run deploy  # 部署到Github Pages
 npm run server  # 本地调试
 npm run douban  # 生成豆瓣电影图书信息
-hexo deploy     # 部署到Github Pages
-s deploy        #部署到阿里云OSS
 ```
 
 # 检查组件更新
