@@ -13,7 +13,7 @@
     "version": "6.3.0"
   },
   "dependencies": {
-    "@next-theme/plugins": "^8.19.1",
+    "@next-theme/plugins": "^8.17.1",
     "hexo": "^6.3.0",
     "hexo-deployer-ali-oss": "^1.0.0",
     "hexo-deployer-git": "^4.0.0",
@@ -35,7 +35,7 @@
     "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0",
     "hexo-symbols-count-time": "^0.7.1",
-    "hexo-theme-next": "^8.19.1",
+    "hexo-theme-next": "^8.17.1",
     "quicklink": "^2.3.0"
   }
 }

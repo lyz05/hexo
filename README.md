@@ -9,6 +9,7 @@ git clone git@github.com:lyz05/hexo
 cd hexo
 npm i hexo-cli yarn -g
 npm install
+rimraf node_modules #删除node_modules
 ```
 
 ## 运行项目

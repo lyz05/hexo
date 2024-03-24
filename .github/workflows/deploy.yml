@@ -11,20 +11,18 @@ jobs:
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
       - name: Setup NPM & Hexo environment
-        env:
-          ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
         run: |
           npm install hexo-cli -g
-          npm install
+          npm ci
 
 
       - name: Hexo generate & Deploy To Github Pages
