@@ -104,20 +104,6 @@ async function del_record(domain, record) {
 }
 
 module.exports = {get_record, update_record, add_record, del_record};
-
-if (!module.parent) {
-	get_record("home999.cc", "gd").then(res => {
-		console.log(res);
-		for (const record of res) {
-			if (record.line !== "默认") {
-				del_record("home999.cc", record).then(res => {
-					console.log(res);
-				});
-			}
-		}
-	});
-}
-
 ```
 定时更新gd.home999.cc域名的Cloudflare优选IP记录，方便快捷。
 有时候可能希望调用某个URL，来定时执行某些操作，如果本身是Express应用，可以像写NODE测试用例一样，使用`chaiHttp`来直接调用。
