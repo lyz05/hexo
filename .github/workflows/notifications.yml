@@ -2,7 +2,7 @@ name: Workflow Notifications
 
 on:
   workflow_run:
-    workflows: ["deploy.yml"]
+    workflows: [Hexo Deploy]
     types:
       - completed
 

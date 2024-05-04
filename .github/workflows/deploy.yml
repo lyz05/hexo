@@ -41,11 +41,3 @@ jobs:
       - name: Deply To OSS
         run: |
           ossutil cp -r -u -j 24 public oss://lyz05blog/ 
-
-      - name: Sending message
-        env:
-          key: ${{ secrets.sckey }}
-          title: 博客部署成功
-          content: 博客部署成功
-        run: |
-           curl -d "title=$title&content=$content" http://www.pushplus.plus/send/$key
