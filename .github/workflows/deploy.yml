@@ -29,7 +29,7 @@ jobs:
         run: |
           hexo clean
           hexo douban -bm
-          hexo g
+          hexo 123
 
       - name: Setup ossutil
         uses: manyuanrong/setup-ossutil@v2.0
