@@ -23,13 +23,6 @@ jobs:
               return { failure: false };
             }
 
-      # 发送通知
-      - name: Send Notification
-        if: steps.check_status.outputs.failure
-        uses: <notification-action>  # 替换为发送通知的操作
-        with:
-          message: '工作流失败，请检查日志。'
-
       # 发送通知，不论结果如何
       - name: Sending message failure
         if: steps.check_status.outputs.failure
