@@ -10,20 +10,42 @@ jobs:
   send_notification:
     runs-on: ubuntu-latest
     steps:
-      # Check the result of the workflow run
+      # 检查工作流运行结果
       - name: Check Workflow Status
         id: check_status
         uses: actions/github-script@v4
         with:
           script: |
             const status = context.payload.workflow_run.conclusion;
-            core.setOutput('status', status); # Set status output
+            if (status === 'failure') {
+              return { failure: true };
+            } else {
+              return { failure: false };
+            }
 
-      # Send a notification regardless of the result
-      - name: Sending message
+      # 发送通知
+      - name: Send Notification
+        if: steps.check_status.outputs.failure
+        uses: <notification-action>  # 替换为发送通知的操作
+        with:
+          message: '工作流失败，请检查日志。'
+
+      # 发送通知，不论结果如何
+      - name: Sending message failure
+        if: steps.check_status.outputs.failure
         env:
           key: ${{ secrets.sckey }}
-        run: |
-          title="博客部署${{ steps.check_status.outputs.status == 'failure' ? '失败' : '成功'}}"
-          content="博客部署${{ steps.check_status.outputs.status == 'failure' ? '失败' : '成功'}}"
-          curl -d "title=$title&content=$content" "http://www.pushplus.plus/send/${{ env.key }}"
+          title: 博客部署失败
+          content: 博客部署失败，请检查日志。
+        run: 
+          curl -d "title=$title&content=$content" "http://www.pushplus.plus/send/$key"
+
+      
+      - name: Sending message success
+        if: steps.check_status.outputs.failure == false
+        env:
+          key: ${{ secrets.sckey }}
+          title: 博客部署成功
+          content: 博客部署成功
+        run: 
+          curl -d "title=$title&content=$content" "http://www.pushplus.plus/send/$key"
