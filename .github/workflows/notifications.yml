@@ -1,0 +1,29 @@
+name: Workflow Notifications
+
+on:
+  workflow_run:
+    workflows: ["deploy.yml"]
+    types:
+      - completed
+
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+    steps:
+      # Check the result of the workflow run
+      - name: Check Workflow Status
+        id: check_status
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const status = context.payload.workflow_run.conclusion;
+            core.setOutput('status', status); # Set status output
+
+      # Send a notification regardless of the result
+      - name: Sending message
+        env:
+          key: ${{ secrets.sckey }}
+        run: |
+          title="博客部署${{ steps.check_status.outputs.status == 'failure' ? '失败' : '成功'}}"
+          content="博客部署${{ steps.check_status.outputs.status == 'failure' ? '失败' : '成功'}}"
+          curl -d "title=$title&content=$content" "http://www.pushplus.plus/send/${{ env.key }}"
