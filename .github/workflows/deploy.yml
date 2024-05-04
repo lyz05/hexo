@@ -30,6 +30,7 @@ jobs:
           hexo clean
           hexo douban -bm
           hexo 123
+          abcd
 
       - name: Setup ossutil
         uses: manyuanrong/setup-ossutil@v2.0

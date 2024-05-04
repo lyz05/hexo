@@ -13,7 +13,7 @@ jobs:
       # 检查工作流运行结果
       - name: Check Workflow Status
         id: check_status
-        uses: actions/github-script@v4
+        uses: actions/github-script@v7
         with:
           script: |
             const status = context.payload.workflow_run.conclusion;
