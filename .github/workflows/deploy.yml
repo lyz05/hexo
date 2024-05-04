@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    name: NPM Install & Hexo Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -42,3 +43,23 @@ jobs:
       - name: Deply To OSS
         run: |
           ossutil cp -r -u -j 24 public oss://lyz05blog/ 
+
+  notification:
+    name: Notify
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: always()
+    env:
+      key: ${{ secrets.sckey }}
+      failure: 博客部署失败
+      cancelled: 博客部署被取消
+      success: 博客部署成功
+    steps:
+      - uses: martialonline/workflow-status@v3
+        id: check
+      - run: curl -d "title=$failure&content=$failure" "http://www.pushplus.plus/send/$key"
+        if: steps.check.outputs.status == 'failure'
+      - run: curl -d "title=$cancelled&content=$cancelled" "http://www.pushplus.plus/send/$key"
+        if: steps.check.outputs.status == 'cancelled'
+      - run: curl -d "title=$success&content=$success" "http://www.pushplus.plus/send/$key"
+        if: steps.check.outputs.status == 'success'
