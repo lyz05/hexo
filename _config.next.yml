@@ -30,6 +30,7 @@ menu:
     note: /note/ || fa fa-clipboard
     uptime: https://stats.uptimerobot.com/XnEypsn5VN || fas fa-heartbeat
     FC: /FC/ || fas fa-rocket
+    HomeAssistant: http://home.lyz05.cn:8123/ || fa fa-robot
   books: /books/ || fa fa-book
   movie: /movies/ || fa fa-film
   about: /about/ || fa fa-user
