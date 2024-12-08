@@ -42,6 +42,3 @@ curl -H 'accept: application/dns-json' 'https://sub.lyz05.cn/dns-query?name=www.
 
 # [Cloudflare反代](//gd.lyz05.cn/proxy/)
 <iframe src="//gd.lyz05.cn/proxy/" width="100%" height=260px style="border:none;"></iframe>
-
-# [GitHub文件加速](//gd.lyz05.cn/gh-proxy/)
-<iframe src="//gd.lyz05.cn/gh-proxy/" width="100%" height=730px style="border:none;"></iframe>
