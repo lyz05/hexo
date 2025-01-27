@@ -40,16 +40,16 @@ jobs:
           hexo douban -bm
           hexo generate
 
-      - name: Setup ossutil
-        uses: manyuanrong/setup-ossutil@v2.0
-        with:
-          endpoint: "oss-cn-hongkong.aliyuncs.com"
-          access-key-id: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_ID }}
-          access-key-secret: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_SECRET }}
+      # - name: Setup ossutil
+      #   uses: manyuanrong/setup-ossutil@v2.0
+      #   with:
+      #     endpoint: "oss-cn-hongkong.aliyuncs.com"
+      #     access-key-id: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_ID }}
+      #     access-key-secret: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_SECRET }}
 
-      - name: Deply To OSS
-        run: |
-          ossutil cp -r -u -j 24 public oss://lyz05blog/ 
+      # - name: Deply To OSS
+      #   run: |
+      #     ossutil cp -r -u -j 24 public oss://lyz05blog/ 
 
   notification:
     name: Notify
