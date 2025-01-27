@@ -81,11 +81,11 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/zh-cn/docs/one-command-deployment
-# deploy:
-# - type: git
-#   branch: master
-#   repository:
-#     github: git@github.com:lyz05/lyz05.github.io.git
+deploy:
+- type: git
+  branch: master
+  repository:
+    github: git@github.com:lyz05/lyz05.github.io.git
     #coding: git@git.coding.net:lyz05/lyz05.git
     #aliyun: git@lyz05.cn:hexo.git
 
