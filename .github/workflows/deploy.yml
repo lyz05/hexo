@@ -21,7 +21,15 @@ jobs:
           cache: 'npm'
 
       - name: Setup NPM & Hexo environment
+        env:
+          ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
         run: |
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.email "294068487@qq.com"
+          git config --global user.name "lyz05"
           npm install hexo-cli -g
           npm ci
 
@@ -31,18 +39,17 @@ jobs:
           hexo clean
           hexo douban -bm
           hexo generate
-          hexo deploy
 
-      # - name: Setup ossutil
-      #   uses: manyuanrong/setup-ossutil@v2.0
-      #   with:
-      #     endpoint: "oss-cn-hongkong.aliyuncs.com"
-      #     access-key-id: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_ID }}
-      #     access-key-secret: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_SECRET }}
+      - name: Setup ossutil
+        uses: manyuanrong/setup-ossutil@v2.0
+        with:
+          endpoint: "oss-cn-hongkong.aliyuncs.com"
+          access-key-id: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_SECRET }}
 
-      # - name: Deply To OSS
-      #   run: |
-      #     ossutil cp -r -u -j 24 public oss://lyz05blog/ 
+      - name: Deply To OSS
+        run: |
+          ossutil cp -r -u -j 24 public oss://lyz05blog/ 
 
   notification:
     name: Notify
