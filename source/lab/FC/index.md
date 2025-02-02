@@ -28,9 +28,7 @@ comments: false
 
 # DNS Over HTTPS
 地址：https://sub.lyz05.cn/dns-query
-使用[该项目](https://github.com/m13253/dns-over-https)搭建于香港阿里云函数计算
-支持EDNS，支持[Google](https://developers.google.com/speed/public-dns/docs/dns-over-https)与[IETF](https://www.rfc-editor.org/rfc/rfc8484.txt)标准。
-上游使用Google Public DNS。
+上游使用香港腾讯云https://doh.pub/dns-query
 简单测试：
 ```bash
 curl -H 'accept: application/dns-json' 'https://sub.lyz05.cn/dns-query?name=www.google.com&type=A' | jq
