@@ -40,3 +40,9 @@ curl -H 'accept: application/dns-json' 'https://sub.lyz05.cn/dns-query?name=www.
 
 # [Cloudflare反代](//gd.lyz05.cn/proxy/)
 <iframe src="//gd.lyz05.cn/proxy/" width="100%" height=260px style="border:none;"></iframe>
+
+# 115网盘离线下载
+<form name="115" action="https://upload-fc-tvb-ktyrokgrdn.cn-shenzhen.fcapp.run" method="get">
+    <input type="url" placeholder="URL" name="url"></input>&nbsp;&nbsp;
+    <input type="submit" value="Resolve"></input>
+</form>
