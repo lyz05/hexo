@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 2D转换-扭曲、缩放</title>
+    <script type="text/javascript" src="html5shiv.js"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <script src="prefixfree.min.js"></script>
+    <style type="text/css">
+        div {
+            width: 100px;
+            height: 50px;
+            background: #dadada;
+            border: 1px solid #00cc66;
+        }
+        
+        #div1 {
+            transform: scale(1.5, 1.5);
+            margin: 10px auto;
+        }
+        
+        #div2 {
+            transform: skew(30deg, 30deg);
+            margin: 10px auto;
+        }
+        
+        #div3 {
+            transform: matrix(0.866, 0.5, -0.5, 0.866, 20, 20);
+        }
+        
+        td {
+            text-align: left;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>CSS3 2D转换-扭曲、矩阵</h3>
+    <hr>
+    <table border="1px" bordercolor="red" width="750px" height="200px">
+        <tr>
+            <td>
+                <div>
+                    <p>这是原div</p>
+                </div>
+                <div id="div1" class="">
+                    <p>这个div缩放1.5倍</p>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p>这是原div</p>
+                </div>
+                <div id="div2" class="">
+                    <p>这个div扭曲方法</p>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p>这是原div</p>
+                </div>
+                <div id="div3" class="">
+                    <p>这是div采用matrix方法</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
