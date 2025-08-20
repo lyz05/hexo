@@ -1,7 +1,7 @@
 # Remove unnecessary files after hexo generate.
 minify: true
 
-# 自定义文件
+# 自定义文�?
 custom_file_path:
   head: source/_data/head.njk
   style: source/_data/styles.styl
@@ -13,12 +13,12 @@ scheme: Gemini
 # 暗黑模式
 darkmode: true
 
-# 创作者协议
+# 创作者协�?
 creative_commons:
     sidebar: true
     post: false
 
-# 主菜单
+# 主菜�?
 menu:
   home: / || fa fa-home
   archives: /archives/ || fa fa-archive
@@ -26,7 +26,7 @@ menu:
   categories: /categories/ || fa fa-th
   lab:
     default: /lab/ || fa fa-flask fa-fw
-    file: http://118.126.105.169:5244/ || fa fa-folder
+    file: https://home.lyz05.cn:5244// || fa fa-folder
     note: /note/ || fa fa-clipboard
     uptime: https://stats.uptimerobot.com/XnEypsn5VN || fas fa-heartbeat
     FC: /FC/ || fas fa-rocket
@@ -59,7 +59,7 @@ social_icons:
 footer:
   since: 2015
 
-# Post元信息显示
+# Post元信息显�?
 post_meta:
   created_at: true
   updated_at:
@@ -84,7 +84,7 @@ local_search:
 pdf:
   enable: true
 
-# 代码块
+# 代码�?
 codeblock:
   copy_button:
     enable: true
@@ -103,17 +103,17 @@ motion:
     coll_header:
     sidebar: fadeInUp
 
-# 顶部进度条
+# 顶部进度�?
 pace:
   enable: true
 
-# 图片懒加载
+# 图片懒加�?
 lazyload: true
 
-# 中英文文字留白
+# 中英文文字留�?
 pangu: true
 
-# 页面预加载
+# 页面预加�?
 quicklink:
   enable: true
   home: true
@@ -124,7 +124,7 @@ post_edit:
   enable: true
   url: https://github.com/lyz05/lyz05.github.io/tree/blog/source/ # Link for view source
 
-# 为字体插件建立早期链接
+# 为字体插件建立早期链�?
 preconnect: true
 
 tag_icon: true
@@ -148,7 +148,7 @@ vendors:
   plugins: jsdelivr
 
 
-# Leancloud统计字数与评论功能
+# Leancloud统计字数与评论功�?
 valine:
   enable: true
   appId: IOO0v6UWzOQE94hPLrgXiQhg-9Nh9j0Va
