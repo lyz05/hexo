@@ -30,6 +30,7 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.email "294068487@qq.com"
           git config --global user.name "lyz05"
+          npm config set registry https://registry.npmjs.org/
           npm install hexo-cli -g
           npm ci
 
@@ -60,7 +61,7 @@ jobs:
     env:
       key: ${{ secrets.sckey }}
       failure: 博客部署失败
-      cancelled: 博客部署被取消
+      cancelled: 博客部署被取�?
       success: 博客部署成功
     steps:
       - uses: martialonline/workflow-status@v3
