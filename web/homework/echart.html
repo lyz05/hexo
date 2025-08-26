@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新冠肺炎疫情地图展示</title>
+    <style>
+        #myEcharts {
+            width: 100%;
+            height: 500px;
+            border: solid 1px red;
+            margin: 0 auto;
+        }
+        
+        .bd-example {
+            padding: 1.5rem 0 1.5rem 0;
+            margin-right: 0;
+            margin-left: 0;
+            border-width: .2rem;
+        }
+    </style>
+    <!--  Vue.js  -->
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+    <!-- BootStrap4 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Jquery -->
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 引入 echarts.js -->
+    <script type="text/javascript" src="https://cdn.staticfile.org/echarts/5.0.0-rc.1/echarts.min.js"></script>
+    <!--引入中国的地图数据js文件，引入后会自动注册地图名字和数据-->
+    <script type="text/javascript" src="./china.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app1">
+        <!--为echarts准备一个dom容器-->
+        <div class="row">
+            <div id="myEcharts"></div>
+        </div>
+        <div class="bd-example">
+            <div class="row row-cols-1 row-cols-md-3">
+                <div class="col mb-4" v-for="(val, key, index) in dict">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <!-- {{dict[key].class}} -->
+                            <h5 class="card-subtitle mb-2 text-muted">较上日
+                                <span :class="dict[key].class">
+                                    {{china.Add[key]>0?'+'+china.Add[key]:china.Add[key]}}
+                                </span>
+                            </h5>
+                            <h1 class="card-text" :class="dict[key].class">{{china.Total[key]}}</h1>
+                            <h4 class="card-title">{{dict[key].name}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var vm1 = new Vue({
+            el: "#app1",
+            data: {
+                china: {
+                    Total: {
+                        confirm: 0,
+                        heal: 0,
+                        dead: 0,
+                        nowConfirm: 0,
+                        importedCase: 0,
+                        noInfect: 0
+                    },
+                    Add: {
+                        confirm: 0,
+                        heal: 0,
+                        dead: 0,
+                        nowConfirm: 0,
+                        importedCase: 0,
+                        noInfect: 0
+                    }
+                },
+                dict: {
+                    confirm: {
+                        name: '累计确诊',
+                        class: 'text-danger'
+                    },
+                    heal: {
+                        name: '累计治愈',
+                        class: 'text-success'
+                    },
+                    dead: {
+                        name: '累计死亡',
+                        class: 'text-dark'
+                    },
+                    nowConfirm: {
+                        name: '现有确诊',
+                        class: 'text-danger'
+                    },
+                    importedCase: {
+                        name: '境外输入',
+                        class: 'text-warning'
+                    },
+                    noInfect: {
+                        name: '无症状感染者',
+                        class: 'text-info'
+                    }
+                }
+            },
+            mounted() {
+                console.log(this.dict['confirm'][1]);
+                //初始化echarts实例
+                var myChart = echarts.init(document.getElementById('myEcharts'));
+                //显示Loading
+                myChart.showLoading();
+                // 指定图表的配置项和数据
+                option = {
+                    title: {
+                        text: '中国疫情图',
+                        left: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left',
+                        data: ['中国疫情图']
+                    },
+                    visualMap: {
+                        type: 'piecewise',
+                        pieces: [{
+                            min: 1000,
+                            max: 1000000,
+                            label: '大于等于1000人',
+                            color: '#372a28'
+                        }, {
+                            min: 500,
+                            max: 999,
+                            label: '确诊500-999人',
+                            color: '#4e160f'
+                        }, {
+                            min: 100,
+                            max: 499,
+                            label: '确诊100-499人',
+                            color: '#974236'
+                        }, {
+                            min: 10,
+                            max: 99,
+                            label: '确诊10-99人',
+                            color: '#ee7263'
+                        }, {
+                            min: 1,
+                            max: 9,
+                            label: '确诊1-9人',
+                            color: '#f5bba7'
+                        }, ],
+                        color: ['#E0022B', '#E09107', '#A3E00B']
+                    },
+                    toolbox: {
+                        show: true,
+                        orient: 'vertical',
+                        left: 'right',
+                        top: 'center',
+                        feature: {
+                            mark: {
+                                show: true
+                            },
+                            dataView: {
+                                show: true,
+                                readOnly: false
+                            },
+                            restore: {
+                                show: true
+                            },
+                            saveAsImage: {
+                                show: true
+                            }
+                        }
+                    },
+                    roamController: {
+                        show: true,
+                        left: 'right',
+                        mapTypeControl: {
+                            'china': true
+                        }
+                    },
+                    series: [{
+                        name: '确诊数',
+                        type: 'map',
+                        mapType: 'china',
+                        roam: false,
+                        label: {
+                            show: true,
+                            color: 'rgb(249, 249, 249)'
+                        },
+                        data: []
+                    }]
+                };
+
+                //使用指定的配置项和数据显示图表
+                myChart.setOption(option);
+                var _this = this
+                    //获取数据
+                $.ajax({
+                    url: "https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5",
+                    dataType: "jsonp",
+                    success: function(data) {
+                        var res = data.data || "";
+                        res = JSON.parse(res);
+                        console.log(res.chinaTotal);
+
+                        vm1.$data.china.Total = res.chinaTotal
+                        vm1.$data.china.Add = res.chinaAdd
+
+                        var newArr = [];
+                        //newArr的数据格式为：
+                        // [{
+                        //   name: '北京11',
+                        //   value: 212
+                        // }
+                        if (res) {
+                            //获取到各个省份的数据
+                            var province = res.areaTree[0].children;
+                            for (var i = 0; i < province.length; i++) {
+                                var json = {
+                                    name: province[i].name,
+                                    value: province[i].total.confirm
+                                }
+                                newArr.push(json)
+                            }
+                            //console.log(newArr)
+                            //console.log(JSON.stringify(newArr));
+                            //使用指定的配置项和数据显示图表
+                            myChart.hideLoading();
+                            myChart.setOption({
+                                title: {
+                                    subtext: "上次更新时间：" + res.lastUpdateTime
+                                },
+                                series: [{
+                                    name: '确诊数',
+                                    type: 'map',
+                                    mapType: 'china',
+                                    roam: true,
+                                    label: {
+                                        show: true,
+                                        color: 'rgb(249, 249, 249)'
+                                    },
+                                    data: newArr
+                                }]
+                            });
+                        }
+                    }
+
+                })
+
+            }
+        })
+    </script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- LeanCloud -->
+    <script src="./av-live-query-min.js"></script>
+    <!-- Jquery -->
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="init.js"></script>
+    <script type="text/javascript" src="note.js"></script>
+    <style>
+        .field-textarea {
+            width: 100%;
+            overflow: auto;
+            word-break: break-all
+        }
+    </style>
+    <title>剪切板 - Web程序设计 </title>
+</head>
+
+<body>
+    <div class="container text-center" lang="en">
+        <h1 class="post-title" itemprop="name headline">剪切板 <small>基于leancloud</small></h1>
+        <div class="post-meta-container"></div>
+        <div class="textarea-wrapper">
+            <textarea class="field-textarea" rows="25" name="content" id="content"></textarea>
+        </div>
+        <div id="footer text-center">正在加载</div>
+    </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

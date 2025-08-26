@@ -1,0 +1,81 @@
+<!-- exp_11_2.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>div与表格应用实例——计算器布局</title>
+    <style type="text/css">
+        #wrap {
+            width: 410px;
+            height: 450px;
+            background-color: rgb(230, 230, 130);
+            z-index: 0;
+        }
+        
+        #result {
+            height: 60px;
+            width: 390px;
+            border: solid 1px;
+            z-index: 1;
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            background-color: white;
+        }
+        
+        #op {
+            height: 310px;
+            width: 390px;
+            z-index: 1;
+            position: absolute;
+            top: 115px;
+            left: 20px;
+        }
+        
+        td {
+            border: solid 1px black;
+            width: 58px;
+            height: 40px;
+            margin: 10px;
+            /*margin表示边距*/
+            cursor: pointer;
+            /*设置鼠标指针变成手的形状*/
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <img src="casio.bmp"></img>
+        <div id="result"></div>
+        <div id="op">
+            <table cellspacing="30" border="1">
+                <tr align="center">
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>+</td>
+                </tr>
+                <tr align="center">
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>-</td>
+                </tr>
+                <tr align="center">
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>*</td>
+                </tr>
+                <tr align="center">
+                    <td>0</td>
+                    <td>=</td>
+                    <td>CE</td>
+                    <td>/</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>登录页面</title>
+    <style>
+        .box {
+            max-width: 20rem;
+            text-align: center;
+            line-height: 1.5rem;
+        }
+        
+        .align-left {
+            text-align: left;
+        }
+        
+        button {
+            margin: .5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <fieldset class="box">
+            <legend class="align-left">登录页面</legend>
+            用户名: <input type="text"><br> 密 码: <input type="password"><br> 类 型:
+            <input type="radio" name="usertype" value="admin" checked="true">管理员
+            <input type="radio" name="usertype" value="user">普通用户
+            <br />
+            <input type="checkbox" name="remember" value="true">记住密码
+            <input type="checkbox" name="auto" value="false">自动登录
+            <br />
+            <button>提交</button> <button>重置</button>
+        </fieldset>
+    </form>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

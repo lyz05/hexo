@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 过度</title>
+    <script src="html5shiv.js"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <script src="prefixfree.min.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 50px;
+            background: #009999;
+            color: white;
+            font-weight: bold;
+            transition: width 2s, height 2s, transform 2s;
+        }
+        
+        #div1 {
+            transition-timing-function: linear;
+        }
+        
+        #div2 {
+            transition-timing-function: ease;
+        }
+        
+        #div3 {
+            transition-timing-function: ease-in;
+        }
+        
+        #div4 {
+            transition-timing-function: ease-out;
+        }
+        
+        #div5 {
+            transition-timing-function: ease-in-out;
+        }
+        
+        div:hover {
+            width: 200px;
+            height: 100px;
+            transform: rotate(60deg);
+        }
+    </style>
+</head>
+
+<body>
+    <h3>CSS3 过度transition与transform综合应用</h3>
+    <hr color="red">
+    <div id="div1" style="top:100px">linear</div>
+    <div id="div2" style="top:150px">ease</div>
+    <div id="div3" style="top:200px">ease-in</div>
+    <div id="div4" style="top:250px">ease-out</div>
+    <div id="div5" style="top:300px">ease-in-out</div>
+    <p>请把鼠标指针移动到红色的div元素上，就可以看到<mark>过度和转换</mark></p>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

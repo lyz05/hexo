@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>显示列表项的内容</title>
+    <script type="text/javascript">
+        function disaplayItem() {
+            var strInfo = "" //存放显示信息
+            var indexvalue = myform.mysel.selectedIndex;
+            strInfo = "教材名称：" + myform.mysel.options[indexvalue].text + "\n定价：";
+            strInfo += myform.mysel.options[indexvalue].value;
+            alert(strInfo);
+        }
+    </script>
+</head>
+
+<body>
+    <h3>显示列表项的内容</h3>
+    <form name="myform" method="post" action="">
+        <select name="mysel" size="5" onchange="disaplayItem()">
+        <option value="35元" selected>计算机组成原理
+        <option value="38元">数据结构
+        <option value="43元">计算机网络
+        <option value="40元">Java程序设计
+        <option value="28元">算法分析
+        </select>
+    </form>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
