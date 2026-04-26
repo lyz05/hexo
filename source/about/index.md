@@ -38,5 +38,5 @@ Email:<blog@lyz05.cn>
 
 # 机场邀请码
 目前在用机场的邀请链接，需要的小伙伴可以注册支持一下！
-## 大航海
-[邀请链接](https://dhh.moe/#/register?code=1KtiO6sd)
+## IBCN
+[邀请链接](https://portal.ibcn.cloud/#/register?code=E7NEW8sm)
