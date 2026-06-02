@@ -38,5 +38,5 @@ Email:<blog@lyz05.cn>
 
 # 机场邀请码
 目前在用机场的邀请链接，需要的小伙伴可以注册支持一下！
-## IBCN
-[邀请链接](https://portal.ibcn.cloud/#/register?code=E7NEW8sm)
+## 薯条SSRCLOUD
+[邀请链接](https://nozomi.wtf/auth/register?code=f369098975)
