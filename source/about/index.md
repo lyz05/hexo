@@ -40,3 +40,7 @@ Email:<blog@lyz05.cn>
 目前在用机场的邀请链接，需要的小伙伴可以注册支持一下！
 ## 薯条SSRCLOUD
 [邀请链接](https://nozomi.wtf/auth/register?code=f369098975)
+
+# AI Token中转站邀请码
+## Packy
+[邀请链接](https://www.packyapi.com/register?aff=VkP5)
