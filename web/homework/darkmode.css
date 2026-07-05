@@ -1,0 +1,12 @@
+@media (prefers-color-scheme:dark) {
+    .body {
+        color: #fff;
+        background: #282828;
+    }
+    a {
+        color: #369fe4;
+    }
+    .sidebar-inner {
+        background: #333;
+    }
+}

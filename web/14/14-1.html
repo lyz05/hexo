@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>九九乘法表</title>
+</head>
+
+<body>
+    <h4>九九乘法表</h4>
+    <script type="text/javascript">
+        var i, j;
+        for (i = 1; i < 10; i++) {
+            for (j = 1; j <= i; j++) {
+                document.write(j + '*' + i + '=' + j * i);
+                document.write('&nbsp;');
+            }
+            document.write('<br/>');
+        }
+    </script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

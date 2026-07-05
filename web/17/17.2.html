@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>IndexedDB手机通讯录</title>
+    <script type="text/javascript">
+        //定义全局变量结果集、IDBOpenDBRequest、phone对象仓库
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var db, request, phoneStore;
+
+        function createDB(dbName) {
+            request = indexedDB.open(dbName, 1);
+            request.onerror = function() {
+                alert("打开数据库失败：" + event.target.errorCode);
+            }
+            request.onsuccess = function(event) {
+                alert("数据库打开成功！");
+                db = event.target.result;
+                var transaction = db.transaction("user", "readwrite");
+                objectStore = transaction.objectStore("user");
+
+                getObject(); //查询数据库
+            }
+            request.onupgradeneeded = function(event) {
+                alert("版本已经发生改变！");
+                db = event.target.result; //获取结果集
+                objectStore = db.createObjectStore("user", {
+                    keyPath: "username"
+                });
+                indexNo = objectStore.createIndex("by_username", "username", {
+                    unique: true
+                });
+            }
+        }
+
+
+        function deleteDB(dbName) { //删除数据库
+            db.close();
+            request = indexedDB.deleteDatabase(dbName);
+            request.onerror = function() {
+                alert("删除数据库失败！");
+            }
+            request.onsuccess = function(event) {
+                alert("删除数据库成功！");
+                var ta = document.getElementById("display");
+                ta.innerHTML = '';
+                window.location.reload();
+            }
+            request.onblocked = function() {
+                alert("无法删除数据库，因为操作被禁止")
+            }
+        }
+
+        function getObject() {
+            var txtAear = document.getElementById("display");
+            txtAear.innerHTML = ""; //获取数据前先清理一下页面已显示的数据
+            if (!db) {
+                alert("请先打开数据库！");
+                return false;
+            }
+            var store = db.transaction("user").objectStore("user");
+            var keyRange = IDBKeyRange.lowerBound(0);
+            var cursorRequest = store.openCursor(keyRange); //设置开始游标
+            cursorRequest.onsuccess = function(e) {
+                var result = e.target.result;
+                if (!!result == false)
+                    return;
+                getOneObject(result.value); //取一个对象数据
+                result.continue(); //这里执行轮询读取
+            };
+            cursorRequest.onerror = function(e) {
+                alert("数据检索失败！");
+            };
+        }
+
+        function getOneObject(e) {
+            //取一个读对象数据
+            var ta = document.getElementById("display");
+            ta.innerHTML += "姓名" + "\t-----\t" + "电话" + "\n";
+            ta.innerHTML += e.username + "\t-----\t" + e.userphone + "\n";
+        }
+
+        function addObject() {
+            var name = document.getElementById("username").value;
+            var phone = document.getElementById("userphone").value;
+            if (name.length > 0 && phone.length > 0) {
+                var detail = {
+                    username: name,
+                    userphone: phone
+                }
+                if (!db) {
+                    alert("请先打开数据库！");
+                    return false;
+                }
+                var transaction = db.transaction(["user"], "readwrite");
+                objectStore = transaction.objectStore("user");
+                objectStore.add(detail);
+                alert("数据库添加成功！");
+                myFrm.reset();
+            } else {
+                alert("输入数据不合法！请重新输入");
+                myFrm.username.focus();
+            }
+        }
+
+        function clearAll() {
+            var s = confirm("是否要重置信息？");
+            if (s == true) {
+                $("username").value = "";
+                $("userphone").value = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="" align="center">
+        <h2 style="width: 380px;background-color: aqua;">手机通讯录管理器</h2>
+        <form name="myFrm">
+            <fieldset style="width: 380px; text-align: center;">
+                <legend align="center">简单手机通讯录</legend>
+                <label for="name">姓名:</label>
+                <input type="text" name="username" id="username" required="required" /><br/>
+                <label for="telphone">电话:</label>
+                <input type="text" name="userphone" id="userphone" required="required" /><br/>
+                <br>
+                <button type="button" onclick="addObject()">添加</button>
+                <button type="button" onclick="getObject()">查询</button>
+                <button type="button" onclick="deleteDB('phoneinfo')">删除</button>
+                <button type="reset" onclick="clearAll()">重置</button>
+                <br>
+                <textarea id="display" rows="10" cols="45"></textarea>
+                <br>
+            </fieldset>
+        </form>
+        <h3 style="width: 380px;background-color: aqua;">前端工作室设计<br>版权所有，2017-2020</h3>
+    </div>
+    <script>
+        createDB('phoneinfo'); //打开数据库
+    </script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

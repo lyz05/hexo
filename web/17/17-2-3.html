@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas绘制直线</title>
+	</head>
+	<body>
+		<canvas id="oneCanvas" width="400" height="200" style="background: #F0F0F0;"></canvas>
+		<script type="text/javascript">
+			var myCanvas=document.getElementById("oneCanvas");
+			var conText=myCanvas.getContext("2d");  //获取绘画环（上下文环境）
+			conText.strokeStyle="rgb(250,0,0)";
+			conText.fillStyle="rgb(250,0,0)"
+			conText.moveTo(10,10);//第1条线起点
+			conText.lineTo(10,150);//第1条线终点
+			conText.moveTo(10,150);//第2条线起点
+			conText.lineTo(100,180);//第2条线终点
+			conText.lineTo(200,10);//第3条以第2条的终点为起点-终点
+			conText.lineTo(400,100);//第4条以第3条的终点为起点-终点
+			conText.lineWidth=8;//绘制边框宽度
+			conText.stroke(); //绘制边框
+		</script>
+	<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>作业 - Web程序设计</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./callouts.css">
+    <!--  Vue.js  -->
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+    <!-- LeanCloud -->
+    <script src="./av-live-query-min.js"></script>
+    <script type="text/javascript" src="init.js"></script>
+    <style>
+        .answer-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-content: flex-end;
+            flex-wrap: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <h1>
+                    Web程序设计<small>答题页面</small>
+                </h1>
+                <div v-if="seen">
+                    <h3><small>最终得分：{{(score()*100).toFixed(2)+"%"}}</small></h3>
+                </div>
+            </div>
+            <form>
+                <questions v-show="index==1" ref="child1" :obj="selectquestion" :seen="seen"></questions>
+                <questions v-show="index==2" ref="child2" :obj="yesnoquestion" :seen="seen"></questions>
+                <questions v-show="index==3" ref="child3" :obj="selectquestions" :seen="seen"></questions>
+                <div class="col-md-offset-2 col-md-8">
+                    <nav aria-label="...">
+                        <ul class="pager">
+                            <li class="previous" :class="{'disabled': index==1}">
+                                <a href="javascript:void(0)" @click="indexchange(-1)"><span aria-hidden="true">&larr;</span> Older</a>
+                            </li>
+                            <li class="next" :class="{'disabled': index==3}">
+                                <a href="javascript:void(0)" @click="indexchange(1)">Newer <span aria-hidden="true">&rarr;</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-primary" @click="sub()">提交</button>
+                        <button type="button" class="btn btn-default" @click="save()">暂时保存</button>
+                        <button type="button" class="btn btn-default" @click="renew()">重新生成新题</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/x-template" id="questions">
+        <div class="col-md-offset-2 col-md-8">
+            <h3>
+                {{obj.title}}
+                <small v-if="seen">得分：{{(score()*100).toFixed(2)+"%"}}</small>
+            </h3>
+            <div v-for="(question, index) in obj.questions">
+                {{index+1}}. {{question.desp}}
+                <selectquestion-option v-if="obj.title=='单选题'" :question="question"></selectquestion-option>
+                <yesnoquestion-option v-if="obj.title=='判断题'" :question="question"></yesnoquestion-option>
+                <selectquestions-option v-if="obj.title=='多选题'" :question="question"></selectquestions-option>
+                <div v-if="seen" class="callout" :class="{ 'callout-success': question.isCorrect ,'callout-danger': !question.isCorrect}">
+                    <h4>{{question.isCorrect?'答案正确':'答案错误'}}</h4>
+                    <div class="answer-wrap">
+                        <p><strong>我的答案：{{question.useranswer}}</strong></p>
+                        <p :class="{ 'text-success': question.isCorrect ,'text-danger': !question.isCorrect}"><strong>正确答案：{{question.answer}}</strong></p>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/x-template" id="selectquestion-option">
+        <div>
+            <div class="radio" v-for="(item, index) in question.items">
+                <label>
+                <input type="radio" v-bind:value="String.fromCharCode(index+65)" v-model="question.useranswer" @change="judgeAnswer()">
+                {{ String.fromCharCode(index+65) }}、{{item}}
+            </label>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-template" id="yesnoquestion-option">
+        <div class="radio">
+            <label class="radio-inline">
+            <input type="radio" value="√" v-model="question.useranswer" @change="judgeAnswer()"> √
+                </label>
+            <label class="radio-inline">
+            <input type="radio" value="×" v-model="question.useranswer" @change="judgeAnswer()"> ×
+                </label>
+        </div>
+    </script>
+    <script type="text/x-template" id="selectquestions-option">
+        <div>
+            <div class="checkbox" v-for="(item, index) in question.items">
+                <label>
+                  <input type="checkbox" :value="String.fromCharCode(index+65)" v-model="question.useranswer" @change="judgeAnswer()">
+                  {{ String.fromCharCode(index+65) }}、{{item}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script type="text/javascript">
+        var dataobjid = null;
+        const currentUser = AV.User.current();
+
+        Vue.component("selectquestion-option", {
+            template: '#selectquestion-option',
+            props: ['question'],
+            methods: {
+                judgeAnswer: function() {
+                    this.question.isCorrect = this.question.useranswer == this.question.answer;
+                }
+            }
+        });
+        Vue.component("yesnoquestion-option", {
+            template: '#yesnoquestion-option',
+            props: ['question'],
+            methods: {
+                judgeAnswer: function() {
+                    this.question.isCorrect = this.question.useranswer == this.question.answer;
+                }
+            }
+        });
+        Vue.component("selectquestions-option", {
+            template: '#selectquestions-option',
+            props: ['question'],
+            methods: {
+                isArrayEqual(value1 = [], value2 = []) {
+                    return value1.sort().toString() === value2.sort().toString();
+                },
+                judgeAnswer() {
+                    this.question.isCorrect = this.isArrayEqual(this.question.useranswer, this.question.answer);
+                }
+            }
+        });
+        Vue.component("questions", {
+            template: '#questions',
+            props: ['obj', 'seen'],
+            methods: {
+                score() {
+                    var questions = this.obj.questions;
+                    var cnt = 0;
+                    var ans = questions.length;
+                    for (i in questions) {
+                        cnt += questions[i].isCorrect
+                    }
+                    return 1.0 * cnt / ans;
+                }
+            }
+        });
+        var vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    seen: false,
+                    index: 1,
+                    selectquestion: {
+                        title: '',
+                        questions: []
+                    },
+                    yesnoquestion: {
+                        title: '',
+                        questions: []
+                    },
+                    selectquestions: {
+                        title: '',
+                        questions: []
+                    }
+                };
+            },
+            methods: {
+                indexchange(dir) {
+                    var newindex = this.index + dir
+                    if (newindex > 3 || newindex < 1)
+                        return;
+                    this.index = newindex;
+                },
+                sub() {
+                    if (isNaN(this.score())) {
+                        alert("请答完所有题目，再点击提交哦！");
+                    } else {
+                        this.seen = true;
+                        this.save();
+                    }
+                },
+                save() {
+                    this.delObject(dataobjid);
+                    this.createObject();
+                },
+                renew() {
+                    this.delObject(dataobjid, function() {
+                        location.reload();
+                    });
+                    if (dataobjid === null) {
+                        location.reload();
+                    }
+                },
+                score() {
+                    return 1.0 * (this.$refs.child1.score() + this.$refs.child2.score() + this.$refs.child3.score()) / 3
+                },
+                randomQuestions(arr, size) {
+                    var ret = [];
+                    size = arr.length - size;
+                    for (var i = 0, len = arr.length; i < size; i++, len = arr.length) {
+                        var index = Math.floor(Math.random() * len);
+                        arr.splice(index, 1);
+                    }
+                },
+                getObject() {
+                    const query = new AV.Query('Test');
+                    query.equalTo('user', currentUser);
+                    query.find().then((questions) => {
+                        if (questions.length == 0)
+                            query.get('5fd97546c87f3d0b6b65c1cd').then((question) => {
+                                this.seen = question.get('seen');
+                                this.selectquestion = question.get('selectquestion');
+                                this.yesnoquestion = question.get('yesnoquestion');
+                                this.selectquestions = question.get('selectquestions');
+                                //randomQuestions
+                                this.randomQuestions(vm.selectquestion.questions, 2);
+                                this.randomQuestions(vm.yesnoquestion.questions, 4);
+                                this.randomQuestions(vm.selectquestions.questions, 3);
+                            }, (error) => {
+                                alert("获取题目失败！可能是网络问题！");
+                            });
+                        else {
+                            dataobjid = questions[0].id;
+                            var question = questions[0];
+                            this.seen = question.get('seen');
+                            this.selectquestion = question.get('selectquestion');
+                            this.yesnoquestion = question.get('yesnoquestion');
+                            this.selectquestions = question.get('selectquestions');
+                        }
+                    }, (error) => {
+                        alert("获取题目失败！可能是网络问题！");
+                    });
+                },
+                createObject() {
+                    const test = new AV.Object('Test');
+                    test.set('selectquestion', this.selectquestion);
+                    test.set('yesnoquestion', this.yesnoquestion);
+                    test.set('selectquestions', this.selectquestions);
+                    test.set('seen', this.seen);
+                    test.set('user', currentUser);
+                    test.save().then((todo) => {
+                        // 成功保存之后，执行其他逻辑
+                        console.log(`新建成功。objectId：${todo.id}`);
+                        dataobjid = todo.id;
+                        alert("提交成功")
+                    }, (error) => {
+                        // 异常处理
+                    });
+                },
+                delObject(objid, callback) {
+                    if (!objid) return;
+                    var obj = AV.Object.createWithoutData('Test', objid);
+                    obj.destroy().then(function(success) {
+                        console.log(`删除成功。objectId：${success.id}`);
+                        dataobjid = null;
+                        if (typeof(callback) != "undefined")
+                            callback();
+                    });
+                }
+            },
+            mounted() {
+                if (!currentUser) {
+                    alert('您还未登录');
+                    window.location.href = 'login.html'
+                }
+                this.getObject();
+            }
+        });
+    </script>
+
+</html>

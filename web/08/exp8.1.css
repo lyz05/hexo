@@ -1,0 +1,15 @@
+#d1{
+    width:600px;
+    height:380px;
+    background-color:Lime;
+}
+#d2{
+    font-family:"幼圆";
+    font-size:20px;
+}
+.b{
+    font-weight:bold;
+    text-decoration:underline;
+    color:red;
+}
+.it{font-style:italic;font-size:24px;font-weight:bold;}

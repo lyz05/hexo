@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录 - Web程序设计</title>
+    <!-- jQuery -->
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <!--  Vue.js  -->
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+    <!-- Vue router -->
+    <script src="https://cdn.staticfile.org/vue-router/3.4.3/vue-router.min.js"></script>
+    <!-- bootstrap3 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- LeanCloud -->
+    <script src="./av-live-query-min.js"></script>
+    <script type="text/javascript" src="init.js"></script>
+    <style>
+        body {
+            background: url(./bg.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="app1">
+        <div class="row text-center">
+            <div class="page-header">
+                <h1>
+                    Web程序设计
+                </h1>
+                <div class="alert fade in" style="display: none;" role="alert" id="alert">
+                    alert message
+                </div>
+            </div>
+            <!-- <router-link to="/register">Go to register</router-link> -->
+            <!-- 路由匹配到的组件将渲染在这里 -->
+            <router-view></router-view>
+        </div>
+    </div>
+</body>
+<script type="text/x-template" id="login">
+    <div class="col-sm-4 col-sm-offset-4" id="app1">
+        <h2>{{title}}</h2>
+        <form id="form1" class="form-horizontal" @submit.prevent="login">
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input v-model="username" name="username" type="text" placeholder="账号" class="form-control">
+            </div>
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input v-model="password" name="password" type="password" class="form-control" placeholder="密码">
+            </div>
+            <div v-if="captchaenable" class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-qrcode"></span>
+                </span>
+                <input v-model="captchacode" name="captcha" type="text" class="form-control" placeholder="验证码">
+                <span class="input-group-btn">
+                    <img :src="captchaimgurl" id="kaptchaImage" @click="getcaptcha" alt="点击刷新验证码" style="cursor:pointer">
+                </span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="登录" class="btn btn-success btn-block" />
+                <input type="reset" value="重置" class="btn btn-default btn-block" />
+            </div>
+        </form>
+    </div>
+</script>
+<script type="text/x-template" id="register">
+    <div class="col-sm-4 col-sm-offset-4" id="app1">
+        <h2>{{title}}</h2>
+        <form id="form1" class="form-horizontal" @submit.prevent="register">
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input v-model="username" placeholder="用户名" class="form-control">
+            </div>
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input v-model="password" type="password" placeholder="新密码" class="form-control">
+            </div>
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input v-model="password2" type="password" placeholder="再次确认新密码" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="注册账户" class="btn btn-success btn-block" />
+            </div>
+        </form>
+    </div>
+</script>
+<script type="text/x-template" id="alterpassword">
+    <div class="col-sm-4 col-sm-offset-4" id="app1">
+        <h2>{{title}}</h2>
+        <form id="form1" class="form-horizontal" @submit.prevent="alterpwd">
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input v-model="username" placeholder="用户名" class="form-control" readonly>
+            </div>
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input v-model="pwd" type="password" placeholder="旧密码" class="form-control">
+            </div>
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input v-model="newpwd" type="password" placeholder="新密码" class="form-control">
+            </div>
+            <div class="form-group input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input v-model="newpwd2" type="password" placeholder="再次确认新密码" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="修改密码" class="btn btn-success btn-block">
+            </div>
+        </form>
+    </div>
+</script>
+<script>
+    const currentUser = AV.User.current();
+
+    function alertjs(message, code) {
+        scrollTo(0, 0); // 回到顶部
+        var fadetimes = 300,
+            showtimes = 3000;
+        $("#alert").removeClass("alert-success");
+        $("#alert").removeClass("alert-info");
+        $("#alert").removeClass("alert-warning");
+        $("#alert").removeClass("alert-danger");
+        if (code == 200)
+            $("#alert").addClass("alert-success");
+        else if (code == 403)
+            $("#alert").addClass("alert-danger");
+        else
+            $("#alert").addClass("alert-info");
+        $("#alert").text(message);
+        $("#alert").show(fadetimes);
+        setTimeout(function() {
+            $("#alert").hide(fadetimes);
+        }, showtimes);
+    }
+
+    const Login = {
+        template: "#login",
+        data() {
+            return {
+                errors: [],
+                username: null,
+                password: null,
+                captchacode: null,
+                title: '登录',
+                captchaenable: true,
+                captchaimgurl: null,
+                captcha: {}
+            }
+        },
+        computed: {
+            isvalid: function() {
+                this.errors = [];
+                if (!this.username) {
+                    this.errors.push("用户名是必填的");
+                }
+                if (!this.password) {
+                    this.errors.push("密码是必填的");
+                }
+                return !this.errors.length;
+            }
+        },
+        methods: {
+            login() {
+                if (!this.isvalid) {
+                    alertjs(`登录失败！原因：${this.errors}`, 403);
+                    return false;
+                }
+                if (this.captchaenable) {
+                    this.captcha.verify(this.captchacode)
+                        .then((validateToken) => {
+                            console.log(validateToken)
+                            AV.User.logIn(this.username, this.password).then((user) => {
+                                // 登录成功，刷新父页面
+                                alertjs(`登录成功!`, 200);
+                                parent.window.location.reload();
+                            }, (error) => {
+                                alertjs(`登录失败！原因：${error.rawMessage}`, 403);
+                            });
+                        }, (error) => {
+                            alertjs(`登录失败！原因：${error.rawMessage}`, 403);
+                        });
+                } else {
+                    AV.User.logIn(this.username, this.password).then((user) => {
+                        // 登录成功，刷新父页面
+                        alertjs(`登录成功!`, 200);
+                        parent.window.location.reload();
+                    }, (error) => {
+                        alertjs(`登录失败！原因：${error.rawMessage}`, 403);
+                    });
+                }
+                return false;
+            },
+            getcaptcha() {
+                var _this = this
+                AV.Captcha.request().then(function(captcha) {
+                    _this.captchaimgurl = captcha.url
+                    _this.captcha = captcha
+                });
+            }
+        },
+        mounted() {
+            if (this.captchaenable)
+                this.getcaptcha()
+        }
+    }
+    const Register = {
+        template: "#register",
+        data() {
+            return {
+                errors: [],
+                username: null,
+                password: null,
+                password2: null,
+                title: '注册'
+            }
+        },
+        computed: {
+            isvalid: function() {
+                this.errors = [];
+                if (!this.username) {
+                    this.errors.push("用户名是必填的");
+                }
+                if (!this.password || !this.password2) {
+                    this.errors.push("密码是必填的");
+                }
+                if (this.password != this.password2) {
+                    this.errors.push("两次输入的密码不一致！");
+                }
+                return !this.errors.length;
+            }
+        },
+        methods: {
+            register() {
+                if (!this.isvalid) {
+                    alertjs(`注册失败！原因：${this.errors}`, 403);
+                    return false;
+                }
+                // 创建实例
+                const user = new AV.User();
+
+                // 等同于 user.set('username', 'Tom')
+                user.setUsername(this.username);
+                user.setPassword(this.password);
+
+                // 可选
+                //user.setEmail('tom@leancloud.rocks');
+                //user.setMobilePhoneNumber('+8618200008888');
+
+                user.signUp().then((user) => {
+                    // 注册成功
+                    alertjs(`注册成功！`, 200);
+                    this.$router.push({
+                        name: 'login'
+                    });
+                    //history.back();
+                }, (error) => {
+                    // 注册失败（通常是因为用户名已被使用）
+                    alertjs(`注册失败！原因：${error.rawMessage}`, 403);
+                });
+                return false;
+            }
+        }
+    }
+    const Alterpassword = {
+        template: "#alterpassword",
+        data() {
+            return {
+                errors: [],
+                username: null,
+                pwd: null,
+                newpwd: null,
+                newpwd2: null,
+                title: '修改密码'
+            }
+        },
+        computed: {
+            isvalid: function() {
+                this.errors = [];
+                if (!this.username) {
+                    this.errors.push("用户名是必填的");
+                }
+                if (!this.pwd || !this.newpwd || !this.newpwd2) {
+                    this.errors.push("密码是必填的");
+                }
+                if (this.newpwd != this.newpwd2) {
+                    this.errors.push("两次输入的新密码不一致！");
+                }
+                return !this.errors.length;
+            }
+        },
+        methods: {
+            alterpwd: function() {
+                if (!this.isvalid) {
+                    alertjs(`修改密码失败！原因：${this.errors}`, 403);
+                    return false;
+                }
+                AV.User.logIn(this.username, this.pwd).then((user) => {
+                    currentUser.setPassword(this.newpwd);
+                    currentUser.save().then((user) => {
+                        alertjs(`修改密码成功！请重新登录`, 200);
+                        this.$router.push({
+                            name: 'logout'
+                        })
+                    }, (error) => {
+                        alertjs(`修改密码失败！原因：${error.rawMessage}`, 403);
+                    })
+                }, (error) => {
+                    alertjs(`修改密码失败！原因：${error.rawMessage}`, 403);
+                });
+                return false;
+            }
+        },
+        mounted() {
+            if (!currentUser) {
+                // 未登录
+                // 刷新父页面
+                parent.window.location.reload();
+                return;
+            }
+            this.username = currentUser.getUsername();
+        }
+    }
+    const Logout = {
+        mounted() {
+            AV.User.logOut();
+            // 刷新父页面
+            parent.window.location.reload();
+        }
+    }
+    const routes = [{
+        path: '/',
+        redirect: '/login'
+    }, {
+        path: '/login',
+        name: 'login',
+        component: Login
+    }, {
+        path: '/logout',
+        name: 'logout',
+        component: Logout
+    }, {
+        path: '/register',
+        name: 'register',
+        component: Register
+    }, {
+        path: '/alterpassword',
+        name: 'alterpassword',
+        component: Alterpassword
+    }]
+    const router = new VueRouter({
+        routes // (缩写) 相当于 routes: routes
+    })
+
+    const vm1 = new Vue({
+        router
+    }).$mount('#app1')
+</script>
+
+</html>

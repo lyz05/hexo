@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5的input标记新增部分属性的应用</title>
+    <script type="text/javascript" src="html5shiv.js"></script>
+</head>
+
+<body>
+    <form action="" method="get">
+        <fieldset style="text-align: center;padding: 20px;">
+            <legend align="center">理财认购信息</legend>
+            用户名称<input type="text" name="username" required> 认购金额：
+            <input type="number" name="money" min="5" max="100" step="5" /> 手机号码：
+            <input type="text" name="phone" pattern="1[3|4|5|8][0-9][0-9]{8}$" title="手机号码是11位数字" required />
+            <br/><br/>
+            <label>相片：</label>
+            <input type="file" multiple="multiple" />
+            <input type="submit" formaction="admin.asp" value="以管理员身份提交" />
+            <input type="submit" formnovalidate="true" value="不要求验证提交" />
+            <input type="submit" value="提交">
+        </fieldset>
+    </form>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
